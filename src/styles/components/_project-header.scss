@@ -1,0 +1,56 @@
+.project-header {
+  margin: 110px 120px 160px 120px;
+  text-align: center;
+
+  .h6 {
+    max-width: 836px;
+    margin: 24px auto 0 auto;
+    color: var(--color-blue-primary);
+    opacity: 0.5;
+  }
+}
+
+.project-header_icon {
+  width: auto;
+  height: 90px;
+  margin: -14px auto 46px auto;
+
+  img {
+    width: auto;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.project-header--two-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+
+  .project-header_copy {
+    width: 630px;
+    margin-right: 112px;
+
+    h1 {
+      margin-bottom: 60px;
+    }
+
+    .h6 {
+      opacity: 0.85;
+    }
+  }
+
+  .project-header_image {
+    width: 352px;
+    height: auto;
+    display: block;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}

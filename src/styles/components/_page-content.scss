@@ -1,0 +1,12 @@
+.page-content {
+  max-width: 780px;
+  margin: 56px 280px 160px 280px;
+  
+  p {
+    margin: 0 0 1em 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

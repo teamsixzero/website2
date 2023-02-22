@@ -1,0 +1,62 @@
+@use "sass:math";
+
+@function calculateRem($size) {
+  $remSize: calc($size / 16px);
+  @return #{$remSize}rem;
+}
+
+@mixin fontSize($size, $lineHeight) {
+  font-size: $size; //Fallback in px
+  font-size: calculateRem($size);
+
+  @if unit($lineHeight) == '%' {
+    line-height: $lineHeight;
+  } @else {
+    line-height: calc($lineHeight / $size);
+  }
+}
+
+@mixin touch {
+  @media (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin no-touch {
+  @media (pointer: none) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin no-hover {
+  @media (hover: none) {
+    @content;
+  }
+}
+
+@function css-function($function, $values...) {
+  @return 
+    $function
+    + unquote('(')
+    + $values
+    + unquote(')')
+  ;
+}
+
+@function css-min($values...) {
+  @return css-function( min, $values );
+}
+
+@function css-max($values...) {
+  @return css-function(max, $values);
+}
+
+@function css-clamp($values...) {
+  @return css-function(clamp, $values);
+}

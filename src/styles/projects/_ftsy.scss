@@ -1,0 +1,41 @@
+.project-ftsy {
+  .project-content {
+    margin-top: 160px;
+    margin-bottom: 160px;
+  }
+
+  .project-content_copy {
+    max-width: 800px;
+
+    + .project-content_image {
+      margin-top: 120px;
+    }
+  }
+
+  .ping-pong--image-left {
+    .ping-pong_copy {
+      width: auto;
+      max-width: 500px;
+      margin-left: 600px;
+      flex-shrink: 1;
+    }
+  }
+
+  .ping-pong--image-right {
+    .ping-pong_copy {
+      width: auto;
+      max-width: 450px;
+      margin-right: 700px;
+      flex-shrink: 1;
+    }
+
+    &:last-child {
+      margin-top: 200px;
+      margin-bottom: 160px;
+
+      .ping-pong_copy {
+        max-width: 396px;
+      }
+    }
+  }
+}

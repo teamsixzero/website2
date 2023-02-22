@@ -1,0 +1,47 @@
+.page-ux-ui-design {
+  .page-header {
+    .page-header_copy {
+      max-width: 1070px;
+    }
+  }
+
+  .ping-pong {
+    margin-top: 180px;
+    margin-bottom: 180px;
+  }
+}
+
+.design-process {
+  margin: 194px 140px 120px 140px;
+}
+
+.design-process_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 40px;
+}
+
+.card--heading {
+  padding: 48px;
+  background: var(--color-teal-normal);
+  color: var(--color-white);
+}
+
+.card--design-process {
+  padding: 48px;
+
+  .card-image {
+    width: 236px;
+    height: 236px;
+    padding: 0;
+  }
+
+  .card-copy {
+    padding: 74px 0 0 0;
+
+    p {
+      max-width: none;
+    }
+  }
+}

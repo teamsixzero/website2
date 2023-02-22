@@ -1,0 +1,26 @@
+.btn {
+  width: auto;
+  height: 44px;
+  padding: 16px 24px;
+  display: inline-block;
+  background: var(--btn-bg);
+  border-radius: 4px;
+  color: var(--btn-color);
+  @include fontSize(16px, 12px);
+  font-weight: 500;
+  vertical-align: top;
+}
+
+.btn--secondary {
+  padding: 15px 23px;
+  background: transparent;
+  border: 1px solid var(--btn-bg);
+  color: var(--btn-bg);
+}
+
+.text-link {
+  display: inline-block;
+  vertical-align: top;
+  color: var(--text-link-color);
+  font-weight: 500;
+}
