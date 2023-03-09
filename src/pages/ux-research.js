@@ -14,7 +14,7 @@ const UXResearchPage = () => {
       <section className="page-header page-header--ux-research">
         <div className="page-header_copy">
           <h1>
-            We’re hyper-focused on{" "}
+            We're hyper-focused on{" "}
             <span className="highlight">user research</span> that yields
             impactful results
           </h1>
@@ -57,7 +57,7 @@ const UXResearchPage = () => {
         </div>
         <div className="ping-pong_copy">
           <h2 className="h4">
-            <strong>Why?</strong> Because it’s impossible to build an app people
+            <strong>Why?</strong> Because it's impossible to build an app people
             actually love to use if you never talk to them
           </h2>
         </div>
@@ -118,7 +118,7 @@ const UXResearchPage = () => {
             <div className="user-testing-step_copy">
               <h3 className="h5">Conduct your user test</h3>
               <p>
-                This is what we’re here for. Now it’s time to facilitate the
+                This is what we're here for. Now it's time to facilitate the
                 test and empower participants to tell us how they really feel.
                 Buckle up! This will be an eye-opening experience.
               </p>
@@ -134,11 +134,11 @@ const UXResearchPage = () => {
             <div className="user-testing-step_copy">
               <h3 className="h5">Analyze and prioritize your results</h3>
               <p>
-                Congrats! You’ve gained some valuable insight into how people
-                use your product and what they need to be successful. Now it’s
-                time to take everything we’ve uncovered, prioritize and
+                Congrats! You've gained some valuable insight into how people
+                use your product and what they need to be successful. Now it's
+                time to take everything we've uncovered, prioritize and
                 implement solutions, and turn your product into something people
-                can’t (and don’t want to) live without.
+                can't (and don't want to) live without.
               </p>
             </div>
           </li>

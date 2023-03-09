@@ -170,7 +170,7 @@ const ProjectsPage = ({ data }) => {
               <h2 className="h3">Thinkific</h2>
               <p>
                 Thinkific is a platform that allows anyone create, market, sell,
-                and deliver their own online courses. It’s used by thousands of
+                and deliver their own online courses. It's used by thousands of
                 people daily to learn and spread knowledge, changing lives in
                 the process.
               </p>

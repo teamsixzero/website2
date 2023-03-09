@@ -21,7 +21,7 @@ const AboutPage = () => {
 
       <section className="page-content">
         <p>
-          We don’t believe in acting like an authority on great ideas, instead
+          We don't believe in acting like an authority on great ideas, instead
           we like to act as facilitators. We believe the job of a designer is to
           bring the best ideas out of the people who understand the problem most
           intimately. In our experience the very best ideas often come from the
@@ -48,9 +48,9 @@ const AboutPage = () => {
         </p>
         <p>
           Do you have an idea you want to turn into an amazing product? We would
-          love to work together, you’ve already caught our attention.
+          love to work together, you've already caught our attention.
         </p>
-        <p>We’re listening.</p>
+        <p>We're listening.</p>
       </section>
 
       <section className="about-map">

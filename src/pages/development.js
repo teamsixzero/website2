@@ -13,7 +13,7 @@ const DevelopmentPage = () => {
       <section className="page-header page-header--development">
         <div className="page-header_copy">
           <h1>
-            We’re here to help you navigate{" "}
+            We're here to help you navigate{" "}
             <span className="highlight">development</span> through to completion
           </h1>
           <p className="h4">
@@ -52,10 +52,10 @@ const DevelopmentPage = () => {
         </div>
         <div className="ping-pong_copy">
           <h2 className="h4">
-            We’re committed to delivering the perfect&nbsp;product
+            We're committed to delivering the perfect&nbsp;product
           </h2>
           <p>
-            “This is what you asked for” isn’t in our vocabulary. We know that
+            “This is what you asked for” isn't in our vocabulary. We know that
             deliverables can evolve with new data and are committed to
             partnering with you until the final product is just right.
           </p>

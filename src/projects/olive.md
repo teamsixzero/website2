@@ -44,7 +44,7 @@ status: "publish"
   <div class="project-content_copy">
     <h2 class="h4">The Buyer Mindset</h2>
     <p>We talked to lots of people who buy software for a living during our lean UX discovery phase, and we learned that being able to collect, organize, and rate requirements in a single location was a critical part of making great purchasing decisions.</p>
-    <p>With this in mind we designed a way for stakeholders to easily input, rate, and organize their needs all in one place. Requirements can be broken down by team, individual, category, and rating to really understand what’s needed.</p>
+    <p>With this in mind we designed a way for stakeholders to easily input, rate, and organize their needs all in one place. Requirements can be broken down by team, individual, category, and rating to really understand what's needed.</p>
   </div>
   <div class="project-content_image project-content_image--full-width">
     <img src="/images/projects/olive/olive-buyer-mindset.png" alt="Stakeholder user screen" />

@@ -319,11 +319,11 @@ const IndexPage = () => {
                 <span className="accent accent--grey-dark">Build</span>
                 <h3 className="h5 wwd-item_title">Development</h3>
                 <p>
-                  We’ll bring your app to life and get it out in the world.
-                  We’ll bring your app to life and get it out in the world.
-                  We’ll bring your app to life and get it out in the world.
-                  We’ll bring your app to life and get it out in the world.
-                  We’ll bring your app to life and get it out in the world.
+                  We'll bring your app to life and get it out in the world.
+                  We'll bring your app to life and get it out in the world.
+                  We'll bring your app to life and get it out in the world.
+                  We'll bring your app to life and get it out in the world.
+                  We'll bring your app to life and get it out in the world.
                 </p>
                 <Link to="/development" className="text-link">
                   Learn More →

@@ -32,7 +32,7 @@ status: "publish"
 <section class="project-content">
   <div class="project-content_copy">
     <h2 class="h4">Simplify</h2>
-    <p>Our first challenge: Vanbex needed to clearly explain and showcase all the services they offered. The team found that potential customers would often say they weren’t aware of what services were available or that the services they were aware of needed to be clearer.</p>
+    <p>Our first challenge: Vanbex needed to clearly explain and showcase all the services they offered. The team found that potential customers would often say they weren't aware of what services were available or that the services they were aware of needed to be clearer.</p>
     <p>That meant showcasing popular services on the home page and creating a straightforward services page with more details.</p>
   </div>
   <div class="project-content_image project-content_image--full-width">

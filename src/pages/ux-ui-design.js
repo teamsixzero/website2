@@ -56,7 +56,7 @@ const UXUIDesignPage = () => {
           <h2 className="h4">Smart collaboration is our crux of success</h2>
           <p>
             In our experience, the most remarkable solutions often come from the
-            most unsuspecting of places. That’s why working with all the experts
+            most unsuspecting of places. That's why working with all the experts
             on your team is the key to creating a truly impactful product. We
             not only encourage cross-department collaboration but consult with
             developers during the design phase to ensure that our vision for the
@@ -167,7 +167,7 @@ const UXUIDesignPage = () => {
                 <h3 className="h5 card-title">Repeat</h3>
                 <p>
                   Our process is never one and done. We repeat it as many times
-                  we need to until we’ve confidently designed a product your
+                  we need to until we've confidently designed a product your
                   users will not want to live without.
                 </p>
               </div>

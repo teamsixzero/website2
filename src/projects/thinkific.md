@@ -21,7 +21,7 @@ body_class: "single-project project-thinkific"
   </div>
   <div class="ping-pong_copy">
     <h2 class="h4">User Groups</h2>
-    <p>It wasn’t until we started talking to customers that we recognized how different each use case for Groups was. After extensive user research and iteration we designed User Groups to give every Thinkific school a better way to organize existing students and sell to new ones.</p>
+    <p>It wasn't until we started talking to customers that we recognized how different each use case for Groups was. After extensive user research and iteration we designed User Groups to give every Thinkific school a better way to organize existing students and sell to new ones.</p>
     <div class="project-expertise">
       <h3 class="accent accent--grey-normal">Expertise</h3>
       <p>UX, UI design, Front End Dev</p>
@@ -60,7 +60,7 @@ body_class: "single-project project-thinkific"
 
 <section class="testimonial">
   <div class="testimonial-quote">
-    <h4>“If you’re looking for a company that <span class="highlight"><span>really</span> <span>cares</span> <span>about</span> <span>how</span> <span>product</span> <span>gets</span> <span>built</span></span> and has the skills and experience to make sure you solve the right problems in an effective, useable, and beautiful way, then you’d be lucky to work with Sixzero.”</h4>
+    <h4>“If you're looking for a company that <span class="highlight"><span>really</span> <span>cares</span> <span>about</span> <span>how</span> <span>product</span> <span>gets</span> <span>built</span></span> and has the skills and experience to make sure you solve the right problems in an effective, useable, and beautiful way, then you'd be lucky to work with Sixzero.”</h4>
   </div>
   <div class="testimonial-author">
     <img src="/images/testimonials/testimonial-greg-smith.jpg" alt="Photo of Greg Smith" />
@@ -74,7 +74,7 @@ body_class: "single-project project-thinkific"
 <section class="project-content project-content--gradient">
   <div class="project-content_copy">
     <h2 class="h4">Purchase Flow</h2>
-    <p>We like to built software that gets out of your way. We don’t want to add meaningless friction to and paying for something should be easy.</p>
+    <p>We like to built software that gets out of your way. We don't want to add meaningless friction to and paying for something should be easy.</p>
     <p> A simple and easy way for people to understand exactly what they are buying when they upgrade.</p>
   </div>
   <div class="project-content_image project-content_image--full-width">

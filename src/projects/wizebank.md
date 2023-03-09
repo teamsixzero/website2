@@ -24,7 +24,7 @@ status: "publish"
 <section class="project-content">
   <div class="project-content_copy">
     <h2 class="h4">Capturing e-learning business insights in one easy to navigate space</h2>
-    <p>When we teamed up with Wizebank, they were looking for an analytics platform that seamlessly integrates with a user’s website, payments, and email marketing, while being easy to navigate with a user friendly dashboard. The crux was that Wizebank needed to build their MVP within a short time frame of 4 weeks, which can be an issue as a typical MVP takes at least 12 weeks to build.</p>
+    <p>When we teamed up with Wizebank, they were looking for an analytics platform that seamlessly integrates with a user's website, payments, and email marketing, while being easy to navigate with a user friendly dashboard. The crux was that Wizebank needed to build their MVP within a short time frame of 4 weeks, which can be an issue as a typical MVP takes at least 12 weeks to build.</p>
     <p>However, they came to us with a pretty impressive design prototype, so we decided to adjust our design process to fit with what they had already created.</p>
   </div>
   <div class="project-content_image project-content_image--full-width">

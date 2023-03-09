@@ -46,7 +46,7 @@ export default BlogPage;
 
 export const query = graphql`
   query {
-    allContentfulPost(sort: { fields: date, order: DESC }) {
+    allContentfulPost(sort: { date: DESC }) {
       nodes {
         title
         date(formatString: "MMMM D, YYYY")

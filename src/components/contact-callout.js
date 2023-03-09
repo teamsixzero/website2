@@ -5,7 +5,7 @@ class ContactCallout extends React.Component {
     return (
       <section className="contact-callout">
         <div className="contact-callout_copy">
-          <h2 className="h3">Let’s work together</h2>
+          <h2 className="h3">Let's work together</h2>
           <p className="h6">We will help you design something people love.</p>
           <a
             className="btn"

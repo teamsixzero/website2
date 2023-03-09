@@ -24,7 +24,7 @@ status: "publish"
   <div class="project-content_copy">
     <h2 class="h4">Before we begin</h2>
     <p>Our first priority was to gain a deep understanding of how potential FTSY users went about shopping for shoes online. We wanted to learn what worries them, what they like or dislike, and what makes a good shopping experience. We also needed to know how well the existing FTSY app performed.</p>
-    <p>To do this, we did 5 individual user testing sessions. During the interviews, we dug deep and figured out what each person’s vision of a great shopping experience looked liked and got each person to try the FTSY app. The thoughts and insights they shared were invaluable.</p>
+    <p>To do this, we did 5 individual user testing sessions. During the interviews, we dug deep and figured out what each person's vision of a great shopping experience looked liked and got each person to try the FTSY app. The thoughts and insights they shared were invaluable.</p>
     <p>We used the findings from these sessions as the foundation for our redesign.</p>
   </div>
   <div class="project-content_image project-content_image--full-width">
@@ -34,7 +34,7 @@ status: "publish"
 
 <section class="ping-pong ping-pong--with-bg ping-pong--image-left" style="background-image:url(/images/projects/ftsy/ftsy-in-the-details-bg.png);">
   <div class="ping-pong_copy">
-    <h2 class="h4">It’s in the details</h2>
+    <h2 class="h4">It's in the details</h2>
     <p>Our testing sessions told us to focus on features that would help shoppers make a purchase more confidently. That meant concentrating on the product pages. We made the images larger so you could see every last detail, we showed the available colours and price more prominently, we made the product descriptions easier to find, and showed the sizing front and center.</p>
     <p>We also changed the purchase button. Test participants described being surprised or hesitant to press the button in the original app because they were unsure of the next step. A color and copy change removed those worries.</p>
   </div>
@@ -51,7 +51,7 @@ status: "publish"
 <section class="ping-pong ping-pong--with-bg ping-pong--image-right" style="background-image:url(/images/projects/ftsy/ftsy-the-magic-bg.png);">
   <div class="ping-pong_copy">
     <h2 class="h4">The magic</h2>
-    <p>FTSY’s scanning technology is the magic ingredient in the FTSY sauce. The scanner builds a super accurate 3D model by taking 24 photos of a shoppers feet guaranteeing any shoes you buy through FTSY fit perfectly.</p>
+    <p>FTSY's scanning technology is the magic ingredient in the FTSY sauce. The scanner builds a super accurate 3D model by taking 24 photos of a shoppers feet guaranteeing any shoes you buy through FTSY fit perfectly.</p>
     <p>While our participants loved the idea, they found it slow and difficult to get a successful scan.</p>
     <p>We designed a scanning experience that is much faster and easier to use by focusing on giving shoppers clear instructions, a better sense of progress, and a clearer UI.</p>
   </div>
