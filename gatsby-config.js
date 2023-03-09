@@ -1,8 +1,8 @@
 // support for .env, .env.development, and .env.production
-require("dotenv").config()
+require("dotenv").config();
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -15,7 +15,7 @@ module.exports = {
         downloadLocal: true,
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: process.env.CONTENTFUL_HOST,
+        // host: process.env.CONTENTFUL_HOST,
       },
     },
     {
@@ -48,4 +48,4 @@ module.exports = {
     `gatsby-plugin-twitter`,
     `gatsby-plugin-netlify`,
   ],
-}
+};
