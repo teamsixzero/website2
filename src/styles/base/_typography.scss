@@ -42,16 +42,18 @@ body {
   font-family: var(--font-primary);
 }
 
+// Headings
+
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-weight: 500;
 }
 
 h1, .h1 {
-  @include fontSize(100px, 100%);
+  @include fontSize(100px, 110%);
 }
 
 h2, .h2 {
-  @include fontSize(80px, 100%);
+  @include fontSize(80px, 110%);
 }
 
 h3, .h3 {
@@ -68,6 +70,69 @@ h5, .h5 {
 
 h6, .h6 {
   @include fontSize(23px, 150%);
+}
+
+// Paragraph
+
+.text-small,
+.text-normal,
+.text-bold,
+.text-book {
+  font-weight: 400;
+}
+
+.text-small {
+  @include fontSize(13px, 15px);
+}
+
+.text-normal {
+  @include fontSize(17px, 32px);
+}
+
+.text-bold {
+  @include fontSize(17px, 32px);
+}
+
+.text-normal {
+  @include fontSize(17px, 32px);
+  font-weight: 700;
+}
+
+.text-book {
+  @include fontSize(18px, 32px);
+}
+
+@include breakpoint('sm'){
+  // Headings
+
+  h1, .h1 {
+    @include fontSize(50px, 120%);
+  }
+  
+  h2, .h2 {
+    @include fontSize(40px, 120%);
+  }
+  
+  h3, .h3 {
+    @include fontSize(30px, 120%);
+  }
+  
+  h4, .h4 {
+    @include fontSize(26px, 130%);
+  }
+  
+  h5, .h5 {
+    @include fontSize(23px, 130%);
+  }
+  
+  h6, .h6 {
+    @include fontSize(17px, 150%);
+  }
+
+  // Paragraph
+  .text-normal {
+    @include fontSize(15px, 180%);
+  }
 }
 
 .highlight {

@@ -1,18 +1,19 @@
 .btn {
-  width: auto;
-  height: 44px;
-  padding: 16px 24px;
+  position: relative;
+
+  padding: 1rem 1.5rem;
   display: inline-block;
+
   background: var(--btn-bg);
-  border-radius: 4px;
   color: var(--btn-color);
+  border-radius: 0.25rem;
+
   @include fontSize(16px, 12px);
   font-weight: 500;
-  vertical-align: top;
 }
 
 .btn--secondary {
-  padding: 15px 23px;
+  padding: 1rem 1.5rem;
   background: transparent;
   border: 1px solid var(--btn-bg);
   color: var(--btn-bg);
