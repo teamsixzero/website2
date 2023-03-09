@@ -56,7 +56,11 @@ export const query = graphql`
         }
         featureImage {
           description
-          gatsbyImageData
+          gatsbyImageData(
+            width: 1440
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
     }

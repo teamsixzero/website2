@@ -1,11 +1,11 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { renderRichText } from "gatsby-source-contentful/rich-text"
-import Helmet from "react-helmet"
-import Layout from "../components/layout"
-import PostSummary from "../components/post-summary"
-import ContentfulRichText from "../components/contentful-rich-text"
+import React from "react";
+import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import Helmet from "react-helmet";
+import Layout from "../components/layout";
+import PostSummary from "../components/post-summary";
+import ContentfulRichText from "../components/contentful-rich-text";
 
 const PostTemplate = ({ data, children }) => {
   const options = {};
@@ -27,20 +27,24 @@ const PostTemplate = ({ data, children }) => {
         </section>
         <section className="post-heading">
           <h1 className="h2">{data.contentfulPost.title}</h1>
-          <p className="date accent accent--grey-dark">Published {data.contentfulPost.date}</p>
+          <p className="date accent accent--grey-dark">
+            Published {data.contentfulPost.date}
+          </p>
         </section>
         <section className="post-content">
-          {data.contentfulPost.summary && <PostSummary summaryText={data.contentfulPost.summary.summary} />}
+          {data.contentfulPost.summary && (
+            <PostSummary summaryText={data.contentfulPost.summary.summary} />
+          )}
           <ContentfulRichText richText={data.contentfulPost.content} />
         </section>
       </article>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query ($id: String) {
-    contentfulPost(id: {eq: $id}) {
+    contentfulPost(id: { eq: $id }) {
       title
       date(formatString: "MMMM D, YYYY")
       summary {
@@ -48,7 +52,11 @@ export const query = graphql`
       }
       featureImage {
         description
-        gatsbyImageData
+        gatsbyImageData(
+          width: 1440
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
       content {
         raw
@@ -57,7 +65,11 @@ export const query = graphql`
             contentful_id
             title
             description
-            gatsbyImageData(width: 1700)
+            gatsbyImageData(
+              width: 1440
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
             __typename
           }
           ... on ContentfulHtmlEmbed {
@@ -71,6 +83,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default PostTemplate
+export default PostTemplate;
