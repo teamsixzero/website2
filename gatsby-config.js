@@ -1,5 +1,3 @@
-// support for .env, .env.development, and .env.production
-require("dotenv").config();
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -41,11 +39,6 @@ module.exports = {
         icon: `static/images/favicon.svg`,
       },
     },
-    //`gatsby-redirect-from`,
-    //`gatsby-plugin-meta-redirect`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-twitter`,
-    `gatsby-plugin-netlify`,
   ],
 };
