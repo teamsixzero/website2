@@ -1,26 +1,26 @@
 @font-face {
    font-family: 'PP Pangram';
-   src: url('../fonts/PPPangramSans-Regular.eot');
-   src: url('../fonts/PPPangramSans-Regular.woff') format('woff'),
-        url('../fonts/PPPangramSans-Regular.ttf') format('truetype');
+   src: url('../assets/fonts/PPPangramSans-Regular.eot');
+   src: url('../assets/fonts/PPPangramSans-Regular.woff') format('woff'),
+        url('../assets/fonts/PPPangramSans-Regular.ttf') format('truetype');
    font-weight: 400;
    ascent-override: 70%; // FIXME: windows-specific
 }
 
 @font-face {
    font-family: 'PP Pangram';
-   src: url('../fonts/PPPangramSans-Medium.eot');
-   src: url('../fonts/PPPangramSans-Medium.woff') format('woff'),
-        url('../fonts/PPPangramSans-Medium.ttf') format('truetype');
+   src: url('../assets/fonts/PPPangramSans-Medium.eot');
+   src: url('../assets/fonts/PPPangramSans-Medium.woff') format('woff'),
+        url('../assets/fonts/PPPangramSans-Medium.ttf') format('truetype');
    font-weight: 500;
    ascent-override: 70%; // FIXME: windows-specific
 }
 
 @font-face {
    font-family: 'PP Pangram';
-   src: url('../fonts/PPPangramSans-Bold.eot');
-   src: url('../fonts/PPPangramSans-Bold.woff') format('woff'),
-        url('../fonts/PPPangramSans-Bold.ttf') format('truetype');
+   src: url('../assets/fonts/PPPangramSans-Bold.eot');
+   src: url('../assets/fonts/PPPangramSans-Bold.woff') format('woff'),
+        url('../assets/fonts/PPPangramSans-Bold.ttf') format('truetype');
    font-weight: 700;
    ascent-override: 70%; // FIXME: windows-specific
 }
