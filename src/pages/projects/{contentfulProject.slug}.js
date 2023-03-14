@@ -1,23 +1,23 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Helmet from "react-helmet";
 
 import Layout from "../../components/layout";
-import ContactCallout from "../../components/contact-callout";
 import ProjectBuilder from "../../components/ProjectBuilder";
 
-const Project = ({ data: { contentfulProject: data }, children }) => {
+const Project = ({ data: { contentfulProject: data } }) => {
   return (
     <Layout>
-      <Helmet>
-        <title>{data.title} | Sixzero</title>
-      </Helmet>
       <h1>{data.title}</h1>
       <ProjectBuilder blocks={data?.blocks} />
-      {/* <ContactCallout /> */}
     </Layout>
   );
 };
+
+export default Project;
+
+export function Head({ data: { contentfulProject: data } }) {
+  return <title>{data.title} | Sixzero</title>;
+}
 
 export const query = graphql`
   query ($slug: String) {
@@ -30,5 +30,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default Project;
