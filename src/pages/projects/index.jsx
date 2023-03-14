@@ -1,21 +1,13 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import Helmet from "react-helmet";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout";
 import ContactCallout from "../../components/contact-callout";
 
 const ProjectsPage = ({ data }) => {
   const projects = data.allContentfulProject.edges.map(({ node }) => node);
 
-  console.log(`projects`, projects);
-
   return (
     <Layout>
-      <Helmet>
-        <title>Work | Sixzero</title>
-        <body className="page-projects" />
-      </Helmet>
-
       <section className="page-header">
         <div className="page-header_copy">
           <h1>
@@ -221,6 +213,10 @@ const ProjectsPage = ({ data }) => {
       <ContactCallout />
     </Layout>
   );
+};
+
+export const Head = () => {
+  return <title>Work | Sixzero</title>;
 };
 
 export const query = graphql`
