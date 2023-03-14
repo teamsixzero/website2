@@ -1,10 +1,14 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import Helmet from "react-helmet";
 import Layout from "../../components/layout";
 import ContactCallout from "../../components/contact-callout";
 
 const ProjectsPage = ({ data }) => {
+  const projects = data.allContentfulProject.edges.map(({ node }) => node);
+
+  console.log(`projects`, projects);
+
   return (
     <Layout>
       <Helmet>
@@ -218,5 +222,19 @@ const ProjectsPage = ({ data }) => {
     </Layout>
   );
 };
+
+export const query = graphql`
+  query {
+    allContentfulProject {
+      edges {
+        node {
+          id
+          title
+          slug
+        }
+      }
+    }
+  }
+`;
 
 export default ProjectsPage;
