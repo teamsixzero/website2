@@ -1,8 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
+
 import Layout from "../../components/layout";
 import ContactCallout from "../../components/contact-callout";
+import ProjectBuilder from "../../components/ProjectBuilder";
 
 const Project = ({ data: { contentfulProject: data }, children }) => {
   return (
@@ -11,7 +13,8 @@ const Project = ({ data: { contentfulProject: data }, children }) => {
         <title>{data.title} | Sixzero</title>
       </Helmet>
       <h1>{data.title}</h1>
-      <ContactCallout />
+      <ProjectBuilder blocks={data?.blocks} />
+      {/* <ContactCallout /> */}
     </Layout>
   );
 };
@@ -22,6 +25,8 @@ export const query = graphql`
       id
       title
       slug
+
+      ...ProjectBuilder
     }
   }
 `;
