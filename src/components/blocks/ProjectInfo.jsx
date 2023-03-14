@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 const ProjectInfo = ({ data }) => {
-  const { id, title, info } = data;
+  const { info } = data;
 
   return (
     <ul className="block-project-info">
@@ -20,8 +20,6 @@ export default ProjectInfo;
 
 export const query = graphql`
   fragment BlockProjectInfo on ContentfulBlockProjectInfo {
-    id
-    title
     info {
       id
       title
