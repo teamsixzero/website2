@@ -91,11 +91,11 @@ h6, .h6 {
 
 .text-bold {
   @include fontSize(17px, 32px);
+  font-weight: 700;
 }
 
 .text-normal {
   @include fontSize(17px, 32px);
-  font-weight: 700;
 }
 
 .text-book {

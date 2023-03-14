@@ -37,6 +37,7 @@ export const query = graphql`
       __typename
 
       ...BlockImageFullWidth
+      ...BlockProjectInfo
     }
   }
 `;

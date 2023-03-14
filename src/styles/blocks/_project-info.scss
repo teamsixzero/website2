@@ -1,0 +1,20 @@
+.block-project-info {
+    position: relative;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 5rem 4rem;
+
+    background-color: var(--color-blue-primary);
+    color: var(--color-white);
+
+    @include breakpoint('sm'){
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--spacing-4);
+
+        padding: var(--spacing-6) var(--spacing-5) ;
+    }
+}
