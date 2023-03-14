@@ -1,0 +1,7 @@
+.main {
+    padding: 0 7.5rem;
+
+    @include breakpoint('sm'){
+        padding: 0 2rem;
+    }
+}
