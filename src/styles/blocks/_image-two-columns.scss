@@ -1,0 +1,12 @@
+.block-image-two-columns {
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    column-gap: var(--spacing-4);
+
+    @include breakpoint('sm'){
+        flex-direction: column;
+        row-gap: var(--spacing-3);
+    }
+} 
