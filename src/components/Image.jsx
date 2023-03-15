@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 const Image = ({ src, alt }) => {
   const image = getImage(src);
 
-  return <GatsbyImage image={image} alt={alt} />;
+  return <GatsbyImage image={image} alt={alt} title={alt} />;
 };
 
 export default Image;
