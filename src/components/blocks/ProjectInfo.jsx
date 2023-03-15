@@ -8,8 +8,8 @@ const ProjectInfo = ({ data }) => {
     <ul className="block-project-info">
       {info.map((information) => (
         <li key={information?.id}>
-          <h3 class="text-bold">{information?.title}</h3>
-          <p class="text-normal">{information?.text}</p>
+          <h3 className="text-bold">{information?.title}</h3>
+          <p className="text-normal">{information?.text}</p>
         </li>
       ))}
     </ul>

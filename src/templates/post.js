@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 import PostSummary from "../components/post-summary";
-import ContentfulRichText from "../components/contentful-rich-text";
+import RichText from "../components/RichText";
 
 const PostTemplate = ({ data, children }) => {
   // const options = {};
@@ -35,7 +35,7 @@ const PostTemplate = ({ data, children }) => {
           {data.contentfulPost.summary && (
             <PostSummary summaryText={data.contentfulPost.summary.summary} />
           )}
-          <ContentfulRichText richText={data.contentfulPost.content} />
+          <RichText content={data.contentfulPost.content} />
         </section>
       </article>
     </Layout>

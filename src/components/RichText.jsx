@@ -1,7 +1,8 @@
 import React from "react";
 import { INLINES, BLOCKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
+import Image from "./Image";
 
 const website_url = "https://sixzero.co";
 
@@ -41,7 +42,7 @@ const options = {
 
       return (
         <figure>
-          <GatsbyImage image={getImage(gatsbyImageData)} alt={description} />
+          <Image src={gatsbyImageData} alt={description} />
           {description && <figcaption>{description}</figcaption>}
         </figure>
       );
@@ -55,11 +56,12 @@ const options = {
         );
       }
     },
+    [BLOCKS.HEADING_1]: (node, children) => <h2 class="h1">{children}</h2>,
   },
 };
 
-const ContentfulRichText = ({ richText }) => {
-  return <>{renderRichText(richText, options)}</>;
+const ContentfulRichText = ({ content }) => {
+  return <>{renderRichText(content, options)}</>;
 };
 
 export default ContentfulRichText;

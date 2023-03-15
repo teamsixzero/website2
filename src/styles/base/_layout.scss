@@ -12,7 +12,13 @@
 .main {
     padding: 0 7.5rem;
 
+    display: flex;
+    flex-direction: column;
+    row-gap: 10.5rem;
+
     @include breakpoint('sm'){
         padding: 0 2rem;
+
+        row-gap: 5rem;
     }
 }
