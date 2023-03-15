@@ -27,6 +27,7 @@ export const query = graphql`
     imageOne {
       title
       gatsbyImageData(
+        quality: 100
         width: 1440
         placeholder: BLURRED
         formats: [AUTO, WEBP, AVIF]
@@ -35,6 +36,7 @@ export const query = graphql`
     imageTwo {
       title
       gatsbyImageData(
+        quality: 100
         width: 1440
         placeholder: BLURRED
         formats: [AUTO, WEBP, AVIF]

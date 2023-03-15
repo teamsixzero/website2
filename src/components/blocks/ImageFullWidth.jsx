@@ -19,6 +19,7 @@ export const query = graphql`
   fragment BlockImageFullWidth on ContentfulBlockImageFullWidth {
     source {
       gatsbyImageData(
+        quality: 100
         width: 1440
         placeholder: BLURRED
         formats: [AUTO, WEBP, AVIF]
