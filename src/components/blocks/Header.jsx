@@ -5,7 +5,11 @@ import RichText from "../RichText";
 
 const Header = ({ data }) => {
   const { content } = data;
-  return <RichText content={content} />;
+  return (
+    <div className="block-header">
+      <RichText content={content} />
+    </div>
+  );
 };
 
 export default Header;
