@@ -7,7 +7,11 @@ import ProjectBuilder from "../../components/ProjectBuilder";
 const Project = ({ data: { contentfulProject: data } }) => {
   return (
     <Layout>
-      <h1>{data.title}</h1>
+      <header className="project-header">
+        <h1>{data.title}</h1>
+        <p class="project-description h6">{data.description.text}</p>
+      </header>
+
       <ProjectBuilder blocks={data?.blocks} />
     </Layout>
   );
@@ -25,6 +29,10 @@ export const query = graphql`
       id
       title
       slug
+
+      description {
+        text: description
+      }
 
       ...ProjectBuilder
     }

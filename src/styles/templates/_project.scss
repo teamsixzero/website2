@@ -1,0 +1,17 @@
+.project-header {
+    position: relative;
+    width: calc((100%/3)*2);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-4);
+
+    .project-description {
+        color: var(--color-blue-primary);
+        opacity: 0.5;
+    }
+
+    @include breakpoint('sm'){
+        width: 100%;
+    }
+}
