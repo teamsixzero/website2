@@ -23,4 +23,13 @@
     & > figure.align-left {
         order: -1;
     }
+
+    @include breakpoint('sm'){
+        flex-direction: column;
+        row-gap: var(--spacing-4);
+
+        &.has-background {
+            padding: 4rem var(--spacing-5);
+        }
+    }
 }
