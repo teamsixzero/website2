@@ -6,7 +6,7 @@ const ImageFullWidth = ({ data }) => {
 
   return (
     <figure className="block-image-full-width">
-      <img src={source.url} alttext={source.title} />
+      <img src={source.url} alt={source.title} />
     </figure>
   );
 };

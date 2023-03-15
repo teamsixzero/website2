@@ -1,14 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
+// import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Helmet from "react-helmet";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import PostSummary from "../components/post-summary";
 import ContentfulRichText from "../components/contentful-rich-text";
 
 const PostTemplate = ({ data, children }) => {
-  const options = {};
+  // const options = {};
 
   return (
     <Layout>

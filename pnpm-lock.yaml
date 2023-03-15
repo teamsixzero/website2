@@ -15,7 +15,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-helmet: ^6.1.0
-  sass: ^1.58.3
+  sass: ^1.59.3
   uuid: ^9.0.0
 
 dependencies:
@@ -24,7 +24,7 @@ dependencies:
   gatsby: 5.7.0_biqbaboplfbrettd7655fr4n2y
   gatsby-plugin-image: 3.7.0_em5jjaogr4n5koc6ex7kiyef4y
   gatsby-plugin-manifest: 5.7.0_gatsby@5.7.0
-  gatsby-plugin-sass: 6.7.0_gatsby@5.7.0+sass@1.58.3
+  gatsby-plugin-sass: 6.7.0_gatsby@5.7.0+sass@1.59.3
   gatsby-plugin-sharp: 5.7.0_gatsby@5.7.0
   gatsby-source-contentful: 8.7.0_ejbzi46ltc64ukybtoqd3ocayu
   gatsby-source-filesystem: 5.7.0_gatsby@5.7.0
@@ -33,7 +33,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-helmet: 6.1.0_react@18.2.0
-  sass: 1.58.3
+  sass: 1.59.3
   uuid: 9.0.0
 
 packages:
@@ -6025,7 +6025,7 @@ packages:
       - supports-color
     dev: false
 
-  /gatsby-plugin-sass/6.7.0_gatsby@5.7.0+sass@1.58.3:
+  /gatsby-plugin-sass/6.7.0_gatsby@5.7.0+sass@1.59.3:
     resolution: {integrity: sha512-cNaAX1x6V3VoQxcncuX5Ibg22tmcwXCRbOGpAl+2Gg7RGc2FS4F0VboQ+8u5WPb1W6VFjWCCsnQy1g1Ad/b/MA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
@@ -6035,8 +6035,8 @@ packages:
       '@babel/runtime': 7.21.0
       gatsby: 5.7.0_biqbaboplfbrettd7655fr4n2y
       resolve-url-loader: 3.1.5
-      sass: 1.58.3
-      sass-loader: 10.4.1_sass@1.58.3
+      sass: 1.59.3
+      sass-loader: 10.4.1_sass@1.59.3
     transitivePeerDependencies:
       - fibers
       - node-sass
@@ -7038,8 +7038,8 @@ packages:
     engines: {node: '>=0.8.0'}
     dev: false
 
-  /immutable/4.2.4:
-    resolution: {integrity: sha512-WDxL3Hheb1JkRN3sQkyujNlL/xRjAo3rJtaU5xeufUauG66JdMr32bLj4gF+vWl84DIA3Zxw7tiAjneYzRRw+w==}
+  /immutable/4.3.0:
+    resolution: {integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==}
     dev: false
 
   /import-fresh/3.3.0:
@@ -10110,7 +10110,7 @@ packages:
       postcss: 8.4.21
     dev: false
 
-  /sass-loader/10.4.1_sass@1.58.3:
+  /sass-loader/10.4.1_sass@1.59.3:
     resolution: {integrity: sha512-aX/iJZTTpNUNx/OSYzo2KsjIUQHqvWsAhhUijFjAPdZTEhstjZI9zTNvkTTwsx+uNUJqUwOw5gacxQMx4hJxGQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -10129,18 +10129,18 @@ packages:
       klona: 2.0.6
       loader-utils: 2.0.4
       neo-async: 2.6.2
-      sass: 1.58.3
+      sass: 1.59.3
       schema-utils: 3.1.1
       semver: 7.3.8
     dev: false
 
-  /sass/1.58.3:
-    resolution: {integrity: sha512-Q7RaEtYf6BflYrQ+buPudKR26/lH+10EmO9bBqbmPh/KeLqv8bjpTNqxe71ocONqXq+jYiCbpPUmQMS+JJPk4A==}
+  /sass/1.59.3:
+    resolution: {integrity: sha512-QCq98N3hX1jfTCoUAsF3eyGuXLsY7BCnCEg9qAact94Yc21npG2/mVOqoDvE0fCbWDqiM4WlcJQla0gWG2YlxQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
       chokidar: 3.5.3
-      immutable: 4.2.4
+      immutable: 4.3.0
       source-map-js: 1.0.2
     dev: false
 

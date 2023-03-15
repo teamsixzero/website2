@@ -13,6 +13,7 @@ const options = {
         return (
           <div className="embed-container">
             <iframe
+              title="video-player"
               src={data.uri}
               frameborder="0"
               webkitallowfullscreen
@@ -36,7 +37,7 @@ const options = {
       }
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      const { gatsbyImageData, title, description } = node.data.target;
+      const { gatsbyImageData, description } = node.data.target;
 
       return (
         <figure>

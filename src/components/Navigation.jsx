@@ -6,7 +6,7 @@ const Navigation = () => {
     <nav>
       <ul className="menu">
         <li className="has-dropdown">
-          <a href="#">What We Do</a>
+          <button>What We Do</button>
           <ul className="dropdown">
             <li>
               <Link to="/ux-ui-design">UX/UI Design</Link>

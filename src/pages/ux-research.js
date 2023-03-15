@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import BookCallout from "../components/book-callout";
 import ContactCallout from "../components/contact-callout";
 
