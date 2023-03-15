@@ -1,0 +1,26 @@
+.block-text-and-image {
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    column-gap: 8.5rem;
+
+    &.has-background {
+        padding: 8rem 5rem;
+        background-color: var(--color-blue-primary);
+        color: white;
+    }
+
+    & > header {
+        max-width: 30rem;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--spacing-3);
+    }
+
+    & > figure.align-left {
+        order: -1;
+    }
+}
