@@ -8,7 +8,9 @@ const TextAndImage = ({ data }) => {
 
   return (
     <div
-      className={`block-text-and-image${hasBackground && ` has-background`}`}
+      className={`block-text-and-image${
+        hasBackground ? ` has-background` : ``
+      }`}
     >
       <header>
         <h2 className="h4">{title}</h2>
