@@ -354,6 +354,7 @@ exports.createSchemaCustomization = ({ actions }) => {
         node_locale: String!
         title: String
         text: ContentfulBlockContentText
+        hasBackground: Boolean
         block_multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block multi section___NODE") @proxy(from: "block multi section___NODE")
         spaceId: String
         createdAt: Date @dateformat

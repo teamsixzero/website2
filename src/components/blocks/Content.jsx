@@ -4,10 +4,12 @@ import { graphql } from "gatsby";
 import RichText from "../RichText";
 
 const Content = ({ data }) => {
-  const { text } = data;
+  const { text, hasBackground } = data;
   return (
-    <div className="block-content">
-      <RichText content={text} />
+    <div className={`block-content${hasBackground ? ` has-background` : ``}`}>
+      <div className="block-content__wrapper">
+        <RichText content={text} />
+      </div>
     </div>
   );
 };
@@ -19,5 +21,6 @@ export const query = graphql`
     text {
       raw
     }
+    hasBackground
   }
 `;
