@@ -36,9 +36,12 @@ export const query = graphql`
     blocks {
       __typename
 
+      ...BlockContent
       ...BlockHeader
       ...BlockImageFullWidth
       ...BlockImageTwoColumns
+      ...BlockMultiSection
+      ...BlockOrderedList
       ...BlockProjectInfo
       ...BlockTextAndImage
     }
