@@ -253,7 +253,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       type ContentfulBlockOrderedList implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
         contentful_id: String!
         node_locale: String!
-        title: String
         listItems: [ContentfulListItem] @link(by: "id", from: "listItems___NODE")
         block_multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block multi section___NODE") @proxy(from: "block multi section___NODE")
         spaceId: String
