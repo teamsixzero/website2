@@ -1,0 +1,9 @@
+.block-content {
+    position: relative;
+    width: 100%;
+    max-width: 50rem;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-3);
+}
