@@ -56,11 +56,11 @@ const options = {
         );
       }
     },
-    [BLOCKS.HEADING_1]: (node, children) => <h2 class="h1">{children}</h2>,
+    [BLOCKS.HEADING_1]: (node, children) => <h2 className="h1">{children}</h2>,
     [BLOCKS.PARAGRAPH]: (node, children) => {
       if (!children[0]) return <></>;
 
-      return <p class="text-normal">{children}</p>;
+      return <p className="text-normal">{children}</p>;
     },
   },
 };
