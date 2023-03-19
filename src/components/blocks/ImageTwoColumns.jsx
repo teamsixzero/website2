@@ -25,22 +25,22 @@ export const query = graphql`
   fragment BlockImageTwoColumns on ContentfulBlockImageTwoColumns {
     id
     imageOne {
-      title
       gatsbyImageData(
         quality: 100
         width: 1440
         placeholder: BLURRED
         formats: [AUTO, WEBP, AVIF]
       )
+      title
     }
     imageTwo {
-      title
       gatsbyImageData(
         quality: 100
         width: 1440
         placeholder: BLURRED
         formats: [AUTO, WEBP, AVIF]
       )
+      title
     }
   }
 `;

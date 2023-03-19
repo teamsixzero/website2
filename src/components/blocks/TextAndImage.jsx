@@ -28,20 +28,19 @@ export default TextAndImage;
 
 export const query = graphql`
   fragment BlockTextAndImage on ContentfulBlockTextAndImage {
-    title
+    id
     text {
       content: text
     }
     image {
-      title
       gatsbyImageData(
         quality: 100
         width: 1440
         placeholder: BLURRED
         formats: [AUTO, WEBP, AVIF]
       )
+      title
     }
-    hasBackground
     imageAlign
   }
 `;

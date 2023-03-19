@@ -8,7 +8,7 @@ const ImageFullWidth = ({ data }) => {
 
   return (
     <figure className="block-image-full-width">
-      <Image src={source} alt={source.title} />
+      <Image src={source} alt={source.title} title={source.title} />
     </figure>
   );
 };
@@ -17,6 +17,7 @@ export default ImageFullWidth;
 
 export const query = graphql`
   fragment BlockImageFullWidth on ContentfulBlockImageFullWidth {
+    id
     source {
       gatsbyImageData(
         quality: 100
