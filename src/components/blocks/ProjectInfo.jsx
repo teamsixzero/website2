@@ -20,6 +20,7 @@ export default ProjectInfo;
 
 export const query = graphql`
   fragment BlockProjectInfo on ContentfulBlockProjectInfo {
+    id
     info {
       id
       title

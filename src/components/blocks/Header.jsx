@@ -16,6 +16,7 @@ export default Header;
 
 export const query = graphql`
   fragment BlockHeader on ContentfulBlockHeader {
+    id
     content {
       raw
     }

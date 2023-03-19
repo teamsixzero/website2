@@ -9,7 +9,7 @@ const Project = ({ data: { contentfulProject: data } }) => {
     <Layout>
       <header className="project-header">
         <h1>{data.title}</h1>
-        <p class="project-description h6">{data.description.text}</p>
+        <p className="project-description h6">{data.description.text}</p>
       </header>
 
       <ProjectBuilder blocks={data?.blocks} />
