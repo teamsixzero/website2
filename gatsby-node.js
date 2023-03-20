@@ -104,6 +104,7 @@ exports.createSchemaCustomization = ({ actions }) => {
         source: ContentfulAsset @link(by: "id", from: "source___NODE")
         project: [ContentfulProject] @link(by: "id", from: "project___NODE")
         spaceId: String
+        block_multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block multi section___NODE") @proxy(from: "block multi section___NODE")
         createdAt: Date @dateformat
         updatedAt: Date @dateformat
         sys: ContentfulBlockImageFullWidthSys
@@ -285,7 +286,8 @@ exports.createSchemaCustomization = ({ actions }) => {
         contentful_id: String!
         node_locale: String!
         title: String
-        blocks: [ContentfulBlockContentContentfulBlockOrderedListContentfulBlockTextAndImageUnion] @link(by: "id", from: "blocks___NODE")
+        blocks: [ContentfulBlockContentContentfulBlockImageFullWidthContentfulBlockOrderedListContentfulBlockUnion] @link(by: "id", from: "blocks___NODE")
+        hasBackground: Boolean
         project: [ContentfulProject] @link(by: "id", from: "project___NODE")
         spaceId: String
         createdAt: Date @dateformat
@@ -293,7 +295,7 @@ exports.createSchemaCustomization = ({ actions }) => {
         sys: ContentfulBlockMultiSectionSys
       }
 
-      union ContentfulBlockContentContentfulBlockOrderedListContentfulBlockTextAndImageUnion = ContentfulBlockContent | ContentfulBlockOrderedList | ContentfulBlockTextAndImage
+      union ContentfulBlockContentContentfulBlockImageFullWidthContentfulBlockOrderedListContentfulBlockUnion = ContentfulBlockContent | ContentfulBlockImageFullWidth | ContentfulBlockOrderedList
 
       type ContentfulBlockMultiSectionSys @derivedTypes {
         type: String
@@ -321,7 +323,6 @@ exports.createSchemaCustomization = ({ actions }) => {
         hasBackground: Boolean
         imageAlign: String
         image: ContentfulAsset @link(by: "id", from: "image___NODE")
-        block_multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block multi section___NODE") @proxy(from: "block multi section___NODE")
         text: contentfulBlockTextAndImageTextTextNode @link(by: "id", from: "text___NODE")
         spaceId: String
         createdAt: Date @dateformat
