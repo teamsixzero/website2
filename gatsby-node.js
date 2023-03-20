@@ -319,16 +319,19 @@ exports.createSchemaCustomization = ({ actions }) => {
       type ContentfulBlockTextAndImage implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
         contentful_id: String!
         node_locale: String!
-        title: String
         hasBackground: Boolean
         imageAlign: String
         image: ContentfulAsset @link(by: "id", from: "image___NODE")
-        text: contentfulBlockTextAndImageTextTextNode @link(by: "id", from: "text___NODE")
+        text: ContentfulBlockTextAndImageText
         spaceId: String
         createdAt: Date @dateformat
         updatedAt: Date @dateformat
         sys: ContentfulBlockTextAndImageSys
         project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+      }
+
+      type ContentfulBlockTextAndImageText {
+        raw: String
       }
 
       type ContentfulBlockTextAndImageSys @derivedTypes {
@@ -420,15 +423,6 @@ exports.createSchemaCustomization = ({ actions }) => {
         type: String
         linkType: String
         id: String
-      }
-
-      type contentfulBlockTextAndImageTextTextNode implements Node @derivedTypes @childOf(types: ["ContentfulBlockTextAndImage"]) @dontInfer {
-        text: String
-        sys: contentfulBlockTextAndImageTextTextNodeSys
-      }
-      
-      type contentfulBlockTextAndImageTextTextNodeSys {
-        type: String
       }
   `;
   createTypes(blockTypeDefs);

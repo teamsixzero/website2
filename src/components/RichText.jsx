@@ -4,6 +4,8 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 import Image from "./Image";
 
+import { addColour } from "../utils/helpers";
+
 const website_url = "https://sixzero.co";
 
 const options = {
@@ -56,11 +58,18 @@ const options = {
         );
       }
     },
-    [BLOCKS.HEADING_1]: (node, children) => <h2 className="h1">{children}</h2>,
+    [BLOCKS.HEADING_1]: (node, children) => (
+      <h2 className="h1">{addColour(children)}</h2>
+    ),
+    [BLOCKS.HEADING_2]: (node, children) => <h2>{addColour(children)}</h2>,
+    [BLOCKS.HEADING_3]: (node, children) => <h3>{addColour(children)}</h3>,
+    [BLOCKS.HEADING_4]: (node, children) => <h4>{addColour(children)}</h4>,
+    [BLOCKS.HEADING_5]: (node, children) => <h5>{addColour(children)}</h5>,
+    [BLOCKS.HEADING_6]: (node, children) => <h6>{addColour(children)}</h6>,
     [BLOCKS.PARAGRAPH]: (node, children) => {
       if (!children[0]) return <></>;
 
-      return <p className="text-normal">{children}</p>;
+      return <p className="text-normal">{addColour(children)}</p>;
     },
   },
 };

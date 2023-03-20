@@ -2,9 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Image from "../Image";
+import RichText from "../RichText";
 
 const TextAndImage = ({ data }) => {
-  const { title, text, image, hasBackground, imageAlign } = data;
+  const { text, image, hasBackground, imageAlign } = data;
 
   return (
     <div
@@ -13,8 +14,7 @@ const TextAndImage = ({ data }) => {
       }`}
     >
       <header>
-        <h2 className="h4">{title}</h2>
-        <p className="text-normal">{text?.content}</p>
+        <RichText content={text} />
       </header>
 
       <figure className={`align-${imageAlign.toLowerCase()}`}>
@@ -30,7 +30,7 @@ export const query = graphql`
   fragment BlockTextAndImage on ContentfulBlockTextAndImage {
     id
     text {
-      content: text
+      raw
     }
     image {
       gatsbyImageData(
@@ -42,5 +42,6 @@ export const query = graphql`
       title
     }
     imageAlign
+    hasBackground
   }
 `;

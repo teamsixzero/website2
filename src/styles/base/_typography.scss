@@ -94,12 +94,12 @@ h6, .h6 {
   font-weight: 700;
 }
 
-.text-normal {
-  @include fontSize(17px, 32px);
-}
-
 .text-book {
   @include fontSize(18px, 32px);
+}
+
+.text-large {
+  @include fontSize(23px, 150%);
 }
 
 @include breakpoint('sm'){
