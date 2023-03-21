@@ -14,6 +14,7 @@ export const query = graphql`
     blocks {
       __typename
 
+      ...BlockContactCallout
       ...BlockContent
       ...BlockHeader
       ...BlockImageFullWidth

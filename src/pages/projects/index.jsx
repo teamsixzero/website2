@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../../components/Layout";
-import ContactCallout from "../../components/contact-callout";
+import ContactCallout from "../../components/ContactCallout";
 
 const ProjectsPage = ({ data }) => {
   // const projects = data.allContentfulProject.edges.map(({ node }) => node);

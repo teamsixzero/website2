@@ -1,4 +1,4 @@
-union ContentfulBlockUnion = ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockOrderedList | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
+union ContentfulBlockUnion = ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockOrderedList | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
 
 union ContentfulMultiSectionBlockUnion = ContentfulBlockContent | ContentfulBlockImageFullWidth | ContentfulBlockOrderedList
 
@@ -82,6 +82,40 @@ type ContentfulPersonSysContentType @derivedTypes {
 }
 
 type ContentfulPersonSysContentTypeSys {
+    type: String
+    linkType: String
+    id: String
+}
+
+
+
+
+type ContentfulBlockContactCallout implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+    contentful_id: String!
+    node_locale: String!
+    title: String
+    heading: String
+    subHeading: String
+    buttonText: String
+    buttonUrl: String
+    spaceId: String
+    createdAt: Date @dateformat
+    updatedAt: Date @dateformat
+    sys: ContentfulBlockContactCalloutSys
+    project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+}
+
+type ContentfulBlockContactCalloutSys @derivedTypes {
+    type: String
+    revision: Int
+    contentType: ContentfulBlockContactCalloutSysContentType
+}
+
+type ContentfulBlockContactCalloutSysContentType @derivedTypes {
+    sys: ContentfulBlockContactCalloutSysContentTypeSys
+}
+
+type ContentfulBlockContactCalloutSysContentTypeSys {
     type: String
     linkType: String
     id: String

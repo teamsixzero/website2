@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 import BookCallout from "../components/book-callout";
-import ContactCallout from "../components/contact-callout";
+import ContactCallout from "../components/ContactCallout";
 
 const IndexPage = () => {
   return (
