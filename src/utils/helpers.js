@@ -27,9 +27,23 @@ export const blockBuilder = (blocks) => {
   return pageBlocks;
 };
 
+export const replaceParenthesesWords = (str) => {
+  const regex = /(\([\w\s]+\))/g; // Matches words wrapped in parentheses
+  const splitWords = str.split(regex);
+
+  return splitWords.map((word) => {
+    if (word.match(regex)) {
+      // Matched word is wrapped in parentheses
+      return <span className="highlight">{word.slice(1, -1)}</span>;
+    }
+    // Word is not wrapped in parentheses
+    return word;
+  });
+};
+
 export const createSpanFromMatches = (matches, text, restProps = {}) => {
   const content = text.split(`${matches[0]}[${matches[2]}]`);
-  return [...new Set(content)] // get the unique values / avoid ["", ""] - when there are no other parts of text
+  const uniqueContent = [...new Set(content)] // get the unique values / avoid ["", ""] - when there are no other parts of text
     .map((text) =>
       text === "" ? ( // map over the unique values to replace that which was split
         <span {...restProps} style={{ color: `${matches[2]}` }}>
@@ -39,6 +53,8 @@ export const createSpanFromMatches = (matches, text, restProps = {}) => {
         text
       )
     ); // or return the text
+
+  return uniqueContent;
 };
 
 export const addColour = (children = []) => {
@@ -51,6 +67,7 @@ export const addColour = (children = []) => {
         return createSpanFromMatches(matches, child);
       }
     }
+
     if (typeof child === "object") {
       const content = child.props?.children;
       const className = child.props?.className;
@@ -64,5 +81,13 @@ export const addColour = (children = []) => {
     // make sure to always return the content if there is no match to the regex
     return child;
   });
+  return mappedChildren;
+};
+
+export const addHighlight = (children = []) => {
+  const mappedChildren = children.flatMap((child) => {
+    return replaceParenthesesWords(child);
+  });
+
   return mappedChildren;
 };

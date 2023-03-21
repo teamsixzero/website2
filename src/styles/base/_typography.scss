@@ -135,33 +135,16 @@ h6, .h6 {
   }
 }
 
+.font-bold {
+  font-weight: 500;
+}
+
 .highlight {
-  color: var(--highlight-color);
+  padding: 0.25rem;
 
-  span {
-    position: relative;
-    display: inline-block;
-
-    &:first-child {
-      margin-left: 2px;
-    }
-
-    &:last-child {
-      margin-right: 2px;
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 4px;
-      left: -7px;
-      right: -7px;
-      bottom: 0;
-      background: var(--highlight-bg);
-      border-radius: 4px;
-      z-index: -1;
-    }
-  }
+  border-radius: 0.25rem;
+  color: var(--color-white);
+  background-color: #0B122F;
 }
 
 .accent {

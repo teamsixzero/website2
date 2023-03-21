@@ -8,7 +8,7 @@ import { addColour } from "../utils/helpers";
 
 const website_url = "https://sixzero.co";
 
-const options = {
+const defaultOptions = {
   renderMark: {},
   renderNode: {
     [INLINES.HYPERLINK]: ({ data }, children) => {
@@ -74,8 +74,8 @@ const options = {
   },
 };
 
-const ContentfulRichText = ({ content }) => {
-  return <>{renderRichText(content, options)}</>;
+const ContentfulRichText = ({ content, options }) => {
+  return <>{renderRichText(content, options || defaultOptions)}</>;
 };
 
 export default ContentfulRichText;
