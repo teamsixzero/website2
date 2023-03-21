@@ -5,7 +5,7 @@ const ContactCallout = ({ data }) => {
   const { heading, subHeading, buttonText, buttonUrl } = data;
 
   return (
-    <section className="block-contact-callout">
+    <div className="block-contact-callout">
       <div className="block-contact-callout__wrapper">
         <h2 className="h3">{heading}</h2>
         <p className="h6">{subHeading}</p>
@@ -18,7 +18,7 @@ const ContactCallout = ({ data }) => {
           {buttonText}
         </a>
       </div>
-    </section>
+    </div>
   );
 };
 

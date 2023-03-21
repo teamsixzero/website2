@@ -41,13 +41,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes, printTypeDefinitions } = actions;
-  // printTypeDefinitions({ path: "./gatsbyTypeDefs.txt" });
+  //   printTypeDefinitions({ path: "./gatsbyTypeDefs.txt" });
 
   // Having to copy the type defs from the typeDefs.txt file, otherwise Contentful doesn't create the GrapphQL Schema entrires if there's no published content
   // Will have to do this for all other pages that page build and for every new block
   // all unions will have to be updated with the new block name. Ordered alphabetically
   const typeDefs = `
-  union ContentfulBlockUnion = ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockOrderedList | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
+union ContentfulBlockUnion = ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
 
 union ContentfulMultiSectionBlockUnion = ContentfulBlockContent | ContentfulBlockImageFullWidth | ContentfulBlockOrderedList
 
@@ -61,6 +61,7 @@ type ContentfulProject implements ContentfulReference & ContentfulEntry & Node @
     slug: String
     alignment: String
     summaryImage: [ContentfulAsset] @link(by: "id", from: "summaryImage___NODE")
+    block_next_project: [ContentfulBlockNextProject] @link(by: "id", from: "block next project___NODE") @proxy(from: "block next project___NODE")
     blocks: [ContentfulBlockUnion] @link(by: "id", from: "blocks___NODE")
     summary: contentfulProjectSummaryTextNode @link(by: "id", from: "summary___NODE")
     description: contentfulProjectDescriptionTextNode @link(by: "id", from: "description___NODE")
@@ -341,6 +342,37 @@ type ContentfulBlockMultiSectionSysContentTypeSys {
 
 
 
+type ContentfulBlockNextProject implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  project: ContentfulProject @link(by: "id", from: "project___NODE")
+  coverImage: ContentfulAsset @link(by: "id", from: "coverImage___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulBlockNextProjectSys
+}
+
+type ContentfulBlockNextProjectSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulBlockNextProjectSysContentType
+}
+
+type ContentfulBlockNextProjectSysContentType @derivedTypes {
+  sys: ContentfulBlockNextProjectSysContentTypeSys
+}
+
+type ContentfulBlockNextProjectSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+
+
+
 type ContentfulBlockOrderedList implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
     contentful_id: String!
     node_locale: String!
@@ -543,7 +575,7 @@ type ContentfulTitleTextSysContentTypeSys {
     linkType: String
     id: String
 }
-  `;
+    `;
 
   createTypes(typeDefs);
 };
