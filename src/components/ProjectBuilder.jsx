@@ -18,6 +18,7 @@ export const query = graphql`
       ...BlockContent
       ...BlockHeader
       ...BlockImageFullWidth
+      ...BlockImageThreeColumns
       ...BlockImageTwoColumns
       ...BlockMultiSection
       ...BlockNextProject

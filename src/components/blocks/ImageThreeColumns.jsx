@@ -3,11 +3,11 @@ import { graphql } from "gatsby";
 
 import Image from "../Image";
 
-const ImageTwoColumns = ({ data }) => {
+const ImageThreeColumns = ({ data }) => {
   const { images } = data;
 
   return (
-    <div className="block-image-two-columns">
+    <div className="block-image-three-columns">
       {images.map((image) => (
         <figure key={image?.id}>
           <Image src={image} alt={image?.title} />
@@ -17,10 +17,10 @@ const ImageTwoColumns = ({ data }) => {
   );
 };
 
-export default ImageTwoColumns;
+export default ImageThreeColumns;
 
 export const query = graphql`
-  fragment BlockImageTwoColumns on ContentfulBlockImageTwoColumns {
+  fragment BlockImageThreeColumns on ContentfulBlockImageThreeColumns {
     images {
       id
       gatsbyImageData(

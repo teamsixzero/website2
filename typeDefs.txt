@@ -1,4 +1,4 @@
-union ContentfulBlockUnion = ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
+union ContentfulBlockUnion = ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
 
 union ContentfulMultiSectionBlockUnion = ContentfulBlockContent | ContentfulBlockImageFullWidth | ContentfulBlockOrderedList
 
@@ -229,12 +229,42 @@ type ContentfulBlockImageFullWidthSysContentTypeSys {
 
 
 
+type ContentfulBlockImageThreeColumns implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  images: [ContentfulAsset] @link(by: "id", from: "images___NODE")
+  project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulBlockImageThreeColumnsSys
+}
+
+type ContentfulBlockImageThreeColumnsSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulBlockImageThreeColumnsSysContentType
+}
+
+type ContentfulBlockImageThreeColumnsSysContentType @derivedTypes {
+  sys: ContentfulBlockImageThreeColumnsSysContentTypeSys
+}
+
+type ContentfulBlockImageThreeColumnsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+
+
+
 type ContentfulBlockImageTwoColumns implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
     contentful_id: String!
     node_locale: String!
     title: String
-    imageOne: ContentfulAsset @link(by: "id", from: "imageOne___NODE")
-    imageTwo: ContentfulAsset @link(by: "id", from: "imageTwo___NODE")
+    images: [ContentfulAsset] @link(by: "id", from: "images___NODE")
     project: [ContentfulProject] @link(by: "id", from: "project___NODE")
     spaceId: String
     createdAt: Date @dateformat
