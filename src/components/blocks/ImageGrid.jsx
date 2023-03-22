@@ -6,9 +6,10 @@ import Image from "../Image";
 const ImageGrid = ({ data }) => {
   const { images, style } = data;
 
-  console.log(`style`, style);
+  const gridClass = style.toLowerCase().replace(` `, `-`);
+
   return (
-    <div className="block-image-grid">
+    <div className={`block-image-grid ${gridClass}`}>
       {images.map((image) => (
         <figure key={image?.id}>
           <Image src={image} alt={image?.title} />
