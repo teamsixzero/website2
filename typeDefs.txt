@@ -1,4 +1,4 @@
-union ContentfulBlockUnion = ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
+union ContentfulBlockUnion = ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
 
 union ContentfulMultiSectionBlockUnion = ContentfulBlockContent | ContentfulBlockImageFullWidth | ContentfulBlockOrderedList
 
@@ -224,6 +224,38 @@ type ContentfulBlockImageFullWidthSysContentTypeSys {
     type: String
     linkType: String
     id: String
+}
+
+
+
+
+type ContentfulBlockImageGrid implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  style: String
+  images: [ContentfulAsset] @link(by: "id", from: "images___NODE")
+  project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulBlockImageGridSys
+}
+
+type ContentfulBlockImageGridSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulBlockImageGridSysContentType
+}
+
+type ContentfulBlockImageGridSysContentType @derivedTypes {
+  sys: ContentfulBlockImageGridSysContentTypeSys
+}
+
+type ContentfulBlockImageGridSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
 }
 
 
