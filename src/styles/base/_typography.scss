@@ -1,32 +1,32 @@
 @font-face {
-   font-family: 'PP Pangram';
-   src: url('../assets/fonts/PPPangramSans-Regular.eot');
-   src: url('../assets/fonts/PPPangramSans-Regular.woff') format('woff'),
-        url('../assets/fonts/PPPangramSans-Regular.ttf') format('truetype');
-   font-weight: 400;
-   ascent-override: 70%; // FIXME: windows-specific
+  font-family: "PP Pangram";
+  src: url("../assets/fonts/PPPangramSans-Regular.eot");
+  src: url("../assets/fonts/PPPangramSans-Regular.woff") format("woff"),
+    url("../assets/fonts/PPPangramSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  ascent-override: 70%; // FIXME: windows-specific
 }
 
 @font-face {
-   font-family: 'PP Pangram';
-   src: url('../assets/fonts/PPPangramSans-Medium.eot');
-   src: url('../assets/fonts/PPPangramSans-Medium.woff') format('woff'),
-        url('../assets/fonts/PPPangramSans-Medium.ttf') format('truetype');
-   font-weight: 500;
-   ascent-override: 70%; // FIXME: windows-specific
+  font-family: "PP Pangram";
+  src: url("../assets/fonts/PPPangramSans-Medium.eot");
+  src: url("../assets/fonts/PPPangramSans-Medium.woff") format("woff"),
+    url("../assets/fonts/PPPangramSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  ascent-override: 70%; // FIXME: windows-specific
 }
 
 @font-face {
-   font-family: 'PP Pangram';
-   src: url('../assets/fonts/PPPangramSans-Bold.eot');
-   src: url('../assets/fonts/PPPangramSans-Bold.woff') format('woff'),
-        url('../assets/fonts/PPPangramSans-Bold.ttf') format('truetype');
-   font-weight: 700;
-   ascent-override: 70%; // FIXME: windows-specific
+  font-family: "PP Pangram";
+  src: url("../assets/fonts/PPPangramSans-Bold.eot");
+  src: url("../assets/fonts/PPPangramSans-Bold.woff") format("woff"),
+    url("../assets/fonts/PPPangramSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  ascent-override: 70%; // FIXME: windows-specific
 }
 
 :root {
-  --font-primary: 'PP Pangram', sans-serif;
+  --font-primary: "PP Pangram", sans-serif;
 }
 
 html {
@@ -44,31 +44,48 @@ body {
 
 // Headings
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   font-weight: 500;
 }
 
-h1, .h1 {
+h1,
+.h1 {
   @include fontSize(100px, 110%);
 }
 
-h2, .h2 {
+h2,
+.h2 {
   @include fontSize(80px, 110%);
 }
 
-h3, .h3 {
+h3,
+.h3 {
   @include fontSize(54px, 120%);
 }
 
-h4, .h4 {
+h4,
+.h4 {
   @include fontSize(44px, 120%);
 }
 
-h5, .h5 {
+h5,
+.h5 {
   @include fontSize(32px, 120%);
 }
 
-h6, .h6 {
+h6,
+.h6 {
   @include fontSize(23px, 150%);
 }
 
@@ -102,30 +119,36 @@ h6, .h6 {
   @include fontSize(23px, 150%);
 }
 
-@include breakpoint('sm'){
+@include breakpoint("sm") {
   // Headings
 
-  h1, .h1 {
+  h1,
+  .h1 {
     @include fontSize(50px, 120%);
   }
-  
-  h2, .h2 {
+
+  h2,
+  .h2 {
     @include fontSize(40px, 120%);
   }
-  
-  h3, .h3 {
+
+  h3,
+  .h3 {
     @include fontSize(30px, 120%);
   }
-  
-  h4, .h4 {
+
+  h4,
+  .h4 {
     @include fontSize(26px, 130%);
   }
-  
-  h5, .h5 {
+
+  h5,
+  .h5 {
     @include fontSize(23px, 130%);
   }
-  
-  h6, .h6 {
+
+  h6,
+  .h6 {
     @include fontSize(17px, 150%);
   }
 
@@ -144,7 +167,7 @@ h6, .h6 {
 
   border-radius: 0.25rem;
   color: var(--color-white);
-  background-color: #0B122F;
+  background-color: #0b122f;
 }
 
 .accent {

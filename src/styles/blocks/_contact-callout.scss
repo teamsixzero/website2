@@ -1,27 +1,24 @@
 .block-contact-callout {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 
-    padding: 10rem 0;
+  padding: 10rem 0;
 
-    &__wrapper {
-        text-align: center;
-      
-        .h6 {
-          color: var(--color-grey-normal);
-        }
-      
-        .btn {
-          margin-top: 1.5rem;
+  &__wrapper {
+    text-align: center;
 
+    .h6 {
+      color: var(--color-grey-normal);
+    }
 
-        }
+    .btn {
+      margin-top: 1.5rem;
+    }
 
-        @include breakpoint('sm'){
-            .btn {
-                margin-top: 1rem;
-            }
-        }
+    @include breakpoint("sm") {
+      .btn {
+        margin-top: 1rem;
       }
+    }
   }
-  
+}

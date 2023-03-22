@@ -1,28 +1,28 @@
 .block-multi-section {
+  position: relative;
+  width: 100%;
+
+  &.has-background {
+    padding: 8rem 5rem;
+    background-color: #eef2fa;
+  }
+
+  &__wrapper {
     position: relative;
     width: 100%;
 
-    &.has-background {
-        padding: 8rem 5rem;
-        background-color: #EEF2FA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 6rem;
+
+    & > section > * {
+      max-width: 50rem;
     }
 
-    &__wrapper {
-        position: relative;
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        row-gap: 6rem;
-
-        & > section > * {
-            max-width: 50rem;
-        }
-
-        & > section > .block-image-full-width {
-            max-width: 100%;
-        }
+    & > section > .block-image-full-width {
+      max-width: 100%;
     }
+  }
 }

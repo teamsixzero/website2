@@ -96,7 +96,7 @@
 
     li {
       &:before {
-        content: '•';
+        content: "•";
         float: left;
         width: 10px;
       }
@@ -110,12 +110,12 @@
     &:last-child {
       margin-bottom: 0;
     }
-    
+
     li {
       counter-increment: ordered-list;
 
       &:before {
-        content: counter(ordered-list) '. ';
+        content: counter(ordered-list) ". ";
         float: left;
         width: 16px;
         margin-left: -16px;
@@ -174,7 +174,7 @@
   figcaption {
     @extend .accent;
     margin-top: 16px;
-    color: #9DA3A8;
+    color: #9da3a8;
     text-align: center;
   }
 

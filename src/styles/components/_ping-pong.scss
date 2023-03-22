@@ -24,18 +24,20 @@
   .ping-pong_image {
     position: relative;
     padding: 56px 0 56px 48px;
-    background: url('/images/components/ping-pong-bleed-left-bg.png') top left no-repeat;
+    background: url("/images/components/ping-pong-bleed-left-bg.png") top left
+      no-repeat;
     background-size: 519px auto;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 21px;
       right: -54px;
       width: 258px;
       height: 213px;
       display: block;
-      background: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTggMjEzIj48ZyBzdHlsZT0ibWl4LWJsZW5kLW1vZGU6bXVsdGlwbHkiPjxwYXRoIGQ9Ik0yNDUuNzYgMTI0Ljk4MWM1LjM0NS05LjAwMSAxMC40MDItMTguMjQyIDExLjg0Ni0yOC4yMDQgMi42MDEtMTguNjAzLTcuOTQ1LTM3LjIwNi0yMy44MzYtNTAuNDA4LTE1Ljg5MS0xMy4yMDItMzYuNTUtMjEuNzIzLTU3LjY0Mi0yOC40NDQtMjMuNjkyLTcuNDQxLTQ4LjI1MS0xMi45NjItNzMuMzg4LTE2LjA4Mi0yMy4yNTktMy4wMDEtNDkuMjYyLTMuNjAxLTY4LjE4NyA4LjE2LTkuNjggNi4wMDItMTYuNDcgMTQuNjQzLTIxLjUyNiAyMy42NDRDLTguMjA5IDcxLjIxMy0yLjI4NiAxMTcuMDYgMjIuMTMgMTUzLjMwNmM5LjEgMTMuNTYyIDIxLjA5MSAyNi40MDQgMzcuMTI3IDM0LjQ0NSAyNC4xMjYgMTIuMTIyIDgwLjc1NiAzMS40NDUgMTA5Ljc5MyAyMS44NDMgMzQuODE2LTExLjY0MiA2MS4yNTMtNTguNTY5IDc2LjcxMS04NC42MTNaIiBmaWxsPSIjNURDRkM5Ii8+PC9nPjwvc3ZnPg==') center center no-repeat;
+      background: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTggMjEzIj48ZyBzdHlsZT0ibWl4LWJsZW5kLW1vZGU6bXVsdGlwbHkiPjxwYXRoIGQ9Ik0yNDUuNzYgMTI0Ljk4MWM1LjM0NS05LjAwMSAxMC40MDItMTguMjQyIDExLjg0Ni0yOC4yMDQgMi42MDEtMTguNjAzLTcuOTQ1LTM3LjIwNi0yMy44MzYtNTAuNDA4LTE1Ljg5MS0xMy4yMDItMzYuNTUtMjEuNzIzLTU3LjY0Mi0yOC40NDQtMjMuNjkyLTcuNDQxLTQ4LjI1MS0xMi45NjItNzMuMzg4LTE2LjA4Mi0yMy4yNTktMy4wMDEtNDkuMjYyLTMuNjAxLTY4LjE4NyA4LjE2LTkuNjggNi4wMDItMTYuNDcgMTQuNjQzLTIxLjUyNiAyMy42NDRDLTguMjA5IDcxLjIxMy0yLjI4NiAxMTcuMDYgMjIuMTMgMTUzLjMwNmM5LjEgMTMuNTYyIDIxLjA5MSAyNi40MDQgMzcuMTI3IDM0LjQ0NSAyNC4xMjYgMTIuMTIyIDgwLjc1NiAzMS40NDUgMTA5Ljc5MyAyMS44NDMgMzQuODE2LTExLjY0MiA2MS4yNTMtNTguNTY5IDc2LjcxMS04NC42MTNaIiBmaWxsPSIjNURDRkM5Ii8+PC9nPjwvc3ZnPg==")
+        center center no-repeat;
       background-size: contain;
       mix-blend-mode: multiply;
     }
@@ -52,18 +54,20 @@
   .ping-pong_image {
     position: relative;
     padding: 56px 48px 56px 0;
-    background: url('/images/components/ping-pong-bleed-right-bg.png') top right no-repeat;
+    background: url("/images/components/ping-pong-bleed-right-bg.png") top right
+      no-repeat;
     background-size: 472px auto;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -2px;
       left: -60px;
       width: 205px;
       height: 202px;
       display: block;
-      background: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDUgMjAyIj48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxnIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTptdWx0aXBseSI+PHBhdGggZD0iTTE5NS4yNzUgMTE4Ljk4M2M0LjI0Ny04LjU2OSA4LjI2NC0xNy4zNjcgOS40MTItMjYuODUgMi4wNjYtMTcuNzEtNi4zMTMtMzUuNDItMTguOTQtNDcuOTg5LTEyLjYyNy0xMi41NjgtMjkuMDQxLTIwLjY4LTQ1LjgtMjcuMDgtMTguODI1LTcuMDgzLTM4LjMzOS0xMi4zNC01OC4zMTMtMTUuMzEtMTguNDgtMi44NTYtMzkuMTQyLTMuNDI4LTU0LjE4IDcuNzctNy42OSA1LjcxMy0xMy4wODUgMTMuOTQtMTcuMTAzIDIyLjUwOS0xNi44NzQgMzUuNzYzLTEyLjE2NyA3OS40MDkgNy4yMzIgMTEzLjkxNiA3LjIzMSAxMi45MTEgMTYuNzU5IDI1LjEzNiAyOS41IDMyLjc5MiAxOS4xNyAxMS41NCA2NC4xNjcgMjkuOTM2IDg3LjIzOSAyMC43OTUgMjcuNjY0LTExLjA4MyA0OC42Ny01NS43NTggNjAuOTUzLTgwLjU1M1oiIGZpbGw9IiM1RENGQzkiLz48L2c+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0iYSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMGgyMDV2MjAySDB6Ii8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+') center center no-repeat;
+      background: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDUgMjAyIj48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxnIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTptdWx0aXBseSI+PHBhdGggZD0iTTE5NS4yNzUgMTE4Ljk4M2M0LjI0Ny04LjU2OSA4LjI2NC0xNy4zNjcgOS40MTItMjYuODUgMi4wNjYtMTcuNzEtNi4zMTMtMzUuNDItMTguOTQtNDcuOTg5LTEyLjYyNy0xMi41NjgtMjkuMDQxLTIwLjY4LTQ1LjgtMjcuMDgtMTguODI1LTcuMDgzLTM4LjMzOS0xMi4zNC01OC4zMTMtMTUuMzEtMTguNDgtMi44NTYtMzkuMTQyLTMuNDI4LTU0LjE4IDcuNzctNy42OSA1LjcxMy0xMy4wODUgMTMuOTQtMTcuMTAzIDIyLjUwOS0xNi44NzQgMzUuNzYzLTEyLjE2NyA3OS40MDkgNy4yMzIgMTEzLjkxNiA3LjIzMSAxMi45MTEgMTYuNzU5IDI1LjEzNiAyOS41IDMyLjc5MiAxOS4xNyAxMS41NCA2NC4xNjcgMjkuOTM2IDg3LjIzOSAyMC43OTUgMjcuNjY0LTExLjA4MyA0OC42Ny01NS43NTggNjAuOTUzLTgwLjU1M1oiIGZpbGw9IiM1RENGQzkiLz48L2c+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0iYSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMGgyMDV2MjAySDB6Ii8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+")
+        center center no-repeat;
       background-size: contain;
       mix-blend-mode: multiply;
     }
@@ -80,12 +84,12 @@
   justify-content: flex-end;
   background-size: auto 100%;
   background-repeat: no-repeat;
-  
+
   &.ping-pong--image-left {
     padding-right: 148px;
     background-position: left center;
   }
-  
+
   &.ping-pong--image-right {
     padding-left: 192px;
     background-position: right center;

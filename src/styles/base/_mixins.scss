@@ -9,7 +9,7 @@
   font-size: $size; //Fallback in px
   font-size: calculateRem($size);
 
-  @if unit($lineHeight) == '%' {
+  @if unit($lineHeight) == "%" {
     line-height: $lineHeight;
   } @else {
     line-height: calc($lineHeight / $size);
@@ -41,16 +41,11 @@
 }
 
 @function css-function($function, $values...) {
-  @return 
-    $function
-    + unquote('(')
-    + $values
-    + unquote(')')
-  ;
+  @return $function + unquote("(") + $values + unquote(")");
 }
 
 @function css-min($values...) {
-  @return css-function( min, $values );
+  @return css-function(min, $values);
 }
 
 @function css-max($values...) {

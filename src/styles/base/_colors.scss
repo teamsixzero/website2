@@ -1,18 +1,26 @@
 :root {
   /* colors */
   --color-black: #000000;
-  --color-white: #FFFFFF;
-  --color-teal-normal: #5DCFC9;
-  --color-teal-medium: #91D0D6;
-  --color-teal-light: #DEF2F1;
+  --color-white: #ffffff;
+  --color-teal-normal: #5dcfc9;
+  --color-teal-medium: #91d0d6;
+  --color-teal-light: #def2f1;
   --color-blue-primary: #233147;
-  --color-blue-secondary: #3C4857;
-  --color-grey-normal: #B0B6BC;
-  --color-grey-dark: #9FA6B2;
+  --color-blue-secondary: #3c4857;
+  --color-grey-normal: #b0b6bc;
+  --color-grey-dark: #9fa6b2;
 
   /* gradients */
-  --gradient-grey: linear-gradient(180deg, rgba(254, 254, 254, 0.0001) 0%, #FBFBFB 98.81%);
-  --gradient-grey-reverse: linear-gradient(180deg, #FBFBFB 0%, rgba(254, 254, 254, 0.0001) 98.81%);
+  --gradient-grey: linear-gradient(
+    180deg,
+    rgba(254, 254, 254, 0.0001) 0%,
+    #fbfbfb 98.81%
+  );
+  --gradient-grey-reverse: linear-gradient(
+    180deg,
+    #fbfbfb 0%,
+    rgba(254, 254, 254, 0.0001) 98.81%
+  );
 
   /* body */
   --color-bg: var(--color-white);

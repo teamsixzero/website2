@@ -1,28 +1,28 @@
 .block-content {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    &__wrapper {
+  &__wrapper {
     max-width: 50rem;
 
     display: flex;
     flex-direction: column;
     row-gap: var(--spacing-3);
-    }
+  }
 
-    &.has-background {
-        padding: 8rem 0;
-        background-color: #F9F9F9;
-    }
+  &.has-background {
+    padding: 8rem 0;
+    background-color: #f9f9f9;
+  }
 }
 
 .block-multi-section {
-    .block-content.has-background {
-        padding: 0;
-        background-color: transparent;
-    }
+  .block-content.has-background {
+    padding: 0;
+    background-color: transparent;
+  }
 }

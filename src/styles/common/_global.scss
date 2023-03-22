@@ -3,7 +3,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -17,4 +19,8 @@ body {
   body {
     box-shadow: 0 30px 60px rgb(184 188 194 / 30%);
   }
+}
+
+.gatsby-image-wrapper {
+  height: 100%;
 }

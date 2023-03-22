@@ -1,15 +1,23 @@
 $breakpoints: (
-  xl: 90rem, // ~1440px
-  lg: 80rem, // ~1280px
-  md: 64rem, // ~1024px
-  sm: 48rem, // ~768px
-  xs: 40rem  // ~640px
+  xl: 90rem,
+  // ~1440px
+  lg: 80rem,
+  // ~1280px
+  md: 64rem,
+  // ~1024px
+  sm: 48rem,
+  // ~768px
+  xs: 40rem // ~640px,
 ) !default;
 
 @mixin breakpoint($breakpoint, $logic: false) {
-  @if( $logic ) {
-    @media #{$logic} and (max-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+  @if ($logic) {
+    @media #{$logic} and (max-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+      @content;
+    }
   } @else {
-    @media (max-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+    @media (max-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+      @content;
+    }
   }
 }
