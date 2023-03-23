@@ -1,7 +1,4 @@
-const path = require("path");
 // const typeDefs = require("./typeDefs.txt");
-
-// console.log(`typeDefs`, typeDefs);
 
 exports.createPages = async ({ graphql, actions }) => {
   const path = require(`path`);
