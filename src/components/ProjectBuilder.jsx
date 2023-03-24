@@ -13,6 +13,7 @@ export const query = graphql`
     blocks {
       __typename
 
+      ...BlockCaseStudiesList
       ...BlockContactCallout
       ...BlockContent
       ...BlockHeader

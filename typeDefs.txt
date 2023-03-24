@@ -1,4 +1,4 @@
-union ContentfulBlockUnion = ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockPageTitle | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
+union ContentfulBlockUnion = ContentfulBlockCaseStudiesList | ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockPageTitle | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
 
 union ContentfulMultiSectionBlockUnion = ContentfulBlockContent | ContentfulBlockImageFullWidth | ContentfulBlockOrderedList
 
@@ -42,11 +42,14 @@ type ContentfulTemplateProject implements ContentfulReference & ContentfulEntry 
     title: String
     slug: String
     alignment: String
-    summaryImage: [ContentfulAsset] @link(by: "id", from: "summaryImage___NODE")
-    block_next_project: [ContentfulBlockNextProject] @link(by: "id", from: "block next project___NODE") @proxy(from: "block next project___NODE")
     blocks: [ContentfulBlockUnion] @link(by: "id", from: "blocks___NODE")
-    summary: contentfulProjectSummaryTextNode @link(by: "id", from: "summary___NODE")
-    description: contentfulProjectDescriptionTextNode @link(by: "id", from: "description___NODE")
+    block__next_project: [ContentfulBlockNextProject] @link(by: "id", from: "block: next project___NODE") @proxy(from: "block: next project___NODE")
+    block__case_studies_list: [ContentfulBlockCaseStudiesList] @link(by: "id", from: "block: case studies list___NODE") @proxy(from: "block: case studies list___NODE")
+    summary: contentfulTemplateProjectSummaryTextNode @link(by: "id", from: "summary___NODE")
+    summaryImage: [ContentfulAsset] @link(by: "id", from: "summaryImage___NODE")
+    summaryBackgroundColor: String
+    summaryTextColor: String
+    description: contentfulTemplateProjectDescriptionTextNode @link(by: "id", from: "description___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -69,21 +72,21 @@ type ContentfulTemplateProjectSysContentTypeSys {
     id: String
 }
 
-type contentfulProjectSummaryTextNode implements Node @derivedTypes @childOf(types: ["ContentfulTemplateProject"]) @dontInfer {
+type contentfulTemplateProjectSummaryTextNode implements Node @derivedTypes @childOf(types: ["ContentfulTemplateProject"]) @dontInfer {
     summary: String
-    sys: contentfulProjectSummaryTextNodeSys
+    sys: contentfulTemplateProjectSummaryTextNodeSys
 }
 
-type contentfulProjectSummaryTextNodeSys {
+type contentfulTemplateProjectSummaryTextNodeSys {
     type: String
 }
 
-type contentfulProjectDescriptionTextNode implements Node @derivedTypes @childOf(types: ["ContentfulTemplateProject"]) @dontInfer {
+type contentfulTemplateProjectDescriptionTextNode implements Node @derivedTypes @childOf(types: ["ContentfulTemplateProject"]) @dontInfer {
     description: String
-    sys: contentfulProjectDescriptionTextNodeSys
+    sys: contentfulTemplateProjectDescriptionTextNodeSys
 }
 
-type contentfulProjectDescriptionTextNodeSys {
+type contentfulTemplateProjectDescriptionTextNodeSys {
     type: String
 }
 
@@ -96,7 +99,7 @@ type ContentfulPerson implements ContentfulReference & ContentfulEntry & Node @d
     name: String
     position: String
     photo: ContentfulAsset @link(by: "id", from: "photo___NODE")
-    block_testimonial: [ContentfulBlockTestimonial] @link(by: "id", from: "block testimonial___NODE") @proxy(from: "block testimonial___NODE")
+    block__testimonial: [ContentfulBlockTestimonial] @link(by: "id", from: "block: testimonial___NODE") @proxy(from: "block: testimonial___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -122,6 +125,38 @@ type ContentfulPersonSysContentTypeSys {
 
 
 
+type ContentfulBlockCaseStudiesList implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+    contentful_id: String!
+    node_locale: String!
+    title: String
+    caseStudies: [ContentfulTemplateProject] @link(by: "id", from: "caseStudies___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
+    spaceId: String
+    createdAt: Date @dateformat
+    updatedAt: Date @dateformat
+    sys: ContentfulBlockCaseStudiesListSys
+}
+
+type ContentfulBlockCaseStudiesListSys @derivedTypes {
+    type: String
+    revision: Int
+    contentType: ContentfulBlockCaseStudiesListSysContentType
+}
+
+type ContentfulBlockCaseStudiesListSysContentType @derivedTypes {
+    sys: ContentfulBlockCaseStudiesListSysContentTypeSys
+}
+
+type ContentfulBlockCaseStudiesListSysContentTypeSys {
+    type: String
+    linkType: String
+    id: String
+}
+
+
+
+
 type ContentfulBlockContactCallout implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
     contentful_id: String!
     node_locale: String!
@@ -134,8 +169,8 @@ type ContentfulBlockContactCallout implements ContentfulReference & ContentfulEn
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
     sys: ContentfulBlockContactCalloutSys
-    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
 }
 
 type ContentfulBlockContactCalloutSys @derivedTypes {
@@ -163,13 +198,13 @@ type ContentfulBlockContent implements ContentfulReference & ContentfulEntry & N
     title: String
     text: ContentfulBlockContentText
     hasBackground: Boolean
-    block_multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block multi section___NODE") @proxy(from: "block multi section___NODE")
+    block__multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block: multi section___NODE") @proxy(from: "block: multi section___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
     sys: ContentfulBlockContentSys
-    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
 }
 
 type ContentfulBlockContentText {
@@ -200,8 +235,8 @@ type ContentfulBlockHeader implements ContentfulReference & ContentfulEntry & No
     node_locale: String!
     title: String
     content: ContentfulBlockHeaderContent
-    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -236,10 +271,10 @@ type ContentfulBlockImageFullWidth implements ContentfulReference & ContentfulEn
     node_locale: String!
     title: String
     source: ContentfulAsset @link(by: "id", from: "source___NODE")
-    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
     spaceId: String
-    block_multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block multi section___NODE") @proxy(from: "block multi section___NODE")
+    block__multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block: multi section___NODE") @proxy(from: "block: multi section___NODE")
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
     sys: ContentfulBlockImageFullWidthSys
@@ -270,8 +305,8 @@ type ContentfulBlockImageGrid implements ContentfulReference & ContentfulEntry &
   title: String
   style: String
   images: [ContentfulAsset] @link(by: "id", from: "images___NODE")
-  page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-  project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+  template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+  template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
@@ -302,8 +337,8 @@ type ContentfulBlockImageThreeColumns implements ContentfulReference & Contentfu
   node_locale: String!
   title: String
   images: [ContentfulAsset] @link(by: "id", from: "images___NODE")
-  page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-  project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+  template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+  template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
@@ -334,8 +369,8 @@ type ContentfulBlockImageTwoColumns implements ContentfulReference & ContentfulE
     node_locale: String!
     title: String
     images: [ContentfulAsset] @link(by: "id", from: "images___NODE")
-    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -367,8 +402,8 @@ type ContentfulBlockMultiSection implements ContentfulReference & ContentfulEntr
     title: String
     blocks: [ContentfulMultiSectionBlockUnion] @link(by: "id", from: "blocks___NODE")
     hasBackground: Boolean
-    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -398,8 +433,9 @@ type ContentfulBlockNextProject implements ContentfulReference & ContentfulEntry
   contentful_id: String!
   node_locale: String!
   title: String
-  project: ContentfulTemplateProject @link(by: "id", from: "project___NODE")
+  project: ContentfulTemplateProject @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
   coverImage: ContentfulAsset @link(by: "id", from: "coverImage___NODE")
+  template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
@@ -429,13 +465,13 @@ type ContentfulBlockOrderedList implements ContentfulReference & ContentfulEntry
     contentful_id: String!
     node_locale: String!
     listItems: [ContentfulListItem] @link(by: "id", from: "listItems___NODE")
-    block_multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block multi section___NODE") @proxy(from: "block multi section___NODE")
+    block__multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block: multi section___NODE") @proxy(from: "block: multi section___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
     sys: ContentfulBlockOrderedListSys
-    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
 }
 
 type ContentfulBlockOrderedListSys @derivedTypes {
@@ -462,8 +498,8 @@ type ContentfulBlockPageTitle implements ContentfulReference & ContentfulEntry &
     node_locale: String!
     title: String
     content: ContentfulBlockPageTitleContent
-    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -497,8 +533,8 @@ type ContentfulBlockProjectInfo implements ContentfulReference & ContentfulEntry
     node_locale: String!
     title: String
     info: [ContentfulTitleText] @link(by: "id", from: "info___NODE")
-    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -530,8 +566,8 @@ type ContentfulBlockTestimonial implements ContentfulReference & ContentfulEntry
   title: String
   quote: ContentfulBlockTestimonialQuote
   person: ContentfulPerson @link(by: "id", from: "person___NODE")
-  page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-  project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+  template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+  template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
@@ -572,8 +608,8 @@ type ContentfulBlockTextAndImage implements ContentfulReference & ContentfulEntr
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
     sys: ContentfulBlockTextAndImageSys
-    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
-    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
 }
 
 type ContentfulBlockTextAndImageText {
@@ -603,7 +639,7 @@ type ContentfulListItem implements ContentfulReference & ContentfulEntry & Node 
     contentful_id: String!
     node_locale: String!
     title: String
-    block_ordered_list: [ContentfulBlockOrderedList] @link(by: "id", from: "block ordered list___NODE") @proxy(from: "block ordered list___NODE")
+    block__ordered_list: [ContentfulBlockOrderedList] @link(by: "id", from: "block: ordered list___NODE") @proxy(from: "block: ordered list___NODE")
     text: contentfulListItemTextTextNode @link(by: "id", from: "text___NODE")
     spaceId: String
     createdAt: Date @dateformat
@@ -644,7 +680,7 @@ type ContentfulTitleText implements ContentfulReference & ContentfulEntry & Node
     node_locale: String!
     title: String
     text: String
-    block_project_info: [ContentfulBlockProjectInfo] @link(by: "id", from: "block project info___NODE") @proxy(from: "block project info___NODE")
+    block__project_info: [ContentfulBlockProjectInfo] @link(by: "id", from: "block: project info___NODE") @proxy(from: "block: project info___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat

@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { blockBuilder } from "../../utils/helpers.js";
+import { blockBuilder } from "../../utils/blocks.js";
 
 const MultiSection = ({ data }) => {
   const { blocks, hasBackground } = data;

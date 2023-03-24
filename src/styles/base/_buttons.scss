@@ -10,13 +10,23 @@
 
   @include fontSize(16px, 12px);
   font-weight: 500;
-}
 
-.btn--secondary {
-  padding: 1rem 1.5rem;
-  background: transparent;
-  border: 1px solid var(--btn-bg);
-  color: var(--btn-bg);
+  &.light {
+    background: var(--color-white);
+    color: var(--color-blue-primary);
+  }
+
+  &.dark {
+    background: var(--color-blue-primary);
+    color: var(--color-white);
+  }
+
+  &.secondary {
+    padding: 1rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--btn-bg);
+    color: var(--btn-bg);
+  }
 }
 
 .text-link {
