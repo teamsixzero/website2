@@ -1,0 +1,11 @@
+.block-page-title {
+  position: relative;
+  width: 89%;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-4);
+
+  margin-right: auto;
+  margin-bottom: -1.25rem;
+}
