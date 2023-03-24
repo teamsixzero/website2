@@ -29,7 +29,7 @@ const IndexPage = () => {
           alt="University of Alberta logo"
         />
         <img src="/images/index/client-squadcast.svg" alt="SquadCast logo" />
-        <img src="/images/index/client-kinzoo.svg" alt="Kinzoo logo" />
+        <img src="/images/index/client-kinzoo.s=vg" alt="Kinzoo logo" />
         <img src="/images/index/client-stc.svg" alt="STC logo" />
       </section>
 
@@ -70,7 +70,7 @@ const IndexPage = () => {
         <div className="testimonial-author">
           <img
             src="/images/index/testimonial-alexander-whedbee.jpg"
-            alt="Photo of Alexander Whedbee"
+            alt="Alexander Whedbee"
           />
           <div className="testimonial-author_name">
             <p className="accent">Alexander Whedbee</p>
@@ -119,7 +119,7 @@ const IndexPage = () => {
         <div className="testimonial-author">
           <img
             src="/images/index/testimonial-ryan-smith.jpg"
-            alt="Photo of Ryan Smith"
+            alt="Ryan Smith"
           />
           <div className="testimonial-author_name">
             <p className="accent">Ryan Smith</p>
@@ -169,7 +169,7 @@ const IndexPage = () => {
         <div className="testimonial-author">
           <img
             src="/images/index/testimonial-chris-heard.jpg"
-            alt="Photo of Chris Heard"
+            alt="Chris Heard"
           />
           <div className="testimonial-author_name">
             <p className="accent">Chris Heard</p>
@@ -218,7 +218,7 @@ const IndexPage = () => {
         <div className="testimonial-author">
           <img
             src="/images/index/testimonial-chris-heard.jpg"
-            alt="Photo of Chris Heard"
+            alt="Chris Heard"
           />
           <div className="testimonial-author_name">
             <p className="accent">Chris Heard</p>

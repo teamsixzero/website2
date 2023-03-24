@@ -2,14 +2,14 @@ import { graphql } from "gatsby";
 
 import { blockBuilder } from "../utils/blocks.js";
 
-const ProjectBuilder = ({ blocks }) => {
+const PageBuilder = ({ blocks }) => {
   return blockBuilder(blocks);
 };
 
-export default ProjectBuilder;
+export default PageBuilder;
 
 export const query = graphql`
-  fragment ProjectBuilder on ContentfulTemplateProject {
+  fragment PageBuilder on ContentfulTemplatePage {
     blocks {
       __typename
 

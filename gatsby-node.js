@@ -38,20 +38,51 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes, printTypeDefinitions } = actions;
-  //   printTypeDefinitions({ path: "./gatsbyTypeDefs.txt" });
+  // printTypeDefinitions({ path: "./gatsbyTypeDefs.txt" });
 
   // Having to copy the type defs from the typeDefs.txt file, otherwise Contentful doesn't create the GrapphQL Schema entrires if there's no published content
   // Will have to do this for all other pages that page build and for every new block
   // all unions will have to be updated with the new block name. Ordered alphabetically
   const typeDefs = `
-union ContentfulBlockUnion = ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
+  union ContentfulBlockUnion = ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockPageTitle | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
 
 union ContentfulMultiSectionBlockUnion = ContentfulBlockContent | ContentfulBlockImageFullWidth | ContentfulBlockOrderedList
 
 
 
 
-type ContentfulProject implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+type ContentfulTemplatePage implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+    contentful_id: String!
+    node_locale: String!
+    title: String
+    slug: String
+    blocks: [ContentfulBlockUnion] @link(by: "id", from: "blocks___NODE")
+    spaceId: String
+    createdAt: Date @dateformat
+    updatedAt: Date @dateformat
+    sys: ContentfulTemplatePageSys
+}
+
+type ContentfulTemplatePageSys @derivedTypes {
+    type: String
+    revision: Int
+    contentType: ContentfulTemplatePageSysContentType
+}
+
+type ContentfulTemplatePageSysContentType @derivedTypes {
+    sys: ContentfulTemplatePageSysContentTypeSys
+}
+
+type ContentfulTemplatePageSysContentTypeSys {
+    type: String
+    linkType: String
+    id: String
+}
+
+
+
+
+type ContentfulTemplateProject implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
     contentful_id: String!
     node_locale: String!
     title: String
@@ -65,26 +96,26 @@ type ContentfulProject implements ContentfulReference & ContentfulEntry & Node @
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
-    sys: ContentfulProjectSys
+    sys: ContentfulTemplateProjectSys
 }
 
-type ContentfulProjectSys @derivedTypes {
+type ContentfulTemplateProjectSys @derivedTypes {
     type: String
     revision: Int
-    contentType: ContentfulProjectSysContentType
+    contentType: ContentfulTemplateProjectSysContentType
 }
 
-type ContentfulProjectSysContentType @derivedTypes {
-    sys: ContentfulProjectSysContentTypeSys
+type ContentfulTemplateProjectSysContentType @derivedTypes {
+    sys: ContentfulTemplateProjectSysContentTypeSys
 }
 
-type ContentfulProjectSysContentTypeSys {
+type ContentfulTemplateProjectSysContentTypeSys {
     type: String
     linkType: String
     id: String
 }
 
-type contentfulProjectSummaryTextNode implements Node @derivedTypes @childOf(types: ["ContentfulProject"]) @dontInfer {
+type contentfulProjectSummaryTextNode implements Node @derivedTypes @childOf(types: ["ContentfulTemplateProject"]) @dontInfer {
     summary: String
     sys: contentfulProjectSummaryTextNodeSys
 }
@@ -93,7 +124,7 @@ type contentfulProjectSummaryTextNodeSys {
     type: String
 }
 
-type contentfulProjectDescriptionTextNode implements Node @derivedTypes @childOf(types: ["ContentfulProject"]) @dontInfer {
+type contentfulProjectDescriptionTextNode implements Node @derivedTypes @childOf(types: ["ContentfulTemplateProject"]) @dontInfer {
     description: String
     sys: contentfulProjectDescriptionTextNodeSys
 }
@@ -149,7 +180,8 @@ type ContentfulBlockContactCallout implements ContentfulReference & ContentfulEn
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
     sys: ContentfulBlockContactCalloutSys
-    project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
 }
 
 type ContentfulBlockContactCalloutSys @derivedTypes {
@@ -182,7 +214,8 @@ type ContentfulBlockContent implements ContentfulReference & ContentfulEntry & N
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
     sys: ContentfulBlockContentSys
-    project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
 }
 
 type ContentfulBlockContentText {
@@ -213,7 +246,8 @@ type ContentfulBlockHeader implements ContentfulReference & ContentfulEntry & No
     node_locale: String!
     title: String
     content: ContentfulBlockHeaderContent
-    project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -248,7 +282,8 @@ type ContentfulBlockImageFullWidth implements ContentfulReference & ContentfulEn
     node_locale: String!
     title: String
     source: ContentfulAsset @link(by: "id", from: "source___NODE")
-    project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
     spaceId: String
     block_multi_section: [ContentfulBlockMultiSection] @link(by: "id", from: "block multi section___NODE") @proxy(from: "block multi section___NODE")
     createdAt: Date @dateformat
@@ -281,7 +316,8 @@ type ContentfulBlockImageGrid implements ContentfulReference & ContentfulEntry &
   title: String
   style: String
   images: [ContentfulAsset] @link(by: "id", from: "images___NODE")
-  project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+  page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+  project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
@@ -312,7 +348,8 @@ type ContentfulBlockImageThreeColumns implements ContentfulReference & Contentfu
   node_locale: String!
   title: String
   images: [ContentfulAsset] @link(by: "id", from: "images___NODE")
-  project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+  page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+  project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
@@ -343,7 +380,8 @@ type ContentfulBlockImageTwoColumns implements ContentfulReference & ContentfulE
     node_locale: String!
     title: String
     images: [ContentfulAsset] @link(by: "id", from: "images___NODE")
-    project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -375,7 +413,8 @@ type ContentfulBlockMultiSection implements ContentfulReference & ContentfulEntr
     title: String
     blocks: [ContentfulMultiSectionBlockUnion] @link(by: "id", from: "blocks___NODE")
     hasBackground: Boolean
-    project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -405,7 +444,7 @@ type ContentfulBlockNextProject implements ContentfulReference & ContentfulEntry
   contentful_id: String!
   node_locale: String!
   title: String
-  project: ContentfulProject @link(by: "id", from: "project___NODE")
+  project: ContentfulTemplateProject @link(by: "id", from: "project___NODE")
   coverImage: ContentfulAsset @link(by: "id", from: "coverImage___NODE")
   spaceId: String
   createdAt: Date @dateformat
@@ -441,7 +480,8 @@ type ContentfulBlockOrderedList implements ContentfulReference & ContentfulEntry
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
     sys: ContentfulBlockOrderedListSys
-    project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
 }
 
 type ContentfulBlockOrderedListSys @derivedTypes {
@@ -463,12 +503,48 @@ type ContentfulBlockOrderedListSysContentTypeSys {
 
 
 
+type ContentfulBlockPageTitle implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+    contentful_id: String!
+    node_locale: String!
+    title: String
+    content: ContentfulBlockPageTitleContent
+    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
+    spaceId: String
+    createdAt: Date @dateformat
+    updatedAt: Date @dateformat
+    sys: ContentfulBlockPageTitleSys
+}
+
+type ContentfulBlockPageTitleSys @derivedTypes {
+    type: String
+    revision: Int
+    contentType: ContentfulBlockPageTitleSysContentType
+}
+
+type ContentfulBlockPageTitleSysContentType @derivedTypes {
+    sys: ContentfulBlockPageTitleSysContentTypeSys
+}
+
+type ContentfulBlockPageTitleSysContentTypeSys {
+    type: String
+    linkType: String
+    id: String
+}
+
+type ContentfulBlockPageTitleContent @derivedTypes {
+    raw: String
+}
+
+
+
 type ContentfulBlockProjectInfo implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
     contentful_id: String!
     node_locale: String!
     title: String
     info: [ContentfulTitleText] @link(by: "id", from: "info___NODE")
-    project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
@@ -500,7 +576,8 @@ type ContentfulBlockTestimonial implements ContentfulReference & ContentfulEntry
   title: String
   quote: ContentfulBlockTestimonialQuote
   person: ContentfulPerson @link(by: "id", from: "person___NODE")
-  project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+  page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+  project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
@@ -541,7 +618,8 @@ type ContentfulBlockTextAndImage implements ContentfulReference & ContentfulEntr
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
     sys: ContentfulBlockTextAndImageSys
-    project: [ContentfulProject] @link(by: "id", from: "project___NODE")
+    page: [ContentfulTemplatePage] @link(by: "id", from: "page___NODE")
+    project: [ContentfulTemplateProject] @link(by: "id", from: "project___NODE")
 }
 
 type ContentfulBlockTextAndImageText {
@@ -634,7 +712,7 @@ type ContentfulTitleTextSysContentTypeSys {
     linkType: String
     id: String
 }
-`;
+  `;
 
   createTypes(typeDefs);
 };
