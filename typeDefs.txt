@@ -433,7 +433,7 @@ type ContentfulBlockNextProject implements ContentfulReference & ContentfulEntry
   contentful_id: String!
   node_locale: String!
   title: String
-  project: ContentfulTemplateProject @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
+  project: ContentfulTemplateProject @link(by: "id", from: "project___NODE")
   coverImage: ContentfulAsset @link(by: "id", from: "coverImage___NODE")
   template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
   spaceId: String
