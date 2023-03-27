@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@contentful/rich-text-html-renderer': ^16.0.3
   '@contentful/rich-text-types': ^16.0.3
+  dotenv: ^16.0.3
   gatsby: ^5.8.0
   gatsby-plugin-image: ^3.8.0
   gatsby-plugin-manifest: ^5.8.0
@@ -22,6 +23,7 @@ specifiers:
 dependencies:
   '@contentful/rich-text-html-renderer': 16.0.3
   '@contentful/rich-text-types': 16.0.3
+  dotenv: 16.0.3
   gatsby: 5.8.0_biqbaboplfbrettd7655fr4n2y
   gatsby-plugin-image: 3.8.0_n2kp7hzspgw6f3dcexy3qtnlna
   gatsby-plugin-manifest: 5.8.0_gatsby@5.8.0
@@ -4729,6 +4731,11 @@ packages:
 
   /dotenv-expand/5.1.0:
     resolution: {integrity: sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==}
+    dev: false
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
     dev: false
 
   /dotenv/7.0.0:
