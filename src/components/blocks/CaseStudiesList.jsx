@@ -9,8 +9,6 @@ const CaseStudies = ({ data }) => {
   return (
     <ul className="block-case-studies-list">
       {caseStudies.map((project) => {
-        console.log(`project:`, project.alignment);
-
         let alignment = `align-left`;
 
         switch (project?.alignment) {

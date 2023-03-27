@@ -1,6 +1,6 @@
 import { graphql } from "gatsby";
 
-import { blockBuilder } from "../utils/blocks.js";
+import { blockBuilder } from "../utils/blocks";
 
 const ProjectBuilder = ({ blocks }) => {
   return blockBuilder(blocks);
