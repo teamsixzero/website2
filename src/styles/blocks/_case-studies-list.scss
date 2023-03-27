@@ -10,6 +10,9 @@
     column-gap: 5.5rem;
 
     &__header {
+      position: relative;
+      min-width: 21.75rem;
+
       display: flex;
       flex-direction: column;
       row-gap: 1rem;
@@ -22,8 +25,25 @@
 
     &.align-left {
       padding: 3.5rem 6.5rem 3.5rem 0;
+
       .case-study__image {
         order: -1;
+      }
+
+      &-full-height {
+        padding: 0 6.5rem 0 3rem;
+
+        .case-study__image {
+          order: -1;
+        }
+      }
+    }
+
+    &.align-right {
+      padding: 3.5rem 0 3.5rem 6.5rem;
+
+      &-full-height {
+        padding: 0 3rem 0 6.5rem;
       }
     }
 
@@ -33,10 +53,6 @@
 
     &.text-light {
       color: var(--color-white);
-    }
-
-    &.align-right {
-      padding: 3.5rem 0 3.5rem 6.5rem;
     }
   }
 }

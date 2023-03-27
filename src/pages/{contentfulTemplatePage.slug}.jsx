@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import PageBuilder from "../components/PageBuilder";
 
-const Project = ({ data: { contentfulTemplatePage: data } }) => {
+const Page = ({ data: { contentfulTemplatePage: data } }) => {
   return (
     <Layout>
       <div className="template-page">
@@ -14,7 +14,7 @@ const Project = ({ data: { contentfulTemplatePage: data } }) => {
   );
 };
 
-export default Project;
+export default Page;
 
 export function Head({ data: { contentfulTemplatePage: data } }) {
   return <title>{data.title} | Sixzero</title>;

@@ -8,43 +8,65 @@ const CaseStudies = ({ data }) => {
 
   return (
     <ul className="block-case-studies-list">
-      {caseStudies.map((project) => (
-        <li key={project?.id}>
-          <section
-            className={`case-study align-${
-              project?.alignment ? project?.alignment.toLowerCase() : `left`
-            } text-${
-              project?.summaryTextColor
-                ? project?.summaryTextColor.toLowerCase()
-                : `dark`
-            }`}
-            style={{ background: project?.summaryBackgroundColor }}
-          >
-            <header className="case-study__header">
-              <h2 className="h3">{project?.title}</h2>
+      {caseStudies.map((project) => {
+        console.log(`project:`, project.alignment);
 
-              <p className="text-normal">{project?.summary?.content}</p>
+        let alignment = `align-left`;
 
-              <Link
-                to={project?.slug}
-                className={`btn ${
-                  project?.summaryTextColor
-                    ? project?.summaryTextColor.toLowerCase()
-                    : `dark`
-                }`}
-              >
-                See Project →
-              </Link>
-            </header>
+        switch (project?.alignment) {
+          case `Left`:
+            alignment = `align-left`;
+            break;
+          case `Right`:
+            alignment = `align-right`;
+            break;
+          case `Left (Full Height)`:
+            alignment = `align-left-full-height`;
+            break;
+          case `Right (Full Height)`:
+            alignment = `align-right-full-height`;
+            break;
 
-            <Image
-              className="case-study__image"
-              src={project?.summaryImage[0]}
-              alt={project?.summaryImage?.title}
-            />
-          </section>
-        </li>
-      ))}
+          default:
+            break;
+        }
+
+        return (
+          <li key={project?.id}>
+            <section
+              className={`case-study ${alignment} text-${
+                project?.summaryTextColor
+                  ? project?.summaryTextColor.toLowerCase()
+                  : `dark`
+              }`}
+              style={{ background: project?.summaryBackgroundColor }}
+            >
+              <header className="case-study__header">
+                <h2 className="h3">{project?.title}</h2>
+
+                <p className="text-normal">{project?.summary?.content}</p>
+
+                <Link
+                  to={project?.slug}
+                  className={`btn ${
+                    project?.summaryTextColor
+                      ? project?.summaryTextColor.toLowerCase()
+                      : `dark`
+                  }`}
+                >
+                  See Project →
+                </Link>
+              </header>
+
+              <Image
+                className="case-study__image"
+                src={project?.summaryImage[0]}
+                alt={project?.summaryImage[0]?.title}
+              />
+            </section>
+          </li>
+        );
+      })}
     </ul>
   );
 };
