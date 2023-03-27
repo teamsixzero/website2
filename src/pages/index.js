@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 import BookCallout from "../components/BookCallout";
 import ContactCallout from "../components/ContactCallout";
@@ -8,11 +7,6 @@ import ContactCallout from "../components/ContactCallout";
 const IndexPage = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Sixzero | UX/UI design agency in Vancouver BC.</title>
-        <body className="page-index" />
-      </Helmet>
-
       <section className="page-header">
         <div className="page-header_copy">
           <h1>
@@ -341,3 +335,12 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export function Head() {
+  return (
+    <>
+      <title>Sixzero | UX/UI design agency in Vancouver BC.</title>
+      <body className="page-index" />
+    </>
+  );
+}

@@ -1,15 +1,10 @@
 import React from "react";
-import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 import ContactCallout from "../components/ContactCallout";
 
 const UXUIDesignPage = () => {
   return (
     <Layout>
-      <Helmet>
-        <body className="page-ux-ui-design" />
-      </Helmet>
-
       <section className="page-header">
         <div className="page-header_copy">
           <h1>
@@ -182,3 +177,11 @@ const UXUIDesignPage = () => {
 };
 
 export default UXUIDesignPage;
+
+export function Head() {
+  return (
+    <>
+      <body className="page-ux-ui-design" />
+    </>
+  );
+}

@@ -1,16 +1,12 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
 import Layout from "../../components/Layout";
-import Helmet from "react-helmet";
 
 const BlogPage = ({ data }) => {
   return (
     <Layout>
-      <Helmet>
-        <title>Blog | Sixzero</title>
-        <body className="page-blog has-no-box-shadow" />
-      </Helmet>
       <ul className="blog-grid">
         {data.allContentfulPost.nodes.map((node) => (
           <li>
@@ -66,3 +62,12 @@ export const query = graphql`
     }
   }
 `;
+
+export function Head() {
+  return (
+    <>
+      <title>Blog | Sixzero</title>
+      <body className="page-blog has-no-box-shadow" />
+    </>
+  );
+}

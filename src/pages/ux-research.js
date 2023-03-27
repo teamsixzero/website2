@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 import BookCallout from "../components/BookCallout";
 import ContactCallout from "../components/ContactCallout";
@@ -7,10 +6,6 @@ import ContactCallout from "../components/ContactCallout";
 const UXResearchPage = () => {
   return (
     <Layout>
-      <Helmet>
-        <body className="page-ux-research" />
-      </Helmet>
-
       <section className="page-header page-header--ux-research">
         <div className="page-header_copy">
           <h1>
@@ -152,3 +147,11 @@ const UXResearchPage = () => {
 };
 
 export default UXResearchPage;
+
+export function Head() {
+  return (
+    <>
+      <body className="page-ux-research" />
+    </>
+  );
+}

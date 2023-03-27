@@ -1,8 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-// import { renderRichText } from "gatsby-source-contentful/rich-text";
-import Helmet from "react-helmet";
+
 import Layout from "../components/Layout";
 import PostSummary from "../components/PostSummary";
 import RichText from "../components/RichText";
@@ -12,10 +11,6 @@ const PostTemplate = ({ data, children }) => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>{data.contentfulPost.title} | Sixzero</title>
-        <body className="single-post has-no-box-shadow" />
-      </Helmet>
       <article className="post">
         <section className="post-image">
           {data.contentfulPost.featureImage ? (
@@ -86,3 +81,12 @@ export const query = graphql`
 `;
 
 export default PostTemplate;
+
+export function Head({ data }) {
+  return (
+    <>
+      <title>{data.contentfulPost.title} | Sixzero</title>
+      <body className="single-post has-no-box-shadow" />
+    </>
+  );
+}

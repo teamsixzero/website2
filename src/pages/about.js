@@ -1,15 +1,10 @@
 import React from "react";
-import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 import ContactCallout from "../components/ContactCallout";
 
 const AboutPage = () => {
   return (
     <Layout>
-      <Helmet>
-        <body className="page-about" />
-      </Helmet>
-
       <section className="page-header">
         <div className="page-header_copy">
           <h1>
@@ -79,3 +74,11 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+export function Head() {
+  return (
+    <>
+      <body className="page-about" />
+    </>
+  );
+}
