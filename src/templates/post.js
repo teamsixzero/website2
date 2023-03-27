@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 // import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Helmet from "react-helmet";
 import Layout from "../components/Layout";
-import PostSummary from "../components/post-summary";
+import PostSummary from "../components/PostSummary";
 import RichText from "../components/RichText";
 
 const PostTemplate = ({ data, children }) => {

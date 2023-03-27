@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import Layout from "../components/Layout";
-import BookCallout from "../components/book-callout";
+import BookCallout from "../components/BookCallout";
 import ContactCallout from "../components/ContactCallout";
 
 const UXResearchPage = () => {
