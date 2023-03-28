@@ -8,7 +8,7 @@ const BlogPage = ({ data }) => {
   return (
     <Layout>
       <ul className="blog-grid">
-        {data.allContentfulPost.nodes.map((node) => (
+        {data.allContentfulTemplateBlog.nodes.map((node) => (
           <li>
             <Link
               to={`/blog/${node.slug}`}
@@ -40,9 +40,18 @@ const BlogPage = ({ data }) => {
 
 export default BlogPage;
 
+export function Head() {
+  return (
+    <>
+      <title>Blog | Sixzero</title>
+      <body className="page-blog has-no-box-shadow" />
+    </>
+  );
+}
+
 export const query = graphql`
   query {
-    allContentfulPost(sort: { date: DESC }) {
+    allContentfulTemplateBlog(sort: { date: DESC }) {
       nodes {
         title
         date(formatString: "MMMM D, YYYY")
@@ -62,12 +71,3 @@ export const query = graphql`
     }
   }
 `;
-
-export function Head() {
-  return (
-    <>
-      <title>Blog | Sixzero</title>
-      <body className="page-blog has-no-box-shadow" />
-    </>
-  );
-}

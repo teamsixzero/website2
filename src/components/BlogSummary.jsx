@@ -1,6 +1,6 @@
 import React from "react";
 
-const PostSummary = ({ summaryText }) => {
+const BlogSummary = ({ summaryText }) => {
   return (
     <div className="post-summary">
       <h6 className="accent">In this article</h6>
@@ -9,4 +9,4 @@ const PostSummary = ({ summaryText }) => {
   );
 };
 
-export default PostSummary;
+export default BlogSummary;

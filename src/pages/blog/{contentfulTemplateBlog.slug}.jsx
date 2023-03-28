@@ -2,44 +2,55 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import Layout from "../components/Layout";
-import PostSummary from "../components/PostSummary";
-import RichText from "../components/RichText";
+import Layout from "../../components/Layout";
+import BlogSummary from "../../components/BlogSummary";
+import RichText from "../../components/RichText";
 
-const PostTemplate = ({ data, children }) => {
-  // const options = {};
-
+const BlogTemplate = ({ data, children }) => {
   return (
     <Layout>
       <article className="post">
         <section className="post-image">
-          {data.contentfulPost.featureImage ? (
+          {data.contentfulTemplateBlog.featureImage ? (
             <GatsbyImage
-              image={getImage(data.contentfulPost.featureImage)}
-              alt={data.contentfulPost.featureImage.description}
+              image={getImage(data.contentfulTemplateBlog.featureImage)}
+              alt={data.contentfulTemplateBlog.featureImage.description}
             />
           ) : null}
         </section>
         <section className="post-heading">
-          <h1 className="h2">{data.contentfulPost.title}</h1>
+          <h1 className="h2">{data.contentfulTemplateBlog.title}</h1>
           <p className="date accent accent--grey-dark">
-            Published {data.contentfulPost.date}
+            Published {data.contentfulTemplateBlog.date}
           </p>
         </section>
         <section className="post-content">
-          {data.contentfulPost.summary && (
-            <PostSummary summaryText={data.contentfulPost.summary.summary} />
+          {data.contentfulTemplateBlog.summary && (
+            <BlogSummary
+              summaryText={data.contentfulTemplateBlog.summary.summary}
+            />
           )}
-          <RichText content={data.contentfulPost.content} />
+          <RichText content={data.contentfulTemplateBlog.content} />
         </section>
       </article>
     </Layout>
   );
 };
 
+export default BlogTemplate;
+
+export function Head({ data }) {
+  return (
+    <>
+      <title>{data.contentfulTemplateBlog.title} | Sixzero</title>
+      <body className="single-post has-no-box-shadow" />
+    </>
+  );
+}
+
 export const query = graphql`
   query ($id: String) {
-    contentfulPost(id: { eq: $id }) {
+    contentfulTemplateBlog(id: { eq: $id }) {
       title
       date(formatString: "MMMM D, YYYY")
       summary {
@@ -79,14 +90,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default PostTemplate;
-
-export function Head({ data }) {
-  return (
-    <>
-      <title>{data.contentfulPost.title} | Sixzero</title>
-      <body className="single-post has-no-box-shadow" />
-    </>
-  );
-}
