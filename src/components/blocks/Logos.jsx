@@ -6,8 +6,6 @@ import Image from "../Image";
 const Logos = ({ data }) => {
   const { logos } = data;
 
-  console.log(`logos`, logos);
-
   return (
     <ul className="block-logos">
       {logos.length > 0 &&
