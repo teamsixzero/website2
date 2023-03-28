@@ -6,7 +6,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   // Will have to do this for all other pages that page build and for every new block
   // all unions will have to be updated with the new block name. Ordered alphabetically
   const typeDefs = `
-  union ContentfulBlockUnion = ContentfulBlockCaseStudiesList | ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockLogos | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockPageTitle | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
+  union ContentfulBlockUnion = ContentfulBlockCaseStudy | ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockLogos | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockPageTitle | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
 
 union ContentfulMultiSectionBlockUnion = ContentfulBlockContent | ContentfulBlockImageFullWidth | ContentfulBlockOrderedList
 
@@ -108,14 +108,9 @@ type ContentfulTemplateProject implements ContentfulReference & ContentfulEntry 
     node_locale: String!
     title: String
     slug: String
-    alignment: String
     blocks: [ContentfulBlockUnion] @link(by: "id", from: "blocks___NODE")
     block__next_project: [ContentfulBlockNextProject] @link(by: "id", from: "block: next project___NODE") @proxy(from: "block: next project___NODE")
-    block__case_studies_list: [ContentfulBlockCaseStudiesList] @link(by: "id", from: "block: case studies list___NODE") @proxy(from: "block: case studies list___NODE")
-    summary: contentfulTemplateProjectSummaryTextNode @link(by: "id", from: "summary___NODE")
-    summaryImage: [ContentfulAsset] @link(by: "id", from: "summaryImage___NODE")
-    summaryBackgroundColor: String
-    summaryTextColor: String
+    block__case_study: [ContentfulBlockCaseStudy] @link(by: "id", from: "block: case study___NODE") @proxy(from: "block: case study___NODE")
     description: contentfulTemplateProjectDescriptionTextNode @link(by: "id", from: "description___NODE")
     spaceId: String
     createdAt: Date @dateformat
@@ -137,15 +132,6 @@ type ContentfulTemplateProjectSysContentTypeSys {
     type: String
     linkType: String
     id: String
-}
-
-type contentfulTemplateProjectSummaryTextNode implements Node @derivedTypes @childOf(types: ["ContentfulTemplateProject"]) @dontInfer {
-    summary: String
-    sys: contentfulTemplateProjectSummaryTextNodeSys
-}
-
-type contentfulTemplateProjectSummaryTextNodeSys {
-    type: String
 }
 
 type contentfulTemplateProjectDescriptionTextNode implements Node @derivedTypes @childOf(types: ["ContentfulTemplateProject"]) @dontInfer {
@@ -224,33 +210,47 @@ type ContentfulPersonSysContentTypeSys {
 
 
 
-type ContentfulBlockCaseStudiesList implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+type ContentfulBlockCaseStudy implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
     contentful_id: String!
     node_locale: String!
     title: String
-    caseStudies: [ContentfulTemplateProject] @link(by: "id", from: "caseStudies___NODE")
+    project: ContentfulTemplateProject @link(by: "id", from: "project___NODE")
+    summary: contentfulBlockCaseStudySummaryTextNode @link(by: "id", from: "summary___NODE")
+    image: ContentfulAsset @link(by: "id", from: "image___NODE")
+    alignment: String
+    backgroundColor: String
+    textColor: String
     template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
     template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
-    sys: ContentfulBlockCaseStudiesListSys
+    sys: ContentfulBlockCaseStudySys
 }
 
-type ContentfulBlockCaseStudiesListSys @derivedTypes {
+type ContentfulBlockCaseStudySys @derivedTypes {
     type: String
     revision: Int
-    contentType: ContentfulBlockCaseStudiesListSysContentType
+    contentType: ContentfulBlockCaseStudySysContentType
 }
 
-type ContentfulBlockCaseStudiesListSysContentType @derivedTypes {
-    sys: ContentfulBlockCaseStudiesListSysContentTypeSys
+type ContentfulBlockCaseStudySysContentType @derivedTypes {
+    sys: ContentfulBlockCaseStudySysContentTypeSys
 }
 
-type ContentfulBlockCaseStudiesListSysContentTypeSys {
+type ContentfulBlockCaseStudySysContentTypeSys {
     type: String
     linkType: String
     id: String
+}
+
+type contentfulBlockCaseStudySummaryTextNode implements Node @derivedTypes @childOf(types: ["ContentfulBlockCaseStudy"]) @dontInfer {
+    summary: String
+    sys: contentfulBlockCaseStudySummaryTextNodeSys
+}
+
+type contentfulBlockCaseStudySummaryTextNodeSys {
+    type: String
 }
 
 
@@ -1038,7 +1038,7 @@ type ContentfulHtmlEmbedSysContentTypeSys {
   linkType: String
   id: String
 }
-   `;
+  `;
 
   createTypes(typeDefs);
 };
