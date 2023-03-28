@@ -1,6 +1,7 @@
 .block-page-title {
   position: relative;
-  width: 89%;
+  width: 100%;
+  max-width: 64rem;
 
   display: flex;
   flex-direction: column;
