@@ -21,6 +21,7 @@ export const query = graphql`
       ...BlockImageGrid
       ...BlockImageThreeColumns
       ...BlockImageTwoColumns
+      ...BlockLogos
       ...BlockMultiSection
       ...BlockNextProject
       ...BlockOrderedList

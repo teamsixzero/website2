@@ -6,7 +6,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   // Will have to do this for all other pages that page build and for every new block
   // all unions will have to be updated with the new block name. Ordered alphabetically
   const typeDefs = `
-  union ContentfulBlockUnion = ContentfulBlockCaseStudiesList | ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockPageTitle | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
+  union ContentfulBlockUnion = ContentfulBlockCaseStudiesList | ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockLogos | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockPageTitle | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
 
 union ContentfulMultiSectionBlockUnion = ContentfulBlockContent | ContentfulBlockImageFullWidth | ContentfulBlockOrderedList
 
@@ -487,6 +487,37 @@ type ContentfulBlockImageTwoColumnsSysContentType @derivedTypes {
 }
 
 type ContentfulBlockImageTwoColumnsSysContentTypeSys {
+    type: String
+    linkType: String
+    id: String
+}
+
+
+
+type ContentfulBlockLogos implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+    contentful_id: String!
+    node_locale: String!
+    title: String
+    logos: [ContentfulAsset] @link(by: "id", from: "logos___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
+    spaceId: String
+    createdAt: Date @dateformat
+    updatedAt: Date @dateformat
+    sys: ContentfulBlockLogosSys
+}
+
+type ContentfulBlockLogosSys @derivedTypes {
+    type: String
+    revision: Int
+    contentType: ContentfulBlockLogosSysContentType
+}
+
+type ContentfulBlockLogosSysContentType @derivedTypes {
+    sys: ContentfulBlockLogosSysContentTypeSys
+}
+
+type ContentfulBlockLogosSysContentTypeSys {
     type: String
     linkType: String
     id: String
@@ -1007,7 +1038,7 @@ type ContentfulHtmlEmbedSysContentTypeSys {
   linkType: String
   id: String
 }
-  `;
+   `;
 
   createTypes(typeDefs);
 };
