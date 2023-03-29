@@ -1,36 +1,25 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Layout from "../../components/Layout";
-import BlogSummary from "../../components/BlogSummary";
+import Image from "../../components/Image";
 import RichText from "../../components/RichText";
 
 const BlogTemplate = ({ data, children }) => {
+  const { title, date, featureImage, content } = data.contentfulTemplateBlog;
+
   return (
     <Layout>
-      <article className="post">
-        <section className="post-image">
-          {data.contentfulTemplateBlog.featureImage ? (
-            <GatsbyImage
-              image={getImage(data.contentfulTemplateBlog.featureImage)}
-              alt={data.contentfulTemplateBlog.featureImage.description}
-            />
-          ) : null}
-        </section>
-        <section className="post-heading">
-          <h1 className="h2">{data.contentfulTemplateBlog.title}</h1>
-          <p className="date accent accent--grey-dark">
-            Published {data.contentfulTemplateBlog.date}
-          </p>
-        </section>
-        <section className="post-content">
-          {data.contentfulTemplateBlog.summary && (
-            <BlogSummary
-              summaryText={data.contentfulTemplateBlog.summary.summary}
-            />
-          )}
-          <RichText content={data.contentfulTemplateBlog.content} />
+      <article className="template-blog">
+        <header className="template-blog__heading">
+          <h1 className="h2">{title}</h1>
+          <p className="text-book">Published {date}</p>
+        </header>
+
+        <Image src={featureImage} alt={featureImage?.title} />
+
+        <section className="template-blog__content">
+          <RichText content={content} />
         </section>
       </article>
     </Layout>
@@ -43,7 +32,6 @@ export function Head({ data }) {
   return (
     <>
       <title>{data.contentfulTemplateBlog.title} | Sixzero</title>
-      <body className="single-post has-no-box-shadow" />
     </>
   );
 }
@@ -57,7 +45,7 @@ export const query = graphql`
         summary
       }
       featureImage {
-        description
+        title
         gatsbyImageData(
           width: 1440
           placeholder: BLURRED

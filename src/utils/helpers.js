@@ -18,7 +18,7 @@ export const replaceParenthesesWords = (str, restProps = {}) => {
   });
 };
 
-export const replaceWordsWithColours = (str, restProps = {}) => {
+export const replaceWordsWithColours = (str, restProps = {}, Node = `span`) => {
   const regex = /(\(.*?\)\[.*?\])/g; // Matches words wrapped in parentheses and square brackets
 
   if (str?.match(regex)) {
@@ -29,36 +29,54 @@ export const replaceWordsWithColours = (str, restProps = {}) => {
         const content = word.split(/\[|\]/); //split word by square brackets
 
         return (
-          <span {...restProps} style={{ color: content[1] }}>
+          <Node {...restProps} style={{ color: content[1] }}>
             {content[0].slice(1, -1)}
-          </span>
+          </Node>
         );
       }
 
-      return word;
+      return <Node {...restProps}>{word}</Node>;
     });
   }
 
-  return str;
+  return <Node {...restProps}>{str}</Node>;
 };
 
-export const addColour = (children = []) => {
-  const mappedChildren = children.flatMap((child) => {
-    if (typeof child === "string") {
-      return replaceWordsWithColours(child);
-    }
+export const addColour = (children = []) =>
+  children.flatMap((child) => {
+    if (typeof child === "string") return replaceWordsWithColours(child);
 
-    if (typeof child === "object") {
-      const { content, className } = child.props;
+    // objects/ <strong>/ <em> are too hard at the moment to figure out because of nested elements
+    // if (typeof child === "object") {
+    //   const { children: content, className, href, rel, target } = child.props;
 
-      return replaceWordsWithColours(content, { className });
-    }
+    //   if (typeof content === "string") {
+    //     return replaceWordsWithColours(
+    //       content,
+    //       {
+    //         className,
+    //         href,
+    //         rel,
+    //         target,
+    //       },
+    //       child?.type
+    //     );
+    //   }
+
+    //   return replaceWordsWithColours(
+    //     content[0],
+    //     {
+    //       className,
+    //       href,
+    //       rel,
+    //       target,
+    //     },
+    //     child?.type
+    //   );
+    // }
 
     return child;
   });
-
-  return mappedChildren;
-};
 
 export const addHighlight = (children = []) => {
   const mappedChildren = children.flatMap((child) => {

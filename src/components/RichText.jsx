@@ -1,5 +1,5 @@
 import React from "react";
-import { INLINES, BLOCKS } from "@contentful/rich-text-types";
+import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 import Image from "./Image";
@@ -9,39 +9,14 @@ import { addColour } from "../utils/helpers";
 const website_url = "https://sixzero.co";
 
 const defaultOptions = {
-  renderMark: {},
+  renderMark: {
+    [MARKS.BOLD]: (text) => <strong>{text}</strong>,
+    [MARKS.ITALIC]: (text) => <em>{text}</em>,
+    [MARKS.UNDERLINE]: (text) => <u>{text}</u>,
+  },
   renderNode: {
-    [INLINES.HYPERLINK]: ({ data }, children) => {
-      if (data.uri.includes("player.vimeo.com/video")) {
-        return (
-          <div className="embed-container">
-            <iframe
-              title="video-player"
-              src={data.uri}
-              frameborder="0"
-              webkitallowfullscreen
-              mozallowfullscreen
-              allowfullscreen
-            ></iframe>
-          </div>
-        );
-      } else {
-        return (
-          <a
-            href={data.uri}
-            target={`${data.uri.startsWith(website_url) ? "_self" : "_blank"}`}
-            rel={`${
-              data.uri.startsWith(website_url) ? "" : "noopener noreferrer"
-            }`}
-          >
-            {children}
-          </a>
-        );
-      }
-    },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { gatsbyImageData, description } = node.data.target;
-
       return (
         <figure>
           <Image src={gatsbyImageData} alt={description} />
@@ -51,7 +26,6 @@ const defaultOptions = {
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
       const { __typename, embedCode } = node.data.target;
-
       if (__typename === "ContentfulHtmlEmbed") {
         return (
           <div dangerouslySetInnerHTML={{ __html: embedCode.embedCode }}></div>
@@ -71,11 +45,46 @@ const defaultOptions = {
 
       return <p className="text-normal">{addColour(children)}</p>;
     },
+    [BLOCKS.QUOTE]: (node, children) => (
+      <blockquote className="h5">{children}</blockquote>
+    ),
+    [INLINES.HYPERLINK]: (node, children) => {
+      const { uri } = node.data;
+
+      if (uri.includes("player.vimeo.com/video")) {
+        return (
+          <div className="embed-container">
+            <iframe
+              title="video-player"
+              src={uri}
+              frameborder="0"
+              webkitallowfullscreen
+              mozallowfullscreen
+              allowfullscreen
+            ></iframe>
+          </div>
+        );
+      }
+      return (
+        <a
+          href={uri}
+          className="underline"
+          target={`${uri.startsWith(website_url) ? "_self" : "_blank"}`}
+          rel={`${uri.startsWith(website_url) ? "" : "noopener noreferrer"}`}
+        >
+          {children}
+        </a>
+      );
+    },
   },
 };
 
 const ContentfulRichText = ({ content, options }) => {
-  return <>{renderRichText(content, options || defaultOptions)}</>;
+  return (
+    <div className="rich-text">
+      {renderRichText(content, options || defaultOptions)}
+    </div>
+  );
 };
 
 export default ContentfulRichText;

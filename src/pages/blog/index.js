@@ -1,33 +1,35 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Layout from "../../components/Layout";
+import Image from "../../components/Image";
 
 const BlogPage = ({ data }) => {
+  const blogs = data.allContentfulTemplateBlog.edges.map(({ node }) => node);
+
   return (
     <Layout>
       <ul className="blog-grid">
-        {data.allContentfulTemplateBlog.nodes.map((node) => (
+        {blogs.map((blog) => (
           <li>
             <Link
-              to={`/blog/${node.slug}`}
-              key={node.id}
+              to={`/blog/${blog.slug}`}
+              key={blog.id}
               className="card card--post"
             >
               <div className="card-image">
-                {node.featureImage ? (
-                  <GatsbyImage
-                    image={getImage(node.featureImage)}
-                    alt={node.featureImage.description}
+                {blog.featureImage && (
+                  <Image
+                    src={blog.featureImage}
+                    alt={blog.featureImage.title}
                   />
-                ) : null}
+                )}
               </div>
               <div className="card-copy">
-                <h2 className="h6">{node.title}</h2>
-                {node.excerpt ? <p>{node.excerpt.excerpt}</p> : null}
+                <h2 className="h6">{blog.title}</h2>
+                {blog.excerpt && <p>{blog.excerpt.excerpt}</p>}
                 <p className="accent accent--grey-normal">
-                  Published {node.date}
+                  Published {blog.date}
                 </p>
               </div>
             </Link>
@@ -52,20 +54,22 @@ export function Head() {
 export const query = graphql`
   query {
     allContentfulTemplateBlog(sort: { date: DESC }) {
-      nodes {
-        title
-        date(formatString: "MMMM D, YYYY")
-        slug
-        excerpt {
-          excerpt
-        }
-        featureImage {
-          description
-          gatsbyImageData(
-            width: 1440
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-          )
+      edges {
+        node {
+          title
+          date(formatString: "MMMM D, YYYY")
+          slug
+          excerpt {
+            excerpt
+          }
+          featureImage {
+            title
+            gatsbyImageData(
+              width: 1440
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
         }
       }
     }
