@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const replaceParenthesesWords = (str, restProps = {}) => {
   const regex = /(\([\w\s]+\))/g; // Matches words wrapped in parentheses
@@ -29,17 +30,25 @@ export const replaceWordsWithColours = (str, restProps = {}, Node = `span`) => {
         const content = word.split(/\[|\]/); //split word by square brackets
 
         return (
-          <Node {...restProps} style={{ color: content[1] }}>
+          <Node key={uuidv4()} {...restProps} style={{ color: content[1] }}>
             {content[0].slice(1, -1)}
           </Node>
         );
       }
 
-      return <Node {...restProps}>{word}</Node>;
+      return (
+        <Node key={uuidv4()} {...restProps}>
+          {word}
+        </Node>
+      );
     });
   }
 
-  return <Node {...restProps}>{str}</Node>;
+  return (
+    <Node key={uuidv4()} {...restProps}>
+      {str}
+    </Node>
+  );
 };
 
 export const addColour = (children = []) =>
