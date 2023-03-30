@@ -7,6 +7,10 @@
   row-gap: var(--spacing-4);
   column-gap: var(--spacing-4);
 
+  @include breakpoint("sm") {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   .block-ordered-list__item {
     position: relative;
     width: 100%;

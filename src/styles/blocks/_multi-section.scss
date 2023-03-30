@@ -5,6 +5,10 @@
   &.has-background {
     padding: 8rem 5rem;
     background-color: #eef2fa;
+
+    @include breakpoint("sm") {
+      padding: 4rem 2.5rem;
+    }
   }
 
   &__wrapper {
