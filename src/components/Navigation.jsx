@@ -1,47 +1,46 @@
 import React from "react";
 import { Link } from "gatsby";
 
-const Navigation = () => {
+const Navigation = ({ links, active }) => {
   return (
-    <nav>
-      <ul className="menu">
-        <li className="has-dropdown">
-          <button>What We Do</button>
-          <ul className="dropdown">
-            <li>
-              <Link to="/ux-ui-design">UX/UI Design</Link>
+    <nav className={`menu${active ? ` active` : ``}`}>
+      <ul>
+        {links.map((link) => {
+          if (link.sublinks)
+            return (
+              <li className="has-dropdown" key={link.id}>
+                <button className="accent">{link.name}</button>
+                <ul className="dropdown">
+                  {link.sublinks.map((sublink) => (
+                    <li key={sublink.id}>
+                      <Link to={sublink.url} className="text-normal">
+                        {sublink.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            );
+
+          return (
+            <li key={link.id}>
+              {link.external ? (
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="accent"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link to={link.url} className="accent">
+                  {link.name}
+                </Link>
+              )}
             </li>
-            <li>
-              <Link to="/ux-research">User Research</Link>
-            </li>
-            <li>
-              <Link to="/development">Development</Link>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <Link to="/projects">Work</Link>
-        </li>
-        <li>
-          <a
-            href="https://sixzero.co/startusertesting/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Book
-          </a>
-        </li>
-        <li>
-          <Link to="/blog">Blog</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <a href="mailto:hello@sixzero.co" target="_blank" rel="noreferrer">
-            Contact
-          </a>
-        </li>
+          );
+        })}
       </ul>
     </nav>
   );

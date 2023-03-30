@@ -12,6 +12,12 @@
     margin: 24px 0 0 0;
   }
 
+  .menu {
+    @include breakpoint("sm") {
+      display: none;
+    }
+  }
+
   .dropdown {
     top: auto;
     bottom: calc(100% + 16px);
