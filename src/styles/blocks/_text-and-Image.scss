@@ -22,6 +22,9 @@
 
   & > figure.align-left {
     order: -1;
+    @include breakpoint("sm") {
+      order: unset;
+    }
   }
 
   @include breakpoint("sm") {

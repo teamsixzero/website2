@@ -2,7 +2,7 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export const replaceParenthesesWords = (str, restProps = {}) => {
-  const regex = /(\([\w\s]+\))/g; // Matches words wrapped in parentheses
+  const regex = /(\(.*?\))/g; // Matches words wrapped in parentheses
   const splitWords = str.split(regex);
 
   return splitWords.map((word) => {

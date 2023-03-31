@@ -4,6 +4,10 @@
 
   padding: 10rem 0;
 
+  @include breakpoint("sm") {
+    padding: 5rem 0;
+  }
+
   &__wrapper {
     text-align: center;
 

@@ -7,7 +7,7 @@
     background-color: #eef2fa;
 
     @include breakpoint("sm") {
-      padding: 4rem 2.5rem;
+      padding: 2.5rem 1.5rem;
     }
   }
 
@@ -20,6 +20,10 @@
     align-items: center;
     justify-content: center;
     row-gap: 6rem;
+
+    @include breakpoint("sm") {
+      row-gap: 2rem;
+    }
 
     & > section > * {
       max-width: 50rem;
