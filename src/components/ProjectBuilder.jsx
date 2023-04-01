@@ -27,6 +27,7 @@ export const query = graphql`
       ...BlockOrderedList
       ...BlockPageTitle
       ...BlockProjectInfo
+      ...BlockSteps
       ...BlockTestimonial
       ...BlockTextAndImage
     }
