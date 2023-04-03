@@ -10,7 +10,7 @@ const navLinks = [
       {
         id: 1,
         name: "UX/UI Design",
-        url: "/ux-ui-design",
+        url: "/interface-design",
       },
       {
         id: 2,
