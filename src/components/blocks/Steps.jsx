@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Image from "../Image";
+import RichText from "../RichText";
 
 const Steps = ({ data }) => {
   const { header, steps } = data;

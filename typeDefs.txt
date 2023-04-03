@@ -1,4 +1,4 @@
-union ContentfulBlockUnion = ContentfulBlockCaseStudy | ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockLogos | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockPageTitle | ContentfulBlockProjectInfo | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
+union ContentfulBlockUnion = ContentfulBlockCaseStudy | ContentfulBlockContactCallout | ContentfulBlockContent | ContentfulBlockHeader | ContentfulBlockImageFullWidth | ContentfulBlockImageGrid | ContentfulBlockImageThreeColumns | ContentfulBlockImageTwoColumns | ContentfulBlockLogos | ContentfulBlockMultiSection | ContentfulBlockNextProject | ContentfulBlockOrderedList | ContentfulBlockPageTitle | ContentfulBlockProjectInfo | ContentfulBlockSteps | ContentfulBlockTestimonial | ContentfulBlockTextAndImage
 
 union ContentfulMultiSectionBlockUnion = ContentfulBlockContent | ContentfulBlockImageFullWidth | ContentfulBlockOrderedList
 
@@ -682,6 +682,43 @@ type ContentfulBlockProjectInfoSysContentTypeSys {
 
 
 
+type ContentfulBlockSteps implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+    contentful_id: String!
+    node_locale: String!
+    title: String
+    header: ContentfulBlockStepsHeader
+    steps: [ContentfulStep] @link(by: "id", from: "steps___NODE")
+    template__page: [ContentfulTemplatePage] @link(by: "id", from: "template: page___NODE") @proxy(from: "template: page___NODE")
+    template__project: [ContentfulTemplateProject] @link(by: "id", from: "template: project___NODE") @proxy(from: "template: project___NODE")
+    spaceId: String
+    createdAt: Date @dateformat
+    updatedAt: Date @dateformat
+    sys: ContentfulBlockStepsSys
+}
+
+type ContentfulBlockStepsHeader {
+    raw: String
+}
+
+type ContentfulBlockStepsSys @derivedTypes {
+    type: String
+    revision: Int
+    contentType: ContentfulBlockStepsSysContentType
+}
+
+type ContentfulBlockStepsSysContentType @derivedTypes {
+    sys: ContentfulBlockStepsSysContentTypeSys
+}
+
+type ContentfulBlockStepsSysContentTypeSys {
+    type: String
+    linkType: String
+    id: String
+}
+
+
+
+
 type ContentfulBlockTestimonial implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
@@ -789,6 +826,43 @@ type ContentfulListItemSysContentType @derivedTypes {
 }
 
 type ContentfulListItemSysContentTypeSys {
+    type: String
+    linkType: String
+    id: String
+}
+
+
+
+
+type ContentfulStep implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+    contentful_id: String!
+    node_locale: String!
+    title: String
+    text: contentfulStepText
+    image: ContentfulAsset @link(by: "id", from: "image___NODE")
+    imageAlign: String
+    block__steps: [ContentfulBlockSteps] @link(by: "id", from: "block: steps___NODE") @proxy(from: "block: steps___NODE")
+    spaceId: String
+    createdAt: Date @dateformat
+    updatedAt: Date @dateformat
+    sys: ContentfulStepSys
+}
+
+type contentfulStepText {
+    raw: String
+}
+
+type ContentfulStepSys @derivedTypes {
+    type: String
+    revision: Int
+    contentType: ContentfulStepSysContentType
+}
+
+type ContentfulStepSysContentType @derivedTypes {
+    sys: ContentfulStepSysContentTypeSys
+}
+
+type ContentfulStepSysContentTypeSys {
     type: String
     linkType: String
     id: String
