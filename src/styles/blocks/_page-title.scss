@@ -9,4 +9,8 @@
 
   margin-right: auto;
   margin-bottom: -1.25rem;
+
+  @include breakpoint("sm") {
+    margin-top: 2.5rem;
+  }
 }
