@@ -1,0 +1,46 @@
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2.5rem;
+  row-gap: 2.5rem;
+
+  margin: 0 8.25rem;
+
+  @include breakpoint("sm") {
+    grid-template-columns: repeat(1, 1fr);
+
+    margin: 0 2rem;
+  }
+}
+
+.card--post {
+  border-radius: 0;
+  .card-image {
+    padding: 0;
+
+    img {
+      aspect-ratio: 568 / 294;
+    }
+  }
+
+  .card-copy {
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .h6 {
+      width: 100%;
+    }
+
+    p {
+      max-width: none;
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    .accent {
+      margin-bottom: 0;
+      align-self: flex-end;
+    }
+  }
+}
