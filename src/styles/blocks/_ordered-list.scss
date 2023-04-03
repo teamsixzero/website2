@@ -7,6 +7,8 @@
   row-gap: var(--spacing-4);
   column-gap: var(--spacing-4);
 
+  padding: 0 1.625rem;
+
   @include breakpoint("sm") {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -15,10 +17,23 @@
     position: relative;
     width: 100%;
 
+    display: flex;
+    flex-direction: column;
+    gap: 4.875rem;
+
     padding: var(--spacing-5);
 
     background-color: #f9f9f9;
     border-radius: 1.5rem;
+
+    &__image {
+      position: relative;
+      width: 100%;
+      max-width: 12.5rem;
+      aspect-ratio: 1/1;
+
+      background-color: #c4c4c4;
+    }
 
     &__index {
       margin-bottom: 1.5rem;

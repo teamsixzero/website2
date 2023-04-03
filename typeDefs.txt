@@ -797,9 +797,11 @@ type ContentfulBlockTextAndImageSysContentTypeSys {
 type ContentfulListItem implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
     contentful_id: String!
     node_locale: String!
+    step: String
     title: String
-    block__ordered_list: [ContentfulBlockOrderedList] @link(by: "id", from: "block: ordered list___NODE") @proxy(from: "block: ordered list___NODE")
     text: contentfulListItemTextTextNode @link(by: "id", from: "text___NODE")
+    image: ContentfulAsset @link(by: "id", from: "image___NODE")
+    block__ordered_list: [ContentfulBlockOrderedList] @link(by: "id", from: "block: ordered list___NODE") @proxy(from: "block: ordered list___NODE")
     spaceId: String
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
