@@ -15,7 +15,7 @@ const navLinks = [
       {
         id: 2,
         name: "User Research",
-        url: "/ux-research",
+        url: "/user-research",
       },
       {
         id: 3,
