@@ -24,7 +24,7 @@ const Header = ({ links }) => {
         <img src="/images/sixzero-logo-dark.svg" alt="Sixzero logo" />
       </Link>
 
-      <Navigation links={links} active={menuOpen} />
+      <Navigation links={links} active={menuOpen} setActive={setMenuOpen} />
     </header>
   );
 };

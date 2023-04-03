@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-const Navigation = ({ links, active }) => {
+const Navigation = ({ links, active, setActive }) => {
   return (
     <nav className={`menu${active ? ` active` : ``}`}>
       <ul>
@@ -13,7 +13,11 @@ const Navigation = ({ links, active }) => {
                 <ul className="dropdown">
                   {link.sublinks.map((sublink) => (
                     <li key={sublink.id}>
-                      <Link to={sublink.url} className="text-normal">
+                      <Link
+                        to={sublink.url}
+                        onClick={() => setActive(false)}
+                        className="text-normal"
+                      >
                         {sublink.name}
                       </Link>
                     </li>
@@ -30,11 +34,16 @@ const Navigation = ({ links, active }) => {
                   target="_blank"
                   rel="noreferrer"
                   className="accent"
+                  onClick={() => setActive(false)}
                 >
                   {link.name}
                 </a>
               ) : (
-                <Link to={link.url} className="accent">
+                <Link
+                  to={link.url}
+                  onClick={() => setActive(false)}
+                  className="accent"
+                >
                   {link.name}
                 </Link>
               )}
