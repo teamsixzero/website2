@@ -2,7 +2,7 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export const replaceParenthesesWords = (str, restProps = {}) => {
-  const regex = /(\(.*?\))/g; // Matches words wrapped in parentheses
+  const regex = /(\([\s\S]*?\))/g; // Matches words wrapped in parentheses
   const splitWords = str.split(regex);
 
   return splitWords.map((word) => {
@@ -20,7 +20,7 @@ export const replaceParenthesesWords = (str, restProps = {}) => {
 };
 
 export const replaceWordsWithColours = (str, restProps = {}, Node = `span`) => {
-  const regex = /(\(.*?\)\[.*?\])/g; // Matches words wrapped in parentheses and square brackets
+  const regex = /(\([\s\S]*?\)\[[\s\S]*?\])/g; // Matches words wrapped in parentheses and square brackets
 
   if (str?.match(regex)) {
     const splitWords = str?.split(regex);
