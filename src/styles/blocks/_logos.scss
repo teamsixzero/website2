@@ -6,4 +6,8 @@
   display: flex;
   justify-content: space-between;
   column-gap: 3.5rem;
+
+  @include breakpoint("sm") {
+    max-height: 1.25rem;
+  }
 }
