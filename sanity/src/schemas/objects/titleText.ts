@@ -1,5 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
+import {BsDot} from 'react-icons/bs'
+
 export default defineType({
   name: 'titleText',
   title: 'Title Text',
@@ -26,6 +28,7 @@ export default defineType({
     prepare: ({title, text}) => ({
       title,
       subtitle: text,
+      media: BsDot,
     }),
   },
 })

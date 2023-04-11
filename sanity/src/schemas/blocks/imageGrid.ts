@@ -1,4 +1,5 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {BsGrid1X2Fill} from 'react-icons/bs'
 
 export default defineType({
   name: 'imageGrid',
@@ -30,6 +31,7 @@ export default defineType({
   preview: {
     prepare: () => ({
       title: 'Image Grid',
+      media: BsGrid1X2Fill,
     }),
   },
 })

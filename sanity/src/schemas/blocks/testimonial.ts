@@ -25,6 +25,12 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'reference',
+      to: [{type: 'colorPalette'}],
+    }),
   ],
   preview: {
     select: {

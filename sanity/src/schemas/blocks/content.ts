@@ -14,6 +14,12 @@ export default defineType({
       type: 'richText',
     }),
     defineField({
+      name: 'textColor',
+      title: 'Text Color',
+      type: 'reference',
+      to: [{type: 'colorPalette'}],
+    }),
+    defineField({
       name: 'backgroundColor',
       title: 'Background Color',
       type: 'reference',
