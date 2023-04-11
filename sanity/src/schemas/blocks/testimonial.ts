@@ -1,6 +1,8 @@
 import {defineField, defineType} from 'sanity'
 import {SlSpeech} from 'react-icons/sl'
 
+import {portableTextPreview} from '../../utils/preview'
+
 export default defineType({
   name: 'testimonial',
   title: 'Testimonial',
@@ -25,9 +27,15 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare: () => ({
+    select: {
+      name: 'person.name',
+      photo: 'person.photo',
+      quote: 'quote',
+    },
+    prepare: ({name, photo, quote}) => ({
       title: 'Testimonial',
-      media: SlSpeech,
+      subtitle: name + `: ` + portableTextPreview(quote),
+      media: photo || SlSpeech,
     }),
   },
 })
