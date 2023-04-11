@@ -22,10 +22,10 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'hasBackground',
-      title: 'Has Background?',
-      type: 'boolean',
-      initialValue: false,
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'reference',
+      to: [{type: 'colorPalette'}],
     }),
   ],
   preview: {

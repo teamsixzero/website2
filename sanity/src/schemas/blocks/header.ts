@@ -1,4 +1,7 @@
 import {defineField, defineType} from 'sanity'
+import {FaHeading} from 'react-icons/fa'
+
+import {portableTextPreview} from '../../utils/preview'
 
 export default defineType({
   name: 'header',
@@ -12,8 +15,13 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare: () => ({
+    select: {
+      content: 'content',
+    },
+    prepare: ({content}) => ({
       title: 'Header',
+      subtitle: portableTextPreview(content),
+      media: FaHeading,
     }),
   },
 })

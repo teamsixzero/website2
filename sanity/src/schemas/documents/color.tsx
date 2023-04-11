@@ -1,18 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
 import {defineField, defineType} from 'sanity'
 
-const Color = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: ${({value}) => value}
-  border: 1px solid var(--card-shadow-outline-color);
-  border-radius: 0.1875rem;
-
-  & + * {
-    display: none !important;
-  }
-`
+import Color from '../../components/Color'
 
 export default defineType({
   name: 'colorPalette',
@@ -34,12 +22,11 @@ export default defineType({
     select: {
       name: `name`,
       value: `value.hex`,
-      icon: `seoIcon`,
     },
-    prepare: ({name, value, icon}) => ({
+    prepare: ({name, value}) => ({
       title: name,
       subtitle: value,
-      media: icon || <Color value={value} />,
+      media: <Color value={value} />,
     }),
   },
 })

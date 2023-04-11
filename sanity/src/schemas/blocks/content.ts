@@ -1,4 +1,7 @@
 import {defineField, defineType} from 'sanity'
+import {MdTextFields} from 'react-icons/md'
+
+import {portableTextPreview} from '../../utils/preview'
 
 export default defineType({
   name: 'content',
@@ -18,8 +21,13 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare: () => ({
+    select: {
+      text: 'text',
+    },
+    prepare: ({text}) => ({
       title: 'Content',
+      subtitle: portableTextPreview(text),
+      media: MdTextFields,
     }),
   },
 })
