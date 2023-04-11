@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {MdEmail} from 'react-icons/md'
 
 export default defineType({
   name: 'contactCallout',
@@ -10,16 +11,19 @@ export default defineType({
       title: 'Heading',
       type: 'string',
       validation: (Rule) => Rule.required(),
+      initialValue: 'Let’s work together',
     }),
     defineField({
       name: 'subHeading',
       title: 'Sub Heading',
       type: 'string',
+      initialValue: 'We will help you design something people love.',
     }),
     defineField({
       name: 'buttonText',
       title: 'Button Text',
       type: 'string',
+      initialValue: 'Contact Us',
     }),
     defineField({
       name: 'buttonUrl',
@@ -30,13 +34,15 @@ export default defineType({
           allowCredentials: true,
           allowRelative: true,
           relativeOnly: false,
-          scheme: [/^http/, /^https/],
+          scheme: [/^http/, /^https/, /^mailto/, /^tel/],
         }),
+      initialValue: 'mailto:hello@sixzero.com',
     }),
   ],
   preview: {
     prepare: () => ({
       title: 'Contact Callout',
+      media: MdEmail,
     }),
   },
 })

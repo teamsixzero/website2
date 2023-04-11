@@ -1,4 +1,6 @@
 import {defineField, defineType} from 'sanity'
+import {FaRegFolderOpen} from 'react-icons/fa'
+
 import pageBuilder from '../../utils/pageBuilder'
 
 export default defineType({
@@ -28,20 +30,14 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     pageBuilder,
-    defineField({
-      name: 'backgroundColor',
-      title: 'Background Color',
-      type: 'string',
-    }),
-    defineField({
-      name: 'textColor',
-      title: 'Text color',
-      type: 'string',
-    }),
   ],
   preview: {
     select: {
       title: 'title',
     },
+    prepare: ({title}) => ({
+      title,
+      media: FaRegFolderOpen,
+    }),
   },
 })

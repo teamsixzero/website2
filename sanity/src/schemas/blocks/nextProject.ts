@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {FaRegFolderOpen} from 'react-icons/fa'
 
 export default defineType({
   name: 'nextProject',
@@ -22,8 +23,14 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare: () => ({
+    select: {
+      title: 'project.title',
+      image: 'coverImage',
+    },
+    prepare: ({image, title}) => ({
       title: 'Next Project',
+      subtitle: title,
+      media: image || FaRegFolderOpen,
     }),
   },
 })

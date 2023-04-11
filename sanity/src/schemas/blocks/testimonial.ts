@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {SlSpeech} from 'react-icons/sl'
 
 export default defineType({
   name: 'testimonial',
@@ -26,6 +27,7 @@ export default defineType({
   preview: {
     prepare: () => ({
       title: 'Testimonial',
+      media: SlSpeech,
     }),
   },
 })
