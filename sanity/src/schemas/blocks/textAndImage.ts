@@ -13,24 +13,23 @@ export default defineType({
     defineField({
       name: 'image',
       title: 'Image',
-      type: 'image',
+      type: 'imageBlock',
     }),
     defineField({
-      name: 'hasBackground',
-      title: 'Has Background?',
-      type: 'boolean',
-      initialValue: false,
-    }),
-    defineField({
-      name: 'imageAlign',
-      title: 'Image Align',
+      name: 'align',
+      title: 'Align',
       type: 'string',
       initialValue: 'Left',
-      validation: (Rule) => Rule.required(),
       options: {
         list: ['Left', 'Right'],
-        layout: 'dropdown',
+        layout: 'radio',
       },
+    }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'reference',
+      to: [{type: 'colorPalette'}],
     }),
   ],
   preview: {

@@ -24,7 +24,7 @@ export default defineType({
     defineField({
       name: 'image',
       title: 'Image',
-      type: 'image',
+      type: 'altImage',
     }),
     defineField({
       name: 'alignment',

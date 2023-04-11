@@ -1,4 +1,6 @@
 import {defineArrayMember, defineType} from 'sanity'
+
+import ColorRenderer from '../../components/richText/ColorRenderer'
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -14,7 +16,7 @@ export default defineType({
   name: `richText`,
   type: `array`,
   of: [
-    defineArrayMember({
+    {
       title: `Block`,
       type: `block`,
       // Styles let you set what your user can mark up blocks with. These
@@ -55,15 +57,24 @@ export default defineType({
               },
             ],
           },
+          {
+            name: `richColor`,
+            title: `Color`,
+            type: `reference`,
+            to: [{type: `colorPalette`}],
+            icon: () => `🎨`,
+            components: {
+              annotation: ColorRenderer
+            },
+          },
         ],
       },
-    }),
+    },
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     defineArrayMember({
-      type: `image`,
-      options: {hotspot: true},
+      type: `altImage`,
     }),
   ],
 })

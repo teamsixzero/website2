@@ -24,12 +24,18 @@ export default defineType({
     defineField({
       name: 'image',
       title: 'Image',
-      type: 'image',
+      type: 'altImage',
     }),
   ],
   preview: {
-    prepare: () => ({
-      title: 'List Item',
+    select: {
+      title: 'title',
+      text: 'text',
+      step: 'step',
+    },
+    prepare: ({title, text, step}) => ({
+      title: title ? `${step}: ${title}` : 'List Item',
+      subtitle: text,
     }),
   },
 })

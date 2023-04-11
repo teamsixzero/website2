@@ -9,17 +9,14 @@ export default defineType({
     defineField({
       name: 'image',
       title: 'Image',
-      type: 'image',
-      fields: [
-        defineField({
-          name: 'alt',
-          title: 'Alternative Text',
-          description: 'Important for SEO and accessiblity.',
-          type: 'string',
-          validation: (Rule) => Rule.required(),
-        }),
-      ],
+      type: 'altImage',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'reference',
+      to: [{type: 'colorPalette'}],
     }),
   ],
   preview: {

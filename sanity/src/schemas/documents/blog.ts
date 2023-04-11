@@ -43,7 +43,7 @@ export default defineType({
     defineField({
       name: 'featureImage',
       title: 'Feature Image',
-      type: 'image',
+      type: 'altImage',
     }),
     defineField({
       name: 'summary',

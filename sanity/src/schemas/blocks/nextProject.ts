@@ -18,7 +18,7 @@ export default defineType({
     defineField({
       name: 'coverImage',
       title: 'Cover Image',
-      type: 'image',
+      type: 'altImage',
     }),
   ],
   preview: {

@@ -11,7 +11,7 @@ export default defineType({
       type: 'array',
       of: [
         defineArrayMember({
-          type: 'image',
+          type: 'altImage',
         }),
       ],
       validation: (Rule) => Rule.required().min(3),

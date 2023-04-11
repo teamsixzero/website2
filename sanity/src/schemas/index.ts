@@ -4,6 +4,7 @@ import {type SchemaTypeDefinition} from 'sanity'
 
 //documents
 import blog from './documents/blog'
+import color from './documents/color'
 import page from './documents/page'
 import person from './documents/person'
 import project from './documents/project'
@@ -26,6 +27,8 @@ import testimonial from './blocks/testimonial'
 import textAndImage from './blocks/textAndImage'
 
 //objects
+import altImage from './objects/altImage'
+import imageBlock from './objects/imageBlock'
 import listItem from './objects/listItem'
 import richText from './objects/richText'
 import titleText from './objects/titleText'
@@ -35,6 +38,7 @@ export const schemaTypes = [
 
   //documents
   blog,
+  color,
   page,
   person,
   project,
@@ -57,6 +61,8 @@ export const schemaTypes = [
   textAndImage,
 
   //objects
+  altImage,
+  imageBlock,
   listItem,
   richText,
   titleText,
