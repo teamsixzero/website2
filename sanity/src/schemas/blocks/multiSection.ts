@@ -1,4 +1,5 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {GrMultiple} from 'react-icons/gr'
 
 export default defineType({
   name: 'multiSection',
@@ -31,6 +32,7 @@ export default defineType({
   preview: {
     prepare: () => ({
       title: 'Multi Section',
+      media: GrMultiple,
     }),
   },
 })

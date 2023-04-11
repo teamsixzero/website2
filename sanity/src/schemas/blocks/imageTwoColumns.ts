@@ -1,4 +1,5 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {TbColumns2} from 'react-icons/tb'
 
 export default defineType({
   name: 'imageTwoColumns',
@@ -20,6 +21,7 @@ export default defineType({
   preview: {
     prepare: () => ({
       title: 'Image Two Columns',
+      media: TbColumns2,
     }),
   },
 })

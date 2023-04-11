@@ -34,9 +34,11 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
+      slug: 'slug.current',
     },
-    prepare: ({title}) => ({
+    prepare: ({title, slug}) => ({
       title,
+      subtitle: `/${slug}/`,
       media: FaRegFolderOpen,
     }),
   },

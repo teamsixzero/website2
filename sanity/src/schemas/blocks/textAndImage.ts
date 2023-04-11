@@ -1,5 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
+import {portableTextPreview} from '../../utils/preview'
+
 export default defineType({
   name: 'textAndImage',
   title: 'Text And Image',
@@ -17,7 +19,7 @@ export default defineType({
     }),
     defineField({
       name: 'align',
-      title: 'Align',
+      title: 'Image Align',
       type: 'string',
       initialValue: 'Left',
       options: {
@@ -33,8 +35,14 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare: () => ({
+    select: {
+      text: 'text',
+      image: 'image.source',
+    },
+    prepare: ({image, text}) => ({
       title: 'Text And Image',
+      subtitle: portableTextPreview(text),
+      media: image,
     }),
   },
 })
