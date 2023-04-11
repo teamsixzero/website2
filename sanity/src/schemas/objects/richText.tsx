@@ -1,6 +1,8 @@
 import {defineArrayMember, defineType} from 'sanity'
+import {FaHighlighter} from 'react-icons/fa'
 
 import ColorRenderer from '../../components/richText/ColorRenderer'
+import BackgroundColorRenderer from '../../components/richText/BackgroundColorRenderer'
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -65,6 +67,16 @@ export default defineType({
             icon: () => `🎨`,
             components: {
               annotation: ColorRenderer
+            },
+          },
+          {
+            name: `richBackground`,
+            title: `Background Color`,
+            type: `reference`,
+            to: [{type: `colorPalette`}],
+            icon: FaHighlighter,
+            components: {
+              annotation: BackgroundColorRenderer
             },
           },
         ],

@@ -11,29 +11,31 @@ const Color = styled.div`
 
   display: inline-block;
 
-  color: ${({value}) => value} !important;
+  padding: 0.125rem 0.5rem;
+  background-color: ${({value}) => value} !important;
+  border-radius: 0.25rem;
 
   * {
-    color: inherit !important;
+    background-color: inherit !important;
   }
 `
 
-const ColorRenderer = (props) => {
+const BackgroundColorRenderer = (props) => {
   const {renderDefault, value} = props
 
-  const [textColor, setTextColor] = useState(`#000000`)
+  const [backgroundColor, setBackgroundColor] = useState(`#000000`)
 
   useEffect(() => {
     if (!value?._ref) return
 
     client.fetch(`*[_id == $ref][0]`, {ref: value?._ref}).then((color) => {
-      setTextColor(color?.value?.hex)
+      setBackgroundColor(color?.value?.hex)
     })
   }, [value?._ref])
 
   if (!value) return renderDefault(props)
 
-  return <Color value={textColor}>{renderDefault(props)}</Color>
+  return <Color value={backgroundColor}>{renderDefault(props)}</Color>
 }
 
-export default ColorRenderer
+export default BackgroundColorRenderer
