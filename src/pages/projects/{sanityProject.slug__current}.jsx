@@ -26,8 +26,8 @@ export function Head({ data: { sanityProject: data } }) {
 }
 
 export const query = graphql`
-  query ($slug: String) {
-    sanityProject(slug: { current: { eq: $slug } }) {
+  query ($id: String) {
+    sanityProject(id: { eq: $id }) {
       id
       title
       slug {

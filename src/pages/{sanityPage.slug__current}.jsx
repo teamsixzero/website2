@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import PageBuilder from "../components/PageBuilder";
 
 const PageTemplate = ({ data: { sanityPage: data } }) => {
+  console.log(`data`, data);
   return (
     <Layout>
       <div className="template-page">
@@ -21,8 +22,8 @@ export function Head({ data: { sanityPage: data } }) {
 }
 
 export const query = graphql`
-  query ($slug: String) {
-    sanityPage(slug: { current: { eq: $slug } }) {
+  query ($id: String!) {
+    sanityPage(id: { eq: $id }) {
       id
       title
       slug {

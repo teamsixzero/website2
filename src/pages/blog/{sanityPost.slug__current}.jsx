@@ -37,8 +37,8 @@ export function Head({ data }) {
 }
 
 export const query = graphql`
-  query ($slug: String) {
-    sanityPost(slug: { current: { eq: $slug } }) {
+  query ($id: String) {
+    sanityPost(id: { eq: $id }) {
       title
       date(formatString: "MMMM D, YYYY")
       summary
