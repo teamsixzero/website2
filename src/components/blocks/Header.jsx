@@ -16,6 +16,6 @@ export default Header;
 
 export const query = graphql`
   fragment BlockHeader on SanityHeader {
-    content: _rawContent
+    content: _rawContent(resolveReferences: { maxDepth: 10 })
   }
 `;

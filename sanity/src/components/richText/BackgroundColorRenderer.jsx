@@ -15,6 +15,8 @@ const Color = styled.div`
   background-color: ${({value}) => value} !important;
   border-radius: 0.25rem;
 
+  transition: background-color 0.3s ease-in-out;
+
   * {
     background-color: inherit !important;
   }
@@ -26,12 +28,12 @@ const BackgroundColorRenderer = (props) => {
   const [backgroundColor, setBackgroundColor] = useState(`#000000`)
 
   useEffect(() => {
-    if (!value?._ref) return
+    if (!value?.reference?._ref) return
 
-    client.fetch(`*[_id == $ref][0]`, {ref: value?._ref}).then((color) => {
+    client.fetch(`*[_id == $ref][0]`, {ref: value?.reference?._ref}).then((color) => {
       setBackgroundColor(color?.value?.hex)
     })
-  }, [value?._ref])
+  }, [value?.reference?._ref])
 
   if (!value) return renderDefault(props)
 

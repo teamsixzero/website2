@@ -18,6 +18,6 @@ export default Content;
 
 export const query = graphql`
   fragment BlockContent on SanityContent {
-    text: _rawText
+    text: _rawText(resolveReferences: { maxDepth: 10 })
   }
 `;

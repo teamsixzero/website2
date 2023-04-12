@@ -5,13 +5,14 @@ import Image from "../Image";
 import RichText from "../RichText";
 
 const TextAndImage = ({ data }) => {
-  const { text, image, hasBackground, align } = data;
+  const { text, image, align, backgroundColor } = data;
 
   return (
     <div
-      className={`block-text-and-image${
-        hasBackground ? ` has-background` : ``
+      className={`block-text-and-image ${
+        backgroundColor?.value?.hex ? "has-background" : ""
       }`}
+      style={{ backgroundColor: backgroundColor?.value?.hex }}
     >
       <header>
         <RichText content={text} />
@@ -28,7 +29,7 @@ export default TextAndImage;
 
 export const query = graphql`
   fragment BlockTextAndImage on SanityTextAndImage {
-    text: _rawText
+    text: _rawText(resolveReferences: { maxDepth: 10 })
     image {
       source {
         asset {
@@ -42,5 +43,10 @@ export const query = graphql`
       }
     }
     align
+    backgroundColor {
+      value {
+        hex
+      }
+    }
   }
 `;

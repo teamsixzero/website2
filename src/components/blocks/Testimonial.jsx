@@ -30,7 +30,7 @@ export default Testimonial;
 
 export const query = graphql`
   fragment BlockTestimonial on SanityTestimonial {
-    quote: _rawQuote
+    quote: _rawQuote(resolveReferences: { maxDepth: 10 })
     person {
       name
       position

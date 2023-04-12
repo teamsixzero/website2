@@ -13,6 +13,8 @@ const Color = styled.div`
 
   color: ${({value}) => value} !important;
 
+  transition: color 0.3s ease-in-out;
+
   * {
     color: inherit !important;
   }
@@ -24,12 +26,12 @@ const ColorRenderer = (props) => {
   const [textColor, setTextColor] = useState(`#000000`)
 
   useEffect(() => {
-    if (!value?._ref) return
+    if (!value?.reference?._ref) return
 
-    client.fetch(`*[_id == $ref][0]`, {ref: value?._ref}).then((color) => {
+    client.fetch(`*[_id == $ref][0]`, {ref: value?.reference?._ref}).then((color) => {
       setTextColor(color?.value?.hex)
     })
-  }, [value?._ref])
+  }, [value?.reference?._ref])
 
   if (!value) return renderDefault(props)
 

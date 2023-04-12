@@ -13,7 +13,7 @@ const BlogPage = ({ data }) => {
         {blogs.map((blog) => (
           <li>
             <Link
-              to={`/blog/${blog.slug}`}
+              to={`/blog/${blog?.slug?.current}`}
               key={blog.id}
               className="card card--post"
             >

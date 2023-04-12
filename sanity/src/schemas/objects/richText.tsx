@@ -44,6 +44,7 @@ export default defineType({
         decorators: [
           {title: `Strong`, value: `strong`},
           {title: `Emphasis`, value: `em`},
+          {title: `Underline`, value: `underline`},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -60,23 +61,37 @@ export default defineType({
             ],
           },
           {
-            name: `richColor`,
-            title: `Color`,
-            type: `reference`,
-            to: [{type: `colorPalette`}],
+            name: `textColor`,
+            title: `Text Color`,
+            type: `object`,
             icon: () => `🎨`,
+            fields: [
+              {
+                name: `reference`,
+                title: `Color`,
+                type: `reference`,
+                to: [{type: `colorPalette`}],
+              },
+            ],
             components: {
-              annotation: ColorRenderer
+              annotation: ColorRenderer,
             },
           },
           {
-            name: `richBackground`,
-            title: `Background Color`,
-            type: `reference`,
-            to: [{type: `colorPalette`}],
+            name: `highlightColor`,
+            title: `Highlight Color`,
+            type: `object`,
             icon: FaHighlighter,
+            fields: [
+              {
+                name: `reference`,
+                title: `Color`,
+                type: `reference`,
+                to: [{type: `colorPalette`}],
+              },
+            ],
             components: {
-              annotation: BackgroundColorRenderer
+              annotation: BackgroundColorRenderer,
             },
           },
         ],
@@ -86,7 +101,12 @@ export default defineType({
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     defineArrayMember({
+      title: `Alt Image`,
       type: `altImage`,
+    }),
+    defineArrayMember({
+      title: `Image`,
+      type: `image`,
     }),
   ],
 })

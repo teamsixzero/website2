@@ -5,7 +5,6 @@ import Layout from "../components/Layout";
 import PageBuilder from "../components/PageBuilder";
 
 const PageTemplate = ({ data: { sanityPage: data } }) => {
-  console.log(`data`, data);
   return (
     <Layout>
       <div className="template-page">
