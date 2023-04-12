@@ -29,17 +29,24 @@ const CaseStudy = ({ data }) => {
 
   return (
     <div
-      className={`block-case-study ${alignmentClass} text-${
-        textColor ? textColor.toLowerCase() : `dark`
-      }`}
-      style={{ background: backgroundColor }}
+      className={`block-case-study ${alignmentClass}`}
+      style={{
+        background: backgroundColor?.value?.hex,
+        color: textColor?.value?.hex,
+      }}
     >
       <header className="block-case-study__header">
+        <h2 className="h3">{project?.title}</h2>
+
         <p className="text-normal">{summary}</p>
 
         <Link
           to={`/projects/${project?.slug?.current}`}
-          className={`btn ${textColor ? textColor.toLowerCase() : `dark`}`}
+          className="btn"
+          style={{
+            backgroundColor: textColor?.value?.hex,
+            color: backgroundColor?.value?.hex,
+          }}
         >
           See Project →
         </Link>
@@ -59,6 +66,7 @@ export default CaseStudy;
 export const query = graphql`
   fragment BlockCaseStudy on SanityCaseStudy {
     project {
+      title
       slug {
         current
       }
@@ -75,7 +83,15 @@ export const query = graphql`
       alt
     }
     alignment
-    backgroundColor
-    textColor
+    backgroundColor {
+      value {
+        hex
+      }
+    }
+    textColor {
+      value {
+        hex
+      }
+    }
   }
 `;

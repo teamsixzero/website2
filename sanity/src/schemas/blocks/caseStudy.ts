@@ -36,18 +36,16 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'backgroundColor',
-      title: 'Background Color',
-      type: 'string',
-    }),
-    defineField({
       name: 'textColor',
       title: 'Text Color',
-      type: 'string',
-      options: {
-        list: ['Light', 'Dark'],
-        layout: 'radio',
-      },
+      type: 'reference',
+      to: [{type: 'colorPalette'}],
+    }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'reference',
+      to: [{type: 'colorPalette'}],
     }),
   ],
   preview: {
