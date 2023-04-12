@@ -5,7 +5,7 @@ import Image from "../Image";
 import RichText from "../RichText";
 
 const TextAndImage = ({ data }) => {
-  const { text, image, hasBackground, imageAlign } = data;
+  const { text, image, hasBackground, align } = data;
 
   return (
     <div
@@ -17,8 +17,8 @@ const TextAndImage = ({ data }) => {
         <RichText content={text} />
       </header>
 
-      <figure className={`align-${imageAlign.toLowerCase()}`}>
-        <Image src={image} alt={image?.title} />
+      <figure className={`align-${align.toLowerCase()}`}>
+        <Image src={image?.source?.asset} alt={image?.source?.alt} />
       </figure>
     </div>
   );
@@ -27,21 +27,20 @@ const TextAndImage = ({ data }) => {
 export default TextAndImage;
 
 export const query = graphql`
-  fragment BlockTextAndImage on ContentfulBlockTextAndImage {
-    id
-    text {
-      raw
-    }
+  fragment BlockTextAndImage on SanityTextAndImage {
+    text: _rawText
     image {
-      gatsbyImageData(
-        quality: 100
-        width: 1440
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-      )
-      title
+      source {
+        asset {
+          gatsbyImageData(
+            width: 1440
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+        alt
+      }
     }
-    imageAlign
-    hasBackground
+    align
   }
 `;

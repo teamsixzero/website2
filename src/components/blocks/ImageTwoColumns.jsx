@@ -9,8 +9,8 @@ const ImageTwoColumns = ({ data }) => {
   return (
     <div className="block-image-two-columns">
       {images.map((image) => (
-        <figure key={image?.id}>
-          <Image src={image} alt={image?.title} />
+        <figure key={image?._key}>
+          <Image src={image?.source?.asset} alt={image?.source?.alt} />
         </figure>
       ))}
     </div>
@@ -20,16 +20,19 @@ const ImageTwoColumns = ({ data }) => {
 export default ImageTwoColumns;
 
 export const query = graphql`
-  fragment BlockImageTwoColumns on ContentfulBlockImageTwoColumns {
+  fragment BlockImageTwoColumns on SanityImageTwoColumns {
     images {
-      id
-      gatsbyImageData(
-        quality: 100
-        width: 1440
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-      )
-      title
+      _key
+      source {
+        asset {
+          gatsbyImageData(
+            width: 1440
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+        alt
+      }
     }
   }
 `;

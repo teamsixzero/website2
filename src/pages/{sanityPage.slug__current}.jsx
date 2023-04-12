@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import PageBuilder from "../components/PageBuilder";
 
-const PageTemplate = ({ data: { contentfulTemplatePage: data } }) => {
+const PageTemplate = ({ data: { sanityPage: data } }) => {
   return (
     <Layout>
       <div className="template-page">
@@ -16,16 +16,18 @@ const PageTemplate = ({ data: { contentfulTemplatePage: data } }) => {
 
 export default PageTemplate;
 
-export function Head({ data: { contentfulTemplatePage: data } }) {
+export function Head({ data: { sanityPage: data } }) {
   return <title>{data.title} | Sixzero</title>;
 }
 
 export const query = graphql`
   query ($slug: String) {
-    contentfulTemplatePage(slug: { eq: $slug }) {
+    sanityPage(slug: { current: { eq: $slug } }) {
       id
       title
-      slug
+      slug {
+        current
+      }
 
       ...PageBuilder
     }

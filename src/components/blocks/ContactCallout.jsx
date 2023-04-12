@@ -25,7 +25,7 @@ const ContactCallout = ({ data }) => {
 export default ContactCallout;
 
 export const query = graphql`
-  fragment BlockContactCallout on ContentfulBlockContactCallout {
+  fragment BlockContactCallout on SanityContactCallout {
     heading
     subHeading
     buttonText

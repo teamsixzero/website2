@@ -9,7 +9,7 @@ const NextProject = ({ data }) => {
   return (
     <div className="block-next-project">
       <Link
-        to={`/projects/${project?.slug}`}
+        to={`/projects/${project?.slug?.current}`}
         className="block-next-project__wrapper"
       >
         <header>
@@ -17,7 +17,7 @@ const NextProject = ({ data }) => {
           <h2 className="h4">{project?.title}&nbsp;→</h2>
         </header>
 
-        <Image src={coverImage} alt={coverImage?.title} />
+        <Image src={coverImage?.asset} alt={coverImage?.alt} />
       </Link>
     </div>
   );
@@ -26,19 +26,22 @@ const NextProject = ({ data }) => {
 export default NextProject;
 
 export const query = graphql`
-  fragment BlockNextProject on ContentfulBlockNextProject {
+  fragment BlockNextProject on SanityNextProject {
     project {
       title
-      slug
+      slug {
+        current
+      }
     }
     coverImage {
-      gatsbyImageData(
-        quality: 100
-        width: 1440
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-      )
-      title
+      asset {
+        gatsbyImageData(
+          width: 1440
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+      alt
     }
   }
 `;

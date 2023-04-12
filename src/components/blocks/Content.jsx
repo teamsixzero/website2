@@ -17,10 +17,7 @@ const Content = ({ data }) => {
 export default Content;
 
 export const query = graphql`
-  fragment BlockContent on ContentfulBlockContent {
-    text {
-      raw
-    }
-    hasBackground
+  fragment BlockContent on SanityContent {
+    text: _rawText
   }
 `;

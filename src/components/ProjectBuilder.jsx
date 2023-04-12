@@ -9,7 +9,7 @@ const ProjectBuilder = ({ blocks }) => {
 export default ProjectBuilder;
 
 export const query = graphql`
-  fragment ProjectBuilder on ContentfulTemplateProject {
+  fragment ProjectBuilder on SanityProject {
     blocks {
       __typename
 
@@ -25,9 +25,7 @@ export const query = graphql`
       ...BlockMultiSection
       ...BlockNextProject
       ...BlockOrderedList
-      ...BlockPageTitle
       ...BlockProjectInfo
-      ...BlockSteps
       ...BlockTestimonial
       ...BlockTextAndImage
     }

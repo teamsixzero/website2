@@ -13,10 +13,10 @@ const OrderedList = ({ data }) => {
         const indexNumber = index > 10 ? index : `0${index}`;
 
         return (
-          <li key={item?.id} className="block-ordered-list__item">
+          <li key={item?._key} className="block-ordered-list__item">
             {item?.image && (
               <figure className="block-ordered-list__item__image">
-                <Image src={item?.image} alt={item?.image?.title} />
+                <Image src={item?.image?.asset} alt={item?.image?.alt} />
               </figure>
             )}
 
@@ -27,7 +27,7 @@ const OrderedList = ({ data }) => {
 
               <div className="block-ordered-list__item__content">
                 <h3 className="h6">{item?.title}</h3>
-                <p className="text-normal">{item?.content?.text}</p>
+                <p className="text-normal">{item?.text}</p>
               </div>
             </div>
           </li>
@@ -40,22 +40,21 @@ const OrderedList = ({ data }) => {
 export default OrderedList;
 
 export const query = graphql`
-  fragment BlockOrderedList on ContentfulBlockOrderedList {
+  fragment BlockOrderedList on SanityOrderedList {
     listItems {
-      id
+      _key
       step
       title
-      content: text {
-        text
-      }
+      text
       image {
-        gatsbyImageData(
-          quality: 100
-          width: 1440
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
-        title
+        asset {
+          gatsbyImageData(
+            width: 1440
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+        alt
       }
     }
   }

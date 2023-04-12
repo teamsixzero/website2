@@ -18,8 +18,7 @@ const MultiSection = ({ data }) => {
 export default MultiSection;
 
 export const query = graphql`
-  fragment BlockMultiSection on ContentfulBlockMultiSection {
-    id
+  fragment BlockMultiSection on SanityMultiSection {
     blocks {
       __typename
 
@@ -27,6 +26,5 @@ export const query = graphql`
       ...BlockImageFullWidth
       ...BlockOrderedList
     }
-    hasBackground
   }
 `;

@@ -9,7 +9,7 @@ const PageBuilder = ({ blocks }) => {
 export default PageBuilder;
 
 export const query = graphql`
-  fragment PageBuilder on ContentfulTemplatePage {
+  fragment PageBuilder on SanityPage {
     blocks {
       __typename
 
@@ -25,9 +25,7 @@ export const query = graphql`
       ...BlockMultiSection
       ...BlockNextProject
       ...BlockOrderedList
-      ...BlockPageTitle
       ...BlockProjectInfo
-      ...BlockSteps
       ...BlockTestimonial
       ...BlockTextAndImage
     }

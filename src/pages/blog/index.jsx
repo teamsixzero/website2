@@ -5,7 +5,7 @@ import Layout from "../../components/Layout";
 import Image from "../../components/Image";
 
 const BlogPage = ({ data }) => {
-  const blogs = data.allContentfulTemplateBlog.edges.map(({ node }) => node);
+  const blogs = data.allSanityPost.edges.map(({ node }) => node);
 
   return (
     <Layout>
@@ -20,14 +20,14 @@ const BlogPage = ({ data }) => {
               <div className="card-image">
                 {blog.featureImage && (
                   <Image
-                    src={blog.featureImage}
-                    alt={blog.featureImage.title}
+                    src={blog?.featureImage?.asset}
+                    alt={blog?.featureImage?.alt}
                   />
                 )}
               </div>
               <div className="card-copy">
                 <h2 className="h6">{blog.title}</h2>
-                {blog.excerpt && <p>{blog.excerpt.excerpt}</p>}
+                {blog.excerpt && <p>{blog.excerpt}</p>}
                 <p className="accent accent--grey-normal">
                   Published {blog.date}
                 </p>
@@ -53,22 +53,24 @@ export function Head() {
 
 export const query = graphql`
   query {
-    allContentfulTemplateBlog(sort: { date: DESC }) {
+    allSanityPost(sort: { date: DESC }) {
       edges {
         node {
           title
           date(formatString: "MMMM D, YYYY")
-          slug
-          excerpt {
-            excerpt
+          slug {
+            current
           }
+          excerpt
           featureImage {
-            title
-            gatsbyImageData(
-              width: 1440
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
+            asset {
+              gatsbyImageData(
+                width: 1440
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+            alt
           }
         }
       }

@@ -10,7 +10,7 @@ const ImageThreeColumns = ({ data }) => {
     <div className="block-image-three-columns">
       {images.map((image) => (
         <figure key={image?.id}>
-          <Image src={image} alt={image?.title} />
+          <Image src={image?.asset} alt={image?.alt} />
         </figure>
       ))}
     </div>
@@ -20,16 +20,16 @@ const ImageThreeColumns = ({ data }) => {
 export default ImageThreeColumns;
 
 export const query = graphql`
-  fragment BlockImageThreeColumns on ContentfulBlockImageThreeColumns {
+  fragment BlockImageThreeColumns on SanityImageThreeColumns {
     images {
-      id
-      gatsbyImageData(
-        quality: 100
-        width: 1440
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-      )
-      title
+      asset {
+        gatsbyImageData(
+          width: 1440
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+      alt
     }
   }
 `;

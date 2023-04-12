@@ -4,15 +4,8 @@ import { graphql, Link } from "gatsby";
 import Image from "../Image";
 
 const CaseStudy = ({ data }) => {
-  const {
-    title,
-    project,
-    summary,
-    image,
-    alignment,
-    backgroundColor,
-    textColor,
-  } = data;
+  const { project, summary, image, alignment, backgroundColor, textColor } =
+    data;
 
   let alignmentClass = `align-left`;
 
@@ -42,12 +35,10 @@ const CaseStudy = ({ data }) => {
       style={{ background: backgroundColor }}
     >
       <header className="block-case-study__header">
-        <h2 className="h3">{title}</h2>
-
-        <p className="text-normal">{summary?.content}</p>
+        <p className="text-normal">{summary}</p>
 
         <Link
-          to={`/projects/${project?.slug}`}
+          to={`/projects/${project?.slug?.current}`}
           className={`btn ${textColor ? textColor.toLowerCase() : `dark`}`}
         >
           See Project →
@@ -56,8 +47,8 @@ const CaseStudy = ({ data }) => {
 
       <Image
         className="block-case-study__image"
-        src={image}
-        alt={image?.title}
+        src={image?.asset}
+        alt={image?.alt}
       />
     </div>
   );
@@ -66,23 +57,22 @@ const CaseStudy = ({ data }) => {
 export default CaseStudy;
 
 export const query = graphql`
-  fragment BlockCaseStudy on ContentfulBlockCaseStudy {
-    id
-    title
+  fragment BlockCaseStudy on SanityCaseStudy {
     project {
-      slug
+      slug {
+        current
+      }
     }
-    summary {
-      content: summary
-    }
+    summary
     image {
-      gatsbyImageData(
-        quality: 100
-        width: 1440
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-      )
-      title
+      asset {
+        gatsbyImageData(
+          width: 1440
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+      alt
     }
     alignment
     backgroundColor

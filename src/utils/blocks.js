@@ -8,7 +8,7 @@ export const blockBuilder = (blocks) => {
   blocks?.forEach((block) => {
     if (Object.keys(block).length === 0) return;
 
-    const blockName = block?.__typename.replace(`ContentfulBlock`, ``);
+    const blockName = block?.__typename.replace(`Sanity`, ``);
     const blockKey = `block-${blockName}-${uuidv4()}`;
 
     const Block = BlockComponents?.[blockName];

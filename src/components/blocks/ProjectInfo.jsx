@@ -7,7 +7,7 @@ const ProjectInfo = ({ data }) => {
   return (
     <ul className="block-project-info">
       {info.map((information) => (
-        <li key={information?.id}>
+        <li key={information?._key}>
           <h3 className="text-bold">{information?.title}</h3>
           <p className="text-normal">{information?.text}</p>
         </li>
@@ -19,10 +19,9 @@ const ProjectInfo = ({ data }) => {
 export default ProjectInfo;
 
 export const query = graphql`
-  fragment BlockProjectInfo on ContentfulBlockProjectInfo {
-    id
+  fragment BlockProjectInfo on SanityProjectInfo {
     info {
-      id
+      _key
       title
       text
     }

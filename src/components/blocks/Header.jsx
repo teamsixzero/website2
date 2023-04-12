@@ -15,10 +15,7 @@ const Header = ({ data }) => {
 export default Header;
 
 export const query = graphql`
-  fragment BlockHeader on ContentfulBlockHeader {
-    id
-    content {
-      raw
-    }
+  fragment BlockHeader on SanityHeader {
+    content: _rawContent
   }
 `;

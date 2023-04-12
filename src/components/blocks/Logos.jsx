@@ -10,8 +10,8 @@ const Logos = ({ data }) => {
     <ul className="block-logos">
       {logos.length > 0 &&
         logos.map((logo) => (
-          <li key={logo?.id}>
-            <Image src={logo} alt={logo?.title} objectFit="contain" />
+          <li key={logo?._key}>
+            <Image src={logo?.asset} alt={logo?.alt} objectFit="contain" />
           </li>
         ))}
     </ul>
@@ -21,17 +21,17 @@ const Logos = ({ data }) => {
 export default Logos;
 
 export const query = graphql`
-  fragment BlockLogos on ContentfulBlockLogos {
-    id
+  fragment BlockLogos on SanityLogos {
     logos {
-      id
-      gatsbyImageData(
-        quality: 100
-        width: 400
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-      )
-      title
+      _key
+      asset {
+        gatsbyImageData(
+          width: 400
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+      alt
     }
   }
 `;

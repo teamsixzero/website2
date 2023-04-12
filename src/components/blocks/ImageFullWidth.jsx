@@ -4,11 +4,11 @@ import { graphql } from "gatsby";
 import Image from "../Image";
 
 const ImageFullWidth = ({ data }) => {
-  const { source } = data;
+  const { image } = data;
 
   return (
     <figure className="block-image-full-width">
-      <Image src={source} alt={source.title} title={source.title} />
+      <Image src={image?.asset} alt={image?.alt} />
     </figure>
   );
 };
@@ -16,16 +16,16 @@ const ImageFullWidth = ({ data }) => {
 export default ImageFullWidth;
 
 export const query = graphql`
-  fragment BlockImageFullWidth on ContentfulBlockImageFullWidth {
-    id
-    source {
-      gatsbyImageData(
-        quality: 100
-        width: 1440
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-      )
-      title
+  fragment BlockImageFullWidth on SanityImageFullWidth {
+    image {
+      asset {
+        gatsbyImageData(
+          width: 1440
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+      alt
     }
   }
 `;

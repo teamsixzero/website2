@@ -8,12 +8,11 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: `gatsby-source-sanity`,
       options: {
-        downloadLocal: true,
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        // host: process.env.CONTENTFUL_HOST,
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_DATASET,
+        token: process.env.SANITY_TOKEN,
       },
     },
     `gatsby-plugin-image`,
