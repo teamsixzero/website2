@@ -11,7 +11,7 @@ const ContactCallout = ({ data }) => {
         <p className="h6">{subHeading}</p>
         <a
           className="btn"
-          href={`mailto:${buttonUrl}`}
+          href={`${buttonUrl}`}
           target="_blank"
           rel="noreferrer"
         >
