@@ -32,10 +32,12 @@ export default defineType({
       title: 'title',
       text: 'text',
       step: 'step',
+      image: 'image',
     },
-    prepare: ({title, text, step}) => ({
+    prepare: ({title, text, step, image}) => ({
       title: title ? `${step}: ${title}` : 'List Item',
       subtitle: text,
+      media: image,
     }),
   },
 })

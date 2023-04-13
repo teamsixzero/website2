@@ -7,6 +7,7 @@ const defaultPortableTextComponents = {
   types: {
     altImage: PT.Image,
     image: PT.Image,
+    button: PT.Button,
   },
   marks: {
     strong: ({ children }) => <strong>{children}</strong>,
@@ -17,6 +18,7 @@ const defaultPortableTextComponents = {
     highlightColor: PT.Highlight,
   },
   block: {
+    small: ({ children }) => <p className="accent">{children}</p>,
     title: ({ children }) => <h1 className="h1">{children}</h1>,
     h1: ({ children }) => <h2 className="h1">{children}</h2>,
     h2: ({ children }) => <h2>{children}</h2>,

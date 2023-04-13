@@ -28,9 +28,11 @@ import textAndImage from './blocks/textAndImage'
 
 //objects
 import altImage from './objects/altImage'
+import button from './objects/button'
 import imageBlock from './objects/imageBlock'
 import listItem from './objects/listItem'
 import richText from './objects/richText'
+import titleCard from './objects/titleCard'
 import titleText from './objects/titleText'
 
 export const schemaTypes = [
@@ -62,8 +64,10 @@ export const schemaTypes = [
 
   //objects
   altImage,
+  button,
   imageBlock,
   listItem,
   richText,
+  titleCard,
   titleText,
 ] satisfies SchemaTypeDefinition[]

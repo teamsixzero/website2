@@ -1,6 +1,7 @@
 .block-ordered-list {
   position: relative;
   width: 100%;
+  max-width: 72rem;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -13,7 +14,7 @@
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .block-ordered-list__item {
+  &__card {
     position: relative;
     width: 100%;
 
@@ -22,28 +23,29 @@
     gap: 4.875rem;
 
     padding: var(--spacing-5);
-
-    background-color: #f9f9f9;
     border-radius: 1.5rem;
 
-    &__image {
-      position: relative;
-      width: 100%;
-      max-width: 12.5rem;
-      aspect-ratio: 1/1;
+    &__item {
+      background-color: #f9f9f9;
+      &__image {
+        position: relative;
+        width: 100%;
+        max-width: 12.5rem;
+        aspect-ratio: 1/1;
 
-      background-color: #c4c4c4;
-    }
+        background-color: #c4c4c4;
+      }
 
-    &__index {
-      margin-bottom: 1.5rem;
-      color: #79beef;
-    }
+      &__index {
+        margin-bottom: 1.5rem;
+        color: #79beef;
+      }
 
-    &__content {
-      display: flex;
-      flex-direction: column;
-      row-gap: 0.75rem;
+      &__content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.75rem;
+      }
     }
   }
 }

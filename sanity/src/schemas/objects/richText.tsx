@@ -4,6 +4,7 @@ import {FaHighlighter} from 'react-icons/fa'
 import ColorRenderer from '../../components/richText/ColorRenderer'
 import BackgroundColorRenderer from '../../components/richText/BackgroundColorRenderer'
 import TitleRenderer from '../../components/richText/TitleRenderer'
+import SmallRenderer from '../../components/richText/SmallRenderer'
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -28,6 +29,11 @@ export default defineType({
       // use your content.
       styles: [
         {title: `Normal`, value: `normal`},
+        {
+          title: 'Small',
+          value: 'small',
+          component: SmallRenderer,
+        },
         {
           title: 'Title',
           value: 'title',
@@ -112,6 +118,10 @@ export default defineType({
     defineArrayMember({
       title: `Image`,
       type: `image`,
+    }),
+    defineArrayMember({
+      title: `Button`,
+      type: `button`,
     }),
   ],
 })

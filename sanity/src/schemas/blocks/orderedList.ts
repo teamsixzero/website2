@@ -11,6 +11,9 @@ export default defineType({
       type: 'array',
       of: [
         defineArrayMember({
+          type: 'titleCard',
+        }),
+        defineArrayMember({
           type: 'listItem',
         }),
       ],
