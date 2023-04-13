@@ -1,0 +1,9 @@
+.portable-text-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

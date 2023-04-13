@@ -3,12 +3,6 @@ import { PortableText } from "@portabletext/react";
 
 import * as PT from "../components/portableText";
 
-// import Image from "./Image";
-
-// import { addColour } from "../utils/helpers";
-
-// const website_url = "https://sixzero.co";
-
 const defaultPortableTextComponents = {
   types: {
     altImage: PT.Image,
@@ -18,33 +12,9 @@ const defaultPortableTextComponents = {
     strong: ({ children }) => <strong>{children}</strong>,
     em: ({ children }) => <em>{children}</em>,
     underline: ({ children }) => <u>{children}</u>,
-    link: ({ children, value }) => {
-      const target = (value?.href || "").startsWith("http")
-        ? "_blank"
-        : undefined;
-
-      return (
-        <a
-          href={value?.href}
-          target={target}
-          rel={target === "_blank" && "noindex nofollow"}
-        >
-          {children}
-        </a>
-      );
-    },
-    textColor: ({ children, value }) => {
-      const { reference } = value;
-      return <span style={{ color: reference?.value?.hex }}>{children}</span>;
-    },
-    highlightColor: ({ children, value }) => {
-      const { reference } = value;
-      return (
-        <span style={{ backgroundColor: reference?.value?.hex }}>
-          {children}
-        </span>
-      );
-    },
+    link: PT.Link,
+    textColor: PT.TextColor,
+    highlightColor: PT.Highlight,
   },
   block: {
     h1: ({ children }) => <h2 className="h1">{children}</h2>,
@@ -57,8 +27,18 @@ const defaultPortableTextComponents = {
       if (!children[0]) return <></>;
       return <p className="text-normal">{children}</p>;
     },
-    blockquote: ({ children }) => (
-      <blockquote className="h5">{children}</blockquote>
+    blockquote: PT.Quote,
+  },
+  list: {
+    bullet: ({ children }) => <ul>{children}</ul>,
+    number: ({ children }) => <ol>{children}</ol>,
+  },
+  listItem: {
+    bullet: ({ children }) => (
+      <li style={{ listStyleType: "disc" }}>{children}</li>
+    ),
+    number: ({ children }) => (
+      <li style={{ listStyleType: "decimal" }}>{children}</li>
     ),
   },
 };
@@ -69,6 +49,15 @@ const RichText = ({ content, options }) => {
       <PortableText
         value={content}
         components={options || defaultPortableTextComponents}
+        onMissingComponent={(message, options) => {
+          throw new Error(message, {
+            // eg `someUnknownType`
+            type: options.type,
+
+            // 'block' | 'mark' | 'blockStyle' | 'listStyle' | 'listItemStyle'
+            nodeType: options.nodeType,
+          });
+        }}
       />
     </div>
   );

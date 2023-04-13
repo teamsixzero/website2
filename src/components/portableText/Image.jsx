@@ -15,6 +15,7 @@ const Image = ({ value }) => {
 
   return (
     <img
+      className="portable-text-image"
       src={url}
       alt={value.alt || " "}
       loading="lazy"
