@@ -4,10 +4,15 @@ import { graphql } from "gatsby";
 import Image from "../Image";
 
 const ImageFullWidth = ({ data }) => {
-  const { image } = data;
+  const { image, backgroundColor } = data;
 
   return (
-    <figure className="block-image-full-width">
+    <figure
+      className={`block-image-full-width ${
+        backgroundColor?.value?.hex ? "has-background" : ""
+      }`}
+      style={{ backgroundColor: backgroundColor?.value?.hex }}
+    >
       <Image src={image?.asset} alt={image?.alt} />
     </figure>
   );
@@ -26,6 +31,11 @@ export const query = graphql`
         )
       }
       alt
+    }
+    backgroundColor {
+      value {
+        hex
+      }
     }
   }
 `;

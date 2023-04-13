@@ -3,6 +3,10 @@
   height: auto;
   display: block;
 
+  &.has-background {
+    padding: 6.9rem 6rem 7.75rem;
+  }
+
   img {
     width: 100%;
     height: auto;
