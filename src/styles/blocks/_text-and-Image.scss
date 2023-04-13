@@ -12,6 +12,15 @@
     color: white;
   }
 
+  @include breakpoint("sm") {
+    flex-direction: column;
+    row-gap: var(--spacing-4);
+
+    &.has-background {
+      padding: 4rem var(--spacing-5);
+    }
+  }
+
   & > header {
     max-width: 30rem;
 
@@ -23,22 +32,18 @@
   &__figure {
     &.align-left {
       order: -1;
-      @include breakpoint("sm") {
-        order: unset;
-      }
+    }
+
+    @include breakpoint("sm") {
+      order: -1;
     }
 
     &.has-background {
       padding: 3.5rem 2.5rem;
-    }
-  }
 
-  @include breakpoint("sm") {
-    flex-direction: column;
-    row-gap: var(--spacing-4);
-
-    &.has-background {
-      padding: 4rem var(--spacing-5);
+      @include breakpoint("sm") {
+        padding: 2rem 1rem;
+      }
     }
   }
 }
