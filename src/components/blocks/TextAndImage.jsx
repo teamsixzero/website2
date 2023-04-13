@@ -18,7 +18,12 @@ const TextAndImage = ({ data }) => {
         <RichText content={text} />
       </header>
 
-      <figure className={`align-${align.toLowerCase()}`}>
+      <figure
+        className={`block-text-and-image__figure align-${align.toLowerCase()} ${
+          image?.backgroundColor?.value?.hex ? "has-background" : ""
+        }`}
+        style={{ backgroundColor: image?.backgroundColor?.value?.hex }}
+      >
         <Image src={image?.source?.asset} alt={image?.source?.alt} />
       </figure>
     </div>
@@ -40,6 +45,11 @@ export const query = graphql`
           )
         }
         alt
+      }
+      backgroundColor {
+        value {
+          hex
+        }
       }
     }
     align

@@ -20,10 +20,16 @@
     row-gap: var(--spacing-3);
   }
 
-  & > figure.align-left {
-    order: -1;
-    @include breakpoint("sm") {
-      order: unset;
+  &__figure {
+    &.align-left {
+      order: -1;
+      @include breakpoint("sm") {
+        order: unset;
+      }
+    }
+
+    &.has-background {
+      padding: 3.5rem 2.5rem;
     }
   }
 
