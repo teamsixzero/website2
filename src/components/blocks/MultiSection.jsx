@@ -4,11 +4,14 @@ import { graphql } from "gatsby";
 import { blockBuilder } from "../../utils/blocks";
 
 const MultiSection = ({ data }) => {
-  const { blocks, hasBackground } = data;
+  const { blocks, backgroundColor } = data;
 
   return (
     <article
-      className={`block-multi-section${hasBackground ? ` has-background` : ``}`}
+      className={`block-multi-section ${
+        backgroundColor?.value?.hex ? `has-background` : ``
+      }`}
+      style={{ backgroundColor: backgroundColor?.value?.hex }}
     >
       <div className="block-multi-section__wrapper">{blockBuilder(blocks)}</div>
     </article>
@@ -25,6 +28,11 @@ export const query = graphql`
       ...BlockContent
       ...BlockImageFullWidth
       ...BlockOrderedList
+    }
+    backgroundColor {
+      value {
+        hex
+      }
     }
   }
 `;
