@@ -9,7 +9,13 @@ const ImageTwoColumns = ({ data }) => {
   return (
     <div className="block-image-two-columns">
       {images.map((image) => (
-        <figure key={image?._key}>
+        <figure
+          key={image?._key}
+          className={`block-image-two-columns__figure ${
+            image?.backgroundColor?.value?.hex ? "has-background" : ""
+          }`}
+          style={{ backgroundColor: image?.backgroundColor?.value?.hex }}
+        >
           <Image src={image?.source?.asset} alt={image?.source?.alt} />
         </figure>
       ))}
@@ -32,6 +38,11 @@ export const query = graphql`
           )
         }
         alt
+      }
+      backgroundColor {
+        value {
+          hex
+        }
       }
     }
   }

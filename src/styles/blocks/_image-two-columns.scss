@@ -9,4 +9,10 @@
     flex-direction: column;
     row-gap: var(--spacing-3);
   }
+
+  &__figure {
+    &.has-background {
+      padding: 4.5rem 3.75rem;
+    }
+  }
 }
