@@ -12,6 +12,9 @@
 
   @include breakpoint("sm") {
     grid-template-columns: repeat(1, 1fr);
+    row-gap: 1.5rem;
+
+    padding: 0;
   }
 
   &__card {
@@ -25,8 +28,24 @@
     padding: var(--spacing-5);
     border-radius: 1.5rem;
 
+    @include breakpoint("sm") {
+      aspect-ratio: 1/1;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    &__title {
+      color: #ffffff;
+      background-color: #5dcfc9;
+    }
+
     &__item {
       background-color: #f9f9f9;
+
+      @include breakpoint("sm") {
+        padding: 2.5rem 2rem;
+      }
+
       &__image {
         position: relative;
         width: 100%;
@@ -34,11 +53,19 @@
         aspect-ratio: 1/1;
 
         background-color: #c4c4c4;
+
+        @include breakpoint("sm") {
+          max-width: 10rem;
+        }
       }
 
       &__index {
         margin-bottom: 1.5rem;
         color: #79beef;
+
+        @include breakpoint("sm") {
+          margin-bottom: 0.75rem;
+        }
       }
 
       &__content {
