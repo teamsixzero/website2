@@ -49,8 +49,14 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare: () => ({
+    select: {
+      title: 'project.title',
+      image: 'image',
+    },
+    prepare: ({title, image}) => ({
       title: 'Case Study',
+      subtitle: title,
+      media: image,
     }),
   },
 })
