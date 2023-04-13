@@ -2,10 +2,16 @@ import React from "react";
 import { graphql } from "gatsby";
 
 const ProjectInfo = ({ data }) => {
-  const { info } = data;
+  const { info, textColor, backgroundColor } = data;
 
   return (
-    <ul className="block-project-info">
+    <ul
+      className="block-project-info"
+      style={{
+        color: textColor?.value?.hex,
+        backgroundColor: backgroundColor?.value?.hex,
+      }}
+    >
       {info.map((information) => (
         <li key={information?._key}>
           <h3 className="text-bold">{information?.title}</h3>
@@ -24,6 +30,16 @@ export const query = graphql`
       _key
       title
       text
+    }
+    textColor {
+      value {
+        hex
+      }
+    }
+    backgroundColor {
+      value {
+        hex
+      }
     }
   }
 `;
