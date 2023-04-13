@@ -17,6 +17,7 @@ const defaultPortableTextComponents = {
     highlightColor: PT.Highlight,
   },
   block: {
+    title: ({ children }) => <h1 className="h1">{children}</h1>,
     h1: ({ children }) => <h2 className="h1">{children}</h2>,
     h2: ({ children }) => <h2>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,

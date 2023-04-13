@@ -3,6 +3,7 @@ import {FaHighlighter} from 'react-icons/fa'
 
 import ColorRenderer from '../../components/richText/ColorRenderer'
 import BackgroundColorRenderer from '../../components/richText/BackgroundColorRenderer'
+import TitleRenderer from '../../components/richText/TitleRenderer'
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -26,8 +27,12 @@ export default defineType({
       // you want and decide how you want to deal with it where you want to
       // use your content.
       styles: [
-        // todo: add main h1 heading
         {title: `Normal`, value: `normal`},
+        {
+          title: 'Title',
+          value: 'title',
+          component: TitleRenderer,
+        },
         {title: 'Heading 1', value: 'h1'},
         {title: 'Heading 2', value: 'h2'},
         {title: 'Heading 3', value: 'h3'},
