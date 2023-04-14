@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const isDev = process.env.NODE_ENV === "development";
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://sixzero.co`,
@@ -13,7 +15,7 @@ module.exports = {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_DATASET,
         token: process.env.SANITY_TOKEN,
-        watchMode: true,
+        watchMode: isDev || false,
       },
     },
     `gatsby-plugin-image`,
