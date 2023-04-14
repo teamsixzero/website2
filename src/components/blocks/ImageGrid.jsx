@@ -11,8 +11,15 @@ const ImageGrid = ({ data }) => {
   return (
     <div className={`block-image-grid ${gridClass}`}>
       {images.map((image) => (
-        <figure key={image?.id}>
-          <Image src={image?.asset} alt={image?.alt} />
+        <figure
+          key={image?.id}
+          style={{ backgroundColor: image?.backgroundColor?.value?.hex }}
+        >
+          <Image
+            src={image?.source?.asset}
+            alt={image?.source?.alt}
+            objectFit="contain"
+          />
         </figure>
       ))}
     </div>
@@ -24,14 +31,21 @@ export default ImageGrid;
 export const query = graphql`
   fragment BlockImageGrid on SanityImageGrid {
     images {
-      asset {
-        gatsbyImageData(
-          width: 1440
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
+      source {
+        asset {
+          gatsbyImageData(
+            width: 1440
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+        alt
       }
-      alt
+      backgroundColor {
+        value {
+          hex
+        }
+      }
     }
     style
   }

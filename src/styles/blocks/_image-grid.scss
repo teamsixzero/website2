@@ -7,31 +7,89 @@
   row-gap: 2rem;
   column-gap: 2rem;
 
+  figure {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .gatsby-image {
+      height: 100%;
+
+      .gatsby-image-wrapper {
+        height: 100%;
+      }
+    }
+  }
+
+  @include breakpoint("sm") {
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+  }
+
   &.style-1 {
     grid-template-columns: repeat(3, 1fr);
+
+    @include breakpoint("sm") {
+      grid-template-columns: repeat(1, 1fr);
+    }
 
     figure:nth-child(1),
     figure:nth-child(2) {
       grid-column: 1 / span 1;
+      aspect-ratio: 1 / 1;
+
+      @include breakpoint("sm") {
+        grid-column: 1 / -1;
+      }
     }
 
     figure:nth-child(3) {
       grid-column: 2 / span 2;
       grid-row: 1 / span 2;
+      aspect-ratio: 1 / 1;
+
+      @include breakpoint("sm") {
+        grid-column: 1 / -1;
+        grid-row: 3;
+      }
     }
   }
 
   &.style-2 {
     grid-template-columns: repeat(2, 1fr);
 
+    @include breakpoint("sm") {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     figure:nth-child(1),
     figure:nth-child(2) {
       grid-column: 1 / span 1;
+      aspect-ratio: 1 / 1;
+
+      @include breakpoint("sm") {
+        grid-column: 1 / -1;
+      }
     }
 
     figure:nth-child(3) {
+      height: 100%;
+
       grid-column: 2 / span 1;
       grid-row: 1 / span 2;
+
+      aspect-ratio: 1 / 2;
+
+      padding: 0 5rem;
+
+      @include breakpoint("sm") {
+        grid-column: 1 / -1;
+        padding: 0;
+
+        grid-row: 3;
+      }
     }
   }
 }
