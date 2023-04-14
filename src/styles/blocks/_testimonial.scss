@@ -6,6 +6,14 @@
   align-items: center;
   justify-content: center;
 
+  &.has-background {
+    padding: 10.5rem 5.25rem;
+
+    @include breakpoint("sm") {
+      padding: 4.5rem 2rem;
+    }
+  }
+
   &__wrapper {
     max-width: 50rem;
 

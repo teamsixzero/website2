@@ -5,10 +5,15 @@ import RichText from "../RichText";
 import Image from "../Image";
 
 const Testimonial = ({ data }) => {
-  const { quote, person } = data;
+  const { quote, person, backgroundColor } = data;
 
   return (
-    <div className="block-testimonial">
+    <div
+      className={`block-testimonial ${
+        backgroundColor?.value?.hex ? "has-background" : ""
+      }`}
+      style={{ backgroundColor: backgroundColor?.value?.hex }}
+    >
       <div className="block-testimonial__wrapper">
         <blockquote>
           <RichText content={quote} />
@@ -43,6 +48,11 @@ export const query = graphql`
           )
         }
         alt
+      }
+    }
+    backgroundColor {
+      value {
+        hex
       }
     }
   }
