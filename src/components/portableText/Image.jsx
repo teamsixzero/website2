@@ -1,30 +1,14 @@
 import React from "react";
-import urlBuilder from "@sanity/image-url";
-import { getImageDimensions } from "@sanity/asset-utils";
-
-import { client } from "../../utils/sanity";
+import SanityImage from "gatsby-plugin-sanity-image";
 
 const Image = ({ value }) => {
-  const { width, height } = getImageDimensions(value);
-  const url = urlBuilder(client)
-    .image(value)
-    .width(800)
-    .fit("max")
-    .auto("format")
-    .url();
-
   return (
-    <img
+    <SanityImage
       className="portable-text-image"
-      src={url}
-      alt={value.alt || " "}
-      loading="lazy"
-      style={{
-        // Avoid jumping around with aspect-ratio CSS property
-        width: "100%",
-        height: "auto",
-        aspectRatio: width / height,
-      }}
+      asset={value?.asset}
+      alt={value?.altText}
+      width={800}
+      sizes="(max-width: 800px) 75vw, 50vw, 800px"
     />
   );
 };
