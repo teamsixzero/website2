@@ -18,6 +18,10 @@
 
   &.has-background {
     padding: 6.9rem 6rem 7.75rem;
+
+    @include breakpoint("sm") {
+      padding: 2.25rem 1.5rem;
+    }
   }
 
   img {

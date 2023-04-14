@@ -13,6 +13,10 @@
   &__figure {
     &.has-background {
       padding: 4.5rem 3.75rem;
+
+      @include breakpoint("sm") {
+        padding: 2.5rem 2rem;
+      }
     }
   }
 }
