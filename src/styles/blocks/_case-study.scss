@@ -8,6 +8,7 @@
 
   @include breakpoint("sm") {
     flex-direction: column;
+    align-items: center;
     row-gap: 2rem;
 
     .block-case-study__image {
@@ -25,11 +26,17 @@
 
     @include breakpoint("sm") {
       min-width: unset;
+      align-items: center;
+      text-align: center;
     }
 
     .btn {
       align-self: flex-start;
       margin-top: 1rem;
+
+      @include breakpoint("sm") {
+        align-self: unset;
+      }
     }
   }
 
@@ -37,7 +44,7 @@
     padding: 3.5rem 6.5rem 3.5rem 0;
 
     @include breakpoint("sm") {
-      padding: 2rem;
+      padding: 1.5rem 1.5rem 2.5rem;
     }
 
     .block-case-study__image {
@@ -48,7 +55,7 @@
       padding: 0 6.5rem 0 3rem;
 
       @include breakpoint("sm") {
-        padding: 2rem;
+        padding: 1.5rem 1.5rem 2.5rem;
       }
 
       .block-case-study__image {
@@ -61,14 +68,14 @@
     padding: 3.5rem 0 3.5rem 6.5rem;
 
     @include breakpoint("sm") {
-      padding: 2rem;
+      padding: 1.5rem 1.5rem 2.5rem;
     }
 
     &-full-height {
       padding: 0 3rem 0 6.5rem;
 
       @include breakpoint("sm") {
-        padding: 2rem;
+        padding: 1.5rem 1.5rem 2.5rem;
       }
     }
   }
