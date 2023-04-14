@@ -6,17 +6,20 @@
   align-items: center;
   justify-content: center;
 
+  &.has-background {
+    padding: 8rem 4rem;
+
+    @include breakpoint("sm") {
+      padding: 4rem 2.5rem;
+    }
+  }
+
   &__wrapper {
     max-width: 50rem;
 
     display: flex;
     flex-direction: column;
     row-gap: var(--spacing-3);
-  }
-
-  &.has-background {
-    padding: 8rem 0;
-    background-color: #f9f9f9;
   }
 }
 
