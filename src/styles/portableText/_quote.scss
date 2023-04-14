@@ -8,4 +8,8 @@
   padding: 3rem 4.5rem;
 
   background-color: #f6f6f6;
+
+  @include breakpoint("sm") {
+    padding: 4.5rem 2rem;
+  }
 }
