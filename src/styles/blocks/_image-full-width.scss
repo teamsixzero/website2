@@ -3,6 +3,19 @@
   height: auto;
   display: block;
 
+  &.full-width {
+    width: calc(100% + 15rem);
+    flex-shrink: 0;
+
+    .gatsby-image-wrapper {
+      overflow: visible;
+    }
+
+    @include breakpoint("sm") {
+      width: calc(100% + 4rem);
+    }
+  }
+
   &.has-background {
     padding: 6.9rem 6rem 7.75rem;
   }

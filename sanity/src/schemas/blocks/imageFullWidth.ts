@@ -2,15 +2,20 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'imageFullWidth',
-  title: 'Image Full Width',
+  title: 'Image',
   type: 'object',
-  description: 'A full width image',
   fields: [
     defineField({
       name: 'image',
       title: 'Image',
       type: 'altImage',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'fullWidth',
+      title: 'Full Width?',
+      type: 'boolean',
+      initialValue: false,
     }),
     defineField({
       name: 'backgroundColor',
@@ -27,7 +32,7 @@ export default defineType({
     },
     prepare: ({image, alt}) => {
       return {
-        title: 'Image Full Width',
+        title: 'Image',
         subtitle: alt,
         media: image,
       }
