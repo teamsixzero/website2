@@ -27,6 +27,11 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
+      slug: 'slug.current',
     },
+    prepare: ({title, slug}) => ({
+      title,
+      subtitle: `/${slug}/`,
+    }),
   },
 })

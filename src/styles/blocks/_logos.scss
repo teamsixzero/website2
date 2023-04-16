@@ -8,6 +8,12 @@
   column-gap: 3.5rem;
 
   @include breakpoint("sm") {
-    max-height: 1.25rem;
+    // max-height: 1.25rem;
+  }
+
+  li {
+    @include breakpoint("sm") {
+      width: 100%;
+    }
   }
 }

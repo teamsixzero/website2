@@ -15,6 +15,11 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/components/richText/ColorRenderer.jsx"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "src/components/richText/ColorRenderer.jsx",
+    "src/deskStructure.js"
+  ],
   "exclude": ["node_modules"]
 }

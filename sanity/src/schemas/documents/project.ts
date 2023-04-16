@@ -5,7 +5,7 @@ import pageBuilder from '../../utils/pageBuilder'
 
 export default defineType({
   name: 'project',
-  title: 'Project',
+  title: 'Case Study',
   type: 'document',
   fields: [
     defineField({

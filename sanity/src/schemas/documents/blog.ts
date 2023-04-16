@@ -56,4 +56,16 @@ export default defineType({
       type: 'richText',
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      date: 'date',
+      image: 'featureImage',
+    },
+    prepare: ({title, date, image}) => ({
+      title,
+      subtitle: date,
+      media: image,
+    }),
+  },
 })
