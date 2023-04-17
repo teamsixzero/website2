@@ -1,25 +1,47 @@
 import React from "react";
 import { Link } from "gatsby";
 
+const MenuLink = ({ link, setActive }) => {
+  const regex = /^(http|https|mailto|tel):/;
+  const isExternal = regex.test(link?.url);
+
+  if (isExternal)
+    return (
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noreferrer"
+        className="accent"
+        onClick={() => setActive && setActive(false)}
+      >
+        {link.title}
+      </a>
+    );
+
+  return (
+    <Link
+      to={link.url}
+      onClick={() => setActive && setActive(false)}
+      className="text-normal"
+    >
+      {link.title}
+    </Link>
+  );
+};
+
 const Navigation = ({ links, active, setActive }) => {
   return (
     <nav className={`menu${active ? ` active` : ``}`}>
       <ul>
         {links.map((link) => {
-          if (link.sublinks)
+          if (link.__typename === "SanityLinkGroup")
             return (
-              <li className="has-dropdown" key={link.id}>
-                <button className="accent">{link.name}</button>
+              <li className="has-dropdown" key={link?._key}>
+                <button className="accent">{link?.title}</button>
                 <ul className="dropdown">
-                  {link.sublinks.map((sublink) => (
-                    <li key={sublink.id}>
-                      <Link
-                        to={sublink.url}
-                        onClick={() => setActive(false)}
-                        className="text-normal"
-                      >
-                        {sublink.name}
-                      </Link>
+                  {link.links.map((sublink) => (
+                    <li key={sublink?._key}>
+                      <MenuLink link={sublink} setActive={setActive} />
                     </li>
                   ))}
                 </ul>
@@ -27,26 +49,8 @@ const Navigation = ({ links, active, setActive }) => {
             );
 
           return (
-            <li key={link.id}>
-              {link.external ? (
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="accent"
-                  onClick={() => setActive(false)}
-                >
-                  {link.name}
-                </a>
-              ) : (
-                <Link
-                  to={link.url}
-                  onClick={() => setActive(false)}
-                  className="accent"
-                >
-                  {link.name}
-                </Link>
-              )}
+            <li key={link?._key}>
+              <MenuLink link={link} setActive={setActive} />
             </li>
           );
         })}

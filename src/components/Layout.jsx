@@ -1,64 +1,43 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+
 import Header from "./Header";
 import Footer from "./Footer";
 
-const navLinks = [
-  {
-    id: 1,
-    name: "What We Do",
-    sublinks: [
-      {
-        id: 1,
-        name: "UX/UI Design",
-        url: "/interface-design",
-      },
-      {
-        id: 2,
-        name: "User Research",
-        url: "/user-research",
-      },
-      {
-        id: 3,
-        name: "Development",
-        url: "/development",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Work",
-    url: "/projects",
-  },
-  {
-    id: 3,
-    name: "Book",
-    url: "https://sixzero.co/startusertesting/",
-    external: true,
-  },
-  {
-    id: 4,
-    name: "Blog",
-    url: "/blog",
-  },
-  {
-    id: 5,
-    name: "About",
-    url: "/about",
-  },
-  {
-    id: 6,
-    name: "Contact",
-    url: "mailto:hello@sixzero.co",
-    external: true,
-  },
-];
-
 const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      sanitySettings {
+        menu {
+          links {
+            __typename
+            ... on SanityLink {
+              _key
+              title
+              url
+            }
+            ... on SanityLinkGroup {
+              _key
+              title
+              links {
+                _key
+                title
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const { menu } = data.sanitySettings;
+
   return (
     <>
-      <Header links={navLinks} />
+      <Header links={menu?.links} />
       <main className="main">{children}</main>
-      <Footer links={navLinks} />
+      <Footer links={menu?.links} />
     </>
   );
 };

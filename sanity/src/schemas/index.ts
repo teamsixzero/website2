@@ -1,6 +1,7 @@
 import {type SchemaTypeDefinition} from 'sanity'
 
 //singletons
+import settings from './singletons/settings'
 
 //documents
 import blog from './documents/blog'
@@ -30,13 +31,20 @@ import textAndImage from './blocks/textAndImage'
 import altImage from './objects/altImage'
 import button from './objects/button'
 import imageBlock from './objects/imageBlock'
+import link from './objects/link'
+import linkGroup from './objects/linkGroup'
 import listItem from './objects/listItem'
+import menu from './objects/menu'
+import notFound from './objects/404'
 import richText from './objects/richText'
 import titleCard from './objects/titleCard'
 import titleText from './objects/titleText'
 
+import seoSettings from './objects/seo/settings'
+
 export const schemaTypes = [
   //singletons
+  settings,
 
   //documents
   blog,
@@ -66,8 +74,13 @@ export const schemaTypes = [
   altImage,
   button,
   imageBlock,
+  link,
+  linkGroup,
   listItem,
+  menu,
+  notFound,
   richText,
   titleCard,
   titleText,
+  seoSettings,
 ] satisfies SchemaTypeDefinition[]
