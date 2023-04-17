@@ -22,7 +22,7 @@ const MenuLink = ({ link, setActive }) => {
     <Link
       to={link.url}
       onClick={() => setActive && setActive(false)}
-      className="text-normal"
+      className="accent"
     >
       {link.title}
     </Link>
@@ -37,13 +37,17 @@ const Navigation = ({ links, active, setActive }) => {
           if (link.__typename === "SanityLinkGroup")
             return (
               <li className="has-dropdown" key={link?._key}>
-                <button className="accent">{link?.title}</button>
+                <p className="accent">{link?.title}</p>
                 <ul className="dropdown">
-                  {link.links.map((sublink) => (
-                    <li key={sublink?._key}>
-                      <MenuLink link={sublink} setActive={setActive} />
-                    </li>
-                  ))}
+                  <div />
+
+                  <nav>
+                    {link.links.map((sublink) => (
+                      <li key={sublink?._key}>
+                        <MenuLink link={sublink} setActive={setActive} />
+                      </li>
+                    ))}
+                  </nav>
                 </ul>
               </li>
             );

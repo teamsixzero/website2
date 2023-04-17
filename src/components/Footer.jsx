@@ -5,7 +5,7 @@ const Footer = ({ links }) => {
   return (
     <footer className="footer">
       <Navigation links={links} />
-      <p>
+      <p className="footnote">
         © {new Date().getFullYear()} Sixzero —{" "}
         <a href="mailto:hello@sixzero.co" target="_blank" rel="noreferrer">
           hello@sixzero.co

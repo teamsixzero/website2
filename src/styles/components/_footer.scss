@@ -1,16 +1,15 @@
 .footer {
-  height: 160px;
-  padding: 35px 25px;
+  position: relative;
+  height: 10rem;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--color-grey-dark);
-  @include fontSize(15px, 16px);
+  row-gap: 1.5rem;
 
-  p {
-    margin: 24px 0 0 0;
-  }
+  padding: 2rem 1.5rem;
+  color: var(--color-grey-dark);
 
   .menu {
     @include breakpoint("sm") {
@@ -19,12 +18,10 @@
   }
 
   .dropdown {
-    top: auto;
-    bottom: calc(100% + 16px);
+    bottom: 100%;
 
-    &:before {
-      top: auto;
-      bottom: -16px;
+    & > div:first-child {
+      order: 2;
     }
   }
 }
