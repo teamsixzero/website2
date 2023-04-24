@@ -37,6 +37,7 @@ import listItem from './objects/listItem'
 import menu from './objects/menu'
 import notFound from './objects/404'
 import richText from './objects/richText'
+import script from './objects/script'
 import titleCard from './objects/titleCard'
 import titleText from './objects/titleText'
 
@@ -81,6 +82,7 @@ export const schemaTypes = [
   menu,
   notFound,
   richText,
+  script,
   titleCard,
   titleText,
 

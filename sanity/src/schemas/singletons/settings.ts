@@ -17,6 +17,10 @@ export default defineType({
       name: 'seo',
       title: 'SEO',
     },
+    {
+      name: 'scripts',
+      title: 'External Scripts',
+    },
   ],
   fields: [
     // menu
@@ -47,6 +51,20 @@ export default defineType({
         collapsed: false,
         collapsible: true,
       },
+    }),
+    // Scripts
+    defineField({
+      name: 'scripts',
+      title: 'External Scripts',
+      type: 'array',
+      of: [
+        {
+          type: 'script',
+        },
+      ],
+      group: 'scripts',
+      description:
+        'Add external scripts to the <head> of the document. For example, Google Analytics. These fields are not sanitized, so be careful what you put in here.',
     }),
   ],
 })

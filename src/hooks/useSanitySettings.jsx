@@ -39,6 +39,11 @@ export const useSanitySettings = () => {
             }
           }
         }
+
+        scripts {
+          _key
+          value
+        }
       }
     }
   `);
