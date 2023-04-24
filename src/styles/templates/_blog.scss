@@ -6,12 +6,12 @@
   flex-direction: column;
   row-gap: 7rem;
 
-  padding: 6rem 7.5rem 0;
+  padding: clamp(2.5rem, 7.222222222222222vw, 6.5rem)
+    clamp(2rem, 8.333333333333334vw, 7.5rem)
+    clamp(0rem, 6.666666666666667vw, 6rem);
 
   @include breakpoint("sm") {
     row-gap: 2.5rem;
-
-    padding: 2.5rem 2rem 0;
   }
 
   &__heading {
