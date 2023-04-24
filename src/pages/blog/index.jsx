@@ -42,11 +42,13 @@ const BlogPage = ({ data }) => {
 
 export default BlogPage;
 
-export function Head() {
+export function Head({ location }) {
   return (
     <>
-      <title>Blog | Sixzero</title>
-      <body className="page-blog has-no-box-shadow" />
+      <title id="title">Blog | Sixzero</title>
+      <meta id="og:title" property="og:title" content="Blog | Sixzero" />
+      <meta id="og:url" property="og:url" content={location?.href} />
+      {/* <body className="page-blog has-no-box-shadow" /> */}
     </>
   );
 }

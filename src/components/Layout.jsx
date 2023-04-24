@@ -1,37 +1,12 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+
+import { useSanitySettings } from "../hooks/useSanitySettings";
 
 import Header from "./Header";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      sanitySettings {
-        menu {
-          links {
-            __typename
-            ... on SanityLink {
-              _key
-              title
-              url
-            }
-            ... on SanityLinkGroup {
-              _key
-              title
-              links {
-                _key
-                title
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const { menu } = data.sanitySettings;
+  const { menu } = useSanitySettings();
 
   return (
     <>

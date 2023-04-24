@@ -7,6 +7,12 @@ export default defineType({
   name: 'project',
   title: 'Case Study',
   type: 'document',
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
@@ -30,6 +36,16 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     pageBuilder,
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo.page',
+      group: 'seo',
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    }),
   ],
   preview: {
     select: {

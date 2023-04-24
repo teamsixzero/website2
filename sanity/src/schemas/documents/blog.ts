@@ -4,6 +4,12 @@ export default defineType({
   name: 'post',
   title: 'Blog',
   type: 'document',
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
@@ -54,6 +60,16 @@ export default defineType({
       name: 'content',
       title: 'Content',
       type: 'richText',
+    }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo.page',
+      group: 'seo',
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
     }),
   ],
   preview: {

@@ -41,6 +41,7 @@ import titleCard from './objects/titleCard'
 import titleText from './objects/titleText'
 
 import seoSettings from './objects/seo/settings'
+import seoPage from './objects/seo/page'
 
 export const schemaTypes = [
   //singletons
@@ -82,5 +83,8 @@ export const schemaTypes = [
   richText,
   titleCard,
   titleText,
+
+  //
   seoSettings,
+  seoPage,
 ] satisfies SchemaTypeDefinition[]

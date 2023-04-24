@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../../components/Layout";
 import Image from "../../components/Image";
 import RichText from "../../components/RichText";
+import Seo from "../../components/Seo";
 
 const BlogTemplate = ({ data, children }) => {
   const { title, date, featureImage, content } = data.sanityPost;
@@ -28,11 +29,34 @@ const BlogTemplate = ({ data, children }) => {
 
 export default BlogTemplate;
 
-export function Head({ data }) {
+export function Head({ location, data: { sanityPost: data } }) {
   return (
-    <>
-      <title>{data.sanityPost.title} | Sixzero</title>
-    </>
+    <Seo>
+      <title id="title">{data?.seo?.title || data?.title} | Sixzero</title>;
+      <meta
+        id="og:title"
+        property="og:title"
+        content={`${data.title} | Sixzero`}
+      />
+      <meta id="og:url" property="og:url" content={location?.href} />
+      {data?.seo?.description && (
+        <meta
+          id="description"
+          property="og:description"
+          content={data.seo.description}
+        />
+      )}
+      {data?.seo?.keywords && (
+        <meta id="keywords" name="keywords" content={data.seo.keywords} />
+      )}
+      {data?.seo?.socialImage?.asset?.url && (
+        <meta
+          id="social-image"
+          property="og:image"
+          content={data.seo.socialImage.asset.url}
+        />
+      )}
+    </Seo>
   );
 }
 
@@ -53,6 +77,17 @@ export const query = graphql`
         alt
       }
       content: _rawContent(resolveReferences: { maxDepth: 10 })
+      seo {
+        title
+        description
+        keywords
+        socialImage {
+          asset {
+            url
+          }
+          alt
+        }
+      }
     }
   }
 `;

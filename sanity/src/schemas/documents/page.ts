@@ -5,6 +5,12 @@ export default defineType({
   name: 'page',
   title: 'Page',
   type: 'document',
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
@@ -23,6 +29,16 @@ export default defineType({
       },
     }),
     pageBuilder,
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo.page',
+      group: 'seo',
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    }),
   ],
   preview: {
     select: {
