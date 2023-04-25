@@ -11,9 +11,5 @@
 .main {
   position: relative;
 
-  margin-top: 6.75rem;
-
-  @include breakpoint("sm") {
-    margin-top: 6.25rem;
-  }
+  margin-top: clamp(6.25rem, 7.5vw, 6.75rem);
 }

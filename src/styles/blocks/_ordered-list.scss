@@ -62,12 +62,8 @@
       }
 
       &__index {
-        margin-bottom: 1.5rem;
+        margin-bottom: clamp(0.7rem, 1.66vw, 1.5rem);
         color: #79beef;
-
-        @include breakpoint("sm") {
-          margin-bottom: 0.75rem;
-        }
       }
 
       &__content {

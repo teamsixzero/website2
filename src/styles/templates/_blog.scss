@@ -20,7 +20,7 @@
     flex-direction: column;
     row-gap: 1.5rem;
 
-    margin: 0 12.5rem;
+    margin: 0 clamp(0rem, 13.88vw, 12.5rem);
     background: var(--color-white);
 
     @include breakpoint("sm") {

@@ -4,9 +4,5 @@
   height: 100%;
 
   display: block;
-  margin: 4rem 0;
-
-  @include breakpoint("sm") {
-    margin: 2rem 0;
-  }
+  margin: clamp(2rem, 4.44vw, 4rem) 0;
 }
