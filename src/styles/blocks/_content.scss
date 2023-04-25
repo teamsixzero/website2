@@ -12,7 +12,8 @@
   }
 
   &__wrapper {
-    max-width: clamp(13rem, 55.55vw, 50rem);
+    // max-width: clamp(13rem, 55.55vw, 50rem);
+    max-width: 50rem;
 
     display: flex;
     flex-direction: column;
