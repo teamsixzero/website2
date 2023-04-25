@@ -4,9 +4,8 @@
   align-items: center;
   row-gap: 10.5rem;
 
-  padding: clamp(2.5rem, 7.222222222222222vw, 6.5rem)
-    clamp(2rem, 8.333333333333334vw, 7.5rem)
-    clamp(0rem, 6.666666666666667vw, 6rem);
+  padding: clamp(2.5rem, 7.22vw, 6.5rem) clamp(2rem, 8.33vw, 7.5rem)
+    clamp(0rem, 6.66vw, 6rem);
 
   @include breakpoint("sm") {
     row-gap: 5rem;
