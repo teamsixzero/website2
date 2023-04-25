@@ -16,9 +16,11 @@
     align-items: center;
     justify-content: center;
     row-gap: 6rem;
+    gap: clamp(2rem, 6.66vw, 6rem);
 
     @include breakpoint("sm") {
       row-gap: 2rem;
+      gap: clamp(2rem, 6.66vw, 6rem);
     }
 
     & > section > * {

@@ -4,11 +4,13 @@
 
   display: flex;
   align-items: center;
-  column-gap: 8.5rem;
+  column-gap: clamp(2rem, 9.44vw, 8.5rem);
+  gap: clamp(2rem, 9.44vw, 8.5rem);
 
   @include breakpoint("sm") {
     flex-direction: column;
-    row-gap: var(--spacing-4);
+    row-gap: clamp(2rem, 9.44vw, 8.5rem);
+    gap: clamp(2rem, 9.44vw, 8.5rem);
   }
 
   &.has-background {

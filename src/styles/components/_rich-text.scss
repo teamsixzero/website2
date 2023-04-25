@@ -4,11 +4,7 @@
 
   display: flex;
   flex-direction: column;
-  row-gap: var(--spacing-4);
+  row-gap: clamp(1.5rem, 2.22vw, 2rem);
 
   white-space: pre-line;
-
-  @include breakpoint("sm") {
-    row-gap: var(--spacing-3);
-  }
 }

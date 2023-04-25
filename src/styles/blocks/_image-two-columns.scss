@@ -3,11 +3,13 @@
   width: 100%;
 
   display: flex;
-  column-gap: var(--spacing-4);
+  column-gap: 2rem;
+  gap: clamp(1.5rem, 2.22vw, 2rem);
 
   @include breakpoint("sm") {
     flex-direction: column;
-    row-gap: var(--spacing-3);
+    row-gap: 1.5rem;
+    gap: clamp(1.5rem, 2.22vw, 2rem);
   }
 
   &__figure {

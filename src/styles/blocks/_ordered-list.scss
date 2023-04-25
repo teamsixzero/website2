@@ -5,14 +5,13 @@
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: var(--spacing-4);
+  row-gap: clamp(1.5rem, 2.22vw, 2rem);
   column-gap: var(--spacing-4);
 
   padding: 0 clamp(0rem, 1.8vw, 1.625rem);
 
   @include breakpoint("sm") {
     grid-template-columns: repeat(1, 1fr);
-    row-gap: 1.5rem;
 
     padding: 0;
   }

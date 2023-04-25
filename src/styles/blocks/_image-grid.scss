@@ -6,6 +6,13 @@
 
   row-gap: 2rem;
   column-gap: 2rem;
+  gap: clamp(1.5rem, 2.22vw, 2rem);
+
+  @include breakpoint("sm") {
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+    gap: clamp(1.5rem, 2.22vw, 2rem);
+  }
 
   figure {
     position: relative;
@@ -21,11 +28,6 @@
         height: 100%;
       }
     }
-  }
-
-  @include breakpoint("sm") {
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
   }
 
   &.style-1 {
