@@ -8,14 +8,11 @@
 
   &.has-background {
     padding: 8rem 4rem;
-
-    @include breakpoint("sm") {
-      padding: 4rem 2.5rem;
-    }
+    padding: clamp(4rem, 8.88vw, 8rem) clamp(2.5rem, 4.44vw, 4rem);
   }
 
   &__wrapper {
-    max-width: 50rem;
+    max-width: clamp(13rem, 55.55vw, 50rem);
 
     display: flex;
     flex-direction: column;

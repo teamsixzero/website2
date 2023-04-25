@@ -2,11 +2,7 @@
   position: relative;
   width: 100%;
 
-  padding: 10rem 0;
-
-  @include breakpoint("sm") {
-    padding: 5rem 0;
-  }
+  padding: clamp(5rem, 11.11vw, 10rem) 0;
 
   &__wrapper {
     text-align: center;
@@ -17,12 +13,7 @@
 
     .btn {
       margin-top: 1.5rem;
-    }
-
-    @include breakpoint("sm") {
-      .btn {
-        margin-top: 1rem;
-      }
+      margin-top: clamp(1rem, 1.6666666666666667vw, 1.5rem);
     }
   }
 }

@@ -1,7 +1,11 @@
 .block-header {
   position: relative;
   width: 100%;
-  max-width: 64rem;
+  max-width: clamp(16.66rem, 71.11vw, 64rem);
 
   margin-right: auto;
+
+  @include breakpoint("md") {
+    max-width: 100%;
+  }
 }

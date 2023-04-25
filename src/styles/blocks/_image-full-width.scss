@@ -17,11 +17,8 @@
   }
 
   &.has-background {
-    padding: 6.9rem 6rem 7.75rem;
-
-    @include breakpoint("sm") {
-      padding: 2.25rem 1.5rem;
-    }
+    padding: clamp(2.25rem, 7.66vw, 6.9rem) clamp(1.5rem, 6.66vw, 6rem)
+      clamp(2.25rem, 8.61vw, 7.75rem);
   }
 
   img {

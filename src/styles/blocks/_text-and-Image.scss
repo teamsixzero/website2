@@ -6,19 +6,15 @@
   align-items: center;
   column-gap: 8.5rem;
 
-  &.has-background {
-    padding: 8rem 5rem;
-    background-color: var(--color-blue-primary);
-    color: white;
-  }
-
   @include breakpoint("sm") {
     flex-direction: column;
     row-gap: var(--spacing-4);
+  }
 
-    &.has-background {
-      padding: 4rem var(--spacing-5);
-    }
+  &.has-background {
+    padding: clamp(4rem, 8.88vw, 8rem) clamp(2.5rem, 5.55vw, 5rem);
+    background-color: var(--color-blue-primary);
+    color: white;
   }
 
   & > header {
@@ -39,11 +35,7 @@
     }
 
     &.has-background {
-      padding: 4.5rem 3.75rem;
-
-      @include breakpoint("sm") {
-        padding: 2.5rem 2em;
-      }
+      padding: clamP(2.5rem, 5vw, 4.5rem) clamp(2rem, 4.16vw, 3.75rem);
     }
   }
 }

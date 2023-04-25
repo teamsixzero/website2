@@ -8,7 +8,7 @@
   row-gap: var(--spacing-4);
   column-gap: var(--spacing-4);
 
-  padding: 0 1.625rem;
+  padding: 0 clamp(0rem, 1.8vw, 1.625rem);
 
   @include breakpoint("sm") {
     grid-template-columns: repeat(1, 1fr);
@@ -25,12 +25,11 @@
     flex-direction: column;
     gap: 4.875rem;
 
-    padding: var(--spacing-5);
+    padding: clamp(2rem, 2.77vw, 2.5rem);
     border-radius: 1.5rem;
 
     @include breakpoint("sm") {
       gap: 1.5rem;
-      padding: 2rem;
     }
 
     &__title {

@@ -12,11 +12,7 @@
 
   &__figure {
     &.has-background {
-      padding: 4.5rem 3.75rem;
-
-      @include breakpoint("sm") {
-        padding: 2.5rem 2rem;
-      }
+      padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 4.16vw, 3.75rem);
     }
   }
 }

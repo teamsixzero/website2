@@ -7,11 +7,7 @@
   justify-content: center;
 
   &.has-background {
-    padding: 10.5rem 5.25rem;
-
-    @include breakpoint("sm") {
-      padding: 4.5rem 2rem;
-    }
+    padding: clamp(4.5rem, 11.66vw, 10.5rem) clamp(2rem, 5.83vw, 5.25rem);
   }
 
   &__wrapper {

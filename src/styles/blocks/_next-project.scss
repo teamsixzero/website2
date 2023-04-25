@@ -7,11 +7,11 @@
     align-items: center;
     column-gap: 14.5rem;
 
-    padding: 3rem 4rem 0rem;
+    padding: clamp(2.5rem, 3.33vw, 3rem) clamp(2rem, 4.44vw, 4rem) 0rem;
     background-color: #f9f9f9;
 
     @include breakpoint("sm") {
-      padding: 2.5rem 2rem;
+      padding: clamp(2.5rem, 3.33vw, 3rem) clamp(2rem, 4.44vw, 4rem);
     }
 
     header {
