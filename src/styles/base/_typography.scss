@@ -38,125 +38,115 @@ html {
 }
 
 body {
-  @include fontSize(17px, 32px);
   font-family: var(--font-primary);
 }
 
 // Headings
-
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  font-weight: 500;
-}
-
 h1,
 .h1 {
-  @include fontSize(100px, 110%);
+  font-size: clamp(2.5rem, 6.94vw, 6.25rem);
+  line-height: 110%;
+  font-weight: 500;
 }
 
 h2,
 .h2 {
-  @include fontSize(80px, 110%);
+  font-size: clamp(2.5rem, 5.55vw, 5rem);
+  line-height: 110%;
+  font-weight: 500;
 }
 
 h3,
 .h3 {
-  @include fontSize(54px, 120%);
+  font-size: clamp(1.875rem, 3.75vw, 3.375rem);
+  line-height: 120%;
+  font-weight: 500;
 }
 
 h4,
 .h4 {
-  @include fontSize(44px, 120%);
+  font-size: clamp(1.625rem, 3.05vw, 2.75rem);
+  line-height: 120%;
+  font-weight: 500;
 }
 
 h5,
 .h5 {
-  @include fontSize(32px, 120%);
+  font-size: clamp(1.4375rem, 2.22vw, 2rem);
+  line-height: 120%;
+  font-weight: 500;
 }
 
 h6,
 .h6 {
-  @include fontSize(23px, 150%);
+  font-size: clamp(1.0625rem, 1.59vw, 1.4375rem);
+  line-height: 150%;
+  font-weight: 500;
 }
 
 // Paragraph
 
-.text-small,
-.text-normal,
-.text-bold,
-.text-book {
+.text-small {
+  font-size: 0.8125rem;
+  line-height: 1.15;
   font-weight: 400;
 }
 
-.text-small {
-  @include fontSize(13px, 15px);
-}
-
 .text-normal {
-  @include fontSize(17px, 32px);
+  font-size: clamp(0.9375rem, 1.18vw, 1.0625rem);
+  line-height: 1.88;
+  font-weight: 400;
 }
 
 .text-bold {
-  @include fontSize(17px, 32px);
+  font-size: clamp(0.9375rem, 1.18vw, 1.0625rem);
+  line-height: 1.88;
   font-weight: 700;
 }
 
 .text-book {
-  @include fontSize(18px, 32px);
+  font-size: 1.125rem;
+  line-height: 1.77;
+  font-weight: 400;
 }
 
 .text-large {
-  @include fontSize(23px, 150%);
+  font-size: 1.4375rem;
+  line-height: 150%;
+  font-weight: 400;
 }
 
 @include breakpoint("sm") {
   // Headings
 
   h1,
-  .h1 {
-    @include fontSize(40px, 120%);
-  }
-
+  .h1,
   h2,
-  .h2 {
-    @include fontSize(40px, 120%);
-  }
-
+  .h2,
   h3,
   .h3 {
-    @include fontSize(30px, 120%);
+    line-height: 120%;
   }
 
   h4,
-  .h4 {
-    @include fontSize(26px, 130%);
-  }
-
+  .h4,
   h5,
   .h5 {
-    @include fontSize(23px, 130%);
+    line-height: 130%;
   }
 
   h6,
   .h6 {
-    @include fontSize(17px, 150%);
+    line-height: 150%;
   }
 
   // Paragraph
   .text-normal {
-    @include fontSize(15px, 180%);
+    line-height: 180%;
   }
 }
+
+//
 
 .font-bold {
   font-weight: 500;
@@ -172,7 +162,8 @@ h6,
 
 .accent {
   color: var(--color-blue-primary);
-  @include fontSize(13px, 15px);
+  font-size: 0.8125rem;
+  line-height: 1.15;
   font-weight: 400;
   letter-spacing: 1.5px;
   text-transform: uppercase;
