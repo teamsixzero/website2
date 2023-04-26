@@ -13,7 +13,7 @@ const NotFoundPage = () => {
             Sorry, but the page you were trying to view does not exist.
           </p>
           <Link to="/" className="btn">
-            Return home →
+            <span>Return home →</span>
           </Link>
         </div>
       </section>

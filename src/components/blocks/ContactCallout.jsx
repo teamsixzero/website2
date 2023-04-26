@@ -15,7 +15,7 @@ const ContactCallout = ({ data }) => {
           target="_blank"
           rel="noreferrer"
         >
-          {buttonText}
+          <span>{buttonText}</span>
         </a>
       </div>
     </div>

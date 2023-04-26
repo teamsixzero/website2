@@ -5,6 +5,10 @@
   padding: clamp(5rem, 11.11vw, 10rem) 0;
 
   &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     text-align: center;
 
     .h6 {

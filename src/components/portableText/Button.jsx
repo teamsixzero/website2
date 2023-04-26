@@ -5,7 +5,7 @@ const Button = ({ value }) => {
 
   return (
     <a className="btn" href={link} target="_blank" rel="noreferrer">
-      {text}
+      <span>{text}</span>
     </a>
   );
 };

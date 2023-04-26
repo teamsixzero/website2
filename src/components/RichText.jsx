@@ -7,7 +7,7 @@ import SanityImage from "../components/SanityImage";
 const defaultPortableTextComponents = {
   types: {
     altImage: ({ value }) => <SanityImage src={value} width={800} />,
-    image: PT.Image,
+    image: ({ value }) => <SanityImage src={value} width={800} />,
     button: PT.Button,
   },
   marks: {
@@ -20,7 +20,7 @@ const defaultPortableTextComponents = {
   },
   block: {
     small: ({ children }) => <p className="accent">{children}</p>,
-    title: ({ children }) => <h1 className="h1">{children}</h1>,
+    title: ({ children }) => <h1>{children}</h1>,
     h1: ({ children }) => <h2 className="h1">{children}</h2>,
     h2: ({ children }) => <h2>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,
@@ -34,15 +34,19 @@ const defaultPortableTextComponents = {
     blockquote: PT.Quote,
   },
   list: {
-    bullet: ({ children }) => <ul>{children}</ul>,
-    number: ({ children }) => <ol>{children}</ol>,
+    bullet: ({ children }) => <ul className="text-normal">{children}</ul>,
+    number: ({ children }) => <ol className="text-normal">{children}</ol>,
   },
   listItem: {
     bullet: ({ children }) => (
-      <li style={{ listStyleType: "disc" }}>{children}</li>
+      <li className="text-normal" style={{ listStyleType: "disc" }}>
+        {children}
+      </li>
     ),
     number: ({ children }) => (
-      <li style={{ listStyleType: "decimal" }}>{children}</li>
+      <li className="text-normal" style={{ listStyleType: "decimal" }}>
+        {children}
+      </li>
     ),
   },
 };

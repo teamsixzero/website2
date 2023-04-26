@@ -48,7 +48,7 @@ const CaseStudy = ({ data }) => {
             color: backgroundColor?.value?.hex,
           }}
         >
-          See Project →
+          <span>See Project →</span>
         </Link>
       </header>
 
