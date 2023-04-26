@@ -8,13 +8,13 @@
   gap: clamp(2rem, 9.44vw, 8.5rem);
 
   @include breakpoint("sm") {
-    width: 100%;
+    width: 100% !important;
 
     flex-direction: column;
     row-gap: clamp(2rem, 9.44vw, 8.5rem);
     gap: clamp(2rem, 9.44vw, 8.5rem);
 
-    padding: 0;
+    padding: 0 !important;
   }
 
   &.has-background {
@@ -68,7 +68,7 @@
     }
 
     @include breakpoint("sm") {
-      order: -1;
+      order: -1 !important;
     }
 
     &.has-background {
