@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Image from "../Image";
+import SanityImage from "../SanityImage";
 import RichText from "../RichText";
 
 const TextAndImage = ({ data }) => {
@@ -24,7 +24,7 @@ const TextAndImage = ({ data }) => {
         }`}
         style={{ backgroundColor: image?.backgroundColor?.value?.hex }}
       >
-        <Image src={image?.source?.asset} alt={image?.source?.alt} />
+        <SanityImage src={image?.source} />
       </figure>
     </div>
   );
@@ -37,13 +37,7 @@ export const query = graphql`
     text: _rawText(resolveReferences: { maxDepth: 10 })
     image {
       source {
-        asset {
-          gatsbyImageData(
-            width: 1440
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-          )
-        }
+        ...ImageWithPreview
         alt
       }
       backgroundColor {

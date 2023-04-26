@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Image from "../Image";
+import SanityImage from "../SanityImage";
 
 const Logos = ({ data }) => {
   const { logos } = data;
@@ -11,7 +11,7 @@ const Logos = ({ data }) => {
       {logos.length > 0 &&
         logos.map((logo) => (
           <li key={logo?._key}>
-            <Image src={logo?.asset} alt={logo?.alt} objectFit="contain" />
+            <SanityImage src={logo} />
           </li>
         ))}
     </ul>
@@ -24,13 +24,7 @@ export const query = graphql`
   fragment BlockLogos on SanityLogos {
     logos {
       _key
-      asset {
-        gatsbyImageData(
-          width: 400
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
-      }
+      ...ImageWithPreview
       alt
     }
   }

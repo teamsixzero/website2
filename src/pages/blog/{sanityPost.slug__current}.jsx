@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../../components/Layout";
-import Image from "../../components/Image";
+import SanityImage from "../../components/SanityImage";
 import RichText from "../../components/RichText";
 import Seo from "../../components/Seo";
 
@@ -17,7 +17,7 @@ const BlogTemplate = ({ data, children }) => {
           <p className="text-book">Published {date}</p>
         </header>
 
-        <Image src={featureImage?.asset} alt={featureImage?.alt} />
+        <SanityImage src={featureImage} />
 
         <section className="template-blog__content">
           <RichText content={content} />
@@ -67,13 +67,7 @@ export const query = graphql`
       date(formatString: "MMMM D, YYYY")
       summary
       featureImage {
-        asset {
-          gatsbyImageData(
-            width: 1440
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-          )
-        }
+        ...ImageWithPreview
         alt
       }
       content: _rawContent(resolveReferences: { maxDepth: 10 })

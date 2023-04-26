@@ -33,8 +33,9 @@
         }
       }
 
-      .gatsby-image {
+      &__image {
         height: max-content;
+        max-width: 3rem;
         border-radius: 999px;
         overflow: hidden;
       }

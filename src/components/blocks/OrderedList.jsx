@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Image from "../Image";
+import SanityImage from "../SanityImage";
 
 const OrderedList = ({ data }) => {
   const { listItems } = data;
@@ -36,7 +36,7 @@ const OrderedList = ({ data }) => {
               >
                 {item?.image && (
                   <figure className="block-ordered-list__card__item__image">
-                    <Image src={item?.image?.asset} alt={item?.image?.alt} />
+                    <SanityImage src={item?.image} />
                   </figure>
                 )}
 
@@ -71,13 +71,7 @@ export const query = graphql`
         title
         text
         image {
-          asset {
-            gatsbyImageData(
-              width: 1440
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
+          ...ImageWithPreview
           alt
         }
       }

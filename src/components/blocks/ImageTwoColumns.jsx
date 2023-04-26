@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Image from "../Image";
+import SanityImage from "../SanityImage";
 
 const ImageTwoColumns = ({ data }) => {
   const { images } = data;
@@ -16,7 +16,7 @@ const ImageTwoColumns = ({ data }) => {
           }`}
           style={{ backgroundColor: image?.backgroundColor?.value?.hex }}
         >
-          <Image src={image?.source?.asset} alt={image?.source?.alt} />
+          <SanityImage src={image?.source} />
         </figure>
       ))}
     </div>
@@ -30,13 +30,7 @@ export const query = graphql`
     images {
       _key
       source {
-        asset {
-          gatsbyImageData(
-            width: 1440
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-          )
-        }
+        ...ImageWithPreview
         alt
       }
       backgroundColor {

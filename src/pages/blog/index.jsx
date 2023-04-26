@@ -2,7 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 
 import Layout from "../../components/Layout";
-import Image from "../../components/Image";
+import SanityImage from "../../components/SanityImage";
 
 const BlogPage = ({ data }) => {
   const blogs = data.allSanityPost.edges.map(({ node }) => node);
@@ -18,12 +18,7 @@ const BlogPage = ({ data }) => {
               className="card card--post"
             >
               <div className="card-image">
-                {blog.featureImage && (
-                  <Image
-                    src={blog?.featureImage?.asset}
-                    alt={blog?.featureImage?.alt}
-                  />
-                )}
+                {blog.featureImage && <SanityImage src={blog?.featureImage} />}
               </div>
               <div className="card-copy">
                 <h2 className="h6">{blog.title}</h2>
@@ -65,13 +60,7 @@ export const query = graphql`
           }
           excerpt
           featureImage {
-            asset {
-              gatsbyImageData(
-                width: 1440
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
+            ...ImageWithPreview
             alt
           }
         }

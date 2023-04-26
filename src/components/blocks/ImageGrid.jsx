@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Image from "../Image";
+import SanityImage from "../SanityImage";
 
 const ImageGrid = ({ data }) => {
   const { images, style } = data;
@@ -11,16 +11,13 @@ const ImageGrid = ({ data }) => {
   return (
     <div className={`block-image-grid ${gridClass}`}>
       {images.map((image) => (
-        <figure
+        <div
+          className="block-image-grid__image"
           key={image?.id}
           style={{ backgroundColor: image?.backgroundColor?.value?.hex }}
         >
-          <Image
-            src={image?.source?.asset}
-            alt={image?.source?.alt}
-            objectFit="contain"
-          />
-        </figure>
+          <SanityImage src={image?.source} />
+        </div>
       ))}
     </div>
   );
@@ -32,13 +29,7 @@ export const query = graphql`
   fragment BlockImageGrid on SanityImageGrid {
     images {
       source {
-        asset {
-          gatsbyImageData(
-            width: 1440
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-          )
-        }
+        ...ImageWithPreview
         alt
       }
       backgroundColor {

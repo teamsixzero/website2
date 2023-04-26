@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 
-import Image from "../Image";
+import SanityImage from "../SanityImage";
 
 const NextProject = ({ data }) => {
   const { project, coverImage } = data;
@@ -17,7 +17,7 @@ const NextProject = ({ data }) => {
           <h2 className="h4">{project?.title}&nbsp;→</h2>
         </header>
 
-        <Image src={coverImage?.asset} alt={coverImage?.alt} />
+        <SanityImage src={coverImage} />
       </Link>
     </div>
   );
@@ -34,13 +34,7 @@ export const query = graphql`
       }
     }
     coverImage {
-      asset {
-        gatsbyImageData(
-          width: 1440
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
-      }
+      ...ImageWithPreview
       alt
     }
   }

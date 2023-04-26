@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 
-import Image from "../Image";
+import SanityImage from "../SanityImage";
 
 const CaseStudy = ({ data }) => {
   const { project, summary, image, alignment, backgroundColor, textColor } =
@@ -52,11 +52,7 @@ const CaseStudy = ({ data }) => {
         </Link>
       </header>
 
-      <Image
-        className="block-case-study__image"
-        src={image?.asset}
-        alt={image?.alt}
-      />
+      {image && <SanityImage className="block-case-study__image" src={image} />}
     </div>
   );
 };
@@ -73,13 +69,7 @@ export const query = graphql`
     }
     summary
     image {
-      asset {
-        gatsbyImageData(
-          width: 1440
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
-      }
+      ...ImageWithPreview
       alt
     }
     alignment

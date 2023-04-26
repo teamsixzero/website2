@@ -2,10 +2,11 @@ import React from "react";
 import { PortableText } from "@portabletext/react";
 
 import * as PT from "../components/portableText";
+import SanityImage from "../components/SanityImage";
 
 const defaultPortableTextComponents = {
   types: {
-    altImage: PT.Image,
+    altImage: ({ value }) => <SanityImage src={value} width={800} />,
     image: PT.Image,
     button: PT.Button,
   },

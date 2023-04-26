@@ -23,6 +23,7 @@ module.exports = {
       options: {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_DATASET,
+        customImageTypes: ["SanityAltImage"],
       },
     },
     `gatsby-plugin-image`,

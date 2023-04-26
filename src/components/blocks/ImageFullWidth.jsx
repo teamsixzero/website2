@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Image from "../Image";
+import SanityImage from "../SanityImage";
 
 const ImageFullWidth = ({ data }) => {
   const { image, fullWidth, backgroundColor } = data;
@@ -13,7 +13,7 @@ const ImageFullWidth = ({ data }) => {
       } ${fullWidth ? "full-width" : ""}`}
       style={{ backgroundColor: backgroundColor?.value?.hex }}
     >
-      <Image src={image?.asset} alt={image?.alt} />
+      <SanityImage src={image} />
     </figure>
   );
 };
@@ -23,13 +23,7 @@ export default ImageFullWidth;
 export const query = graphql`
   fragment BlockImageFullWidth on SanityImageFullWidth {
     image {
-      asset {
-        gatsbyImageData(
-          width: 1440
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
-      }
+      ...ImageWithPreview
       alt
     }
     fullWidth
