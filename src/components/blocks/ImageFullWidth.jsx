@@ -7,14 +7,14 @@ const ImageFullWidth = ({ data }) => {
   const { image, fullWidth, backgroundColor } = data;
 
   return (
-    <figure
+    <div
       className={`block-image-full-width ${
         backgroundColor?.value?.hex ? "has-background" : ""
       } ${fullWidth ? "full-width" : ""}`}
       style={{ backgroundColor: backgroundColor?.value?.hex }}
     >
       <SanityImage src={image} />
-    </figure>
+    </div>
   );
 };
 

@@ -6,14 +6,19 @@ const SanityImage = ({
   objectFit = "contain",
   src,
   width = 1440,
+  style,
 }) => {
+  // set up mobile image srouces
   // console.log(`image url:`, imageUrl(src?.asset));
 
   return (
-    <figure className={`gatsby-image${className ? ` ${className}` : ``}`}>
+    <figure
+      className={`gatsby-image${className ? ` ${className}` : ``}`}
+      style={style}
+    >
       <picture
         style={{
-          height: "100%",
+          // height: "100%",
           maxHeight: "inherit",
         }}
       >

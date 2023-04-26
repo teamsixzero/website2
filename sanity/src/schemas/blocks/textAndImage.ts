@@ -22,8 +22,9 @@ export default defineType({
       title: 'Image Align',
       type: 'string',
       initialValue: 'Left',
+      description: 'Align the image to the left or right of the text. Only applies to desktop.',
       options: {
-        list: ['Left', 'Right'],
+        list: ['Left', 'Left (Full Bleed)', 'Right', 'Right (Full Bleed)'],
         layout: 'radio',
       },
     }),

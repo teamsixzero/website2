@@ -8,15 +8,32 @@
   gap: clamp(2rem, 9.44vw, 8.5rem);
 
   @include breakpoint("sm") {
+    width: 100%;
+
     flex-direction: column;
     row-gap: clamp(2rem, 9.44vw, 8.5rem);
     gap: clamp(2rem, 9.44vw, 8.5rem);
+
+    padding: 0;
   }
 
   &.has-background {
     padding: clamp(4rem, 8.88vw, 8rem) clamp(2.5rem, 5.55vw, 5rem);
     background-color: var(--color-blue-primary);
     color: white;
+  }
+
+  &.full-bleed {
+    width: calc(100% + 15rem);
+    flex-shrink: 0;
+
+    &.left {
+      padding-right: 7.5rem;
+    }
+
+    &.right {
+      padding-left: 7.5rem;
+    }
   }
 
   & > header {
@@ -27,9 +44,27 @@
     row-gap: var(--spacing-3);
   }
 
-  &__figure {
+  &__image {
+    max-height: 38.5rem;
+
+    display: flex;
+
     &.align-left {
       order: -1;
+      justify-content: flex-start;
+
+      &.full-bleed {
+        max-height: 45rem;
+      }
+    }
+
+    &.align-right {
+      order: 2;
+      justify-content: flex-end;
+
+      &.full-bleed {
+        max-height: 45rem;
+      }
     }
 
     @include breakpoint("sm") {
