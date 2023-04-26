@@ -55,8 +55,7 @@
       clamp(2.5rem, 3.88vw, 3.5rem) 0;
 
     @include breakpoint("md") {
-      padding-left: clamp(1.5rem, 3.88vw, 3.5rem);
-      padding-right: clamp(1.5rem, 3.88vw, 3.5rem);
+      padding: clamp(1.5rem, 3.88vw, 3.5rem);
     }
 
     .block-case-study__image {
@@ -68,8 +67,7 @@
       padding: 0 clamp(1.5rem, 7.29vw, 6.5rem) 0 clamp(1.5rem, 3.33vw, 3rem);
 
       @include breakpoint("md") {
-        padding: clamp(1.5rem, 3.88vw, 3.5rem) clamp(1.5rem, 3.88vw, 3.5rem)
-          clamp(2.5rem, 3.88vw, 3.5rem) 0;
+        padding: clamp(1.5rem, 3.88vw, 3.5rem);
       }
 
       .block-case-study__image {
@@ -84,16 +82,14 @@
       clamp(1.5rem, 7.29vw, 6.5rem);
 
     @include breakpoint("md") {
-      padding-left: clamp(1.5rem, 3.88vw, 3.5rem);
-      padding-right: clamp(1.5rem, 3.88vw, 3.5rem);
+      padding: clamp(1.5rem, 3.88vw, 3.5rem);
     }
 
     &-full-height {
       padding: 0 clamp(1.5rem, 3.33vw, 3rem) 0 clamp(1.5rem, 7.29vw, 6.5rem);
 
       @include breakpoint("md") {
-        padding: clamp(1.5rem, 3.88vw, 3.5rem) clamp(1.5rem, 3.88vw, 3.5rem)
-          clamp(2.5rem, 3.88vw, 3.5rem) 0;
+        padding: clamp(1.5rem, 3.88vw, 3.5rem);
       }
     }
   }
