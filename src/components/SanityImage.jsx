@@ -11,7 +11,12 @@ const SanityImage = ({
 
   return (
     <figure className={`gatsby-image${className ? ` ${className}` : ``}`}>
-      <picture>
+      <picture
+        style={{
+          height: "100%",
+          maxHeight: "inherit",
+        }}
+      >
         {/* <source srcset="mdn-logo-wide.png" media="(min-width: 600px)" /> */}
         <Image
           {...src}
@@ -20,7 +25,6 @@ const SanityImage = ({
             display: "block",
             width: "100%",
             height: "100%",
-            maxWidth: "inherit",
             maxHeight: "inherit",
             objectFit,
           }}

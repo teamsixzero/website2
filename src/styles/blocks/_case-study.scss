@@ -42,6 +42,13 @@
     }
   }
 
+  &__image {
+    max-height: 38.5625rem;
+
+    display: flex;
+    justify-content: end;
+  }
+
   &.align-left {
     padding: clamp(1.5rem, 3.88vw, 3.5rem) clamp(1.5rem, 7.29vw, 6.5rem)
       clamp(2.5rem, 3.88vw, 3.5rem) 0;
@@ -53,8 +60,7 @@
 
     .block-case-study__image {
       order: -1;
-      max-width: 41.1875rem;
-      max-height: 38.5625rem;
+      justify-content: start;
     }
 
     &-full-height {
@@ -67,6 +73,7 @@
 
       .block-case-study__image {
         order: -1;
+        justify-content: start;
       }
     }
   }
