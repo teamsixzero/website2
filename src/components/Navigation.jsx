@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
 
-const MenuLink = ({ link, setActive }) => {
+const MenuLink = ({ link, setActive, dropdown }) => {
   const regex = /^(http|https|mailto|tel):/;
   const isExternal = regex.test(link?.url);
+
+  const textClass = dropdown ? "text-normal" : "accent";
 
   if (isExternal)
     return (
@@ -11,7 +13,7 @@ const MenuLink = ({ link, setActive }) => {
         href={link.url}
         target="_blank"
         rel="noreferrer"
-        className="accent"
+        className={textClass}
         onClick={() => setActive && setActive(false)}
       >
         {link.title}
@@ -22,7 +24,7 @@ const MenuLink = ({ link, setActive }) => {
     <Link
       to={link.url}
       onClick={() => setActive && setActive(false)}
-      className="accent"
+      className={textClass}
     >
       {link.title}
     </Link>
@@ -44,7 +46,11 @@ const Navigation = ({ links, active, setActive }) => {
                   <nav>
                     {link.links.map((sublink) => (
                       <li key={sublink?._key}>
-                        <MenuLink link={sublink} setActive={setActive} />
+                        <MenuLink
+                          link={sublink}
+                          setActive={setActive}
+                          dropdown
+                        />
                       </li>
                     ))}
                   </nav>
