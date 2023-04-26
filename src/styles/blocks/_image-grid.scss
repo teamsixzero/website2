@@ -21,6 +21,8 @@
     align-items: center;
     justify-content: center;
 
+    padding: clamp(1rem, 4.44vw, 4rem);
+
     .gatsby-image {
       height: 100%;
 
