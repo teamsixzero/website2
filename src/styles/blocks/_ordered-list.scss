@@ -22,14 +22,10 @@
 
     display: flex;
     flex-direction: column;
-    gap: 4.875rem;
+    row-gap: clamp(1.5rem, 3.33vw, 3rem);
 
     padding: clamp(2rem, 2.77vw, 2.5rem);
     border-radius: 1.5rem;
-
-    @include breakpoint("sm") {
-      gap: 1.5rem;
-    }
 
     &__title {
       color: #ffffff;

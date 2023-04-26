@@ -35,9 +35,10 @@ const OrderedList = ({ data }) => {
                 className="block-ordered-list__card block-ordered-list__card__item"
               >
                 {item?.image && (
-                  <figure className="block-ordered-list__card__item__image">
-                    <SanityImage src={item?.image} />
-                  </figure>
+                  <SanityImage
+                    className="block-ordered-list__card__item__image"
+                    src={item?.image}
+                  />
                 )}
 
                 <div>
