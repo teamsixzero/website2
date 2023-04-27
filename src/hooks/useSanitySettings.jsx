@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-export const useSanitySettings = () => {
+const useSanitySettings = () => {
   const data = useStaticQuery(graphql`
     query {
       sanitySettings {
@@ -50,3 +50,5 @@ export const useSanitySettings = () => {
 
   return data?.sanitySettings;
 };
+
+export default useSanitySettings;

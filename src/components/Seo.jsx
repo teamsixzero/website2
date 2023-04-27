@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useSanitySettings } from "../hooks/useSanitySettings";
+import useSanitySettings from "../hooks/useSanitySettings";
 
 const Seo = ({ children }) => {
   const { seo } = useSanitySettings();

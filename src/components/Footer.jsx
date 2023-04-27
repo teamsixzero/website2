@@ -1,10 +1,10 @@
 import React from "react";
 import Navigation from "./Navigation";
 
-const Footer = ({ links }) => {
+const Footer = () => {
   return (
     <footer className="footer">
-      <Navigation links={links} />
+      <Navigation />
       <p className="footnote">
         © {new Date().getFullYear()} Sixzero —{" "}
         <a href="mailto:hello@sixzero.co" target="_blank" rel="noreferrer">

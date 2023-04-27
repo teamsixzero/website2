@@ -14,13 +14,13 @@
     @include breakpoint("sm") {
       display: none;
     }
-  }
 
-  .dropdown {
-    bottom: 100%;
+    .dropdown {
+      bottom: 100%;
 
-    & > div:first-child {
-      order: 2;
+      & > div:first-child {
+        order: 2;
+      }
     }
   }
 }

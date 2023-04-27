@@ -1,13 +1,17 @@
 import React from "react";
 import { Script } from "gatsby";
 
-import { useSanitySettings } from "../hooks/useSanitySettings";
+import useApp from "../hooks/useApp";
+import useSanitySettings from "../hooks/useSanitySettings";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import Navigation from "./Navigation";
+import MenuToggle from "./MenuToggle";
 
 const Layout = ({ children }) => {
-  const { menu, scripts } = useSanitySettings();
+  const { menuActive } = useApp();
+  const { scripts } = useSanitySettings();
 
   return (
     <>
@@ -18,9 +22,17 @@ const Layout = ({ children }) => {
           </Script>
         ))}
 
-      <Header links={menu?.links} />
-      <main className="main">{children}</main>
-      <Footer links={menu?.links} />
+      <MenuToggle />
+
+      <Navigation className="mobile-menu" />
+
+      <div className={`body-content${menuActive ? ` active` : ``}`}>
+        <Header />
+        <main className="main">
+          <>{children}</>
+          <Footer />
+        </main>
+      </div>
     </>
   );
 };
