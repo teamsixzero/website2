@@ -7,7 +7,7 @@
   column-gap: clamp(2rem, 9.44vw, 8.5rem);
   gap: clamp(2rem, 9.44vw, 8.5rem);
 
-  @include breakpoint("sm") {
+  @include breakpoint("md") {
     width: 100% !important;
 
     flex-direction: column;
@@ -67,7 +67,7 @@
       }
     }
 
-    @include breakpoint("sm") {
+    @include breakpoint("md") {
       order: -1 !important;
     }
 

@@ -71,6 +71,11 @@ export const query = graphql`
     image {
       ...ImageWithPreview
       alt
+      mobile {
+        asset {
+          _id
+        }
+      }
     }
     alignment
     backgroundColor {

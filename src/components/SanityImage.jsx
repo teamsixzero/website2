@@ -8,9 +8,6 @@ const SanityImage = ({
   width = 1440,
   style,
 }) => {
-  // set up mobile image srouces
-  // console.log(`image url:`, imageUrl(src?.asset));
-
   return (
     <figure
       className={`gatsby-image${className ? ` ${className}` : ``}`}
@@ -18,11 +15,17 @@ const SanityImage = ({
     >
       <picture
         style={{
-          // height: "100%",
           maxHeight: "inherit",
         }}
       >
-        {/* <source srcset="mdn-logo-wide.png" media="(min-width: 600px)" /> */}
+        {src?.mobile && (
+          <source
+            srcSet={imageUrl(src?.mobile?.asset)}
+            media="(max-width: 1024px)"
+            alt={src?.alt}
+            title={src?.alt}
+          />
+        )}
         <Image
           {...src}
           width={width}

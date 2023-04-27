@@ -14,5 +14,11 @@ export default defineType({
       type: 'string',
       description: 'Important for SEO and accessiblity.',
     }),
+    defineField({
+      name: 'mobile',
+      title: 'Mobile Image',
+      type: 'image',
+      description: 'Image for mobile devices. Cropping is currently not possible.',
+    }),
   ],
 })
