@@ -7,6 +7,7 @@ const SanityImage = ({
   src,
   width = 1440,
   style,
+  imgStyle,
 }) => {
   return (
     <figure
@@ -35,6 +36,7 @@ const SanityImage = ({
             height: "auto",
             maxHeight: "inherit",
             objectFit,
+            ...imgStyle,
           }}
           sizes={`(max-width: ${width}px) 100vw, 75vw, 50vw, ${width}px`}
           title={src?.alt}

@@ -10,8 +10,8 @@ const Logos = ({ data }) => {
     <ul className="block-logos">
       {logos.length > 0 &&
         logos.map((logo) => (
-          <li key={logo?._key}>
-            <SanityImage src={logo} />
+          <li key={logo?._key} className="block-logos__logo">
+            <SanityImage src={logo} imgStyle={{ height: "100%" }} />
           </li>
         ))}
     </ul>
