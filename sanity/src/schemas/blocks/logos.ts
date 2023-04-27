@@ -17,8 +17,12 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare: () => ({
+    select: {
+      image: 'logos.0.asset',
+    },
+    prepare: ({image}) => ({
       title: 'Logos',
+      media: image,
     }),
   },
 })

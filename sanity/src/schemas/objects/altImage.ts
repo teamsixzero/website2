@@ -21,4 +21,14 @@ export default defineType({
       description: 'Image for mobile devices. Cropping is currently not possible.',
     }),
   ],
+  preview: {
+    select: {
+      alt: 'alt',
+      image: 'asset',
+    },
+    prepare: ({alt, image}) => ({
+      title: alt || 'Image',
+      media: image,
+    }),
+  },
 })
