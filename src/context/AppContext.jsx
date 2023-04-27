@@ -29,10 +29,13 @@ const AppProvider = ({ children }) => {
   // ---------------------------------------------------------------------------
   // render
 
-  const providerProps = useMemo(() => ({
-    menuActive,
-    setMenuActive,
-  }));
+  const providerProps = useMemo(
+    () => ({
+      menuActive,
+      setMenuActive,
+    }),
+    [menuActive]
+  );
 
   return (
     <AppContext.Provider value={providerProps}>{children}</AppContext.Provider>

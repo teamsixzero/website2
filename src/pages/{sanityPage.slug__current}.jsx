@@ -1,17 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../components/Layout";
 import PageBuilder from "../components/PageBuilder";
 import Seo from "../components/Seo";
 
 const PageTemplate = ({ data: { sanityPage: data } }) => {
   return (
-    <Layout>
-      <div className="template-page">
-        <PageBuilder blocks={data?.blocks} />
-      </div>
-    </Layout>
+    <div className="template-page">
+      <PageBuilder blocks={data?.blocks} />
+    </div>
   );
 };
 

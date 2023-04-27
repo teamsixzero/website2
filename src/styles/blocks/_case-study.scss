@@ -60,7 +60,7 @@
 
     .block-case-study__image {
       order: -1;
-      justify-content: start;
+      justify-content: flex-start;
     }
 
     &-full-height {
@@ -72,7 +72,7 @@
 
       .block-case-study__image {
         order: -1;
-        justify-content: start;
+        justify-content: flex-start;
       }
     }
   }

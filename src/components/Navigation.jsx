@@ -33,7 +33,6 @@ const MenuLink = ({ link, dropdown }) => {
 };
 
 const Navigation = ({ className }) => {
-  const { menuActive } = useApp();
   const { menu } = useSanitySettings();
 
   const renderLinks = menu?.links?.map((link) => {

@@ -1,22 +1,19 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../../components/Layout";
 import ProjectBuilder from "../../components/ProjectBuilder";
 import Seo from "../../components/Seo";
 
 const Project = ({ data: { sanityProject: data } }) => {
   return (
-    <Layout>
-      <div className="template-project">
-        <header className="project-header">
-          <h1>{data.title}</h1>
-          <p className="project-description h6">{data.description}</p>
-        </header>
+    <div className="template-project">
+      <header className="project-header">
+        <h1>{data.title}</h1>
+        <p className="project-description h6">{data.description}</p>
+      </header>
 
-        <ProjectBuilder blocks={data?.blocks} />
-      </div>
-    </Layout>
+      <ProjectBuilder blocks={data?.blocks} />
+    </div>
   );
 };
 

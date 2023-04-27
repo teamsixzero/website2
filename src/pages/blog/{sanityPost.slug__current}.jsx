@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../../components/Layout";
 import SanityImage from "../../components/SanityImage";
 import RichText from "../../components/RichText";
 import Seo from "../../components/Seo";
@@ -10,20 +9,18 @@ const BlogTemplate = ({ data, children }) => {
   const { title, date, featureImage, content } = data.sanityPost;
 
   return (
-    <Layout>
-      <article className="template-blog">
-        <header className="template-blog__heading">
-          <h1 className="h2">{title}</h1>
-          <p className="text-book">Published {date}</p>
-        </header>
+    <article className="template-blog">
+      <header className="template-blog__heading">
+        <h1 className="h2">{title}</h1>
+        <p className="text-book">Published {date}</p>
+      </header>
 
-        <SanityImage src={featureImage} />
+      <SanityImage src={featureImage} />
 
-        <section className="template-blog__content">
-          <RichText content={content} />
-        </section>
-      </article>
-    </Layout>
+      <section className="template-blog__content">
+        <RichText content={content} />
+      </section>
+    </article>
   );
 };
 
