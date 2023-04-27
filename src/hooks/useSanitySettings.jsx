@@ -15,6 +15,7 @@ const useSanitySettings = () => {
             ... on SanityLinkGroup {
               _key
               title
+              url
               links {
                 _key
                 title
@@ -22,6 +23,28 @@ const useSanitySettings = () => {
               }
             }
           }
+        }
+
+        footer {
+          links {
+            __typename
+            ... on SanityLink {
+              _key
+              title
+              url
+            }
+            ... on SanityLinkGroup {
+              _key
+              title
+              url
+              links {
+                _key
+                title
+                url
+              }
+            }
+          }
+          email
         }
 
         seo {

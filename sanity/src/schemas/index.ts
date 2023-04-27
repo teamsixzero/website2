@@ -30,6 +30,7 @@ import textAndImage from './blocks/textAndImage'
 //objects
 import altImage from './objects/altImage'
 import button from './objects/button'
+import footer from './objects/footer'
 import imageBlock from './objects/imageBlock'
 import link from './objects/link'
 import linkGroup from './objects/linkGroup'
@@ -75,6 +76,7 @@ export const schemaTypes = [
   //objects
   altImage,
   button,
+  footer,
   imageBlock,
   link,
   linkGroup,

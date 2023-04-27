@@ -11,7 +11,7 @@ import MenuToggle from "./MenuToggle";
 
 const Layout = ({ children }) => {
   const { menuActive } = useApp();
-  const { scripts } = useSanitySettings();
+  const { scripts, menu } = useSanitySettings();
 
   return (
     <>
@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
 
       <MenuToggle />
 
-      <Navigation className="mobile-menu" />
+      <Navigation className="mobile-menu" links={menu?.links} />
 
       <div className={`body-content${menuActive ? ` active` : ``}`}>
         <Header />

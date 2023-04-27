@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "gatsby";
 
 import useApp from "../hooks/useApp";
-import useSanitySettings from "../hooks/useSanitySettings";
 
 const MenuLink = ({ link, dropdown }) => {
   const { closeMenu } = useApp();
@@ -18,7 +17,7 @@ const MenuLink = ({ link, dropdown }) => {
         href={link.url}
         target="_blank"
         rel="noreferrer"
-        className={textClass}
+        className={`link ${textClass}`}
         onClick={closeMenu}
       >
         {link.title}
@@ -26,20 +25,23 @@ const MenuLink = ({ link, dropdown }) => {
     );
 
   return (
-    <Link to={link.url} onClick={closeMenu} className={textClass}>
+    <Link to={link.url} onClick={closeMenu} className={`link ${textClass}`}>
       {link.title}
     </Link>
   );
 };
 
-const Navigation = ({ className }) => {
-  const { menu } = useSanitySettings();
-
-  const renderLinks = menu?.links?.map((link) => {
+const Navigation = ({ className, links }) => {
+  const renderLinks = links?.map((link) => {
     if (link.__typename === "SanityLinkGroup")
       return (
         <li className="has-dropdown" key={link?._key}>
-          <p className="accent">{link?.title}</p>
+          {link?.url ? (
+            <MenuLink link={link} />
+          ) : (
+            <p className="accent">{link?.title}</p>
+          )}
+
           <ul className="dropdown">
             <div />
 

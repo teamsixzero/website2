@@ -12,6 +12,19 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'url',
+      title: 'URL',
+      type: 'url',
+      description: 'This field is optional. http://, https://, mailto: and tel: are allowed',
+      validation: (Rule) =>
+        Rule.uri({
+          allowCredentials: true,
+          allowRelative: true,
+          relativeOnly: false,
+          scheme: [/^http/, /^https/, /^mailto/, /^tel/],
+        }),
+    }),
+    defineField({
       name: 'links',
       title: 'Links',
       type: 'array',
@@ -27,11 +40,14 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
+      url: 'url',
       links: 'links',
     },
-    prepare: ({title, links}) => ({
+    prepare: ({title, url, links}) => ({
       title: title,
-      subtitle: links.length > 1 ? `${links.length} links` : `${links.length} link`,
+      subtitle: `${url ? `${url} + ` : ''} ${
+        links?.length > 1 ? `${links.length} links` : `${links.length} link`
+      }`,
     }),
   },
 })

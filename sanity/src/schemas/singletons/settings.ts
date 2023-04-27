@@ -34,6 +34,16 @@ export default defineType({
         collapsible: true,
       },
     }),
+    defineField({
+      name: 'footer',
+      title: 'Footer',
+      type: 'footer',
+      group: 'navigation',
+      options: {
+        collapsed: false,
+        collapsible: true,
+      },
+    }),
     // 404 page
     defineField({
       name: 'notFoundPage',
