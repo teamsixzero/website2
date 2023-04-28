@@ -12,6 +12,9 @@ export default defineField({
       type: 'contactCallout',
     }),
     defineArrayMember({
+      type: 'contactForm',
+    }),
+    defineArrayMember({
       type: 'content',
     }),
     defineArrayMember({

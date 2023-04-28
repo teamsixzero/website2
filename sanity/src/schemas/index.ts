@@ -13,6 +13,7 @@ import project from './documents/project'
 // blocks
 import caseStudy from './blocks/caseStudy'
 import contactCallout from './blocks/contactCallout'
+import contactForm from './blocks/contactForm'
 import content from './blocks/content'
 import header from './blocks/header'
 import imageFullWidth from './blocks/imageFullWidth'
@@ -42,8 +43,17 @@ import script from './objects/script'
 import titleCard from './objects/titleCard'
 import titleText from './objects/titleText'
 
+// seo
 import seoSettings from './objects/seo/settings'
 import seoPage from './objects/seo/page'
+
+// form fields
+import checkbox from './objects/formFields/checkbox'
+import email from './objects/formFields/email'
+import radio from './objects/formFields/radio'
+import select from './objects/formFields/select'
+import text from './objects/formFields/text'
+import textarea from './objects/formFields/textarea'
 
 export const schemaTypes = [
   //singletons
@@ -59,6 +69,7 @@ export const schemaTypes = [
   // blocks
   caseStudy,
   contactCallout,
+  contactForm,
   content,
   header,
   imageFullWidth,
@@ -91,4 +102,12 @@ export const schemaTypes = [
   //
   seoSettings,
   seoPage,
+
+  //
+  checkbox,
+  email,
+  radio,
+  select,
+  text,
+  textarea,
 ] satisfies SchemaTypeDefinition[]

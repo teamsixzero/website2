@@ -51,9 +51,9 @@ const defaultPortableTextComponents = {
   },
 };
 
-const RichText = ({ content, options }) => {
+const RichText = ({ content, options, className }) => {
   return (
-    <div className="rich-text">
+    <div className={`rich-text ${className}`}>
       <PortableText
         value={content}
         components={options || defaultPortableTextComponents}

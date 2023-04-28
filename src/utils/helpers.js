@@ -103,3 +103,9 @@ export const addHighlight = (children = []) => {
 
   return mappedChildren;
 };
+
+export const toCamelCase = (str) => {
+  const regex = /[^a-zA-Z0-9]+(.)/g;
+  str = str.toLowerCase();
+  return str.replace(regex, (_, character) => character.toUpperCase());
+};

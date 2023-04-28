@@ -15,6 +15,7 @@ export const query = graphql`
 
       ...BlockCaseStudy
       ...BlockContactCallout
+      ...BlockContactForm
       ...BlockContent
       ...BlockHeader
       ...BlockImageFullWidth

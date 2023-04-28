@@ -1,0 +1,51 @@
+.block-contact-form {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  column-gap: 8.5rem;
+
+  @include breakpoint("sm") {
+    flex-direction: column;
+    row-gap: 4rem;
+  }
+
+  &__form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+
+    input,
+    textarea,
+    select {
+      padding: 1.25rem 0.75rem;
+      border: none;
+      border-bottom: 1px solid var(--color-grey-normal);
+    }
+
+    .btn {
+      align-self: flex-end;
+    }
+
+    input,
+    textarea,
+    select,
+    .btn {
+      transition: opacity 0.3s ease-in-out;
+
+      &:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        user-select: none;
+      }
+    }
+  }
+
+  &__success,
+  &__error {
+    text-align: center;
+  }
+}
