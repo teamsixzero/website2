@@ -12,7 +12,7 @@ export default defineType({
       type: 'array',
       of: [
         defineArrayMember({
-          type: 'imageBlock',
+          type: 'mediaBlock',
         }),
       ],
       validation: (Rule) => Rule.min(3),

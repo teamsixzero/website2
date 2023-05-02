@@ -32,16 +32,18 @@ import textAndImage from './blocks/textAndImage'
 import altImage from './objects/altImage'
 import button from './objects/button'
 import footer from './objects/footer'
-import imageBlock from './objects/imageBlock'
 import link from './objects/link'
 import linkGroup from './objects/linkGroup'
 import listItem from './objects/listItem'
+import media from './objects/media'
+import mediaBlock from './objects/mediaBlock'
 import menu from './objects/menu'
 import notFound from './objects/404'
 import richText from './objects/richText'
 import script from './objects/script'
 import titleCard from './objects/titleCard'
 import titleText from './objects/titleText'
+import video from './objects/video'
 
 // seo
 import seoSettings from './objects/seo/settings'
@@ -83,15 +85,17 @@ export const schemaTypes = [
   projectInfo,
   testimonial,
   textAndImage,
+  video,
 
   //objects
   altImage,
   button,
   footer,
-  imageBlock,
   link,
   linkGroup,
   listItem,
+  media,
+  mediaBlock,
   menu,
   notFound,
   richText,

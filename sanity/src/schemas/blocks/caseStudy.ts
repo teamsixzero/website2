@@ -27,6 +27,11 @@ export default defineType({
       type: 'altImage',
     }),
     defineField({
+      name: 'media',
+      title: 'Media',
+      type: 'media',
+    }),
+    defineField({
       name: 'alignment',
       title: 'Alignment',
       type: 'string',

@@ -15,7 +15,7 @@ export default defineType({
     defineField({
       name: 'image',
       title: 'Image',
-      type: 'imageBlock',
+      type: 'mediaBlock',
     }),
     defineField({
       name: 'align',

@@ -14,6 +14,9 @@ export default defineType({
         defineArrayMember({
           type: 'altImage',
         }),
+        defineArrayMember({
+          type: 'media',
+        }),
       ],
       validation: (Rule) => Rule.required().min(3),
     }),

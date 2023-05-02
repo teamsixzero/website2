@@ -1,14 +1,14 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'imageBlock',
-  title: 'Image Block',
+  name: 'mediaBlock',
+  title: 'Media Block',
   type: 'object',
   fields: [
     defineField({
       name: 'source',
       title: 'Source',
-      type: 'altImage',
+      type: 'media',
       options: {
         collapsible: false,
       },
@@ -26,7 +26,7 @@ export default defineType({
       alt: 'source.alt',
     },
     prepare: ({media, alt}) => ({
-      title: alt || 'Image Block',
+      title: alt || 'Media Block',
       media,
     }),
   },

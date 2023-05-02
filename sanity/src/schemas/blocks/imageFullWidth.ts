@@ -12,6 +12,11 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'media',
+      title: 'Media',
+      type: 'media',
+    }),
+    defineField({
       name: 'fullWidth',
       title: 'Full Width?',
       type: 'boolean',

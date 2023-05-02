@@ -52,6 +52,11 @@ export default defineType({
       type: 'altImage',
     }),
     defineField({
+      name: 'featureMedia',
+      title: 'Feature Media',
+      type: 'media',
+    }),
+    defineField({
       name: 'summary',
       title: 'Summary',
       type: 'text',
