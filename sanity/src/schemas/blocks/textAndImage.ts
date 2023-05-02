@@ -38,7 +38,7 @@ export default defineType({
   preview: {
     select: {
       text: 'text',
-      image: 'image.source',
+      image: 'image.source.image.asset',
     },
     prepare: ({image, text}) => ({
       title: 'Text And Image',
