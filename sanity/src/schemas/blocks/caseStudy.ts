@@ -22,11 +22,6 @@ export default defineType({
       type: 'text',
     }),
     defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'altImage',
-    }),
-    defineField({
       name: 'media',
       title: 'Media',
       type: 'media',
@@ -56,7 +51,7 @@ export default defineType({
   preview: {
     select: {
       title: 'project.title',
-      image: 'image',
+      image: 'media.image.asset',
     },
     prepare: ({title, image}) => ({
       title: 'Case Study',
