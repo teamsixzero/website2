@@ -39,4 +39,19 @@ export default defineType({
       hidden: ({parent}) => parent?.type !== `video`,
     }),
   ],
+  preview: {
+    select: {
+      image: 'source.image',
+      video: 'source.video',
+    },
+    prepare: ({image, video}) => {
+      const media = image.asset || video.poster.asset
+      const alt = image.alt || video.poster.alt
+
+      return {
+        title: alt || 'Image',
+        media,
+      }
+    },
+  },
 })

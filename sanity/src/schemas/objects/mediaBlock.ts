@@ -22,12 +22,17 @@ export default defineType({
   ],
   preview: {
     select: {
-      media: 'source',
-      alt: 'source.alt',
+      image: 'source.image',
+      video: 'source.video',
     },
-    prepare: ({media, alt}) => ({
-      title: alt || 'Media Block',
-      media,
-    }),
+    prepare: ({image, video}) => {
+      const media = image.asset || video.poster.asset
+      const alt = image.alt || video.poster.alt
+
+      return {
+        title: alt || 'Media Block',
+        media,
+      }
+    },
   },
 })
