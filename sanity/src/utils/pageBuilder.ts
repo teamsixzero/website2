@@ -21,19 +21,16 @@ export default defineField({
       type: 'header',
     }),
     defineArrayMember({
-      type: 'imageFullWidth',
-    }),
-    defineArrayMember({
-      type: 'imageGrid',
-    }),
-    defineArrayMember({
-      type: 'imageThreeColumns',
-    }),
-    defineArrayMember({
-      type: 'imageTwoColumns',
-    }),
-    defineArrayMember({
       type: 'logos',
+    }),
+    defineArrayMember({
+      type: 'mediaColumns',
+    }),
+    defineArrayMember({
+      type: 'mediaGrid',
+    }),
+    defineArrayMember({
+      type: 'mediaSection',
     }),
     defineArrayMember({
       type: 'multiSection',
@@ -51,7 +48,7 @@ export default defineField({
       type: 'testimonial',
     }),
     defineArrayMember({
-      type: 'textAndImage',
+      type: 'textAndMedia',
     }),
   ],
 })

@@ -2,13 +2,13 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 import {BsGrid1X2Fill} from 'react-icons/bs'
 
 export default defineType({
-  name: 'imageGrid',
-  title: 'Image Grid',
+  name: 'mediaGrid',
+  title: 'Media Grid',
   type: 'object',
   fields: [
     defineField({
-      name: 'images',
-      title: 'Images',
+      name: 'media',
+      title: 'Media',
       type: 'array',
       of: [
         defineArrayMember({
@@ -29,8 +29,12 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare: () => ({
-      title: 'Image Grid',
+    select: {
+      style: 'style',
+    },
+    prepare: ({style}) => ({
+      title: 'Media Grid',
+      subtitle: style,
       media: BsGrid1X2Fill,
     }),
   },

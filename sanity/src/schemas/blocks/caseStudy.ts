@@ -51,12 +51,16 @@ export default defineType({
   preview: {
     select: {
       title: 'project.title',
-      image: 'media.image.asset',
+      image: 'media.image',
+      video: 'media.video',
     },
-    prepare: ({title, image}) => ({
-      title: 'Case Study',
-      subtitle: title,
-      media: image,
-    }),
+    prepare: ({image, title, video}) => {
+      const media = image?.asset || video?.poster?.asset
+      return {
+        title: 'Case Study',
+        subtitle: title,
+        media: media,
+      }
+    },
   },
 })

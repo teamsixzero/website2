@@ -3,8 +3,8 @@ import {defineField, defineType} from 'sanity'
 import {portableTextPreview} from '../../utils/preview'
 
 export default defineType({
-  name: 'textAndImage',
-  title: 'Text And Image',
+  name: 'textAndMedia',
+  title: 'Text And Media',
   type: 'object',
   fields: [
     defineField({
@@ -13,16 +13,17 @@ export default defineType({
       type: 'richText',
     }),
     defineField({
-      name: 'image',
-      title: 'Image',
+      name: 'media',
+      title: 'Media',
       type: 'mediaBlock',
     }),
     defineField({
       name: 'align',
-      title: 'Image Align',
+      title: 'Media Align',
       type: 'string',
       initialValue: 'Left',
-      description: 'Align the image to the left or right of the text. Only applies to desktop.',
+      description:
+        'Align the media asset to the left or right of the text. Only applies to desktop.',
       options: {
         list: ['Left', 'Left (Full Bleed)', 'Right', 'Right (Full Bleed)'],
         layout: 'radio',
@@ -38,12 +39,16 @@ export default defineType({
   preview: {
     select: {
       text: 'text',
-      image: 'image.source.image.asset',
+      image: 'media.source.image',
+      video: 'media.source.video',
     },
-    prepare: ({image, text}) => ({
-      title: 'Text And Image',
-      subtitle: portableTextPreview(text),
-      media: image,
-    }),
+    prepare: ({image, text, video}) => {
+      const media = image?.asset || video?.poster?.asset
+      return {
+        title: 'Text And Media',
+        subtitle: portableTextPreview(text),
+        media: media,
+      }
+    },
   },
 })

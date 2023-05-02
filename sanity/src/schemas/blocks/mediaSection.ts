@@ -1,16 +1,10 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'imageFullWidth',
-  title: 'Image',
+  name: 'mediaSection',
+  title: 'Media Section',
   type: 'object',
   fields: [
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'altImage',
-      validation: (Rule) => Rule.required(),
-    }),
     defineField({
       name: 'media',
       title: 'Media',
@@ -32,14 +26,17 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      image: 'image',
-      alt: 'image.alt',
+      image: 'media.image',
+      video: 'media.video',
     },
-    prepare: ({image, alt}) => {
+    prepare: ({image, video}) => {
+      const alt = image?.alt || video?.poster?.alt
+      const media = image?.asset || video?.poster?.asset
+
       return {
-        title: 'Image',
+        title: 'Media Section',
         subtitle: alt,
-        media: image,
+        media: media,
       }
     },
   },

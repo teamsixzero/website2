@@ -16,17 +16,16 @@ import contactCallout from './blocks/contactCallout'
 import contactForm from './blocks/contactForm'
 import content from './blocks/content'
 import header from './blocks/header'
-import imageFullWidth from './blocks/imageFullWidth'
-import imageGrid from './blocks/imageGrid'
-import imageThreeColumns from './blocks/imageThreeColumns'
-import imageTwoColumns from './blocks/imageTwoColumns'
 import logos from './blocks/logos'
+import mediaColumns from './blocks/mediaColumns'
+import mediaGrid from './blocks/mediaGrid'
+import mediaSection from './blocks/mediaSection'
 import multiSection from './blocks/multiSection'
 import nextProject from './blocks/nextProject'
 import orderedList from './blocks/orderedList'
 import projectInfo from './blocks/projectInfo'
 import testimonial from './blocks/testimonial'
-import textAndImage from './blocks/textAndImage'
+import textAndMedia from './blocks/textAndMedia'
 
 //objects
 import altImage from './objects/altImage'
@@ -74,18 +73,16 @@ export const schemaTypes = [
   contactForm,
   content,
   header,
-  imageFullWidth,
-  imageGrid,
-  imageThreeColumns,
-  imageTwoColumns,
   logos,
+  mediaColumns,
+  mediaGrid,
+  mediaSection,
   multiSection,
   nextProject,
   orderedList,
   projectInfo,
   testimonial,
-  textAndImage,
-  video,
+  textAndMedia,
 
   //objects
   altImage,
@@ -102,6 +99,7 @@ export const schemaTypes = [
   script,
   titleCard,
   titleText,
+  video,
 
   //
   seoSettings,

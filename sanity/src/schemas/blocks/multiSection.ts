@@ -15,10 +15,10 @@ export default defineType({
           type: 'content',
         }),
         defineArrayMember({
-          type: 'orderedList',
+          type: 'mediaSection',
         }),
         defineArrayMember({
-          type: 'imageFullWidth',
+          type: 'orderedList',
         }),
       ],
     }),
