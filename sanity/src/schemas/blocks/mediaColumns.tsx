@@ -1,5 +1,5 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
-import {TbColumns2} from 'react-icons/tb'
+import ColmunsMedia from '../../components/ColumnsMedia'
 
 export default defineType({
   name: 'mediaColumns',
@@ -20,12 +20,12 @@ export default defineType({
   ],
   preview: {
     select: {
-      columns: 'media',
+      media: 'media',
     },
-    prepare: ({columns}) => ({
+    prepare: ({media}) => ({
       title: 'Media Columns',
-      subtitle: `${columns.length} column${columns.length > 1 ? 's' : ''}`,
-      media: TbColumns2,
+      subtitle: `${media.length} column${media.length > 1 ? 's' : ''}`,
+      media: () => <ColmunsMedia media={media.map((m) => m?.source)} />,
     }),
   },
 })
