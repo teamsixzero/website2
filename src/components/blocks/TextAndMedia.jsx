@@ -47,6 +47,7 @@ const TextAndMedia = ({ data }) => {
           mediaBlock?.backgroundColor?.value?.hex ? "has-background" : ""
         }`}
         style={{ backgroundColor: mediaBlock?.backgroundColor?.value?.hex }}
+        imgStyle={{ height: "100%", margin: "0 auto" }}
         media={mediaBlock?.source}
       />
     </div>
@@ -77,10 +78,9 @@ export const query = graphql`
               url
             }
           }
+          isIframe
           autoplay
           loop
-          controls
-          muted
         }
       }
       backgroundColor {

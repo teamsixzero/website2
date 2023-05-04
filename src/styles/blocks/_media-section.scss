@@ -11,6 +11,11 @@
       overflow: visible;
     }
 
+    iframe {
+      height: 43.3vw;
+      max-height: 39rem;
+    }
+
     @include breakpoint("sm") {
       width: calc(100% + 4rem);
     }
@@ -22,9 +27,16 @@
   }
 
   img,
-  video {
+  video,
+  iframe {
     width: 100% !important;
     height: auto;
     display: block;
+  }
+
+  iframe {
+    height: 35.5vw;
+    max-height: 32rem;
+    aspect-ratio: 16/9;
   }
 }

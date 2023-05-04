@@ -47,10 +47,9 @@ export const query = graphql`
               url
             }
           }
+          isIframe
           autoplay
           loop
-          controls
-          muted
         }
       }
       backgroundColor {

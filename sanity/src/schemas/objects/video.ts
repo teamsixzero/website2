@@ -18,6 +18,13 @@ export default defineType({
       description: 'Image to be shown while the video is downloading.',
     }),
     defineField({
+      name: 'isIframe',
+      title: 'Is i-frame',
+      type: 'boolean',
+      description: 'If the video link is of an i-frame, it will be rendered as such.',
+      initialValue: false,
+    }),
+    defineField({
       name: 'autoplay',
       title: 'Autoplay',
       type: 'boolean',
@@ -26,18 +33,6 @@ export default defineType({
     defineField({
       name: 'loop',
       title: 'Loop',
-      type: 'boolean',
-      initialValue: true,
-    }),
-    defineField({
-      name: 'controls',
-      title: 'Controls',
-      type: 'boolean',
-      initialValue: true,
-    }),
-    defineField({
-      name: 'muted',
-      title: 'Muted',
       type: 'boolean',
       initialValue: true,
     }),

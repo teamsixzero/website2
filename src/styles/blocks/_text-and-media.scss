@@ -50,22 +50,23 @@
     max-height: 38.5rem;
 
     display: flex;
+    justify-content: center;
 
     &.align-left {
       order: -1;
-      justify-content: flex-start;
 
       &.full-bleed {
         max-height: 45rem;
+        justify-content: flex-start;
       }
     }
 
     &.align-right {
       order: 2;
-      justify-content: flex-end;
 
       &.full-bleed {
         max-height: 45rem;
+        justify-content: flex-end;
       }
     }
 

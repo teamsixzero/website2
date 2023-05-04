@@ -12,11 +12,14 @@ const MediaGrid = ({ data }) => {
     <div className={`block-media-grid ${gridClass}`}>
       {gridItems.map((med) => (
         <div
-          className="block-media__wrapper"
+          className="block-media-grid__wrapper"
           key={med?._key}
           style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
         >
-          <Media media={med?.source} />
+          <Media
+            media={med?.source}
+            imgStyle={{ height: "100%", margin: "auto" }}
+          />
         </div>
       ))}
     </div>
@@ -47,10 +50,9 @@ export const query = graphql`
               url
             }
           }
+          isIframe
           autoplay
           loop
-          controls
-          muted
         }
       }
       backgroundColor {
