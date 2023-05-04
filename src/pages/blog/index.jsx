@@ -40,7 +40,6 @@ export function Head({ location }) {
       <title id="title">Blog | Sixzero</title>
       <meta id="og:title" property="og:title" content="Blog | Sixzero" />
       <meta id="og:url" property="og:url" content={location?.href} />
-      {/* <body className="page-blog has-no-box-shadow" /> */}
     </>
   );
 }

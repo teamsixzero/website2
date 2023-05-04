@@ -20,13 +20,15 @@ const Video = ({ video, className, style }) => {
 
   if (isIframe) {
     return (
-      <iframe
-        className={className}
-        style={style}
-        src={src}
-        autoPlay={autoplay}
-        loop={loop}
-      ></iframe>
+      <div class={`video__wrapper ${className ? className : ``}`}>
+        <iframe
+          className="video__iframe"
+          style={style}
+          src={src}
+          autoPlay={autoplay}
+          loop={loop}
+        ></iframe>
+      </div>
     );
   }
 
