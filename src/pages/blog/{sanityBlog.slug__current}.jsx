@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import SanityImage from "../../components/SanityImage";
+import Media from "../../components/Media";
 import RichText from "../../components/RichText";
 import Seo from "../../components/Seo";
 
-const BlogTemplate = ({ data, children }) => {
-  const { title, date, featureImage, content } = data.sanityPost;
+const BlogTemplate = ({ data }) => {
+  const { title, date, featureMedia, content } = data.sanityBlog;
 
   return (
     <article className="template-blog">
@@ -15,7 +15,7 @@ const BlogTemplate = ({ data, children }) => {
         <p className="text-book">Published {date}</p>
       </header>
 
-      <SanityImage src={featureImage} />
+      <Media media={featureMedia} imgStyle={{ width: "100%" }} />
 
       <section className="template-blog__content">
         <RichText content={content} />
@@ -26,14 +26,14 @@ const BlogTemplate = ({ data, children }) => {
 
 export default BlogTemplate;
 
-export function Head({ location, data: { sanityPost: data } }) {
+export function Head({ location, data: { sanityBlog: data } }) {
   return (
     <Seo>
       <title id="title">{data?.seo?.title || data?.title} | Sixzero</title>;
       <meta
         id="og:title"
         property="og:title"
-        content={`${data.title} | Sixzero`}
+        content={`${data?.seo?.title || data?.title} | Sixzero`}
       />
       <meta id="og:url" property="og:url" content={location?.href} />
       {data?.seo?.description && (
@@ -59,13 +59,33 @@ export function Head({ location, data: { sanityPost: data } }) {
 
 export const query = graphql`
   query ($id: String) {
-    sanityPost(id: { eq: $id }) {
+    sanityBlog(id: { eq: $id }) {
       title
       date(formatString: "MMMM D, YYYY")
       summary
-      featureImage {
-        ...ImageWithPreview
-        alt
+      featureMedia {
+        type
+        image {
+          ...ImageWithPreview
+          alt
+          mobile {
+            asset {
+              _id
+            }
+          }
+        }
+        video {
+          src
+          poster {
+            asset {
+              url
+            }
+          }
+          autoplay
+          loop
+          controls
+          muted
+        }
       }
       content: _rawContent(resolveReferences: { maxDepth: 10 })
       seo {

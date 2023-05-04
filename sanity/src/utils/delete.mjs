@@ -1,6 +1,6 @@
-import {client} from './sanity'
+import {client} from './sanity.js'
 
-const type = ``
+const type = `post`
 
 client
   .delete({query: '*[_type == $type]', params: {type}})

@@ -7,8 +7,8 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'media',
-      title: 'Media',
+      name: 'gridItems',
+      title: 'Grid Items',
       type: 'array',
       of: [
         defineArrayMember({

@@ -26,7 +26,7 @@ export const query = graphql`
       __typename
 
       ...BlockContent
-      ...BlockImageFullWidth
+      ...BlockMediaSection
       ...BlockOrderedList
     }
     backgroundColor {

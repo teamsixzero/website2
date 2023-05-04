@@ -18,17 +18,16 @@ export const query = graphql`
       ...BlockContactForm
       ...BlockContent
       ...BlockHeader
-      ...BlockImageFullWidth
-      ...BlockImageGrid
-      ...BlockImageThreeColumns
-      ...BlockImageTwoColumns
       ...BlockLogos
+      ...BlockMediaColumns
+      ...BlockMediaGrid
+      ...BlockMediaSection
       ...BlockMultiSection
       ...BlockNextProject
       ...BlockOrderedList
       ...BlockProjectInfo
       ...BlockTestimonial
-      ...BlockTextAndImage
+      ...BlockTextAndMedia
     }
   }
 `;

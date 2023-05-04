@@ -1,4 +1,4 @@
-.block-image-two-columns {
+.block-media-columns {
   position: relative;
   width: 100%;
 
@@ -12,7 +12,7 @@
     gap: clamp(1.5rem, 2.22vw, 2rem);
   }
 
-  &__figure {
+  &__wrapper {
     &.has-background {
       padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 4.16vw, 3.75rem);
     }

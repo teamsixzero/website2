@@ -1,4 +1,4 @@
-.block-text-and-image {
+.block-text-and-media {
   position: relative;
   width: 100%;
 
@@ -46,7 +46,7 @@
     row-gap: var(--spacing-3);
   }
 
-  &__image {
+  &__wrapper {
     max-height: 38.5rem;
 
     display: flex;

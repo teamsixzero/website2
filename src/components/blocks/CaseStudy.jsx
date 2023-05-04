@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 
-import SanityImage from "../SanityImage";
+import Media from "../Media";
 
 const CaseStudy = ({ data }) => {
-  const { project, summary, image, alignment, backgroundColor, textColor } =
+  const { project, summary, media, alignment, backgroundColor, textColor } =
     data;
 
   let alignmentClass = `align-left`;
@@ -52,7 +52,7 @@ const CaseStudy = ({ data }) => {
         </Link>
       </header>
 
-      {image && <SanityImage className="block-case-study__image" src={image} />}
+      {media && <Media className="block-case-study__wrapper" media={media} />}
     </div>
   );
 };
@@ -68,13 +68,28 @@ export const query = graphql`
       }
     }
     summary
-    image {
-      ...ImageWithPreview
-      alt
-      mobile {
-        asset {
-          _id
+    media {
+      type
+      image {
+        ...ImageWithPreview
+        alt
+        mobile {
+          asset {
+            _id
+          }
         }
+      }
+      video {
+        src
+        poster {
+          asset {
+            url
+          }
+        }
+        autoplay
+        loop
+        controls
+        muted
       }
     }
     alignment

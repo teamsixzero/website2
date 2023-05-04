@@ -13,8 +13,8 @@ export default defineType({
       type: 'richText',
     }),
     defineField({
-      name: 'media',
-      title: 'Media',
+      name: 'mediaBlock',
+      title: 'Media Block',
       type: 'mediaBlock',
     }),
     defineField({
@@ -39,8 +39,8 @@ export default defineType({
   preview: {
     select: {
       text: 'text',
-      image: 'media.source.image',
-      video: 'media.source.video',
+      image: 'mediaBlock.source.image',
+      video: 'mediaBlock.source.video',
     },
     prepare: ({image, text, video}) => {
       const media = image?.asset || video?.poster?.asset

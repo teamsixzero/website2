@@ -7,8 +7,8 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'media',
-      title: 'Media',
+      name: 'columns',
+      title: 'Columns',
       type: 'array',
       of: [
         defineArrayMember({
@@ -20,12 +20,12 @@ export default defineType({
   ],
   preview: {
     select: {
-      media: 'media',
+      columns: 'columns',
     },
-    prepare: ({media}) => ({
+    prepare: ({columns}) => ({
       title: 'Media Columns',
-      subtitle: `${media.length} column${media.length > 1 ? 's' : ''}`,
-      media: () => <ColmunsMedia media={media.map((m) => m?.source)} />,
+      subtitle: `${columns.length} column${columns.length > 1 ? 's' : ''}`,
+      media: () => <ColmunsMedia media={columns.map((media) => media?.source)} />,
     }),
   },
 })

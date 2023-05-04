@@ -1,4 +1,4 @@
-.block-image-full-width {
+.block-media-section {
   width: 100%;
   height: auto;
   display: block;
@@ -21,7 +21,8 @@
       clamp(2.25rem, 8.61vw, 7.75rem);
   }
 
-  img {
+  img,
+  video {
     width: 100% !important;
     height: auto;
     display: block;

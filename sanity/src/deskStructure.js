@@ -2,7 +2,7 @@ import {generateDocumentStructure, generateSingletonStructure} from './utils/des
 
 const DOCUMENT_TYPES_IN_STRUCTURE = [
   `project`,
-  `post`,
+  `blog`,
   `page`,
   `person`,
   `colorPalette`,
@@ -13,7 +13,7 @@ const DOCUMENT_TYPES_IN_STRUCTURE = [
 const documents = [
   {
     title: `Blog`,
-    type: `post`,
+    type: `blog`,
     icon: () => `📝`,
   },
   {

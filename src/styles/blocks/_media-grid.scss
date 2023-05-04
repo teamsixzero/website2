@@ -1,4 +1,4 @@
-.block-image-grid {
+.block-media-grid {
   position: relative;
   width: 100%;
 
@@ -14,7 +14,7 @@
     gap: clamp(1.5rem, 2.22vw, 2rem);
   }
 
-  &__image {
+  &__wrapper {
     position: relative;
 
     display: flex;

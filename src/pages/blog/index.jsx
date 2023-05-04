@@ -1,22 +1,22 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 
-import SanityImage from "../../components/SanityImage";
+import Media from "../../components/Media";
 
 const BlogPage = ({ data }) => {
-  const blogs = data.allSanityPost.edges.map(({ node }) => node);
+  const blogs = data.allSanityBlog.edges.map(({ node }) => node);
 
   return (
     <ul className="blog-grid">
       {blogs.map((blog) => (
-        <li>
+        <li key={blog?._id}>
           <Link
             to={`/blog/${blog?.slug?.current}`}
             key={blog.id}
             className="card card--post"
           >
             <div className="card-image">
-              {blog.featureImage && <SanityImage src={blog?.featureImage} />}
+              {blog.featureMedia && <Media media={blog?.featureMedia} />}
             </div>
             <div className="card-copy">
               <h2 className="h6">{blog.title}</h2>
@@ -47,18 +47,39 @@ export function Head({ location }) {
 
 export const query = graphql`
   query {
-    allSanityPost(sort: { date: DESC }) {
+    allSanityBlog(sort: { date: DESC }) {
       edges {
         node {
+          _id
           title
           date(formatString: "MMMM D, YYYY")
           slug {
             current
           }
           excerpt
-          featureImage {
-            ...ImageWithPreview
-            alt
+          featureMedia {
+            type
+            image {
+              ...ImageWithPreview
+              alt
+              mobile {
+                asset {
+                  _id
+                }
+              }
+            }
+            video {
+              src
+              poster {
+                asset {
+                  url
+                }
+              }
+              autoplay
+              loop
+              controls
+              muted
+            }
           }
         }
       }

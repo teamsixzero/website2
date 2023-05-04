@@ -13,7 +13,7 @@
     row-gap: 2rem;
     gap: clamp(2rem, 6.11vw, 5.5rem);
 
-    .block-case-study__image {
+    .block-case-study__wrapper {
       order: -1;
     }
   }
@@ -42,7 +42,7 @@
     }
   }
 
-  &__image {
+  &__wrapper {
     max-height: 38.5rem;
     // max-height: 42.85vw;
 
@@ -58,7 +58,7 @@
       padding: clamp(1.5rem, 3.88vw, 3.5rem);
     }
 
-    .block-case-study__image {
+    .block-case-study__wrapper {
       order: -1;
       justify-content: flex-start;
     }
@@ -70,7 +70,7 @@
         padding: clamp(1.5rem, 3.88vw, 3.5rem);
       }
 
-      .block-case-study__image {
+      .block-case-study__wrapper {
         order: -1;
         justify-content: flex-start;
       }

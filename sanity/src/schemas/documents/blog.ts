@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'post',
+  name: 'blog',
   title: 'Blog',
   type: 'document',
   groups: [
@@ -47,11 +47,6 @@ export default defineType({
       type: 'text',
     }),
     defineField({
-      name: 'featureImage',
-      title: 'Feature Image',
-      type: 'altImage',
-    }),
-    defineField({
       name: 'featureMedia',
       title: 'Feature Media',
       type: 'media',
@@ -81,12 +76,16 @@ export default defineType({
     select: {
       title: 'title',
       date: 'date',
-      image: 'featureImage',
+      image: 'featureMedia.image',
+      video: 'featureMedia.video',
     },
-    prepare: ({title, date, image}) => ({
-      title,
-      subtitle: date,
-      media: image,
-    }),
+    prepare: ({title, date, image, video}) => {
+      const media = image?.asset || video?.poster?.asset
+      return {
+        title,
+        subtitle: date,
+        media: media,
+      }
+    },
   },
 })
