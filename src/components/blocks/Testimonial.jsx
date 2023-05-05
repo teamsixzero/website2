@@ -45,6 +45,14 @@ export const query = graphql`
       position
       photo {
         ...ImageWithPreview
+        asset {
+          metadata {
+            dimensions {
+              width
+              height
+            }
+          }
+        }
         alt
       }
     }

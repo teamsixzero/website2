@@ -8,6 +8,7 @@
   row-gap: clamp(1.5rem, 2.22vw, 2rem);
   column-gap: var(--spacing-4);
 
+  margin: 0 auto;
   padding: 0 clamp(0rem, 1.8vw, 1.625rem);
 
   @include breakpoint("sm") {
@@ -53,6 +54,10 @@
 
         @include breakpoint("sm") {
           max-width: 10rem;
+        }
+
+        img {
+          height: auto;
         }
       }
 

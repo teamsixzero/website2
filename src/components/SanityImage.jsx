@@ -9,6 +9,10 @@ const SanityImage = ({
   style,
   imgStyle,
 }) => {
+  const imgWidth = src?.asset?.metadata?.dimensions?.width;
+  const imgHeight = src?.asset?.metadata?.dimensions?.height;
+  const aspectRatio = imgHeight / imgWidth;
+
   return (
     <figure
       className={`gatsby-image${className ? ` ${className}` : ``}`}
@@ -16,7 +20,7 @@ const SanityImage = ({
     >
       <picture
         style={{
-          maxHeight: "inherit",
+          "--ratio": aspectRatio,
         }}
       >
         {src?.mobile && (
@@ -28,19 +32,16 @@ const SanityImage = ({
           />
         )}
         <Image
+          className="gatsby-image__image"
           {...src}
           width={width}
           style={{
-            display: "block",
-            width: "auto",
-            height: "auto",
-            maxHeight: "inherit",
             objectFit,
             ...imgStyle,
           }}
           sizes={`(max-width: ${width}px) 100vw, 75vw, 50vw, ${width}px`}
           title={src?.alt}
-          options={{ __experimentalAspectRatio: true }}
+          // options={{ __experimentalAspectRatio: true }}
         />
       </picture>
     </figure>

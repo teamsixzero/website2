@@ -73,6 +73,14 @@ export const query = graphql`
         text
         image {
           ...ImageWithPreview
+          asset {
+            metadata {
+              dimensions {
+                width
+                height
+              }
+            }
+          }
           alt
         }
       }

@@ -13,6 +13,8 @@
   }
 
   &__wrapper {
+    width: 100%;
+
     &.has-background {
       padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 4.16vw, 3.75rem);
     }

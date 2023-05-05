@@ -6,6 +6,8 @@
   align-items: center;
   justify-content: center;
 
+  margin: 0 auto;
+
   &.has-background {
     padding: 8rem 4rem;
     padding: clamp(4rem, 8.88vw, 8rem) clamp(2.5rem, 4.44vw, 4rem);

@@ -11,7 +11,7 @@ const Logos = ({ data }) => {
       {logos.length > 0 &&
         logos.map((logo) => (
           <li key={logo?._key} className="block-logos__logo">
-            <SanityImage src={logo} imgStyle={{ height: "100%" }} />
+            <SanityImage src={logo} />
           </li>
         ))}
     </ul>
@@ -25,6 +25,14 @@ export const query = graphql`
     logos {
       _key
       ...ImageWithPreview
+      asset {
+        metadata {
+          dimensions {
+            width
+            height
+          }
+        }
+      }
       alt
     }
   }

@@ -18,7 +18,7 @@ export const blockBuilder = (blocks) => {
     }
 
     pageBlocks.push(
-      <section id={blockKey} key={blockKey}>
+      <section id={blockKey} key={blockKey} className="page-section">
         <Block data={block} />
       </section>
     );

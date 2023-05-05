@@ -43,12 +43,11 @@ const TextAndMedia = ({ data }) => {
       </header>
 
       <Media
+        media={mediaBlock?.source}
         className={`block-text-and-media__wrapper ${alignClass} ${
           mediaBlock?.backgroundColor?.value?.hex ? "has-background" : ""
         }`}
         style={{ backgroundColor: mediaBlock?.backgroundColor?.value?.hex }}
-        imgStyle={{ height: "100%", margin: "0 auto" }}
-        media={mediaBlock?.source}
       />
     </div>
   );
@@ -64,6 +63,14 @@ export const query = graphql`
         type
         image {
           ...ImageWithPreview
+          asset {
+            metadata {
+              dimensions {
+                width
+                height
+              }
+            }
+          }
           alt
           mobile {
             asset {

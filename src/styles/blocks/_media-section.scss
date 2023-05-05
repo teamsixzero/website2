@@ -1,7 +1,10 @@
 .block-media-section {
+  position: relative;
   width: 100%;
   height: auto;
   display: block;
+
+  margin: 0 auto;
 
   &.full-width {
     width: calc(100% + 15rem);

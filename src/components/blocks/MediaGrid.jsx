@@ -16,10 +16,7 @@ const MediaGrid = ({ data }) => {
           key={med?._key}
           style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
         >
-          <Media
-            media={med?.source}
-            imgStyle={{ height: "100%", margin: "auto" }}
-          />
+          <Media media={med?.source} />
         </div>
       ))}
     </div>
@@ -36,6 +33,14 @@ export const query = graphql`
         type
         image {
           ...ImageWithPreview
+          asset {
+            metadata {
+              dimensions {
+                width
+                height
+              }
+            }
+          }
           alt
           mobile {
             asset {

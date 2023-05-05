@@ -43,8 +43,7 @@
   }
 
   &__wrapper {
-    max-height: 38.5rem;
-    // max-height: 42.85vw;
+    max-height: 38.5rem !important;
 
     display: flex;
     justify-content: flex-end;
@@ -61,6 +60,10 @@
     .block-case-study__wrapper {
       order: -1;
       justify-content: flex-start;
+
+      .gatsby-image__image {
+        margin-right: auto;
+      }
     }
 
     &-full-height {
@@ -73,6 +76,10 @@
       .block-case-study__wrapper {
         order: -1;
         justify-content: flex-start;
+
+        .gatsby-image__image {
+          margin-right: auto;
+        }
       }
     }
   }
@@ -85,11 +92,23 @@
       padding: clamp(1.5rem, 3.88vw, 3.5rem);
     }
 
+    .block-case-study__wrapper {
+      .gatsby-image__image {
+        margin-left: auto;
+      }
+    }
+
     &-full-height {
       padding: 0 clamp(1.5rem, 3.33vw, 3rem) 0 clamp(1.5rem, 7.29vw, 6.5rem);
 
       @include breakpoint("md") {
         padding: clamp(1.5rem, 3.88vw, 3.5rem);
+      }
+
+      .block-case-study__wrapper {
+        .gatsby-image__image {
+          margin-left: auto;
+        }
       }
     }
   }

@@ -35,6 +35,14 @@ export const query = graphql`
     }
     coverImage {
       ...ImageWithPreview
+      asset {
+        metadata {
+          dimensions {
+            width
+            height
+          }
+        }
+      }
       alt
     }
   }

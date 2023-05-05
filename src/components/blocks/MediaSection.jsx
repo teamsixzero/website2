@@ -26,6 +26,14 @@ export const query = graphql`
       type
       image {
         ...ImageWithPreview
+        asset {
+          metadata {
+            dimensions {
+              width
+              height
+            }
+          }
+        }
         alt
         mobile {
           asset {

@@ -15,7 +15,7 @@ const BlogTemplate = ({ data }) => {
         <p className="text-book">Published {date}</p>
       </header>
 
-      <Media media={featureMedia} imgStyle={{ width: "100%" }} />
+      <Media media={featureMedia} />
 
       <section className="template-blog__content">
         <RichText content={content} />
@@ -67,6 +67,14 @@ export const query = graphql`
         type
         image {
           ...ImageWithPreview
+          asset {
+            metadata {
+              dimensions {
+                width
+                height
+              }
+            }
+          }
           alt
           mobile {
             asset {
