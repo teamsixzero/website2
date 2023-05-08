@@ -86,6 +86,9 @@
 
         .gatsby-image__image {
           margin-right: auto;
+          @include breakpoint("md") {
+            margin: auto;
+          }
         }
       }
     }
@@ -116,6 +119,9 @@
         max-height: 45.5625rem !important;
         .gatsby-image__image {
           margin-left: auto;
+          @include breakpoint("md") {
+            margin: auto;
+          }
         }
       }
     }

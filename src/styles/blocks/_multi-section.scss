@@ -33,6 +33,15 @@
 
     .block-ordered-list {
       padding: 0;
+
+      &__card {
+        &__item {
+          &__index {
+            color: #79beef;
+            font-weight: 700;
+          }
+        }
+      }
     }
   }
 }

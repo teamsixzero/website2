@@ -63,7 +63,8 @@
 
       &__index {
         margin-bottom: clamp(0.7rem, 1.66vw, 1.5rem);
-        color: #79beef;
+        color: var(--color-grey-normal);
+        text-transform: uppercase;
       }
 
       &__content {
