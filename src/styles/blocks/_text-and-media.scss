@@ -1,6 +1,7 @@
 .block-text-and-media {
   position: relative;
   width: 100%;
+  max-width: 1440px;
 
   display: flex;
   align-items: center;
@@ -39,7 +40,7 @@
   & > header {
     position: relative;
     width: 100%;
-    max-width: 37rem;
+    max-width: 30rem;
 
     display: flex;
     flex-direction: column;
@@ -55,6 +56,12 @@
 
     @include breakpoint("md") {
       order: -1 !important;
+    }
+
+    &.gatsby-image {
+      picture {
+        padding-top: min(calc(var(--ratio) * 100%), calc(38.5rem));
+      }
     }
 
     &.align-left {

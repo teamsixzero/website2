@@ -16,6 +16,10 @@
     position: relative;
     width: 100%;
 
+    @include breakpoint("sm") {
+      flex-basis: calc(100% / 3);
+    }
+
     & > .gatsby-image {
       display: flex;
       max-height: 2.5rem;

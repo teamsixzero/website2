@@ -47,6 +47,12 @@
 
     display: flex;
     justify-content: flex-end;
+
+    &.gatsby-image {
+      picture {
+        padding-top: 100%;
+      }
+    }
   }
 
   &.align-left {
@@ -74,6 +80,7 @@
       }
 
       .block-case-study__wrapper {
+        max-height: 45.5625rem !important;
         order: -1;
         justify-content: flex-start;
 
@@ -106,6 +113,7 @@
       }
 
       .block-case-study__wrapper {
+        max-height: 45.5625rem !important;
         .gatsby-image__image {
           margin-left: auto;
         }
