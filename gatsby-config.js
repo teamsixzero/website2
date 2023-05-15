@@ -6,7 +6,7 @@ const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://sixzero.co`,
+    siteUrl: process.env.SITE_URL,
   },
   plugins: [
     {
@@ -42,5 +42,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
   ],
 };
