@@ -43,5 +43,6 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
   ],
 };
