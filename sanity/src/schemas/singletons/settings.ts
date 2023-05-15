@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'settings',
@@ -20,6 +20,10 @@ export default defineType({
     {
       name: 'scripts',
       title: 'External Scripts',
+    },
+    {
+      name: 'redirects',
+      title: 'Redirects',
     },
   ],
   fields: [
@@ -68,16 +72,29 @@ export default defineType({
       title: 'External Scripts',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'scriptSrc',
-        },
-        {
+        }),
+        defineArrayMember({
           type: 'scriptInline',
-        },
+        }),
       ],
       group: 'scripts',
       description:
         'Add external scripts to the <head> of the document. For example, Google Analytics. These fields are not sanitized, so be careful what you put in here.',
+    }),
+
+    // Redirects
+    defineField({
+      name: 'redirects',
+      title: 'Redirects',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'redirect',
+        }),
+      ],
+      group: 'redirects',
     }),
   ],
 })

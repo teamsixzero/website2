@@ -38,6 +38,7 @@ import media from './objects/media'
 import mediaBlock from './objects/mediaBlock'
 import menu from './objects/menu'
 import notFound from './objects/404'
+import redirect from './objects/redirect'
 import richText from './objects/richText'
 import scriptSrc from './objects/scriptSrc'
 import scriptInline from './objects/scriptInline'
@@ -96,6 +97,7 @@ export const schemaTypes = [
   mediaBlock,
   menu,
   notFound,
+  redirect,
   richText,
   scriptSrc,
   scriptInline,
