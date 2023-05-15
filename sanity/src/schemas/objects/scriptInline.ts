@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'script',
-  title: 'Script',
+  name: 'scriptInline',
+  title: 'Script Inline',
   type: 'object',
   icon: () => '📜',
   fields: [

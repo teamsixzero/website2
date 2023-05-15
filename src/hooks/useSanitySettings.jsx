@@ -64,8 +64,15 @@ const useSanitySettings = () => {
         }
 
         scripts {
-          _key
-          value
+          __typename
+          ... on SanityScriptInline {
+            _key
+            value
+          }
+          ... on SanityScriptSrc {
+            _key
+            value
+          }
         }
       }
     }

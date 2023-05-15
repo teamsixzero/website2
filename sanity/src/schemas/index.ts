@@ -39,7 +39,8 @@ import mediaBlock from './objects/mediaBlock'
 import menu from './objects/menu'
 import notFound from './objects/404'
 import richText from './objects/richText'
-import script from './objects/script'
+import scriptSrc from './objects/scriptSrc'
+import scriptInline from './objects/scriptInline'
 import titleCard from './objects/titleCard'
 import titleText from './objects/titleText'
 import video from './objects/video'
@@ -96,7 +97,8 @@ export const schemaTypes = [
   menu,
   notFound,
   richText,
-  script,
+  scriptSrc,
+  scriptInline,
   titleCard,
   titleText,
   video,

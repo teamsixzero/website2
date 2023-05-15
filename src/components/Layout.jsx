@@ -16,11 +16,28 @@ const Layout = ({ children }) => {
   return (
     <>
       {scripts?.length > 0 &&
-        scripts.map((script) => (
-          <Script key={script?._key} id={script?._key}>
-            {script?.value}
-          </Script>
-        ))}
+        scripts.map((script) => {
+          switch (script?.__typename) {
+            case "SanityScriptSrc":
+              return (
+                <Script
+                  key={script?._key}
+                  id={script?._key}
+                  src={script?.value}
+                />
+              );
+
+            case "SanityScriptInline":
+              return (
+                <Script key={script?._key} id={script?._key}>
+                  {script?.value}
+                </Script>
+              );
+
+            default:
+              return null;
+          }
+        })}
 
       <MenuToggle />
 

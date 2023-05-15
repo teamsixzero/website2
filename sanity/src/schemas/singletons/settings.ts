@@ -69,7 +69,10 @@ export default defineType({
       type: 'array',
       of: [
         {
-          type: 'script',
+          type: 'scriptSrc',
+        },
+        {
+          type: 'scriptInline',
         },
       ],
       group: 'scripts',
