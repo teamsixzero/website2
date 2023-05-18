@@ -1,15 +1,16 @@
 .block-ordered-list {
   position: relative;
   width: 100%;
-  max-width: 72rem;
+
+  max-width: vw-min(1151);
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: clamp(1.5rem, 2.22vw, 2rem);
+  row-gap: vw-clamp(24, 32);
   column-gap: var(--spacing-4);
 
   margin: 0 auto;
-  padding: 0 clamp(0rem, 1.8vw, 1.625rem);
+  padding: 0 vw-clamp(0, 26);
 
   @include breakpoint("sm") {
     grid-template-columns: repeat(1, 1fr);
@@ -23,9 +24,9 @@
 
     display: flex;
     flex-direction: column;
-    row-gap: clamp(1.5rem, 3.33vw, 3rem);
+    row-gap: vw-clamp(24, 48);
 
-    padding: clamp(2rem, 2.77vw, 2.5rem);
+    padding: vw-clamp(32, 40);
     border-radius: 1.5rem;
 
     &__title {
@@ -41,19 +42,19 @@
       background-color: #f9f9f9;
 
       @include breakpoint("sm") {
-        padding: 2.5rem 2rem;
+        padding: vw-min(40) vw-min(32);
       }
 
       &__image {
         position: relative;
         width: 100%;
-        max-width: 12.5rem;
+        max-width: vw-min(200);
         aspect-ratio: 1/1;
 
         background-color: #c4c4c4;
 
         @include breakpoint("sm") {
-          max-width: 10rem;
+          max-width: vw-min(160);
         }
 
         img {
@@ -62,7 +63,7 @@
       }
 
       &__index {
-        margin-bottom: clamp(0.7rem, 1.66vw, 1.5rem);
+        margin-bottom: vw-clamp(11.2, 24);
         color: var(--color-grey-normal);
         text-transform: uppercase;
       }
@@ -70,7 +71,7 @@
       &__content {
         display: flex;
         flex-direction: column;
-        row-gap: 0.75rem;
+        row-gap: vw-min(12);
       }
     }
   }

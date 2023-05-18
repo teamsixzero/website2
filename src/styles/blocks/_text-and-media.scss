@@ -1,35 +1,32 @@
 .block-text-and-media {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: vw-min(1440);
 
   display: flex;
   align-items: center;
-  column-gap: clamp(2rem, 9.44vw, 8.5rem);
-  gap: clamp(2rem, 9.44vw, 8.5rem);
+  gap: vw-clamp(32, 136);
 
   @include breakpoint("md") {
     width: 100% !important;
 
     flex-direction: column;
-    row-gap: clamp(2rem, 9.44vw, 8.5rem);
-    gap: clamp(2rem, 9.44vw, 8.5rem);
 
     padding: 0;
   }
 
   &.has-background {
-    padding: clamp(4rem, 8.88vw, 8rem) clamp(2.5rem, 5.55vw, 5rem);
+    padding: vw-clamp(64, 128) vw-clamp(40, 80);
     background-color: var(--color-blue-primary);
     color: white;
   }
 
   &.full-bleed {
-    width: calc(100% + 15rem);
+    width: calc(100% + vw-min(240));
     flex-shrink: 0;
 
     &.left {
-      padding-right: 7.5rem;
+      padding-right: vw-min(120);
 
       @include breakpoint("md") {
         padding: 0;
@@ -37,7 +34,7 @@
     }
 
     &.right {
-      padding-left: 7.5rem;
+      padding-left: vw-min(120);
 
       @include breakpoint("md") {
         padding: 0;
@@ -48,7 +45,11 @@
   & > header {
     position: relative;
     width: 100%;
-    max-width: 30rem;
+    max-width: vw-min(480);
+
+    @include breakpoint("md") {
+      max-width: 100%;
+    }
 
     display: flex;
     flex-direction: column;
@@ -57,7 +58,7 @@
 
   &__wrapper {
     width: 100%;
-    max-height: 38.5rem !important;
+    max-height: vw-min(739.2) !important;
 
     display: flex;
     justify-content: center;
@@ -68,7 +69,7 @@
 
     &.gatsby-image {
       picture {
-        padding-top: min(calc(var(--ratio) * 100%), calc(38.5rem));
+        padding-top: min(calc(var(--ratio) * 100%), vw-min(616));
       }
     }
 
@@ -80,7 +81,7 @@
       }
 
       &.full-bleed {
-        max-height: 45rem !important;
+        max-height: vw-min(874.8) !important;
         justify-content: flex-start;
 
         .gatsby-image__image {
@@ -98,7 +99,7 @@
       }
 
       &.full-bleed {
-        max-height: 45rem !important;
+        max-height: vw-min(874.8) !important;
         justify-content: flex-end;
 
         .gatsby-image__image {
@@ -109,12 +110,12 @@
     }
 
     &.has-background {
-      padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 4.16vw, 3.75rem);
+      padding: vw-clamp(40, 72) vw-clamp(32, 60);
 
       picture {
         padding-top: min(
           calc(var(--ratio) * 100%),
-          calc(38.5rem - (3.75rem * 2.5))
+          calc(vw-min(616) - (vw-min(150)))
         );
       }
     }

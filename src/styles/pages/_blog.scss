@@ -4,7 +4,7 @@
   column-gap: 2.5rem;
   row-gap: 2.5rem;
 
-  margin: 0 clamp(2rem, 9.16vw, 8.25rem);
+  margin: 0 vw-clamp(32, 132);
 
   @include breakpoint("sm") {
     grid-template-columns: repeat(1, 1fr);
@@ -22,7 +22,7 @@
   }
 
   .card-copy {
-    padding: 1.5rem;
+    padding: vw-min(24);
     display: flex;
     flex-wrap: wrap;
 

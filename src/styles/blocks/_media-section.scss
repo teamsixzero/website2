@@ -7,7 +7,7 @@
   margin: 0 auto;
 
   &.full-width {
-    width: calc(100% + 15rem);
+    width: calc(100% + vw-min(240));
     flex-shrink: 0;
 
     .gatsby-image-wrapper {
@@ -15,13 +15,12 @@
     }
 
     @include breakpoint("sm") {
-      width: calc(100% + 4rem);
+      width: calc(100% + vw-min(64));
     }
   }
 
   &.has-background {
-    padding: clamp(2.25rem, 7.66vw, 6.9rem) clamp(1.5rem, 6.66vw, 6rem)
-      clamp(2.25rem, 8.61vw, 7.75rem);
+    padding: vw-clamp(36, 110.4) vw-clamp(24, 96) vw-clamp(36, 124);
   }
 
   img {

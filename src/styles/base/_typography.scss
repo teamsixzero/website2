@@ -44,42 +44,42 @@ body {
 // Headings
 h1,
 .h1 {
-  font-size: clamp(2.5rem, 6.94vw, 6.25rem);
+  font-size: vw-clamp(40, 100);
   line-height: 110%;
   font-weight: 500;
 }
 
 h2,
 .h2 {
-  font-size: clamp(2.5rem, 5.55vw, 5rem);
+  font-size: vw-clamp(40, 80);
   line-height: 110%;
   font-weight: 500;
 }
 
 h3,
 .h3 {
-  font-size: clamp(1.875rem, 3.75vw, 3.375rem);
+  font-size: vw-clamp(30, 54);
   line-height: 120%;
   font-weight: 500;
 }
 
 h4,
 .h4 {
-  font-size: clamp(1.625rem, 3.05vw, 2.75rem);
+  font-size: vw-clamp(26, 44);
   line-height: 120%;
   font-weight: 500;
 }
 
 h5,
 .h5 {
-  font-size: clamp(1.4375rem, 2.22vw, 2rem);
+  font-size: vw-clamp(23, 32);
   line-height: 120%;
   font-weight: 500;
 }
 
 h6,
 .h6 {
-  font-size: clamp(1.0625rem, 1.59vw, 1.4375rem);
+  font-size: vw-clamp(17, 23);
   line-height: 150%;
   font-weight: 500;
 }
@@ -87,31 +87,31 @@ h6,
 // Paragraph
 
 .text-small {
-  font-size: 0.8125rem;
+  font-size: vw-min(13);
   line-height: 1.15;
   font-weight: 400;
 }
 
 .text-normal {
-  font-size: clamp(0.9375rem, 1.18vw, 1.0625rem);
+  font-size: vw-clamp(15, 17);
   line-height: 1.88;
   font-weight: 400;
 }
 
 .text-bold {
-  font-size: clamp(0.9375rem, 1.18vw, 1.0625rem);
+  font-size: vw-clamp(15, 17);
   line-height: 1.88;
   font-weight: 700;
 }
 
 .text-book {
-  font-size: 1.125rem;
+  font-size: min(18);
   line-height: 1.77;
   font-weight: 400;
 }
 
 .text-large {
-  font-size: 1.4375rem;
+  font-size: min(23);
   line-height: 150%;
   font-weight: 400;
 }

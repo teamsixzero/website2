@@ -4,14 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: clamp(5rem, 18.33vw, 7.5rem);
-
-  padding: clamp(2.5rem, 7.22vw, 6.5rem) clamp(2rem, 8.33vw, 7.5rem)
-    clamp(0rem, 6.66vw, 6rem);
-
-  @include breakpoint("sm") {
-    padding-bottom: 0;
-  }
 
   & > section {
     width: 100%;

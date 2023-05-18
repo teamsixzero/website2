@@ -1,5 +1,14 @@
-.page-404 {
-  .page-header {
-    min-height: calc(100vh - 12.5rem - 10rem);
+.template-404 {
+  text-align: center;
+
+  &__wrapper {
+    max-width: vw-min(960);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: vw-min(32);
+
+    margin: 0 auto;
   }
 }

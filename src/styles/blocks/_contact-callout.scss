@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
 
-  padding: clamp(5rem, 11.11vw, 10rem) 0;
+  padding: vw-clamp(80, 160) 0;
 
   &__wrapper {
     display: flex;
@@ -16,7 +16,7 @@
     }
 
     .btn {
-      margin-top: clamp(1rem, 1.6666666666666667vw, 1.5rem);
+      margin-top: vw-clamp(16, 24);
     }
   }
 }

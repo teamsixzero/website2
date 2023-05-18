@@ -2,16 +2,20 @@
   position: relative;
   width: 100%;
 
+  max-width: vw-min(1200);
+
   display: flex;
   align-items: center;
-  column-gap: 5.5rem;
-  gap: clamp(2rem, 6.11vw, 5.5rem);
+
+  column-gap: vw-min(88);
+  gap: vw-clamp(32, 105.6);
 
   @include breakpoint("md") {
     flex-direction: column;
     align-items: center;
-    row-gap: 2rem;
-    gap: clamp(2rem, 6.11vw, 5.5rem);
+
+    row-gap: vw-min(32);
+    gap: vw-clamp(32, 88);
 
     .block-case-study__wrapper {
       order: -1;
@@ -20,11 +24,11 @@
 
   &__header {
     position: relative;
-    min-width: 21.75rem;
+    min-width: vw-min(348);
 
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: vw-min(16);
 
     @include breakpoint("sm") {
       min-width: unset;
@@ -34,7 +38,7 @@
 
     .btn {
       align-self: flex-start;
-      margin-top: 1rem;
+      margin-top: vw-min(16);
 
       @include breakpoint("sm") {
         align-self: unset;
@@ -43,7 +47,7 @@
   }
 
   &__wrapper {
-    max-height: 38.5rem !important;
+    max-height: vw-min(616) !important;
 
     display: flex;
     justify-content: flex-end;
@@ -56,11 +60,10 @@
   }
 
   &.align-left {
-    padding: clamp(1.5rem, 3.88vw, 3.5rem) clamp(1.5rem, 7.29vw, 6.5rem)
-      clamp(2.5rem, 3.88vw, 3.5rem) 0;
+    padding: vw-clamp(24, 56) vw-clamp(24, 104) vw-clamp(40, 56) 0;
 
     @include breakpoint("md") {
-      padding: clamp(1.5rem, 3.88vw, 3.5rem);
+      padding: vw-clamp(24, 56);
     }
 
     .block-case-study__wrapper {
@@ -73,14 +76,15 @@
     }
 
     &-full-height {
-      padding: 0 clamp(1.5rem, 7.29vw, 6.5rem) 0 clamp(1.5rem, 3.33vw, 3rem);
+      padding: 0 vw-clamp(24, 104) 0 vw-clamp(24, 48);
 
       @include breakpoint("md") {
-        padding: clamp(1.5rem, 3.88vw, 3.5rem);
+        padding: vw-clamp(24, 56);
       }
 
       .block-case-study__wrapper {
-        max-height: 45.5625rem !important;
+        max-height: vw-clamp(263, 729) !important;
+
         order: -1;
         justify-content: flex-start;
 
@@ -95,11 +99,10 @@
   }
 
   &.align-right {
-    padding: clamp(1.5rem, 3.88vw, 3.5rem) 0 clamp(1.5rem, 3.88vw, 3.5rem)
-      clamp(1.5rem, 7.29vw, 6.5rem);
+    padding: vw-clamp(24, 56) 0 vw-clamp(24, 56) vw-clamp(24, 104);
 
     @include breakpoint("md") {
-      padding: clamp(1.5rem, 3.88vw, 3.5rem);
+      padding: vw-clamp(24, 56);
     }
 
     .block-case-study__wrapper {
@@ -109,14 +112,15 @@
     }
 
     &-full-height {
-      padding: 0 clamp(1.5rem, 3.33vw, 3rem) 0 clamp(1.5rem, 7.29vw, 6.5rem);
+      padding: 0 vw-clamp(24, 48) 0 vw-clamp(24, 104);
 
       @include breakpoint("md") {
-        padding: clamp(1.5rem, 3.88vw, 3.5rem);
+        padding: vw-clamp(24, 56);
       }
 
       .block-case-study__wrapper {
-        max-height: 45.5625rem !important;
+        max-height: vw-min(729) !important;
+
         .gatsby-image__image {
           margin-left: auto;
           @include breakpoint("md") {

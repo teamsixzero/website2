@@ -3,20 +3,20 @@
   width: 100%;
 
   display: flex;
-  column-gap: 2rem;
-  gap: clamp(1.5rem, 2.22vw, 2rem);
+  column-gap: vw-min(32);
+  gap: vw-clamp(24, 32);
 
   @include breakpoint("sm") {
     flex-direction: column;
-    row-gap: 1.5rem;
-    gap: clamp(1.5rem, 2.22vw, 2rem);
+    row-gap: vw-min(24);
+    gap: vw-clamp(24, 32);
   }
 
   &__wrapper {
     width: 100%;
 
     &.has-background {
-      padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 4.16vw, 3.75rem);
+      padding: vw-clamp(40, 72) vw-clamp(32, 60);
     }
   }
 }

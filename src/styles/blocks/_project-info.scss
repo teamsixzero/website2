@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-  padding: clamp(3rem, 5.555vw, 5rem) clamp(2.5rem, 4.44vw, 4rem);
+  padding: vw-clamp(48, 80) vw-clamp(40, 64);
 
   background-color: var(--color-blue-primary);
   color: var(--color-white);

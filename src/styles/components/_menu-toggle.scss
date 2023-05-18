@@ -1,6 +1,6 @@
 .menu-toggle {
   position: fixed;
-  top: clamp(1.5rem, 2.43vw, 2.1875rem);
+  top: 1.5rem;
   left: 1.5rem;
 
   display: none;
@@ -24,7 +24,7 @@
     .hamburger-icon__line {
       position: relative;
       width: 100%;
-      height: 2px;
+      height: 0.125rem;
 
       display: block;
 

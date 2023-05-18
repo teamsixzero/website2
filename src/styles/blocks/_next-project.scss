@@ -5,19 +5,19 @@
   &__wrapper {
     display: flex;
     align-items: center;
-    column-gap: 14.5rem;
+    column-gap: vw-min(232);
 
-    padding: clamp(2.5rem, 3.33vw, 3rem) clamp(2rem, 4.44vw, 4rem) 0rem;
+    padding: vw-clamp(40, 48) vw-clamp(32, 64) 0rem;
     background-color: #f9f9f9;
 
     @include breakpoint("sm") {
-      padding: clamp(2.5rem, 3.33vw, 3rem) clamp(2rem, 4.44vw, 4rem);
+      padding: vw-clamp(40, 48) vw-clamp(32, 64);
     }
 
     header {
       display: flex;
       flex-direction: column;
-      row-gap: 0.5rem;
+      row-gap: min(8);
     }
 
     .gatsby-image {

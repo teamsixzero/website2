@@ -7,26 +7,30 @@
   justify-content: center;
 
   &.has-background {
-    padding: clamp(4.5rem, 11.66vw, 10.5rem) clamp(2rem, 5.83vw, 5.25rem);
+    padding: vw-clamp(72, 168) vw-clamp(32, 84);
   }
 
   &__wrapper {
-    max-width: 50rem;
+    max-width: vw-min(800);
 
     display: flex;
     flex-direction: column;
-    row-gap: 1.5rem;
+    row-gap: vw-min(24);
+
+    @include breakpoint("md") {
+      max-width: 100%;
+    }
 
     &__person {
       display: flex;
       align-items: center;
-      column-gap: 1.25rem;
+      column-gap: vw-min(24);
 
       &__details {
         display: flex;
         flex-direction: column;
         text-transform: uppercase;
-        row-gap: 0.25rem;
+        row-gap: vw-min(4);
 
         p {
           color: var(--color-grey-normal);
@@ -35,7 +39,7 @@
 
       &__image {
         height: max-content;
-        max-width: 3rem;
+        max-width: vw-min(48);
         border-radius: 999px;
         overflow: hidden;
       }
