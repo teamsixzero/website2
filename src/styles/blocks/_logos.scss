@@ -4,9 +4,7 @@
 
   display: flex;
   justify-content: space-between;
-  row-gap: vw-max(32);
-  column-gap: vw-max(32);
-  gap: vw-max(32);
+  gap: vw-clamp(32, 32);
 
   @include breakpoint("sm") {
     flex-wrap: wrap;
@@ -23,11 +21,7 @@
 
     & > .gatsby-image {
       display: flex;
-      max-height: vw-max(40);
-
-      @include breakpoint("sm") {
-        max-height: vw-max(20);
-      }
+      max-height: vw-clamp(20, 40);
 
       .gatsby-image__image {
         margin: 0 auto;

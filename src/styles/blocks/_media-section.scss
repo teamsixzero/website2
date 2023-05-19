@@ -7,15 +7,11 @@
   margin: 0 auto;
 
   &.full-width {
-    width: calc(100% + vw-min(240));
+    width: calc(100% + vw-clamp(64, 240));
     flex-shrink: 0;
 
     .gatsby-image-wrapper {
       overflow: visible;
-    }
-
-    @include breakpoint("sm") {
-      width: calc(100% + vw-min(64));
     }
   }
 

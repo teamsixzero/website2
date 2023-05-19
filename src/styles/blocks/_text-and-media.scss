@@ -58,7 +58,7 @@
 
   &__wrapper {
     width: 100%;
-    max-height: vw-min(739.2) !important;
+    max-height: vw-clamp(337, 616) !important;
 
     display: flex;
     justify-content: center;
@@ -69,7 +69,7 @@
 
     &.gatsby-image {
       picture {
-        padding-top: min(calc(var(--ratio) * 100%), vw-min(616));
+        padding-top: 100%;
       }
     }
 
@@ -81,12 +81,16 @@
       }
 
       &.full-bleed {
-        max-height: vw-min(874.8) !important;
+        max-height: vw-clamp(337, 874.8) !important;
         justify-content: flex-start;
 
         .gatsby-image__image {
           margin: unset;
           margin-right: auto;
+
+          @include breakpoint("md") {
+            margin: 0 auto;
+          }
         }
       }
     }
@@ -99,12 +103,16 @@
       }
 
       &.full-bleed {
-        max-height: vw-min(874.8) !important;
+        max-height: vw-clamp(337, 874.8) !important;
         justify-content: flex-end;
 
         .gatsby-image__image {
           margin: unset;
           margin-left: auto;
+
+          @include breakpoint("md") {
+            margin: 0 auto;
+          }
         }
       }
     }
@@ -113,10 +121,7 @@
       padding: vw-clamp(40, 72) vw-clamp(32, 60);
 
       picture {
-        padding-top: min(
-          calc(var(--ratio) * 100%),
-          calc(vw-min(616) - (vw-min(150)))
-        );
+        padding-top: 100%;
       }
     }
   }

@@ -15,7 +15,7 @@
 
     display: flex;
     flex-direction: column;
-    row-gap: vw-min(24);
+    row-gap: vw-clamp(24, 24);
 
     @include breakpoint("md") {
       max-width: 100%;
@@ -24,13 +24,13 @@
     &__person {
       display: flex;
       align-items: center;
-      column-gap: vw-min(24);
+      column-gap: vw-clamp(24, 24);
 
       &__details {
         display: flex;
         flex-direction: column;
         text-transform: uppercase;
-        row-gap: vw-min(4);
+        row-gap: vw-clamp(4, 4);
 
         p {
           color: var(--color-grey-normal);
@@ -39,7 +39,7 @@
 
       &__image {
         height: max-content;
-        max-width: vw-min(48);
+        max-width: vw-clamp(48, 48);
         border-radius: 999px;
         overflow: hidden;
       }

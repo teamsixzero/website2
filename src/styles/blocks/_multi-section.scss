@@ -18,7 +18,7 @@
     gap: vw-clamp(32, 96);
 
     & > section > * {
-      max-width: min(800);
+      max-width: vw-clamp(800, 800);
     }
 
     & > section > .block-image-full-width {
@@ -26,14 +26,13 @@
     }
 
     .block-ordered-list {
-      max-width: vw-min(800);
       padding: 0;
 
       &__card {
         &__item {
           &__index {
+            @extend .text-bold;
             color: #79beef;
-            font-weight: 700;
           }
         }
       }

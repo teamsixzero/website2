@@ -17,7 +17,7 @@
     header {
       display: flex;
       flex-direction: column;
-      row-gap: min(8);
+      row-gap: vw-clamp(8, 8);
     }
 
     .gatsby-image {

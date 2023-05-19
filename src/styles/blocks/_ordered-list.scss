@@ -42,20 +42,16 @@
       background-color: #f9f9f9;
 
       @include breakpoint("sm") {
-        padding: vw-min(40) vw-min(32);
+        padding: vw-clamp(40, 40) vw-clamp(32, 32);
       }
 
       &__image {
         position: relative;
         width: 100%;
-        max-width: vw-min(200);
+        max-width: vw-clamp(160, 200);
         aspect-ratio: 1/1;
 
         background-color: #c4c4c4;
-
-        @include breakpoint("sm") {
-          max-width: vw-min(160);
-        }
 
         img {
           height: auto;
@@ -71,7 +67,7 @@
       &__content {
         display: flex;
         flex-direction: column;
-        row-gap: vw-min(12);
+        row-gap: vw-clamp(12, 12);
       }
     }
   }

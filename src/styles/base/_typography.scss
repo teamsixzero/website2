@@ -87,7 +87,7 @@ h6,
 // Paragraph
 
 .text-small {
-  font-size: vw-min(13);
+  font-size: vw-clamp(13, 13);
   line-height: 1.15;
   font-weight: 400;
 }
@@ -105,13 +105,13 @@ h6,
 }
 
 .text-book {
-  font-size: min(18);
+  font-size: vw-clamp(18, 18);
   line-height: 1.77;
   font-weight: 400;
 }
 
 .text-large {
-  font-size: min(23);
+  font-size: vw-clamp(23, 23);
   line-height: 150%;
   font-weight: 400;
 }

@@ -42,7 +42,7 @@ const OrderedList = ({ data }) => {
                 )}
 
                 <div>
-                  <p className="block-ordered-list__card__item__index">
+                  <p className="block-ordered-list__card__item__index text-small">
                     {item?.step || indexNumber}
                   </p>
 

@@ -4,11 +4,10 @@
 
   display: flex;
   justify-content: space-between;
-  column-gap: vw-min(136);
+  gap: vw-clamp(64, 136);
 
   @include breakpoint("sm") {
     flex-direction: column;
-    row-gap: 4rem;
   }
 
   &__form {
@@ -16,12 +15,12 @@
 
     display: flex;
     flex-direction: column;
-    row-gap: vw-min(24);
+    row-gap: vw-clamp(24, 24);
 
     input,
     textarea,
     select {
-      padding: vw-min(20) vw-min(12);
+      padding: vw-clamp(20, 20) vw-clamp(12, 12);
       border: none;
       border-bottom: 1px solid var(--color-grey-normal);
     }

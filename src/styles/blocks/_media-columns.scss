@@ -3,13 +3,10 @@
   width: 100%;
 
   display: flex;
-  column-gap: vw-min(32);
   gap: vw-clamp(24, 32);
 
   @include breakpoint("sm") {
     flex-direction: column;
-    row-gap: vw-min(24);
-    gap: vw-clamp(24, 32);
   }
 
   &__wrapper {

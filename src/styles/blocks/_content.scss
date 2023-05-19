@@ -18,6 +18,10 @@
     display: flex;
     flex-direction: column;
     row-gap: var(--spacing-3);
+
+    @include breakpoint("md") {
+      max-width: 100%;
+    }
   }
 }
 

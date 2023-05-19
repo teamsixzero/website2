@@ -15,14 +15,10 @@
   border-radius: 0;
   .card-image {
     padding: 0;
-
-    // img {
-    //   aspect-ratio: 568 / 294;
-    // }
   }
 
   .card-copy {
-    padding: vw-min(24);
+    padding: vw-clamp(24, 24);
     display: flex;
     flex-wrap: wrap;
 
@@ -33,7 +29,7 @@
     p {
       max-width: none;
       width: 100%;
-      margin-top: 1rem;
+      margin-top: vw-clamp(16, 16);
     }
 
     .accent {

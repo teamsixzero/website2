@@ -7,15 +7,11 @@
   display: flex;
   align-items: center;
 
-  column-gap: vw-min(88);
-  gap: vw-clamp(32, 105.6);
+  gap: vw-clamp(40, 88);
 
   @include breakpoint("md") {
     flex-direction: column;
     align-items: center;
-
-    row-gap: vw-min(32);
-    gap: vw-clamp(32, 88);
 
     .block-case-study__wrapper {
       order: -1;
@@ -28,17 +24,17 @@
 
     display: flex;
     flex-direction: column;
-    row-gap: vw-min(16);
+    row-gap: vw-clamp(16, 16);
 
     @include breakpoint("sm") {
-      min-width: unset;
+      min-width: 100%;
       align-items: center;
       text-align: center;
     }
 
     .btn {
       align-self: flex-start;
-      margin-top: vw-min(16);
+      margin-top: vw-clamp(16, 16);
 
       @include breakpoint("sm") {
         align-self: unset;
@@ -47,7 +43,7 @@
   }
 
   &__wrapper {
-    max-height: vw-min(616) !important;
+    max-height: vw-clamp(160, 616) !important;
 
     display: flex;
     justify-content: flex-end;
@@ -119,7 +115,7 @@
       }
 
       .block-case-study__wrapper {
-        max-height: vw-min(729) !important;
+        max-height: vw-clamp(263, 729) !important;
 
         .gatsby-image__image {
           margin-left: auto;
