@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 const Video = ({ video, className, style }) => {
-  const { src, poster, isIframe, autoplay, loop } = video;
+  const { src, poster, isIframe, autoplay, loop, controls, muted } = video;
 
   const ref = useRef(null);
 
@@ -19,21 +19,40 @@ const Video = ({ video, className, style }) => {
   }, [autoplay]);
 
   if (isIframe) {
+    let newSrc = src;
+    if (autoplay) {
+      newSrc = `${src}&autoplay=1`;
+    } else {
+      newSrc = `${src}&autoplay=0`;
+    }
+    if (loop) {
+      newSrc = `${newSrc}&loop=1`;
+    } else {
+      newSrc = `${newSrc}&loop=0`;
+    }
+    if (controls) {
+      newSrc = `${newSrc}&controls=1`;
+    } else {
+      newSrc = `${newSrc}&controls=0`;
+    }
+    if (muted) {
+      newSrc = `${newSrc}&muted=1`;
+    } else {
+      newSrc = `${newSrc}&muted=0`;
+    }
+
+    console.log(`newSrc`, newSrc);
+
     return (
-      <div class={`video__wrapper ${className ? className : ``}`}>
-        <iframe
-          className="video__iframe"
-          style={style}
-          src={src}
-          autoPlay={autoplay}
-          loop={loop}
-        ></iframe>
+      <div className={`video__wrapper ${className ? className : ``}`}>
+        <iframe className="video__iframe" style={style} src={newSrc}></iframe>
       </div>
     );
   }
 
   return (
     <video
+      ref={ref}
       className={className}
       style={style}
       autoPlay={autoplay}

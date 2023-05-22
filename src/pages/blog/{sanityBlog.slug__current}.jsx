@@ -92,6 +92,8 @@ export const query = graphql`
           isIframe
           autoplay
           loop
+          controls
+          muted
         }
       }
       content: _rawContent(resolveReferences: { maxDepth: 10 })

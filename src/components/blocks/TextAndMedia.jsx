@@ -88,6 +88,8 @@ export const query = graphql`
           isIframe
           autoplay
           loop
+          controls
+          muted
         }
       }
       backgroundColor {

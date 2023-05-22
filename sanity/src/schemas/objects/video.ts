@@ -28,11 +28,26 @@ export default defineType({
       name: 'autoplay',
       title: 'Autoplay',
       type: 'boolean',
+      description: 'If set video will automatically be muted.',
       initialValue: true,
     }),
     defineField({
       name: 'loop',
       title: 'Loop',
+      type: 'boolean',
+      initialValue: true,
+    }),
+    defineField({
+      name: 'controls',
+      title: 'Controls',
+      type: 'boolean',
+      description:
+        'If Controls and Autoplay are both false, the user will not be able to manually start the video.',
+      initialValue: true,
+    }),
+    defineField({
+      name: 'muted',
+      title: 'Muted',
       type: 'boolean',
       initialValue: true,
     }),
