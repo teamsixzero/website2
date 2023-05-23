@@ -12,10 +12,6 @@
 
   .navigation {
     &.menu {
-      @include breakpoint("md") {
-        display: block;
-      }
-
       .dropdown {
         bottom: 100%;
 
