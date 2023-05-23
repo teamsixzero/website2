@@ -45,8 +45,12 @@ export default defineType({
     },
     prepare: ({title, url, links}) => ({
       title: title,
-      subtitle: `${url ? `${url} + ` : ''} ${
-        links?.length > 1 ? `${links.length} links` : `${links.length} link`
+      subtitle: `${url ? `${url}` : ''}${url && links?.length ? ` + ` : ``}${
+        links?.length
+          ? links?.length > 1
+            ? ` ${links?.length} links`
+            : ` ${links?.length} link`
+          : ``
       }`,
     }),
   },
