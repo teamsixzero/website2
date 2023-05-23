@@ -14,7 +14,9 @@
     }
 
     & > li {
-      .link {
+      .link,
+      p.accent {
+        position: relative;
         z-index: 10;
       }
 
