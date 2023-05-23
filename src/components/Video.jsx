@@ -41,8 +41,6 @@ const Video = ({ video, className, style }) => {
       newSrc = `${newSrc}&muted=0`;
     }
 
-    console.log(`newSrc`, newSrc);
-
     return (
       <div className={`video__wrapper ${className ? className : ``}`}>
         <iframe className="video__iframe" style={style} src={newSrc}></iframe>

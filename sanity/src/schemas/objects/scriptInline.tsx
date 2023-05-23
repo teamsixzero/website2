@@ -1,3 +1,4 @@
+import React from 'react'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
@@ -15,6 +16,11 @@ export default defineType({
       name: 'value',
       title: 'Value',
       type: 'text',
+      description: (
+        <>
+          Be sure to remove any <code>{'<script>'}</code> tags from the code.
+        </>
+      ),
     }),
   ],
   preview: {
