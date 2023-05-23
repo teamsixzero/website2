@@ -3,6 +3,8 @@ import { graphql, Link } from "gatsby";
 
 import Media from "../Media";
 
+import { luminance } from "../../utils/contrast";
+
 const CaseStudy = ({ data }) => {
   const { project, summary, media, alignment, backgroundColor, textColor } =
     data;
@@ -26,6 +28,7 @@ const CaseStudy = ({ data }) => {
     default:
       break;
   }
+  const { r, g, b } = textColor?.value?.rgb;
 
   return (
     <div
@@ -45,7 +48,7 @@ const CaseStudy = ({ data }) => {
           className="btn"
           style={{
             backgroundColor: textColor?.value?.hex,
-            color: backgroundColor?.value?.hex,
+            color: luminance(r, g, b) > 0.5 ? `#000` : `#fff`,
           }}
         >
           <span>See Project →</span>
@@ -108,6 +111,11 @@ export const query = graphql`
     textColor {
       value {
         hex
+        rgb {
+          r
+          g
+          b
+        }
       }
     }
   }
