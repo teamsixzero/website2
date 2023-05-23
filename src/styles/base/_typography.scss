@@ -93,7 +93,7 @@ h6,
 }
 
 .text-normal {
-  font-size: vw-clamp(15, 17);
+  font-size: vw-clamp(16, 17);
   line-height: 1.88;
   font-weight: 400;
 }
@@ -161,7 +161,7 @@ h6,
 }
 
 .accent {
-  font-size: 0.8125rem;
+  font-size: vw-clamp(15, 15);
   line-height: 1.15;
   font-weight: 400;
   letter-spacing: 1.5px;
