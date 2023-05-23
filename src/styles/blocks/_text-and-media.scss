@@ -47,13 +47,17 @@
     width: 100%;
     max-width: vw-min(480);
 
-    @include breakpoint("md") {
-      max-width: 100%;
-    }
-
     display: flex;
     flex-direction: column;
     row-gap: var(--spacing-3);
+
+    @include breakpoint("md") {
+      max-width: 100%;
+
+      .rich-text {
+        align-items: center;
+      }
+    }
   }
 
   &__wrapper {
