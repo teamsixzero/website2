@@ -22,6 +22,7 @@
 
     @include breakpoint("sm") {
       width: 100%;
+      margin-bottom: calc(vw-clamp(40, 60) * -1);
     }
   }
 
