@@ -42,13 +42,14 @@ const TextAndMedia = ({ data }) => {
         <RichText content={text} />
       </header>
 
-      <Media
-        media={mediaBlock?.source}
+      <div
         className={`block-text-and-media__wrapper ${alignClass} ${
           mediaBlock?.backgroundColor?.value?.hex ? "has-background" : ""
         }`}
         style={{ backgroundColor: mediaBlock?.backgroundColor?.value?.hex }}
-      />
+      >
+        <Media media={mediaBlock?.source} />
+      </div>
     </div>
   );
 };
