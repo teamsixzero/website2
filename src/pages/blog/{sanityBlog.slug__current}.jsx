@@ -9,7 +9,7 @@ const BlogTemplate = ({ data }) => {
   const { title, date, featureMedia, content } = data.sanityBlog;
 
   return (
-    <article className="template-blog">
+    <div className="template-blog">
       <header className="template-blog__heading">
         <h1 className="h2">{title}</h1>
         <p className="text-book">Published {date}</p>
@@ -20,7 +20,7 @@ const BlogTemplate = ({ data }) => {
       <section className="template-blog__content">
         <RichText content={content} />
       </section>
-    </article>
+    </div>
   );
 };
 

@@ -3,8 +3,8 @@ import { Link } from "gatsby";
 
 const NotFoundPage = () => {
   return (
-    <section className="template-404">
-      <div className="template-404__wrapper">
+    <section className="page-404">
+      <div className="page-404__wrapper">
         <h1>Page not found</h1>
         <p className="h4">
           Sorry, but the page you were trying to view does not exist.
@@ -23,7 +23,6 @@ export function Head() {
   return (
     <>
       <title>Page not found | Sixzero</title>
-      <body className="page-404" />
     </>
   );
 }
