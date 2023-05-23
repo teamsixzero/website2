@@ -19,6 +19,16 @@ export default defineType({
       type: 'reference',
       to: [{type: 'colorPalette'}],
     }),
+    defineField({
+      name: 'paddingAlign',
+      title: 'Padding Align',
+      type: 'string',
+      options: {
+        list: ['Auto', 'Top', 'Bottom'],
+        layout: 'radio',
+      },
+      initialValue: 'Auto',
+    }),
   ],
   preview: {
     select: {

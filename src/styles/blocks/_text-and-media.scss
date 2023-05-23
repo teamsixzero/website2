@@ -127,6 +127,13 @@
       picture {
         padding-top: 100%;
       }
+
+      &.padding-top {
+        padding-top: 0;
+      }
+      &.padding-bottom {
+        padding-bottom: 0;
+      }
     }
   }
 }

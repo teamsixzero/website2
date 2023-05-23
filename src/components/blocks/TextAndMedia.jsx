@@ -31,6 +31,23 @@ const TextAndMedia = ({ data }) => {
       break;
   }
 
+  let paddingAlignment;
+
+  switch (mediaBlock?.paddingAlign) {
+    case "Top":
+      paddingAlignment = "padding-top";
+      break;
+
+    case "Bottom":
+      paddingAlignment = "padding-bottom";
+      break;
+
+    case "Auto":
+    default:
+      paddingAlignment = "";
+      break;
+  }
+
   return (
     <div
       className={`block-text-and-media${
@@ -45,7 +62,7 @@ const TextAndMedia = ({ data }) => {
       <div
         className={`block-text-and-media__wrapper ${alignClass} ${
           mediaBlock?.backgroundColor?.value?.hex ? "has-background" : ""
-        }`}
+        } ${paddingAlignment}`}
         style={{ backgroundColor: mediaBlock?.backgroundColor?.value?.hex }}
       >
         <Media media={mediaBlock?.source} />
@@ -98,6 +115,7 @@ export const query = graphql`
           hex
         }
       }
+      paddingAlign
     }
     align
     backgroundColor {
