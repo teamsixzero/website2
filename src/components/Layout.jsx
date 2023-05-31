@@ -4,6 +4,10 @@ import { Script, Slice } from "gatsby";
 import useApp from "../hooks/useApp";
 import useSanitySettings from "../hooks/useSanitySettings";
 
+import Footer from "./Footer";
+import Header from "./Header";
+import MenuToggle from "./MenuToggle";
+
 const Layout = ({ children }) => {
   const { menuActive } = useApp();
   const { scripts, menu } = useSanitySettings();
@@ -34,15 +38,15 @@ const Layout = ({ children }) => {
           }
         })}
 
-      <Slice alias="menuToggle" />
+      <MenuToggle />
 
       <Slice alias="navigation" className="mobile-menu" links={menu?.links} />
 
       <div className={`body-content${menuActive ? ` active` : ``}`}>
-        <Slice alias="siteHeader" />
+        <Header />
         <main className="main">
           <>{children}</>
-          <Slice alias="footer" />
+          <Footer />
         </main>
       </div>
     </>

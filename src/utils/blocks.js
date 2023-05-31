@@ -88,6 +88,14 @@ export const blockBuilder = (blocks) => {
         );
         break;
 
+      case "multiSection":
+        pageBlocks.push(
+          <section id={blockKey} key={blockKey} className="page-section">
+            <Slice alias="multiSection" data={block} />
+          </section>
+        );
+        break;
+
       case "nextProject":
         pageBlocks.push(
           <section id={blockKey} key={blockKey} className="page-section">

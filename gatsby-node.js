@@ -28,18 +28,6 @@ exports.createPages = async ({ graphql, actions }) => {
       id: "navigation",
       component: require.resolve("./src/components/Navigation.jsx"),
     },
-    {
-      id: "siteHeader",
-      component: require.resolve(`./src/components/Header.jsx`),
-    },
-    {
-      id: "footer",
-      component: require.resolve("./src/components/Footer.jsx"),
-    },
-    {
-      id: "menuToggle",
-      component: require.resolve("./src/components/MenuToggle.jsx"),
-    },
     // blocks
     {
       id: "caseStudy",
