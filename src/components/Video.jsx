@@ -19,7 +19,7 @@ const Video = ({ video, className, style }) => {
   }, [autoplay]);
 
   if (isIframe) {
-    let newSrc = `${src}?`;
+    let newSrc = `${src}?playsinline=1`;
     if (autoplay) {
       newSrc = `${newSrc}&autoplay=1`;
     } else {
@@ -44,12 +44,14 @@ const Video = ({ video, className, style }) => {
     return (
       <div className={`video__wrapper ${className ? className : ``}`}>
         <iframe
+          ref={ref}
           className="video__iframe"
           style={style}
           src={newSrc}
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
+          allow="accelerometer; autoplay; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          webkitallowfullscreen=""
+          mozallowfullscreen=""
+          allowFullScreen=""
         ></iframe>
       </div>
     );
