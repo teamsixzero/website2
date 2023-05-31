@@ -19,11 +19,11 @@ const Video = ({ video, className, style }) => {
   }, [autoplay]);
 
   if (isIframe) {
-    let newSrc = src;
+    let newSrc = `${src}?`;
     if (autoplay) {
-      newSrc = `${src}&autoplay=1`;
+      newSrc = `${newSrc}&autoplay=1`;
     } else {
-      newSrc = `${src}&autoplay=0`;
+      newSrc = `${newSrc}&autoplay=0`;
     }
     if (loop) {
       newSrc = `${newSrc}&loop=1`;
@@ -43,7 +43,14 @@ const Video = ({ video, className, style }) => {
 
     return (
       <div className={`video__wrapper ${className ? className : ``}`}>
-        <iframe className="video__iframe" style={style} src={newSrc}></iframe>
+        <iframe
+          className="video__iframe"
+          style={style}
+          src={newSrc}
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
     );
   }
@@ -55,9 +62,10 @@ const Video = ({ video, className, style }) => {
       style={style}
       autoPlay={autoplay}
       loop={loop}
+      playsInline
       poster={poster?.asset?.url}
     >
-      <source src={src} type="video/mp4" />
+      <source src={src} />
     </video>
   );
 };
