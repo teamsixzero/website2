@@ -1,15 +1,15 @@
 import React from "react";
+import { Slice } from "gatsby";
 
 import useSanitySettings from "../hooks/useSanitySettings";
-
-import Navigation from "./Navigation";
 
 const Footer = () => {
   const { footer } = useSanitySettings();
 
   return (
     <footer className="footer">
-      <Navigation links={footer?.links} />
+      <Slice alias="navigation" links={footer?.links} />
+
       <p className="footnote">
         <span>© {new Date().getFullYear()} Sixzero</span>
 
