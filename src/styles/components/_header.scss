@@ -21,7 +21,7 @@
 
 .logo {
   width: auto;
-  height: 1.25rem;
+  height: vw-clamp(20, 20);
   display: block;
 
   img {
