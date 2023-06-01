@@ -16,43 +16,12 @@ export default defineType({
         },
       ],
     }),
-    defineField({
-      name: 'summary',
-      title: 'Summary',
-      type: 'text',
-    }),
-    defineField({
-      name: 'media',
-      title: 'Media',
-      type: 'media',
-    }),
-    defineField({
-      name: 'alignment',
-      title: 'Alignment',
-      type: 'string',
-      options: {
-        list: ['Left', 'Right', 'Left (Full Height)', 'Right (Full Height)'],
-        layout: 'radio',
-      },
-    }),
-    defineField({
-      name: 'textColor',
-      title: 'Text Color',
-      type: 'reference',
-      to: [{type: 'colorPalette'}],
-    }),
-    defineField({
-      name: 'backgroundColor',
-      title: 'Background Color',
-      type: 'reference',
-      to: [{type: 'colorPalette'}],
-    }),
   ],
   preview: {
     select: {
       title: 'project.title',
-      image: 'media.image',
-      video: 'media.video',
+      image: 'project.caseStudy.media.image',
+      video: 'project.caseStudy.media.video',
     },
     prepare: ({image, title, video}) => {
       const media = image?.asset || video?.poster?.asset

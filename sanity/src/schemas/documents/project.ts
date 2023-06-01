@@ -9,6 +9,10 @@ export default defineType({
   type: 'document',
   groups: [
     {
+      name: 'caseStudy',
+      title: 'Case Study',
+    },
+    {
       name: 'seo',
       title: 'SEO',
     },
@@ -35,6 +39,14 @@ export default defineType({
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
+    // case study
+    defineField({
+      name: 'caseStudy',
+      title: 'Case Study',
+      type: 'projectCaseStudy',
+      group: 'caseStudy',
+    }),
+    //
     pageBuilder,
     defineField({
       name: 'seo',

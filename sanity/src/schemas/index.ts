@@ -3,12 +3,16 @@ import {type SchemaTypeDefinition} from 'sanity'
 //singletons
 import settings from './singletons/settings'
 
+const singletons = [settings]
+
 //documents
 import blog from './documents/blog'
 import color from './documents/color'
 import page from './documents/page'
 import person from './documents/person'
 import project from './documents/project'
+
+const documents = [blog, color, page, person, project]
 
 // blocks
 import caseStudy from './blocks/caseStudy'
@@ -27,49 +31,7 @@ import projectInfo from './blocks/projectInfo'
 import testimonial from './blocks/testimonial'
 import textAndMedia from './blocks/textAndMedia'
 
-//objects
-import altImage from './objects/altImage'
-import button from './objects/button'
-import footer from './objects/footer'
-import link from './objects/link'
-import linkGroup from './objects/linkGroup'
-import listItem from './objects/listItem'
-import media from './objects/media'
-import mediaBlock from './objects/mediaBlock'
-import menu from './objects/menu'
-import notFound from './objects/404'
-import redirect from './objects/redirect'
-import richText from './objects/richText'
-import scriptSrc from './objects/scriptSrc'
-import scriptInline from './objects/scriptInline'
-import titleCard from './objects/titleCard'
-import titleText from './objects/titleText'
-import video from './objects/video'
-
-// seo
-import seoSettings from './objects/seo/settings'
-import seoPage from './objects/seo/page'
-
-// form fields
-import checkbox from './objects/formFields/checkbox'
-import email from './objects/formFields/email'
-import radio from './objects/formFields/radio'
-import select from './objects/formFields/select'
-import text from './objects/formFields/text'
-import textarea from './objects/formFields/textarea'
-
-export const schemaTypes = [
-  //singletons
-  settings,
-
-  //documents
-  blog,
-  color,
-  page,
-  person,
-  project,
-
-  // blocks
+const blocks = [
   caseStudy,
   contactCallout,
   contactForm,
@@ -85,8 +47,29 @@ export const schemaTypes = [
   projectInfo,
   testimonial,
   textAndMedia,
+]
 
-  //objects
+//objects
+import altImage from './objects/altImage'
+import button from './objects/button'
+import footer from './objects/footer'
+import link from './objects/link'
+import linkGroup from './objects/linkGroup'
+import listItem from './objects/listItem'
+import media from './objects/media'
+import mediaBlock from './objects/mediaBlock'
+import menu from './objects/menu'
+import projectCaseStudy from './objects/projectCaseStudy'
+import notFound from './objects/404'
+import redirect from './objects/redirect'
+import richText from './objects/richText'
+import scriptSrc from './objects/scriptSrc'
+import scriptInline from './objects/scriptInline'
+import titleCard from './objects/titleCard'
+import titleText from './objects/titleText'
+import video from './objects/video'
+
+const objects = [
   altImage,
   button,
   footer,
@@ -96,6 +79,7 @@ export const schemaTypes = [
   media,
   mediaBlock,
   menu,
+  projectCaseStudy,
   notFound,
   redirect,
   richText,
@@ -104,16 +88,29 @@ export const schemaTypes = [
   titleCard,
   titleText,
   video,
+]
 
-  //
-  seoSettings,
-  seoPage,
+// seo
+import seoSettings from './objects/seo/settings'
+import seoPage from './objects/seo/page'
 
-  //
-  checkbox,
-  email,
-  radio,
-  select,
-  text,
-  textarea,
+const seo = [seoSettings, seoPage]
+
+// form fields
+import checkbox from './objects/formFields/checkbox'
+import email from './objects/formFields/email'
+import radio from './objects/formFields/radio'
+import select from './objects/formFields/select'
+import text from './objects/formFields/text'
+import textarea from './objects/formFields/textarea'
+
+const formFields = [checkbox, email, radio, select, text, textarea]
+
+export const schemaTypes = [
+  ...singletons,
+  ...documents,
+  ...blocks,
+  ...objects,
+  ...seo,
+  ...formFields,
 ] satisfies SchemaTypeDefinition[]

@@ -6,8 +6,9 @@ import Media from "../Media";
 import { luminance } from "../../utils/contrast";
 
 const CaseStudy = ({ data }) => {
-  const { project, summary, media, alignment, backgroundColor, textColor } =
-    data;
+  const { project } = data;
+  const { summary, media, alignment, backgroundColor, textColor } =
+    project?.caseStudy;
 
   let alignmentClass = `align-left`;
 
@@ -69,52 +70,54 @@ export const query = graphql`
       slug {
         current
       }
-    }
-    summary
-    media {
-      type
-      image {
-        ...ImageWithPreview
-        asset {
-          metadata {
-            dimensions {
-              width
-              height
+      caseStudy {
+        summary
+        media {
+          type
+          image {
+            ...ImageWithPreview
+            asset {
+              metadata {
+                dimensions {
+                  width
+                  height
+                }
+              }
+            }
+            alt
+            mobile {
+              asset {
+                _id
+              }
             }
           }
-        }
-        alt
-        mobile {
-          asset {
-            _id
+          video {
+            src
+            poster {
+              asset {
+                url
+              }
+            }
+            isIframe
+            autoplay
+            loop
           }
         }
-      }
-      video {
-        src
-        poster {
-          asset {
-            url
+        alignment
+        backgroundColor {
+          value {
+            hex
           }
         }
-        isIframe
-        autoplay
-        loop
-      }
-    }
-    alignment
-    backgroundColor {
-      value {
-        hex
-      }
-    }
-    textColor {
-      value {
-        hex
-        rgb {
-          r
-          g
-          b
+        textColor {
+          value {
+            hex
+            rgb {
+              r
+              g
+              b
+            }
+          }
         }
       }
     }
