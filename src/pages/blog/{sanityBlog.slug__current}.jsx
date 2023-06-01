@@ -12,7 +12,9 @@ const BlogTemplate = ({ data }) => {
     <div className="template-blog">
       <header className="template-blog__heading">
         <h1 className="h2">{title}</h1>
-        <p className="text-book">Published {date}</p>
+        <p className="text-book text-grey-normal">
+          Published <time dateTime={date}>{date}</time>
+        </p>
       </header>
 
       <Media media={featureMedia} />

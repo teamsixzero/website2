@@ -21,9 +21,11 @@ const BlogPage = ({ data }) => {
               </div>
               <div className="card-copy">
                 <h2 className="h6">{blog.title}</h2>
-                {blog.excerpt && <p className="text-small">{blog.excerpt}</p>}
-                <p className="accent accent--grey-normal">
-                  Published {blog.date}
+                {blog.excerpt && (
+                  <p className="excerpt text-small">{blog.excerpt}</p>
+                )}
+                <p className="published text-small text-grey-normal">
+                  Published <time dateTime={blog.date}>{blog.date}</time>
                 </p>
               </div>
             </Link>

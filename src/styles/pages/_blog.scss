@@ -9,32 +9,4 @@
       grid-template-columns: repeat(1, 1fr);
     }
   }
-
-  .card--post {
-    border-radius: 0;
-    .card-image {
-      padding: 0;
-    }
-
-    .card-copy {
-      padding: vw-clamp(24, 24);
-      display: flex;
-      flex-wrap: wrap;
-
-      .h6 {
-        width: 100%;
-      }
-
-      p {
-        max-width: none;
-        width: 100%;
-        margin-top: vw-clamp(16, 16);
-      }
-
-      .accent {
-        margin-bottom: 0;
-        align-self: flex-end;
-      }
-    }
-  }
 }
