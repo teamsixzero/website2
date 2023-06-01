@@ -51,6 +51,10 @@
     flex-direction: column;
     row-gap: var(--spacing-3);
 
+    .rich-text {
+      row-gap: vw-clamp(16, 16);
+    }
+
     @include breakpoint("md") {
       max-width: 100%;
 
