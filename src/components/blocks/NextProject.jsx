@@ -13,7 +13,7 @@ const NextProject = ({ data }) => {
         className="block-next-project__wrapper"
       >
         <header>
-          <p>NextProject</p>
+          <p className="text-small">Next Project</p>
           <h2 className="h4">{project?.title}&nbsp;→</h2>
         </header>
 
