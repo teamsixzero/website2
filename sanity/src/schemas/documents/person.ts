@@ -22,6 +22,12 @@ export default defineType({
       title: 'Photo',
       type: 'altImage',
     }),
+    defineField({
+      name: 'quote',
+      title: 'Quote',
+      type: 'richText',
+      description: '(Optional) Used in the Testimonial block',
+    }),
   ],
   preview: {
     select: {

@@ -9,12 +9,6 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'quote',
-      title: 'Quote',
-      type: 'richText',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'person',
       title: 'Person',
       type: 'reference',
@@ -36,7 +30,7 @@ export default defineType({
     select: {
       name: 'person.name',
       photo: 'person.photo',
-      quote: 'quote',
+      quote: 'person.quote',
     },
     prepare: ({name, photo, quote}) => ({
       title: 'Testimonial',

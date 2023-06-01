@@ -5,7 +5,7 @@ import RichText from "../RichText";
 import SanityImage from "../SanityImage";
 
 const Testimonial = ({ data }) => {
-  const { quote, person, backgroundColor } = data;
+  const { person, backgroundColor } = data;
 
   return (
     <div
@@ -16,7 +16,7 @@ const Testimonial = ({ data }) => {
     >
       <div className="block-testimonial__wrapper">
         <blockquote>
-          <RichText content={quote} />
+          <RichText content={person?.quote} />
         </blockquote>
 
         <header className="block-testimonial__wrapper__person">
@@ -39,7 +39,6 @@ export default Testimonial;
 
 export const query = graphql`
   fragment BlockTestimonial on SanityTestimonial {
-    quote: _rawQuote(resolveReferences: { maxDepth: 10 })
     person {
       name
       position
@@ -55,6 +54,7 @@ export const query = graphql`
         }
         alt
       }
+      quote: _rawQuote(resolveReferences: { maxDepth: 10 })
     }
     backgroundColor {
       value {
