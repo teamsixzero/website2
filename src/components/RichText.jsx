@@ -39,12 +39,18 @@ const defaultPortableTextComponents = {
   },
   listItem: {
     bullet: ({ children }) => (
-      <li className="text-normal" style={{ listStyleType: "disc" }}>
+      <li
+        className="text-normal"
+        style={{ listStyleType: "disc", marginLeft: "2ch" }}
+      >
         {children}
       </li>
     ),
     number: ({ children }) => (
-      <li className="text-normal" style={{ listStyleType: "decimal" }}>
+      <li
+        className="text-normal"
+        style={{ listStyleType: "decimal", marginLeft: "2ch" }}
+      >
         {children}
       </li>
     ),
