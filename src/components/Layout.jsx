@@ -40,7 +40,17 @@ const Layout = ({ children }) => {
 
       <MenuToggle />
 
-      <Slice alias="navigation" className="mobile-menu" links={menu?.links} />
+      <Slice
+        alias="navigation"
+        className="mobile-menu"
+        links={[
+          {
+            url: "/",
+            title: "Home",
+          },
+          ...menu?.links,
+        ]}
+      />
 
       <div className={`body-content${menuActive ? ` active` : ``}`}>
         <Header />
