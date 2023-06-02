@@ -28,5 +28,9 @@
     @include breakpoint("sm") {
       max-width: 100%;
     }
+
+    h4 {
+      margin: 1.75rem 0;
+    }
   }
 }
