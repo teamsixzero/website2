@@ -15,6 +15,7 @@ const Video = ({ video, className, style }) => {
       // open bug since 2017 that you cannot set muted in video element https://github.com/facebook/react/issues/10389
       ref.current.defaultMuted = true;
       ref.current.muted = true;
+      ref.current.play();
     }
   }, [autoplay]);
 
@@ -44,7 +45,6 @@ const Video = ({ video, className, style }) => {
     return (
       <div className={`video__wrapper ${className ? className : ``}`}>
         <iframe
-          ref={ref}
           className="video__iframe"
           style={style}
           src={newSrc}
