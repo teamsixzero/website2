@@ -34,7 +34,7 @@ const OrderedList = ({ data }) => {
                 key={item?._key}
                 className="block-ordered-list__card block-ordered-list__card__item"
               >
-                {item?.image && (
+                {item?.image?.asset && (
                   <SanityImage
                     className="block-ordered-list__card__item__image"
                     src={item?.image}

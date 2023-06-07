@@ -9,7 +9,7 @@ const Media = ({ media, className, style, imgStyle }) => {
   switch (type) {
     case "image":
       return (
-        image && (
+        image?.asset && (
           <SanityImage
             src={image}
             className={className}
@@ -21,7 +21,9 @@ const Media = ({ media, className, style, imgStyle }) => {
 
     case "video":
       return (
-        video && <Video video={video} className={className} style={style} />
+        video?.src && (
+          <Video video={video} className={className} style={style} />
+        )
       );
 
     default:

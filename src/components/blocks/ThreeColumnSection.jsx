@@ -17,7 +17,7 @@ const ThreeColumnSection = ({ data }) => {
             key={column?._key}
             className="block-three-columns-section__columns__item"
           >
-            {column?.image && (
+            {column?.image?.asset && (
               <Media
                 media={{ type: "image", image: column?.image }}
                 className="block-three-columns-section__columns__item__icon"
