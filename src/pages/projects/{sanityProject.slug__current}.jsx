@@ -9,7 +9,9 @@ const Project = ({ data: { sanityProject: data } }) => {
     <div className="template-project">
       <header className="project-header">
         <h1>{data.title}</h1>
-        <p className="project-description h6">{data.description}</p>
+        {data?.description && (
+          <p className="project-description h6">{data?.description}</p>
+        )}
       </header>
 
       <ProjectBuilder blocks={data?.blocks} />

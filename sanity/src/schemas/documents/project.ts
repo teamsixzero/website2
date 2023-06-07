@@ -37,7 +37,6 @@ export default defineType({
       name: 'description',
       title: 'Description',
       type: 'text',
-      validation: (Rule) => Rule.required(),
     }),
     // case study
     defineField({
