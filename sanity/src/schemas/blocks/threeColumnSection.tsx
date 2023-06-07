@@ -29,7 +29,7 @@ export default defineType({
       columns: 'columns',
     },
     prepare: ({title, columns}) => ({
-      title: title || 'Three Column Section',
+      title: 'Three Column Section',
       subtitle: `${columns.length} column${columns.length > 1 ? 's' : ''}`,
       media: () => (
         <ColmunsMedia media={columns.map((col) => ({type: 'image', image: col?.image}))} />
