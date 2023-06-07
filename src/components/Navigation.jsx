@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import { v4 as uuidv4 } from "uuid";
 
 import useApp from "../hooks/useApp";
 
@@ -35,7 +36,7 @@ const Navigation = ({ className, links }) => {
   const renderLinks = links?.map((link) => {
     if (link.__typename === "SanityLinkGroup")
       return (
-        <li className="has-dropdown" key={link?._key}>
+        <li className="has-dropdown" key={`${link?._key}-${uuidv4()}`}>
           {link?.url ? (
             <MenuLink link={link} />
           ) : (
@@ -57,7 +58,7 @@ const Navigation = ({ className, links }) => {
       );
 
     return (
-      <li key={link?._key}>
+      <li key={`${link?._key}-${uuidv4()}`}>
         <MenuLink link={link} />
       </li>
     );

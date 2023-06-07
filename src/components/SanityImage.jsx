@@ -27,13 +27,12 @@ const SanityImage = ({
           <source
             srcSet={imageUrl(src?.mobile?.asset)}
             media="(max-width: 1024px)"
-            alt={src?.alt}
+            alt={src?.alt || ""}
             title={src?.alt}
           />
         )}
         <Image
           className="gatsby-image__image"
-          {...src}
           width={width}
           style={{
             objectFit,
@@ -41,6 +40,8 @@ const SanityImage = ({
           }}
           sizes={`(max-width: ${width}px) 100vw, 75vw, 50vw, ${width}px`}
           title={src?.alt}
+          alt={src?.alt || ""}
+          {...src}
           // options={{ __experimentalAspectRatio: true }}
         />
       </picture>

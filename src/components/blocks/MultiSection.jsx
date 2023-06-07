@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { v4 as uuidv4 } from "uuid";
 
 import Content from "./Content";
 import MediaSection from "./MediaSection";
@@ -12,15 +13,21 @@ const MultiSection = ({ data }) => {
     const pageBlocks = [];
 
     blocks?.forEach((block) => {
+      const blockName =
+        block?.__typename.replace(`Sanity`, ``).charAt(0).toLowerCase() +
+        block?.__typename.replace(`Sanity`, ``).slice(1);
+
+      const blockKey = `block-${blockName}-${uuidv4()}`;
+
       switch (block.__typename) {
         case "SanityContent":
-          pageBlocks.push(<Content key={block._key} data={block} />);
+          pageBlocks.push(<Content key={blockKey} data={block} />);
           break;
         case "SanityMediaSection":
-          pageBlocks.push(<MediaSection key={block._key} data={block} />);
+          pageBlocks.push(<MediaSection key={blockKey} data={block} />);
           break;
         case "SanityOrderedList":
-          pageBlocks.push(<OrderedList key={block._key} data={block} />);
+          pageBlocks.push(<OrderedList key={blockKey} data={block} />);
           break;
         default:
           pageBlocks.push(null);
