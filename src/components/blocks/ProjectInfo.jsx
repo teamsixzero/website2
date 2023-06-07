@@ -1,6 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import RichText from "../RichText";
+
 const ProjectInfo = ({ data }) => {
   const { info, textColor, backgroundColor } = data;
 
@@ -15,7 +17,7 @@ const ProjectInfo = ({ data }) => {
       {info.map((information) => (
         <li key={information?._key}>
           <h3 className="text-bold">{information?.title}</h3>
-          <p className="text-normal">{information?.text}</p>
+          <RichText content={information?.text} />
         </li>
       ))}
     </ul>
@@ -29,7 +31,7 @@ export const query = graphql`
     info {
       _key
       title
-      text
+      text: _rawText
     }
     textColor {
       value {

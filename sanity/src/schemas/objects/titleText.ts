@@ -1,6 +1,7 @@
 import {defineField, defineType} from 'sanity'
-
 import {BsDot} from 'react-icons/bs'
+
+import {portableTextPreview} from '../../utils/preview'
 
 export default defineType({
   name: 'titleText',
@@ -16,7 +17,32 @@ export default defineType({
     defineField({
       name: 'text',
       title: 'Text',
-      type: 'string',
+      type: 'array',
+      of: [
+        {
+          title: `Block`,
+          type: `block`,
+          styles: [{title: `Normal`, value: `normal`}],
+          lists: [],
+          marks: {
+            decorators: [],
+            annotations: [
+              {
+                title: `URL`,
+                name: `link`,
+                type: `object`,
+                fields: [
+                  {
+                    name: `href`,
+                    title: `URL`,
+                    type: `string`,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
       validation: (Rule) => Rule.required(),
     }),
   ],
@@ -27,7 +53,7 @@ export default defineType({
     },
     prepare: ({title, text}) => ({
       title,
-      subtitle: text,
+      subtitle: portableTextPreview(text),
       media: BsDot,
     }),
   },

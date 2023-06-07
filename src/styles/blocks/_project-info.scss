@@ -4,6 +4,7 @@
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  column-gap: vw-clamp(16, 20);
 
   padding: vw-clamp(48, 80) vw-clamp(40, 64);
 
