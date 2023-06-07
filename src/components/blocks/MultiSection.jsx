@@ -13,6 +13,8 @@ const MultiSection = ({ data }) => {
     const pageBlocks = [];
 
     blocks?.forEach((block) => {
+      if (!block || Object.keys(block).length === 0) return;
+
       const blockName =
         block?.__typename.replace(`Sanity`, ``).charAt(0).toLowerCase() +
         block?.__typename.replace(`Sanity`, ``).slice(1);
