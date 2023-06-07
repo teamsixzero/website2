@@ -1,4 +1,5 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {BiCarousel} from 'react-icons/bi'
 
 export default defineType({
   name: 'logos',
@@ -22,7 +23,7 @@ export default defineType({
     },
     prepare: ({image}) => ({
       title: 'Logos',
-      media: image,
+      media: image || BiCarousel,
     }),
   },
 })

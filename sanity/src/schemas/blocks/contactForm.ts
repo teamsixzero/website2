@@ -1,4 +1,5 @@
 import {defineType, defineField} from 'sanity'
+import {HiOutlinePencilSquare} from 'react-icons/hi2'
 
 export default defineType({
   name: 'contactForm',
@@ -89,6 +90,7 @@ export default defineType({
     },
     prepare: () => ({
       title: 'Contact Form',
+      media: HiOutlinePencilSquare,
     }),
   },
 })

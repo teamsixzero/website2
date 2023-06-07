@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import {MdEmail} from 'react-icons/md'
+import {BsMegaphone} from 'react-icons/bs'
 
 export default defineType({
   name: 'contactCallout',
@@ -42,7 +42,7 @@ export default defineType({
   preview: {
     prepare: () => ({
       title: 'Contact Callout',
-      media: MdEmail,
+      media: BsMegaphone,
     }),
   },
 })

@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import {FaRegFolderOpen} from 'react-icons/fa'
+import {MdOutlineNextWeek} from 'react-icons/md'
 
 export default defineType({
   name: 'nextProject',
@@ -30,7 +30,7 @@ export default defineType({
     prepare: ({image, title}) => ({
       title: 'Next Project',
       subtitle: title,
-      media: image || FaRegFolderOpen,
+      media: image || MdOutlineNextWeek,
     }),
   },
 })

@@ -1,4 +1,6 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {BsImages} from 'react-icons/bs'
+
 import ColmunsMedia from '../../components/ColumnsMedia'
 
 export default defineType({
@@ -25,7 +27,10 @@ export default defineType({
     prepare: ({columns}) => ({
       title: 'Media Columns',
       subtitle: `${columns.length} column${columns.length > 1 ? 's' : ''}`,
-      media: () => <ColmunsMedia media={columns.map((media) => media?.source)} />,
+      media:
+        columns?.length > 0
+          ? () => <ColmunsMedia media={columns.map((media) => media?.source)} />
+          : BsImages,
     }),
   },
 })

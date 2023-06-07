@@ -1,4 +1,6 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {BsLayoutThreeColumns} from 'react-icons/bs'
+
 import ColmunsMedia from '../../components/ColumnsMedia'
 
 export default defineType({
@@ -31,9 +33,12 @@ export default defineType({
     prepare: ({title, columns}) => ({
       title: 'Three Column Section',
       subtitle: `${columns.length} column${columns.length > 1 ? 's' : ''}`,
-      media: () => (
-        <ColmunsMedia media={columns.map((col) => ({type: 'image', image: col?.image}))} />
-      ),
+      media:
+        columns?.length > 0
+          ? () => (
+              <ColmunsMedia media={columns.map((col) => ({type: 'image', image: col?.image}))} />
+            )
+          : BsLayoutThreeColumns,
     }),
   },
 })

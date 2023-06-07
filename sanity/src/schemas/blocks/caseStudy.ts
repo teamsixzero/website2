@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {HiOutlineDocumentMagnifyingGlass} from 'react-icons/hi2'
 
 export default defineType({
   title: 'Case Study',
@@ -28,7 +29,7 @@ export default defineType({
       return {
         title: 'Case Study',
         subtitle: title,
-        media: media,
+        media: media || HiOutlineDocumentMagnifyingGlass,
       }
     },
   },

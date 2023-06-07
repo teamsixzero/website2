@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import {SlSpeech} from 'react-icons/sl'
+import {MdOutlineReviews} from 'react-icons/md'
 
 import {portableTextPreview} from '../../utils/preview'
 
@@ -35,7 +35,7 @@ export default defineType({
     prepare: ({name, photo, quote}) => ({
       title: 'Testimonial',
       subtitle: name + `: ` + portableTextPreview(quote),
-      media: photo || SlSpeech,
+      media: photo || MdOutlineReviews,
     }),
   },
 })

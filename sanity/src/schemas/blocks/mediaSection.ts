@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {BsCardImage} from 'react-icons/bs'
 
 export default defineType({
   name: 'mediaSection',
@@ -36,7 +37,7 @@ export default defineType({
       return {
         title: 'Media Section',
         subtitle: alt,
-        media: media,
+        media: media || BsCardImage,
       }
     },
   },

@@ -1,4 +1,5 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {GoListOrdered} from 'react-icons/go'
 
 export default defineType({
   name: 'orderedList',
@@ -23,6 +24,7 @@ export default defineType({
   preview: {
     prepare: () => ({
       title: 'Ordered List',
+      media: GoListOrdered,
     }),
   },
 })

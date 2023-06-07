@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {TfiLayoutMediaLeft} from 'react-icons/tfi'
 
 import {portableTextPreview} from '../../utils/preview'
 
@@ -47,7 +48,7 @@ export default defineType({
       return {
         title: 'Text And Media',
         subtitle: portableTextPreview(text),
-        media: media,
+        media: media || TfiLayoutMediaLeft,
       }
     },
   },

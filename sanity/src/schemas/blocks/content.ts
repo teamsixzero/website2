@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import {MdTextFields} from 'react-icons/md'
+import {BsBodyText} from 'react-icons/bs'
 
 import {portableTextPreview} from '../../utils/preview'
 
@@ -33,7 +33,7 @@ export default defineType({
     prepare: ({text}) => ({
       title: 'Content',
       subtitle: portableTextPreview(text),
-      media: MdTextFields,
+      media: BsBodyText,
     }),
   },
 })

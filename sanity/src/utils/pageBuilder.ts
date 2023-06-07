@@ -4,15 +4,14 @@ import {
   BsMegaphone,
   BsBodyText,
   BsLayoutThreeColumns,
-  BsColumns,
   BsCardImage,
-  BsInfoCircle,
   BsImages,
+  BsGrid1X2Fill,
 } from 'react-icons/bs'
 import {FaHeading} from 'react-icons/fa'
 import {BiCarousel} from 'react-icons/bi'
 import {RiCheckboxMultipleBlankFill} from 'react-icons/ri'
-import {MdOutlineNextWeek, MdOutlineReviews} from 'react-icons/md'
+import {MdOutlineNextWeek, MdOutlineReviews, MdInfoOutline} from 'react-icons/md'
 import {GoListOrdered} from 'react-icons/go'
 import {TfiLayoutMediaLeft} from 'react-icons/tfi'
 
@@ -51,7 +50,7 @@ export default defineField({
     }),
     defineArrayMember({
       type: 'mediaGrid',
-      icon: BsColumns,
+      icon: BsGrid1X2Fill,
     }),
     defineArrayMember({
       type: 'mediaSection',
@@ -71,7 +70,7 @@ export default defineField({
     }),
     defineArrayMember({
       type: 'projectInfo',
-      icon: BsInfoCircle,
+      icon: MdInfoOutline,
     }),
     defineArrayMember({
       type: 'testimonial',
