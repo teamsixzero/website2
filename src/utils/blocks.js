@@ -7,7 +7,7 @@ export const blockBuilder = (blocks) => {
   const pageBlocks = [];
 
   blocks?.forEach((block) => {
-    if (Object.keys(block).length === 0) return;
+    if (!block || Object.keys(block).length === 0) return;
 
     const blockName =
       block?.__typename.replace(`Sanity`, ``).charAt(0).toLowerCase() +
@@ -132,6 +132,14 @@ export const blockBuilder = (blocks) => {
         pageBlocks.push(
           <section id={blockKey} key={blockKey} className="page-section">
             <Slice alias="textAndMedia" data={block} />
+          </section>
+        );
+        break;
+
+      case "threeColumnSection":
+        pageBlocks.push(
+          <section id={blockKey} key={blockKey} className="page-section">
+            <Slice alias="threeColumnSection" data={block} />
           </section>
         );
         break;

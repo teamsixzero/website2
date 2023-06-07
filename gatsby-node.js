@@ -89,6 +89,12 @@ exports.createPages = async ({ graphql, actions }) => {
       id: "textAndMedia",
       component: require.resolve("./src/components/blocks/TextAndMedia.jsx"),
     },
+    {
+      id: "threeColumnSection",
+      component: require.resolve(
+        "./src/components/blocks/ThreeColumnSection.jsx"
+      ),
+    },
   ];
 
   slices.forEach((slice) => {

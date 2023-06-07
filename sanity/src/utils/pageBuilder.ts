@@ -50,5 +50,8 @@ export default defineField({
     defineArrayMember({
       type: 'textAndMedia',
     }),
+    defineArrayMember({
+      type: 'threeColumnSection',
+    }),
   ],
 })

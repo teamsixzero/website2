@@ -30,6 +30,7 @@ import orderedList from './blocks/orderedList'
 import projectInfo from './blocks/projectInfo'
 import testimonial from './blocks/testimonial'
 import textAndMedia from './blocks/textAndMedia'
+import threeColumnSection from './blocks/threeColumnSection'
 
 const blocks = [
   caseStudy,
@@ -47,11 +48,13 @@ const blocks = [
   projectInfo,
   testimonial,
   textAndMedia,
+  threeColumnSection,
 ]
 
 //objects
 import altImage from './objects/altImage'
 import button from './objects/button'
+import column from './objects/column'
 import footer from './objects/footer'
 import link from './objects/link'
 import linkGroup from './objects/linkGroup'
@@ -72,6 +75,7 @@ import video from './objects/video'
 const objects = [
   altImage,
   button,
+  column,
   footer,
   link,
   linkGroup,

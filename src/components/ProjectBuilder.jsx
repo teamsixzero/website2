@@ -28,6 +28,7 @@ export const query = graphql`
       ...BlockProjectInfo
       ...BlockTestimonial
       ...BlockTextAndMedia
+      ...BlockThreeColumnSection
     }
   }
 `;
