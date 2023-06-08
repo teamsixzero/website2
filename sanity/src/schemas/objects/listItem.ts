@@ -1,5 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
+import {portableTextPreview} from '../../utils/preview'
+
 export default defineType({
   name: 'listItem',
   title: 'List Item',
@@ -8,7 +10,7 @@ export default defineType({
     defineField({
       name: 'step',
       title: 'Step',
-      type: 'string',
+      type: 'step',
     }),
     defineField({
       name: 'title',
@@ -19,7 +21,7 @@ export default defineType({
     defineField({
       name: 'text',
       title: 'Text',
-      type: 'text',
+      type: 'richText',
     }),
     defineField({
       name: 'image',
@@ -31,13 +33,13 @@ export default defineType({
     select: {
       title: 'title',
       text: 'text',
-      step: 'step',
+      step: 'step.text',
       image: 'image',
     },
     prepare: ({title, text, step, image}) => ({
       title: title ? `${step}: ${title}` : 'List Item',
-      subtitle: text,
-      media: image,
+      subtitle: portableTextPreview(text),
+      media: () => image || `⚫️`,
     }),
   },
 })

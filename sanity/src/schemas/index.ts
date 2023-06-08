@@ -66,8 +66,9 @@ import projectCaseStudy from './objects/projectCaseStudy'
 import notFound from './objects/404'
 import redirect from './objects/redirect'
 import richText from './objects/richText'
-import scriptSrc from './objects/scriptSrc'
 import scriptInline from './objects/scriptInline'
+import scriptSrc from './objects/scriptSrc'
+import step from './objects/step'
 import titleCard from './objects/titleCard'
 import titleText from './objects/titleText'
 import video from './objects/video'
@@ -87,8 +88,9 @@ const objects = [
   notFound,
   redirect,
   richText,
-  scriptSrc,
   scriptInline,
+  scriptSrc,
+  step,
   titleCard,
   titleText,
   video,

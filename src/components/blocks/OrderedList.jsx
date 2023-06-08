@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import RichText from "../RichText";
 import SanityImage from "../SanityImage";
 
 const OrderedList = ({ data }) => {
@@ -42,13 +43,16 @@ const OrderedList = ({ data }) => {
                 )}
 
                 <div>
-                  <p className="block-ordered-list__card__item__index text-small">
-                    {item?.step || indexNumber}
+                  <p
+                    className="block-ordered-list__card__item__index text-small"
+                    style={{ color: item?.step?.color?.value?.hex }}
+                  >
+                    {item?.step?.text || indexNumber}
                   </p>
 
                   <div className="block-ordered-list__card__item__content">
                     <h3 className="h6">{item?.title}</h3>
-                    <p className="text-normal">{item?.text}</p>
+                    <RichText content={item?.text} />
                   </div>
                 </div>
               </li>
@@ -68,9 +72,16 @@ export const query = graphql`
 
       ... on SanityListItem {
         _key
-        step
+        step {
+          text
+          color {
+            value {
+              hex
+            }
+          }
+        }
         title
-        text
+        text: _rawText
         image {
           ...ImageWithPreview
           asset {

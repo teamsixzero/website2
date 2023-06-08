@@ -37,6 +37,7 @@ export default defineType({
     prepare: ({title}) => ({
       title: 'Title Card',
       subtitle: title,
+      media: () => `⚪️`,
     }),
   },
 })
