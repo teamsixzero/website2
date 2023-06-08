@@ -37,7 +37,7 @@ export default ThreeColumnSection;
 
 export const query = graphql`
   fragment BlockThreeColumnSection on SanityThreeColumnSection {
-    title: _rawTitle
+    title: _rawTitle(resolveReferences: { maxDepth: 10 })
     columns {
       _key
       title
