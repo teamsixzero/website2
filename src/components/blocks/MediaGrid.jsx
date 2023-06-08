@@ -6,10 +6,8 @@ import Media from "../Media";
 const MediaGrid = ({ data }) => {
   const { gridItems, style } = data;
 
-  const gridClass = style.toLowerCase().replace(` `, `-`);
-
   return (
-    <div className={`block-media-grid ${gridClass}`}>
+    <div className={`block-media-grid ${style}`}>
       {gridItems.map((med) => (
         <div
           className="block-media-grid__wrapper"

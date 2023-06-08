@@ -1,6 +1,8 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {BsGrid1X2Fill} from 'react-icons/bs'
 
+import MediaGridRadio from '../../components/MediaGridRadio'
+
 export default defineType({
   name: 'mediaGrid',
   title: 'Media Grid',
@@ -15,7 +17,7 @@ export default defineType({
           type: 'mediaBlock',
         }),
       ],
-      validation: (Rule) => Rule.min(3),
+      validation: (Rule) => Rule.min(3).max(3),
     }),
     defineField({
       name: 'style',
@@ -23,8 +25,14 @@ export default defineType({
       type: 'string',
       initialValue: 'Style 1',
       options: {
-        list: ['Style 1', 'Style 2'],
+        list: [
+          {title: 'Style 1', value: 'Style 1'},
+          {title: 'Style 2', value: 'Style 2'},
+        ],
         layout: 'radio',
+      },
+      components: {
+        input: MediaGridRadio,
       },
     }),
   ],
