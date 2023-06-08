@@ -9,7 +9,7 @@ const ThreeColumnSection = ({ data }) => {
 
   return (
     <div className="block-three-columns-section">
-      <h2 className="h3">{title}</h2>
+      <RichText content={title} />
 
       <ul className="block-three-columns-section__columns">
         {columns.map((column) => (
@@ -37,7 +37,7 @@ export default ThreeColumnSection;
 
 export const query = graphql`
   fragment BlockThreeColumnSection on SanityThreeColumnSection {
-    title
+    title: _rawTitle
     columns {
       _key
       title
