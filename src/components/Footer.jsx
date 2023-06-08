@@ -3,6 +3,8 @@ import { Slice } from "gatsby";
 
 import useSanitySettings from "../hooks/useSanitySettings";
 
+import Link from "./Link";
+
 const Footer = () => {
   const { footer } = useSanitySettings();
 
@@ -16,9 +18,9 @@ const Footer = () => {
         {footer?.email && (
           <>
             <span> - </span>
-            <a href={footer?.email} target="_blank" rel="noreferrer">
+            <Link to={footer?.email}>
               {footer?.email?.replace("mailto:", "")}
-            </a>
+            </Link>
           </>
         )}
       </p>

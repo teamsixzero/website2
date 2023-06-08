@@ -1,6 +1,7 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 
+import Link from "../Link";
 import SanityImage from "../SanityImage";
 
 const NextProject = ({ data }) => {

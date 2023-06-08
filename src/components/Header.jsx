@@ -1,7 +1,9 @@
 import React from "react";
-import { Link, Slice } from "gatsby";
+import { Slice } from "gatsby";
 
 import useSanitySettings from "../hooks/useSanitySettings";
+
+import Link from "./Link";
 
 const Header = () => {
   const { menu } = useSanitySettings();

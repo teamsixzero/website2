@@ -1,6 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import Link from "../Link";
+
 const ContactCallout = ({ data }) => {
   const { heading, subHeading, buttonText, buttonUrl } = data;
 
@@ -9,14 +11,9 @@ const ContactCallout = ({ data }) => {
       <div className="block-contact-callout__wrapper">
         <h2 className="h3">{heading}</h2>
         <p className="h6">{subHeading}</p>
-        <a
-          className="btn"
-          href={`${buttonUrl}`}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <Link className="btn" to={buttonUrl}>
           <span>{buttonText}</span>
-        </a>
+        </Link>
       </div>
     </div>
   );

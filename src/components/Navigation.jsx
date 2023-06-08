@@ -1,29 +1,13 @@
 import React from "react";
-import { Link } from "gatsby";
 import { v4 as uuidv4 } from "uuid";
 
 import useApp from "../hooks/useApp";
 
+import Link from "./Link";
+
 const MenuLink = ({ link, dropdown }) => {
   const { closeMenu } = useApp();
-
-  const regex = /^(http|https|mailto|tel):/;
-  const isExternal = regex.test(link?.url);
-
   const textClass = dropdown ? "text-normal" : "accent";
-
-  if (isExternal)
-    return (
-      <a
-        href={link.url}
-        target="_blank"
-        rel="noreferrer"
-        className={`link ${textClass}`}
-        onClick={closeMenu}
-      >
-        {link.title}
-      </a>
-    );
 
   return (
     <Link to={link.url} onClick={closeMenu} className={`link ${textClass}`}>

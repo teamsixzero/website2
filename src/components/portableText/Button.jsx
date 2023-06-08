@@ -1,12 +1,14 @@
 import React from "react";
 
+import Link from "../Link";
+
 const Button = ({ value }) => {
   const { link, text } = value;
 
   return (
-    <a className="btn" href={link} target="_blank" rel="noreferrer">
+    <Link className="btn" to={link}>
       <span>{text}</span>
-    </a>
+    </Link>
   );
 };
 
