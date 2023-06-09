@@ -29,6 +29,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -41,7 +42,7 @@ module.exports = {
         icon: `static/images/favicon.svg`,
       },
     },
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
   ],
