@@ -20,6 +20,19 @@ export default defineType({
       title: 'Image',
       type: 'altImage',
     }),
+    defineField({
+      name: 'textAlignment',
+      title: 'Text Alignment',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Left', value: 'left'},
+          {title: 'Center', value: 'center'},
+          {title: 'Right', value: 'right'},
+        ],
+      },
+      initialValue: 'left',
+    }),
   ],
 
   preview: {

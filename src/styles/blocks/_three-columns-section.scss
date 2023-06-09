@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: vw-clamp(32, 64);
 
-  .rich-text {
+  header {
     text-align: center;
 
     @include breakpoint("md") {

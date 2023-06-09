@@ -9,13 +9,16 @@ const ThreeColumnSection = ({ data }) => {
 
   return (
     <div className="block-three-columns-section">
-      <RichText content={title} />
+      <header>
+        <RichText content={title} />
+      </header>
 
       <ul className="block-three-columns-section__columns">
         {columns.map((column) => (
           <li
             key={column?._key}
             className="block-three-columns-section__columns__item"
+            style={{ textAlign: column?.textAlignment }}
           >
             {column?.image?.asset && (
               <Media
@@ -59,6 +62,7 @@ export const query = graphql`
           }
         }
       }
+      textAlignment
     }
   }
 `;
