@@ -34,6 +34,8 @@ const SanityImage = ({
         <Image
           className="gatsby-image__image"
           width={width}
+          htmlWidth={imgWidth}
+          htmlHeight={imgHeight}
           style={{
             objectFit,
             ...imgStyle,
