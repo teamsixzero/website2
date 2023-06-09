@@ -14,12 +14,13 @@ const ProjectInfo = ({ data }) => {
         backgroundColor: backgroundColor?.value?.hex,
       }}
     >
-      {info.map((information) => (
-        <li key={information?._key}>
-          <h3 className="text-bold">{information?.title}</h3>
-          <RichText content={information?.text} />
-        </li>
-      ))}
+      {info?.length > 0 &&
+        info?.map((information) => (
+          <li key={information?._key}>
+            <h3 className="text-bold">{information?.title}</h3>
+            <RichText content={information?.text} />
+          </li>
+        ))}
     </ul>
   );
 };

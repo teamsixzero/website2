@@ -9,56 +9,57 @@ const OrderedList = ({ data }) => {
 
   return (
     <ol className="block-ordered-list">
-      {listItems.map((item, itemIndex) => {
-        const index = itemIndex + 1;
-        const indexNumber = index > 10 ? index : `0${index}`;
+      {listItems?.length > 0 &&
+        listItems?.map((item, itemIndex) => {
+          const index = itemIndex + 1;
+          const indexNumber = index > 10 ? index : `0${index}`;
 
-        switch (item.__typename) {
-          case "SanityTitleCard":
-            return (
-              <li
-                key={item?._key}
-                className="block-ordered-list__card block-ordered-list__card__title"
-                style={{
-                  color: item?.textColor?.value?.hex,
-                  backgroundColor: item?.backgroundColor?.value?.hex,
-                }}
-              >
-                <h2 className="h4">{item?.title}</h2>
-              </li>
-            );
+          switch (item.__typename) {
+            case "SanityTitleCard":
+              return (
+                <li
+                  key={item?._key}
+                  className="block-ordered-list__card block-ordered-list__card__title"
+                  style={{
+                    color: item?.textColor?.value?.hex,
+                    backgroundColor: item?.backgroundColor?.value?.hex,
+                  }}
+                >
+                  <h2 className="h4">{item?.title}</h2>
+                </li>
+              );
 
-          case "SanityListItem":
-          default:
-            return (
-              <li
-                key={item?._key}
-                className="block-ordered-list__card block-ordered-list__card__item"
-              >
-                {item?.image?.asset && (
-                  <SanityImage
-                    className="block-ordered-list__card__item__image"
-                    src={item?.image}
-                  />
-                )}
+            case "SanityListItem":
+            default:
+              return (
+                <li
+                  key={item?._key}
+                  className="block-ordered-list__card block-ordered-list__card__item"
+                >
+                  {item?.image?.asset && (
+                    <SanityImage
+                      className="block-ordered-list__card__item__image"
+                      src={item?.image}
+                    />
+                  )}
 
-                <div>
-                  <p
-                    className="block-ordered-list__card__item__index text-small"
-                    style={{ color: item?.step?.color?.value?.hex }}
-                  >
-                    {item?.step?.text || indexNumber}
-                  </p>
+                  <div>
+                    <p
+                      className="block-ordered-list__card__item__index text-small"
+                      style={{ color: item?.step?.color?.value?.hex }}
+                    >
+                      {item?.step?.text || indexNumber}
+                    </p>
 
-                  <div className="block-ordered-list__card__item__content">
-                    <h3 className="h6">{item?.title}</h3>
-                    <RichText content={item?.text} />
+                    <div className="block-ordered-list__card__item__content">
+                      <h3 className="h6">{item?.title}</h3>
+                      <RichText content={item?.text} />
+                    </div>
                   </div>
-                </div>
-              </li>
-            );
-        }
-      })}
+                </li>
+              );
+          }
+        })}
     </ol>
   );
 };

@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
   return (
     <>
       {scripts?.length > 0 &&
-        scripts.map((script) => {
+        scripts?.map((script) => {
           switch (script?.__typename) {
             case "SanityScriptSrc":
               return (

@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import Link from "../components/Link";
+import Seo from "../components/Seo";
 
 const NotFoundPage = () => {
   return (
@@ -22,8 +23,8 @@ export default NotFoundPage;
 
 export function Head() {
   return (
-    <>
+    <Seo>
       <title>Page not found | Sixzero</title>
-    </>
+    </Seo>
   );
 }

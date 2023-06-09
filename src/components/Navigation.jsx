@@ -17,36 +17,39 @@ const MenuLink = ({ link, dropdown }) => {
 };
 
 const Navigation = ({ className, links }) => {
-  const renderLinks = links?.map((link) => {
-    if (link.__typename === "SanityLinkGroup")
-      return (
-        <li className="has-dropdown" key={`${link?._key}-${uuidv4()}`}>
-          {link?.url ? (
-            <MenuLink link={link} />
-          ) : (
-            <p className="accent">{link?.title}</p>
-          )}
+  const renderLinks =
+    links?.length > 0 &&
+    links?.map((link) => {
+      if (link.__typename === "SanityLinkGroup")
+        return (
+          <li className="has-dropdown" key={`${link?._key}-${uuidv4()}`}>
+            {link?.url ? (
+              <MenuLink link={link} />
+            ) : (
+              <p className="accent">{link?.title}</p>
+            )}
 
-          <ul className="dropdown">
-            <div />
+            <nav className="dropdown">
+              <div />
 
-            <nav>
-              {link?.links?.map((sublink) => (
-                <li key={sublink?._key}>
-                  <MenuLink link={sublink} dropdown />
-                </li>
-              ))}
+              <ul>
+                {link?.links?.length > 0 &&
+                  link?.links?.map((sublink) => (
+                    <li key={sublink?._key}>
+                      <MenuLink link={sublink} dropdown />
+                    </li>
+                  ))}
+              </ul>
             </nav>
-          </ul>
+          </li>
+        );
+
+      return (
+        <li key={`${link?._key}-${uuidv4()}`}>
+          <MenuLink link={link} />
         </li>
       );
-
-    return (
-      <li key={`${link?._key}-${uuidv4()}`}>
-        <MenuLink link={link} />
-      </li>
-    );
-  });
+    });
 
   return (
     <>

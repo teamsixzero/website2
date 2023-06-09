@@ -8,17 +8,18 @@ const MediaColumns = ({ data }) => {
 
   return (
     <div className="block-media-columns">
-      {columns.map((med) => (
-        <div
-          key={med?._key}
-          className={`block-media-columns__wrapper ${
-            med?.backgroundColor?.value?.hex ? "has-background" : ""
-          }`}
-          style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
-        >
-          <Media media={med?.source} />
-        </div>
-      ))}
+      {columns?.length > 0 &&
+        columns?.map((med) => (
+          <div
+            key={med?._key}
+            className={`block-media-columns__wrapper ${
+              med?.backgroundColor?.value?.hex ? "has-background" : ""
+            }`}
+            style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
+          >
+            <Media media={med?.source} />
+          </div>
+        ))}
     </div>
   );
 };

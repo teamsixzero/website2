@@ -8,8 +8,8 @@ const Logos = ({ data }) => {
 
   return (
     <ul className="block-logos">
-      {logos.length > 0 &&
-        logos.map((logo) => (
+      {logos?.length > 0 &&
+        logos?.map((logo) => (
           <li key={logo?._key} className="block-logos__logo">
             <SanityImage src={logo} />
           </li>

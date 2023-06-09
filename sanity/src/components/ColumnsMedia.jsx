@@ -43,20 +43,21 @@ const Container = styled.div`
 const ColumnsMedia = ({media}) => {
   return (
     <Container>
-      {media.map((med, index) => {
-        switch (med?.type) {
-          case 'image':
-            return <Media key={index} src={med?.image?.asset} alt={med?.image?.alt} />
+      {media?.length > 0 &&
+        media?.map((med, index) => {
+          switch (med?.type) {
+            case 'image':
+              return <Media key={index} src={med?.image?.asset} alt={med?.image?.alt} />
 
-          case 'video':
-            return (
-              <Media key={index} src={med?.video?.poster?.asset} alt={med?.vide?.poster?.alt} />
-            )
+            case 'video':
+              return (
+                <Media key={index} src={med?.video?.poster?.asset} alt={med?.vide?.poster?.alt} />
+              )
 
-          default:
-            return <></>
-        }
-      })}
+            default:
+              return <></>
+          }
+        })}
     </Container>
   )
 }

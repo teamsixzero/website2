@@ -169,7 +169,12 @@ const ContactForm = ({ data }) => {
               disabled={loading}
             />
             {additionalFields?.length > 0 && renderAdditionalFields()}
-            <button type="submit" className="btn" disabled={loading}>
+            <button
+              type="submit"
+              name="submit contact form"
+              className="btn"
+              disabled={loading}
+            >
               {submitText}
             </button>
           </form>

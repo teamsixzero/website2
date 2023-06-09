@@ -8,15 +8,16 @@ const MediaGrid = ({ data }) => {
 
   return (
     <div className={`block-media-grid ${style}`}>
-      {gridItems.map((med) => (
-        <div
-          className="block-media-grid__wrapper"
-          key={med?._key}
-          style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
-        >
-          <Media media={med?.source} />
-        </div>
-      ))}
+      {gridItems?.length > 0 &&
+        gridItems.map((med) => (
+          <div
+            className="block-media-grid__wrapper"
+            key={med?._key}
+            style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
+          >
+            <Media media={med?.source} />
+          </div>
+        ))}
     </div>
   );
 };

@@ -6,7 +6,11 @@ const MenuToggle = () => {
   const { menuActive, toggleMenu } = useApp();
 
   return (
-    <button className="menu-toggle" onClick={toggleMenu}>
+    <button
+      name="toggle mobile menu"
+      className="menu-toggle"
+      onClick={toggleMenu}
+    >
       <span className="sr-only">Open menu</span>
       <span className={`hamburger-icon${menuActive ? ` is-active` : ``}`}>
         <span className="hamburger-icon__line" />

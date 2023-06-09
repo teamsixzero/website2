@@ -7,6 +7,8 @@ const Seo = ({ children }) => {
 
   return (
     <>
+      <html lang="en" />
+
       {seo?.title && (
         <>
           <title id="title">{seo.title}</title>

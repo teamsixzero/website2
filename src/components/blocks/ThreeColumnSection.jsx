@@ -14,23 +14,24 @@ const ThreeColumnSection = ({ data }) => {
       </header>
 
       <ul className="block-three-columns-section__columns">
-        {columns.map((column) => (
-          <li
-            key={column?._key}
-            className="block-three-columns-section__columns__item"
-            style={{ textAlign: column?.textAlignment }}
-          >
-            {column?.image?.asset && (
-              <Media
-                media={{ type: "image", image: column?.image }}
-                className="block-three-columns-section__columns__item__icon"
-              />
-            )}
+        {columns?.length > 0 &&
+          columns?.map((column) => (
+            <li
+              key={column?._key}
+              className="block-three-columns-section__columns__item"
+              style={{ textAlign: column?.textAlignment }}
+            >
+              {column?.image?.asset && (
+                <Media
+                  media={{ type: "image", image: column?.image }}
+                  className="block-three-columns-section__columns__item__icon"
+                />
+              )}
 
-            <h3 className="text-bold">{column?.title}</h3>
-            <RichText content={column?.content} />
-          </li>
-        ))}
+              <h3 className="text-bold">{column?.title}</h3>
+              <RichText content={column?.content} />
+            </li>
+          ))}
       </ul>
     </div>
   );
