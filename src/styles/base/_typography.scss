@@ -5,6 +5,7 @@
     url("../assets/fonts/PPPangramSans-Regular.ttf") format("truetype");
   font-weight: 400;
   ascent-override: 70%; // FIXME: windows-specific
+  font-display: swap;
 }
 
 @font-face {
@@ -14,6 +15,7 @@
     url("../assets/fonts/PPPangramSans-Medium.ttf") format("truetype");
   font-weight: 500;
   ascent-override: 70%; // FIXME: windows-specific
+  font-display: swap;
 }
 
 @font-face {
@@ -23,6 +25,7 @@
     url("../assets/fonts/PPPangramSans-Bold.ttf") format("truetype");
   font-weight: 700;
   ascent-override: 70%; // FIXME: windows-specific
+  font-display: swap;
 }
 
 :root {
