@@ -1,24 +1,25 @@
 .footer {
-  height: 160px;
-  padding: 35px 25px;
+  position: relative;
+  width: 100%;
+  height: vw-max(160);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--color-grey-dark);
-  @include fontSize(15px, 16px);
+  row-gap: vw-clamp(24, 24);
 
-  p {
-    margin: 24px 0 0 0;
-  }
+  padding: vw-clamp(24, 32);
 
-  .dropdown {
-    top: auto;
-    bottom: calc(100% + 16px);
+  .navigation {
+    &.menu {
+      .dropdown {
+        bottom: 100%;
 
-    &:before {
-      top: auto;
-      bottom: -16px;
+        & > div:first-child {
+          order: 2;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,48 @@
+.block-testimonial {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.has-background {
+    padding: vw-clamp(72, 168) vw-clamp(32, 84);
+  }
+
+  &__wrapper {
+    max-width: vw-min(800);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: vw-clamp(24, 24);
+
+    @include breakpoint("md") {
+      max-width: 100%;
+    }
+
+    &__person {
+      display: flex;
+      align-items: center;
+      column-gap: vw-clamp(24, 24);
+
+      &__details {
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+        row-gap: vw-clamp(4, 4);
+
+        p {
+          color: var(--color-grey-normal);
+        }
+      }
+
+      &__image {
+        height: max-content;
+        max-width: vw-clamp(48, 48);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.template-blog {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    position: relative;
+    max-width: vw-clamp(1024, 1024);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+
+    margin: auto;
+    background: var(--color-white);
+
+    @include breakpoint("sm") {
+      margin: 0;
+    }
+  }
+
+  &__content {
+    max-width: vw-clamp(800, 800);
+    margin: 0 auto;
+
+    @include breakpoint("sm") {
+      max-width: 100%;
+    }
+
+    h4 {
+      margin: 1.75rem 0;
+    }
+  }
+}

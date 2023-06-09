@@ -1,0 +1,129 @@
+.block-case-study {
+  position: relative;
+  width: 100%;
+
+  max-width: vw-min(1200);
+
+  display: flex;
+  align-items: center;
+
+  gap: vw-clamp(40, 88);
+
+  @include breakpoint("md") {
+    flex-direction: column;
+    align-items: center;
+
+    .block-case-study__wrapper {
+      order: -1;
+    }
+  }
+
+  &__header {
+    position: relative;
+    min-width: vw-min(348);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: vw-clamp(16, 16);
+
+    @include breakpoint("sm") {
+      min-width: 100%;
+      align-items: center;
+      text-align: center;
+    }
+
+    .btn {
+      align-self: flex-start;
+      margin-top: vw-clamp(16, 16);
+
+      @include breakpoint("sm") {
+        align-self: unset;
+      }
+    }
+  }
+
+  &__wrapper {
+    max-height: vw-clamp(160, 616) !important;
+
+    display: flex;
+    justify-content: flex-end;
+
+    &.gatsby-image {
+      picture {
+        padding-top: 100%;
+      }
+    }
+  }
+
+  &.align-left {
+    padding: vw-clamp(24, 56) vw-clamp(24, 104) vw-clamp(40, 56) 0;
+
+    @include breakpoint("md") {
+      padding: vw-clamp(24, 56);
+    }
+
+    .block-case-study__wrapper {
+      order: -1;
+      justify-content: flex-start;
+
+      .gatsby-image__image {
+        margin-right: auto;
+      }
+    }
+
+    &-full-height {
+      padding: 0 vw-clamp(24, 104) 0 vw-clamp(24, 48);
+
+      @include breakpoint("md") {
+        padding: vw-clamp(24, 56);
+      }
+
+      .block-case-study__wrapper {
+        max-height: vw-clamp(263, 729) !important;
+
+        order: -1;
+        justify-content: flex-start;
+
+        .gatsby-image__image {
+          margin-right: auto;
+          @include breakpoint("md") {
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &.align-right {
+    padding: vw-clamp(24, 56) 0 vw-clamp(24, 56) vw-clamp(24, 104);
+
+    @include breakpoint("md") {
+      padding: vw-clamp(24, 56);
+    }
+
+    .block-case-study__wrapper {
+      .gatsby-image__image {
+        margin-left: auto;
+      }
+    }
+
+    &-full-height {
+      padding: 0 vw-clamp(24, 48) 0 vw-clamp(24, 104);
+
+      @include breakpoint("md") {
+        padding: vw-clamp(24, 56);
+      }
+
+      .block-case-study__wrapper {
+        max-height: vw-clamp(263, 729) !important;
+
+        .gatsby-image__image {
+          margin-left: auto;
+          @include breakpoint("md") {
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+}

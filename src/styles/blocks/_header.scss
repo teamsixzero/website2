@@ -1,0 +1,11 @@
+.block-header {
+  position: relative;
+  width: 100%;
+  max-width: vw-min(1024);
+
+  margin-right: auto;
+
+  @include breakpoint("md") {
+    max-width: 100%;
+  }
+}

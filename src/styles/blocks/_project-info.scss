@@ -1,0 +1,19 @@
+.block-project-info {
+  position: relative;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: vw-clamp(16, 20);
+
+  padding: vw-clamp(48, 80) vw-clamp(40, 64);
+
+  background-color: var(--color-blue-primary);
+  color: var(--color-white);
+
+  @include breakpoint("sm") {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-4);
+  }
+}

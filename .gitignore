@@ -1,5 +1,7 @@
-node_modules
 .cache
-.netlify
 public
+node_modules
 .env.*
+gatsbyTypeDefs.txt
+# Local Netlify folder
+.netlify

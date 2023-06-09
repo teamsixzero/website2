@@ -3,39 +3,37 @@
   "version": "1.0.0",
   "private": true,
   "description": "sixzero",
-  "author": "Jason Funk",
+  "author": "Lane Le Prevost-Smith",
   "keywords": [
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "dev": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "^15.13.1",
-    "@contentful/rich-text-types": "^15.13.2",
-    "gatsby": "^4.24.1",
-    "gatsby-plugin-google-gtag": "^4.24.0",
-    "gatsby-plugin-image": "^2.24.0",
-    "gatsby-plugin-manifest": "^4.24.0",
-    "gatsby-plugin-meta-redirect": "^1.1.1",
-    "gatsby-plugin-netlify": "^5.0.1",
-    "gatsby-plugin-react-helmet": "^5.24.0",
-    "gatsby-plugin-sass": "^5.24.0",
-    "gatsby-plugin-sharp": "^4.24.0",
-    "gatsby-plugin-twitter": "^4.24.0",
-    "gatsby-redirect-from": "^0.5.0",
-    "gatsby-source-contentful": "^7.22.0",
-    "gatsby-source-filesystem": "^4.24.0",
-    "gatsby-transformer-remark": "^5.24.0",
-    "gatsby-transformer-sharp": "^4.24.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-helmet": "^6.1.0",
-    "sass": "^1.55.0"
+    "@portabletext/react": "^2.0.3",
+    "gatsby": "^5.10.0",
+    "gatsby-plugin-image": "^3.10.0",
+    "gatsby-plugin-manifest": "^5.10.0",
+    "gatsby-plugin-offline": "^6.10.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
+    "gatsby-plugin-sanity-image": "^0.13.4",
+    "gatsby-plugin-sass": "^6.10.0",
+    "gatsby-plugin-sharp": "^5.10.0",
+    "gatsby-plugin-sitemap": "^6.10.0",
+    "gatsby-source-filesystem": "^5.10.0",
+    "gatsby-source-sanity": "^7.6.3",
+    "gatsby-transformer-sharp": "^5.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.63.2",
+    "uuid": "^9.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "dotenv": "^16.1.4",
+    "eslint": "^7.32.0"
+  }
 }

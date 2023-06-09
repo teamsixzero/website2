@@ -1,0 +1,19 @@
+.block-media-columns {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  gap: vw-clamp(24, 32);
+
+  @include breakpoint("sm") {
+    flex-direction: column;
+  }
+
+  &__wrapper {
+    width: 100%;
+
+    &.has-background {
+      padding: vw-clamp(40, 72) vw-clamp(32, 60);
+    }
+  }
+}

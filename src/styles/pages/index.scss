@@ -1,0 +1,13 @@
+@import "404";
+@import "blog";
+
+.page-404,
+.page-blog {
+  row-gap: vw-clamp(80, 120);
+
+  padding: vw-clamp(40, 104) vw-clamp(32, 120) vw-clamp(0, 96);
+
+  @include breakpoint("sm") {
+    padding-bottom: 0;
+  }
+}

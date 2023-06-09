@@ -1,0 +1,147 @@
+.block-text-and-media {
+  position: relative;
+  width: 100%;
+  max-width: vw-min(1440);
+
+  display: flex;
+  align-items: center;
+  gap: vw-clamp(32, 136);
+
+  @include breakpoint("md") {
+    width: 100% !important;
+
+    flex-direction: column;
+
+    padding: 0;
+  }
+
+  &.has-background {
+    padding: vw-clamp(64, 128) vw-clamp(40, 80);
+    background-color: var(--color-blue-primary);
+    color: white;
+  }
+
+  &.full-bleed {
+    width: calc(100% + vw-min(240));
+    flex-shrink: 0;
+
+    &.left {
+      padding-right: vw-min(120);
+
+      @include breakpoint("md") {
+        padding: 0;
+      }
+    }
+
+    &.right {
+      padding-left: vw-min(120);
+
+      @include breakpoint("md") {
+        padding: 0;
+      }
+    }
+  }
+
+  & > header {
+    position: relative;
+    width: 100%;
+    max-width: vw-min(480);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-3);
+
+    .rich-text {
+      row-gap: vw-clamp(16, 16);
+    }
+
+    @include breakpoint("md") {
+      max-width: 100%;
+
+      .rich-text {
+        align-items: center;
+      }
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-height: vw-clamp(337, 616) !important;
+
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint("md") {
+      order: -1 !important;
+    }
+
+    &.gatsby-image {
+      picture {
+        padding-top: 100%;
+      }
+    }
+
+    .video__wrapper {
+      padding-top: 100%;
+    }
+
+    &.align-left {
+      order: -1;
+
+      .gatsby-image__image {
+        margin: 0 auto;
+      }
+
+      &.full-bleed {
+        max-height: vw-clamp(337, 874.8) !important;
+        justify-content: flex-start;
+
+        .gatsby-image__image {
+          margin: unset;
+          margin-right: auto;
+
+          @include breakpoint("md") {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+
+    &.align-right {
+      order: 2;
+
+      .gatsby-image__image {
+        margin: 0 auto;
+      }
+
+      &.full-bleed {
+        max-height: vw-clamp(337, 874.8) !important;
+        justify-content: flex-end;
+
+        .gatsby-image__image {
+          margin: unset;
+          margin-left: auto;
+
+          @include breakpoint("md") {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+
+    &.has-background {
+      padding: vw-clamp(40, 72) vw-clamp(32, 60);
+
+      picture {
+        padding-top: 100%;
+      }
+
+      &.padding-top {
+        padding-top: 0;
+      }
+      &.padding-bottom {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

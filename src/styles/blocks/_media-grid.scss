@@ -1,0 +1,129 @@
+.block-media-grid {
+  position: relative;
+  width: 100%;
+
+  display: grid;
+
+  gap: vw-clamp(24, 32);
+
+  &__wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: vw-clamp(16, 64);
+  }
+
+  .block-media-grid__wrapper:nth-child(1),
+  .block-media-grid__wrapper:nth-child(2) {
+    max-height: vw-min(575);
+
+    .gatsby-image picture {
+      padding-top: min(
+        calc((var(--ratio) * 100%)),
+        calc(vw-min(584) - vw-min(128))
+      );
+
+      .gatsby-image__image {
+        margin: auto;
+      }
+    }
+
+    @include breakpoint("sm") {
+      max-height: unset;
+
+      .gatsby-image picture {
+        padding-top: 100%;
+      }
+    }
+  }
+
+  .block-media-grid__wrapper:nth-child(3) {
+    max-height: vw-min(1182);
+
+    .gatsby-image {
+      height: auto;
+
+      picture {
+        padding-top: min(
+          calc((var(--ratio) * 100%)),
+          calc(vw-min(1182) - vw-min(128))
+        );
+
+        .gatsby-image__image {
+          margin: auto;
+        }
+      }
+    }
+
+    @include breakpoint("sm") {
+      max-height: unset;
+
+      .gatsby-image picture {
+        padding-top: 150%;
+      }
+    }
+  }
+
+  &.style-1 {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include breakpoint("sm") {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .block-media-grid__wrapper:nth-child(1),
+    .block-media-grid__wrapper:nth-child(2) {
+      grid-column: 1 / span 1;
+
+      @include breakpoint("sm") {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .block-media-grid__wrapper:nth-child(3) {
+      grid-column: 2 / span 2;
+      grid-row: 1 / span 2;
+
+      @include breakpoint("sm") {
+        grid-column: 1 / -1;
+        grid-row: 3;
+      }
+    }
+  }
+
+  &.style-2 {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include breakpoint("sm") {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .block-media-grid__wrapper:nth-child(1),
+    .block-media-grid__wrapper:nth-child(2) {
+      grid-column: 1 / span 1;
+
+      @include breakpoint("sm") {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .block-media-grid__wrapper:nth-child(3) {
+      height: 100%;
+
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 2;
+
+      padding: 0 clamp(0rem, 5.55vw, 5rem);
+
+      @include breakpoint("sm") {
+        grid-column: 1 / -1;
+        padding: 0;
+
+        grid-row: 3;
+      }
+    }
+  }
+}

@@ -1,15 +1,25 @@
 @use "sass:math";
 
-@function calculateRem($size) {
-  $remSize: calc($size / 16px);
-  @return #{$remSize}rem;
+@function pxToRem($value) {
+  $remValue: calc($value/ 16) + rem;
+  @return $remValue;
+}
+
+@function remToPx($value) {
+  $pxValue: ($value * 16) + px;
+  @return $pxValue;
+}
+
+@function pxToVw($value) {
+  $vwValue: calc(($value / 1440) * 100) + vw;
+  @return $vwValue;
 }
 
 @mixin fontSize($size, $lineHeight) {
   font-size: $size; //Fallback in px
-  font-size: calculateRem($size);
+  font-size: pxToRem($size);
 
-  @if unit($lineHeight) == '%' {
+  @if unit($lineHeight) == "%" {
     line-height: $lineHeight;
   } @else {
     line-height: calc($lineHeight / $size);
@@ -40,23 +50,33 @@
   }
 }
 
-@function css-function($function, $values...) {
-  @return 
-    $function
-    + unquote('(')
-    + $values
-    + unquote(')')
-  ;
+@function vw-clamp($min, $max) {
+  $vwFrom: 1440;
+  $vwTo: 1728;
+
+  $maxVw: pxToVw($max);
+  $newMin: pxToRem($min);
+  $newMax: pxToRem(calc(($max / $vwFrom) * 100 * ($vwTo / 100)));
+
+  @return clamp($newMin, $maxVw, $newMax);
 }
 
-@function css-min($values...) {
-  @return css-function( min, $values );
+@function vw-min($max) {
+  $vwFrom: 1440;
+  $vwTo: 1728;
+
+  $maxVw: pxToVw($max);
+  $newMax: pxToRem(calc(($max / $vwFrom) * 100 * ($vwTo / 100)));
+
+  @return min($maxVw, $newMax);
 }
 
-@function css-max($values...) {
-  @return css-function(max, $values);
-}
+@function vw-max($max) {
+  $vwFrom: 1440;
+  $vwTo: 1728;
 
-@function css-clamp($values...) {
-  @return css-function(clamp, $values);
+  $maxVw: pxToVw($max);
+  $newMax: pxToRem(calc(($max / $vwFrom) * 100 * ($vwTo / 100)));
+
+  @return max($maxVw, $newMax);
 }

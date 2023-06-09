@@ -3,39 +3,21 @@
   display: flex;
   flex-direction: column;
   background: var(--color-white);
-  border-radius: 24px;
-  box-shadow: 0px 24px 40px rgba(5, 29, 61, 0.05);
-}
+  box-shadow: 0 1.5rem 2.5rem rgba(5, 29, 61, 0.05);
 
-.card-image {
-  padding: 24px 56px 0 56px;
-  flex-grow: 0;
-  flex-shrink: 0;
-
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 1;
-  }
-}
-
-.card-copy {
-  padding: 8px 40px 48px 40px;
-  flex-grow: 1;
-
-  .accent {
-    margin-bottom: 16px;
-    display: block;
+  .card-image {
+    height: 100%;
   }
 
-  .h4,
-  .h5 {
-    margin-bottom: 16px;
-  }
+  .card-copy {
+    padding: vw-clamp(24, 24);
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
 
-  p {
-    max-width: 276px;
-    opacity: 0.85;
+    .published {
+      display: block;
+      text-transform: uppercase;
+    }
   }
 }

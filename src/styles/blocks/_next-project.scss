@@ -1,0 +1,31 @@
+.block-next-project {
+  position: relative;
+  width: 100%;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: vw-min(232);
+
+    padding: vw-clamp(40, 48) vw-clamp(32, 64) 0rem;
+    background-color: #f9f9f9;
+
+    @include breakpoint("sm") {
+      padding: vw-clamp(40, 48) vw-clamp(32, 64);
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      row-gap: vw-clamp(8, 8);
+    }
+
+    .gatsby-image {
+      display: block;
+
+      @include breakpoint("sm") {
+        display: none;
+      }
+    }
+  }
+}

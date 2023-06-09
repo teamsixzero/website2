@@ -1,0 +1,31 @@
+.block-logos {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  gap: vw-clamp(32, 32);
+
+  @include breakpoint("sm") {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  &__logo {
+    position: relative;
+    width: 100%;
+
+    @include breakpoint("sm") {
+      flex-basis: calc(100% / 3);
+    }
+
+    & > .gatsby-image {
+      display: flex;
+      max-height: vw-clamp(40, 40);
+
+      .gatsby-image__image {
+        margin: 0 auto;
+      }
+    }
+  }
+}

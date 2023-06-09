@@ -1,18 +1,27 @@
 .header {
-  padding: 35px 25px;
-  display: flex;
-  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
-  .menu {
-    margin-top: 6px;
-    margin-bottom: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: vw-min(32);
+
+  padding: vw-clamp(24, 35) vw-max(24);
+  background-color: var(--color-white);
+
+  z-index: 100;
+
+  @include breakpoint("md") {
+    justify-content: center;
   }
 }
 
 .logo {
   width: auto;
-  height: 20px;
-  margin-right: 32px;
+  height: vw-clamp(20, 20);
   display: block;
 
   img {

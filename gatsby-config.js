@@ -1,34 +1,35 @@
-// support for .env, .env.development, and .env.production
-require("dotenv").config()
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
+
+const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://sixzero.co`,
+    siteUrl: process.env.SITE_URL,
   },
   plugins: [
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: `gatsby-source-sanity`,
       options: {
-        downloadLocal: true,
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: process.env.CONTENTFUL_HOST,
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_DATASET,
+        token: process.env.SANITY_TOKEN,
+        watchMode: isDev || false,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-plugin-sanity-image",
       options: {
-        name: `projects`,
-        path: `${__dirname}/src/projects`,
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_DATASET,
+        customImageTypes: ["SanityAltImage"],
       },
     },
-    `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -41,11 +42,8 @@ module.exports = {
         icon: `static/images/favicon.svg`,
       },
     },
-    //`gatsby-redirect-from`,
-    //`gatsby-plugin-meta-redirect`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-twitter`,
-    `gatsby-plugin-netlify`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
   ],
-}
+};

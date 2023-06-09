@@ -1,0 +1,10 @@
+.rich-text {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: vw-clamp(24, 32);
+
+  white-space: pre-line;
+}
