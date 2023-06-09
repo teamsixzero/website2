@@ -11,7 +11,12 @@ const Header = () => {
   return (
     <header className="header">
       <Link className="logo" to="/">
-        <img src="/images/sixzero-logo-dark.svg" alt="Sixzero logo" />
+        <img
+          src="/images/sixzero-logo-dark.svg"
+          alt="Sixzero logo"
+          width="152"
+          height="24"
+        />
       </Link>
 
       <Slice alias="navigation" links={menu?.links} />
