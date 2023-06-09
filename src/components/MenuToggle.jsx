@@ -7,7 +7,7 @@ const MenuToggle = () => {
 
   return (
     <button
-      name="toggle mobile menu"
+      aria-label="toggle mobile menu"
       className="menu-toggle"
       onClick={toggleMenu}
     >

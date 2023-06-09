@@ -171,7 +171,7 @@ const ContactForm = ({ data }) => {
             {additionalFields?.length > 0 && renderAdditionalFields()}
             <button
               type="submit"
-              name="submit contact form"
+              aria-label="submit contact form"
               className="btn"
               disabled={loading}
             >
