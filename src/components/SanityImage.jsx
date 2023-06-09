@@ -29,6 +29,8 @@ const SanityImage = ({
             media="(max-width: 1024px)"
             alt={src?.alt || ""}
             title={src?.alt}
+            width={src?.mobile?.asset?.metadata?.dimensions?.width}
+            height={src?.mobile?.asset?.metadata?.dimensions?.height}
           />
         )}
         <Image

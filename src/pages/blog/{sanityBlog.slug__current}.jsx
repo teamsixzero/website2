@@ -81,6 +81,12 @@ export const query = graphql`
           mobile {
             asset {
               _id
+              metadata {
+                dimensions {
+                  width
+                  height
+                }
+              }
             }
           }
         }
