@@ -15,26 +15,26 @@
   },
   "dependencies": {
     "@portabletext/react": "^2.0.3",
-    "gatsby": "^5.10.0",
-    "gatsby-plugin-image": "^3.10.0",
-    "gatsby-plugin-manifest": "^5.10.0",
+    "gatsby": "^5.11.0",
+    "gatsby-plugin-image": "^3.11.0",
+    "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-netlify": "^5.1.0",
-    "gatsby-plugin-offline": "^6.10.0",
+    "gatsby-plugin-offline": "^6.11.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sanity-image": "^0.13.4",
-    "gatsby-plugin-sass": "^6.10.0",
-    "gatsby-plugin-sharp": "^5.10.0",
-    "gatsby-plugin-sitemap": "^6.10.0",
-    "gatsby-source-filesystem": "^5.10.0",
-    "gatsby-source-sanity": "^7.6.3",
-    "gatsby-transformer-sharp": "^5.10.0",
+    "gatsby-plugin-sass": "^6.11.0",
+    "gatsby-plugin-sharp": "^5.11.0",
+    "gatsby-plugin-sitemap": "^6.11.0",
+    "gatsby-source-filesystem": "^5.11.0",
+    "gatsby-source-sanity": "^7.8.1",
+    "gatsby-transformer-sharp": "^5.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.63.2",
+    "sass": "^1.65.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "dotenv": "^16.1.4",
+    "dotenv": "^16.3.1",
     "eslint": "^7.32.0"
   }
 }
