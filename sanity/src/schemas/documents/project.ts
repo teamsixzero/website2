@@ -37,6 +37,7 @@ export default defineType({
       name: 'description',
       title: 'Description',
       type: 'text',
+      description: 'This is the text that will appear on the case study page.',
     }),
     // case study
     defineField({
