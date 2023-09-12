@@ -90,11 +90,11 @@ const objects = {
         `;
   },
   additionalFields: `
-    additionalFields {
+    additionalFields[] {
         "__typename": _type,
         _key,
 
-        _type == "SanityFormFieldText" => {
+        _type == "formField.text" => {
             name,
             placeholder,
         },

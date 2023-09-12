@@ -34,13 +34,13 @@ const PageTemplate = ({ location, data: { sanityPage: data } }) => {
   return (
     <div className="template-page">
       {previewDrafts ? (
-        <Suspense fallback={<PageBuilder blocks={data?.blocks} />}>
+        <Suspense fallback={<PageBuilder data={data} />}>
           <PreviewProvider token={token}>
             <PageBuilder data={sanityData} slug={slug} />
           </PreviewProvider>
         </Suspense>
       ) : (
-        <PageBuilder data={data?.blocks} />
+        <PageBuilder data={data} />
       )}
     </div>
   );

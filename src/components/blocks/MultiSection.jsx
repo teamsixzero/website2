@@ -23,12 +23,15 @@ const MultiSection = ({ data }) => {
 
       switch (block.__typename) {
         case "SanityContent":
+        case "content":
           pageBlocks.push(<Content key={blockKey} data={block} />);
           break;
         case "SanityMediaSection":
+        case "mediaSection":
           pageBlocks.push(<MediaSection key={blockKey} data={block} />);
           break;
         case "SanityOrderedList":
+        case "orderedList":
           pageBlocks.push(<OrderedList key={blockKey} data={block} />);
           break;
         default:
