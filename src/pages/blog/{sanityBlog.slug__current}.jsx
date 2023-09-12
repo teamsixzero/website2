@@ -150,7 +150,6 @@ const BlogContent = ({ data: initialData = null, slug }) => {
   const [snapshot] = useLiveQuery(initialData, blogQuery, { slug });
   const data = useDeferredValue(snapshot);
 
-  console.log(`BlogContent`, data);
   return (
     <>
       <header className="template-blog__heading">
