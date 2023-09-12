@@ -5,7 +5,7 @@ const query = graphql`
     sanitySettings {
       menu {
         links {
-          __typename
+          _type: __typename
           ... on SanityLink {
             _key
             title
@@ -26,7 +26,7 @@ const query = graphql`
 
       footer {
         links {
-          __typename
+          _type: __typename
           ... on SanityLink {
             _key
             title

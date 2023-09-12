@@ -151,7 +151,6 @@ export const query = graphql`
 `;
 
 const BlogContent = ({ data: initialData = null, slug }) => {
-  console.log(`initialData`, initialData);
   const [snapshot] = useLiveQuery(initialData, blogQuery, { slug });
   const data = useDeferredValue(snapshot);
 

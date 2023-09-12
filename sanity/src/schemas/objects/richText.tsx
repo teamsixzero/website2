@@ -115,10 +115,10 @@ export default defineType({
       title: `Alt Image`,
       type: `altImage`,
     }),
-    defineArrayMember({
-      title: `Image`,
-      type: `image`,
-    }),
+    // defineArrayMember({
+    //   title: `Image`,
+    //   type: `image`,
+    // }),
     defineArrayMember({
       title: `Button`,
       type: `button`,

@@ -1,4 +1,10 @@
 const objects = {
+  button: `
+    _type == "button" => {
+        text,
+        link,
+    },
+    `,
   color: `
         color -> {
             value,
@@ -94,7 +100,8 @@ const objects = {
         },
     },
 `,
-  richText: `
+  get richText() {
+    return `
     ...,
     markDefs[] {
         ...,
@@ -109,8 +116,41 @@ const objects = {
                 ...,
             },
         },
+
+        _type == "highlightColor" => {
+            reference -> {
+                ...,
+            },
+        },
     },
-`,
+
+    _type == "altImage" => {
+        ${this.imageAsset}
+        alt,
+    },
+
+    ${this.button}
+`;
+  },
+  link: `
+    _type == "link" => {
+        _key,
+        title,
+        url,
+    },
+  `,
+  linkGroup: `
+    _type == "linkGroup" => {
+        _key,
+        title,
+        url,
+        links[] {
+            _key,
+            title,
+            url,
+        },
+    },
+  `,
 };
 
 const blocks = {
@@ -369,7 +409,6 @@ export const projectQuery = `
     }
 `;
 
-export const blogIndexQuery = ``;
 export const blogQuery = `
     *[_type == "blog" && slug.current == $slug][0] {
         title,
@@ -379,5 +418,29 @@ export const blogQuery = `
         content[] {
             ${objects.richText}
         },
+    }
+`;
+
+export const headerQuery = `
+    *[_type == "settings" ][0] {
+        menu {
+        links[] {
+            _type,
+            ${objects.link}
+            ${objects.linkGroup}
+        }
+        }
+    }
+`;
+
+export const footerQuery = `
+    *[_type == "settings" ][0] {
+        footer {
+        links[] {
+            _type,
+            ${objects.link}
+            ${objects.linkGroup}
+        }
+        }
     }
 `;

@@ -12,7 +12,10 @@ const previewDrafts = process.env.GATSBY_SANITY_API_PREVIEW_DRAFTS === "true";
 const PreviewProvider = lazy(() => import("../provider/PreviewProvider"));
 
 const PageTemplate = ({ location, data: { sanityPage: data } }) => {
-  const slug = location.pathname === "/" ? "index" : location.pathname;
+  const slug =
+    location.pathname === "/"
+      ? "index"
+      : location.pathname.replace("/", "").split("/")[0];
   const [sanityData, setSanityData] = useState(null);
 
   useEffect(() => {

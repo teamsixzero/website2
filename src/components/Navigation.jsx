@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useDeferredValue } from "react";
+import { useLiveQuery } from "@sanity/preview-kit";
 import { v4 as uuidv4 } from "uuid";
 
 import useApp from "../hooks/useApp";
@@ -16,11 +17,16 @@ const MenuLink = ({ link, dropdown }) => {
   );
 };
 
-const Navigation = ({ className, links }) => {
+const Navigation = ({ className, data: initialData = null, type, query }) => {
+  const [snapshot] = useLiveQuery(initialData, query);
+  const data = useDeferredValue(snapshot);
+
+  const links = type === "footer" ? data?.footer?.links : data?.menu?.links;
+
   const renderLinks =
     links?.length > 0 &&
     links?.map((link) => {
-      if (link.__typename === "SanityLinkGroup")
+      if (link._type.toLowerCase().includes(`linkgroup`))
         return (
           <li className="has-dropdown" key={`${link?._key}-${uuidv4()}`}>
             {link?.url ? (
