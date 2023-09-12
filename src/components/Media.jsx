@@ -4,14 +4,12 @@ import SanityImage from "./SanityImage";
 import Video from "./Video";
 
 const Media = ({ media, className, style, imgStyle }) => {
-  const { type, image, video } = media;
-
-  switch (type) {
+  switch (media?.type) {
     case "image":
       return (
-        image?.asset && (
+        media?.image?.asset && (
           <SanityImage
-            src={image}
+            src={media?.image}
             className={className}
             style={style}
             imgStyle={imgStyle}
@@ -21,8 +19,8 @@ const Media = ({ media, className, style, imgStyle }) => {
 
     case "video":
       return (
-        video?.src && (
-          <Video video={video} className={className} style={style} />
+        media?.video?.src && (
+          <Video video={media?.video} className={className} style={style} />
         )
       );
 

@@ -1,13 +1,44 @@
-import React from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { graphql } from "gatsby";
 
 import PageBuilder from "../components/PageBuilder";
 import Seo from "../components/Seo";
 
-const PageTemplate = ({ data: { sanityPage: data } }) => {
+import { token, sanityFetch } from "../utils/sanity";
+import { pageQuery } from "../utils/groq";
+
+const previewDrafts = process.env.GATSBY_SANITY_API_PREVIEW_DRAFTS === "true";
+
+const PreviewProvider = lazy(() => import("../provider/PreviewProvider"));
+
+const PageTemplate = ({ location, data: { sanityPage: data } }) => {
+  const slug = location.pathname === "/" ? "index" : location.pathname;
+  const [sanityData, setSanityData] = useState(null);
+
+  useEffect(() => {
+    if (!previewDrafts) return;
+
+    const fetchSanityData = async () => {
+      const data = await sanityFetch(previewDrafts, pageQuery, {
+        slug,
+      });
+      setSanityData(data);
+    };
+
+    fetchSanityData();
+  }, [slug]);
+
   return (
     <div className="template-page">
-      <PageBuilder blocks={data?.blocks} />
+      {previewDrafts ? (
+        <Suspense fallback={<PageBuilder blocks={data?.blocks} />}>
+          <PreviewProvider token={token}>
+            <PageBuilder data={sanityData} slug={slug} />
+          </PreviewProvider>
+        </Suspense>
+      ) : (
+        <PageBuilder data={data?.blocks} />
+      )}
     </div>
   );
 };

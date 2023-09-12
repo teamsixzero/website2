@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@portabletext/react": "^2.0.3",
+    "@sanity/client": "^6.4.11",
+    "@sanity/preview-kit": "^3.1.6",
     "gatsby": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.11.0",

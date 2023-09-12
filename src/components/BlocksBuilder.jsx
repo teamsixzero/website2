@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import { Slice } from "gatsby";
 
 import { v4 as uuidv4 } from "uuid";
 
-export const blockBuilder = (blocks) => {
+const BlocksBuilder = memo(({ blocks }) => {
   const pageBlocks = [];
 
   blocks?.forEach((block) => {
@@ -151,4 +151,6 @@ export const blockBuilder = (blocks) => {
   });
 
   return pageBlocks;
-};
+});
+
+export default BlocksBuilder;
