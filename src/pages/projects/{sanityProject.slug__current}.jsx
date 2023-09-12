@@ -38,7 +38,7 @@ const ProjectTemplate = ({ location, data: { sanityProject: data } }) => {
   return (
     <div className="template-project">
       {previewDrafts ? (
-        <Suspense fallback={<ProjectBuilder blocks={data?.blocks} />}>
+        <Suspense fallback={<ProjectBuilder blocks={data} />}>
           <PreviewProvider token={token}>
             <ProjectHeader data={sanityData} slug={slug} />
             <ProjectBuilder data={sanityData} slug={slug} />
@@ -47,7 +47,7 @@ const ProjectTemplate = ({ location, data: { sanityProject: data } }) => {
       ) : (
         <>
           <ProjectHeader data={data} slug={slug} />
-          <ProjectBuilder data={data?.blocks} />
+          <ProjectBuilder data={data} />
         </>
       )}
     </div>

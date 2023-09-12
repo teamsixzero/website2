@@ -1,6 +1,8 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
+import MenuLink from "../components/MenuLink";
+
 export const replaceParenthesesWords = (str, restProps = {}) => {
   const regex = /(\([\s\S]*?\))/g; // Matches words wrapped in parentheses
   const splitWords = str.split(regex);
@@ -108,4 +110,39 @@ export const toCamelCase = (str) => {
   const regex = /[^a-zA-Z0-9]+(.)/g;
   str = str.toLowerCase();
   return str.replace(regex, (_, character) => character.toUpperCase());
+};
+
+export const renderLinks = (links = []) => {
+  if (links?.length === 0) return null;
+
+  return links?.map((link) => {
+    if (link?._type?.toLowerCase()?.includes(`linkgroup`))
+      return (
+        <li className="has-dropdown" key={`${link?._key}-${uuidv4()}`}>
+          {link?.url ? (
+            <MenuLink link={link} />
+          ) : (
+            <p className="accent">{link?.title}</p>
+          )}
+
+          <nav className="dropdown">
+            <div />
+            <ul>
+              {link?.links?.length > 0 &&
+                link?.links?.map((sublink) => (
+                  <li key={sublink?._key}>
+                    <MenuLink link={sublink} dropdown />
+                  </li>
+                ))}
+            </ul>
+          </nav>
+        </li>
+      );
+
+    return (
+      <li key={`${link?._key}-${uuidv4()}`}>
+        <MenuLink link={link} />
+      </li>
+    );
+  });
 };

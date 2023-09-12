@@ -28,10 +28,10 @@ const BlogTemplate = ({ location, data }) => {
     if (!previewDrafts) return;
 
     const fetchSanityData = async () => {
-      const data = await sanityFetch(previewDrafts, blogQuery, {
+      const fetchedData = await sanityFetch(previewDrafts, blogQuery, {
         slug,
       });
-      setSanityData(data);
+      setSanityData(fetchedData);
     };
 
     fetchSanityData();
@@ -40,17 +40,13 @@ const BlogTemplate = ({ location, data }) => {
   return (
     <div className="template-blog">
       {previewDrafts ? (
-        <>
-          <Suspense fallback={<BlogContent data={data} slug={slug} />}>
-            <PreviewProvider token={token}>
-              <BlogContent data={sanityData} slug={slug} />
-            </PreviewProvider>
-          </Suspense>
-        </>
+        <Suspense fallback={<BlogContent data={data?.sanityBlog} />}>
+          <PreviewProvider token={token}>
+            <BlogContent data={sanityData} slug={slug} />
+          </PreviewProvider>
+        </Suspense>
       ) : (
-        <>
-          <BlogContent data={data} slug={slug} />
-        </>
+        <BlogContent data={data?.sanityBlog} />
       )}
     </div>
   );
@@ -154,6 +150,7 @@ const BlogContent = ({ data: initialData = null, slug }) => {
   const [snapshot] = useLiveQuery(initialData, blogQuery, { slug });
   const data = useDeferredValue(snapshot);
 
+  console.log(`BlogContent`, data);
   return (
     <>
       <header className="template-blog__heading">

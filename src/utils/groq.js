@@ -424,11 +424,11 @@ export const blogQuery = `
 export const headerQuery = `
     *[_type == "settings" ][0] {
         menu {
-        links[] {
-            _type,
-            ${objects.link}
-            ${objects.linkGroup}
-        }
+            links[] {
+                _type,
+                ${objects.link}
+                ${objects.linkGroup}
+            }
         }
     }
 `;
@@ -436,11 +436,11 @@ export const headerQuery = `
 export const footerQuery = `
     *[_type == "settings" ][0] {
         footer {
-        links[] {
-            _type,
-            ${objects.link}
-            ${objects.linkGroup}
-        }
+            links[] {
+                _type,
+                ${objects.link}
+                ${objects.linkGroup}
+            }
         }
     }
 `;

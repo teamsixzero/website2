@@ -39,18 +39,25 @@ const Header = () => {
       </Link>
 
       {previewDrafts ? (
-        <Suspense fallback={<Slice alias="navigation" data={menu} />}>
+        <Suspense
+          fallback={
+            <Slice
+              alias="navigation-header"
+              data={{ menu }}
+              query={headerQuery}
+            />
+          }
+        >
           <PreviewProvider token={token}>
             <Slice
-              alias="navigation"
+              alias="navigation-header"
               data={sanityData}
-              type="header"
               query={headerQuery}
             />
           </PreviewProvider>
         </Suspense>
       ) : (
-        <Slice alias="navigation" data={menu} />
+        <Slice alias="navigation-header" data={{ menu }} query={headerQuery} />
       )}
     </header>
   );

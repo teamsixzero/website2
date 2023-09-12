@@ -3,24 +3,22 @@ import { Slice } from "gatsby";
 
 import useSanitySettings from "../hooks/useSanitySettings";
 
-import Link from "./Link";
-
 import { token, sanityFetch } from "../utils/sanity";
-import { footerQuery } from "../utils/groq";
+import { headerQuery } from "../utils/groq";
 
 const previewDrafts = process.env.GATSBY_SANITY_API_PREVIEW_DRAFTS === "true";
 
 const PreviewProvider = lazy(() => import("../provider/PreviewProvider"));
 
-const Footer = () => {
-  const { footer } = useSanitySettings();
+const Mobile = () => {
+  const { menu } = useSanitySettings();
   const [sanityData, setSanityData] = useState(null);
 
   useEffect(() => {
     if (!previewDrafts) return;
 
     const fetchSanityData = async () => {
-      const data = await sanityFetch(previewDrafts, footerQuery);
+      const data = await sanityFetch(previewDrafts, headerQuery);
       setSanityData(data);
     };
 
@@ -28,47 +26,36 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="footer">
+    <>
       {previewDrafts ? (
         <Suspense
           fallback={
             <Slice
-              alias="navigation-footer"
-              data={{ footer }}
-              query={footerQuery}
+              alias="navigation-mobile"
+              data={{ menu }}
+              query={headerQuery}
             />
           }
         >
           <PreviewProvider token={token}>
             <Slice
-              alias="navigation-footer"
+              alias="navigation-mobile"
               data={sanityData}
-              query={footerQuery}
+              query={headerQuery}
             />
           </PreviewProvider>
         </Suspense>
       ) : (
-        <Slice
-          alias="navigation-footer"
-          data={{ footer }}
-          query={footerQuery}
-        />
+        <>
+          <Slice
+            alias="navigation-mobile"
+            data={{ menu }}
+            query={headerQuery}
+          />
+        </>
       )}
-
-      <p className="footnote">
-        <span>© {new Date().getFullYear()} Sixzero</span>
-
-        {footer?.email && (
-          <>
-            <span> - </span>
-            <Link to={footer?.email}>
-              {footer?.email?.replace("mailto:", "")}
-            </Link>
-          </>
-        )}
-      </p>
-    </footer>
+    </>
   );
 };
 
-export default Footer;
+export default Mobile;
