@@ -22,6 +22,10 @@ const query = graphql`
             }
           }
         }
+        button {
+          title
+          url
+        }
       }
 
       footer {

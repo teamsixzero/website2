@@ -24,5 +24,11 @@ export default defineType({
       ],
       validation: (Rule) => Rule.max(6),
     }),
+
+    defineField({
+      name: 'button',
+      title: 'CTA Button',
+      type: 'link',
+    }),
   ],
 })

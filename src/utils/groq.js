@@ -428,6 +428,10 @@ export const headerQuery = `
                 _type,
                 ${objects.link}
                 ${objects.linkGroup}
+            },
+            button {
+                title,
+                url
             }
         }
     }

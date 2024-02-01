@@ -101,7 +101,10 @@
   }
 
   &.menu {
-    display: block;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
 
     @include breakpoint("md") {
       display: none;
