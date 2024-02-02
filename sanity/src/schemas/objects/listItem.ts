@@ -37,7 +37,7 @@ export default defineType({
       image: 'image',
     },
     prepare: ({title, text, step, image}) => ({
-      title: title ? `${step}: ${title}` : 'List Item',
+      title: title ? `${step ? `${step}: ` : ``}${title}` : 'List Item',
       subtitle: portableTextPreview(text),
       media: () => image || `⚫️`,
     }),

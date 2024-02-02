@@ -48,7 +48,7 @@ const OrderedList = ({ data }) => {
                       className="block-ordered-list__card__item__index text-small"
                       style={{ color: item?.step?.color?.value?.hex }}
                     >
-                      {item?.step?.text || indexNumber}
+                      {item?.step?.text}
                     </p>
 
                     <div className="block-ordered-list__card__item__content">

@@ -10,7 +10,6 @@ export default defineType({
       name: 'text',
       title: 'Text',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'color',
