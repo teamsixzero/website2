@@ -11,8 +11,9 @@ export default defineType({
   fields: [
     defineField({
       name: 'summary',
-      title: 'Summary',
+      title: 'Card Summary',
       type: 'text',
+      description: 'This is the text that will appear on the case study card.',
     }),
     defineField({
       name: 'media',

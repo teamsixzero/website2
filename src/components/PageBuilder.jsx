@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useDeferredValue } from "react";
 import { graphql } from "gatsby";
+import { useLiveQuery } from "@sanity/preview-kit";
 
-import { blockBuilder } from "../utils/blocks";
+import BlocksBuilder from "../components/BlocksBuilder";
+import { pageQuery } from "../utils/groq";
 
-const PageBuilder = ({ blocks }) => {
-  return blockBuilder(blocks);
+const PageBuilder = ({ data: initialData = null, slug }) => {
+  const [snapshot] = useLiveQuery(initialData, pageQuery, { slug });
+  const data = useDeferredValue(snapshot);
+
+  return <BlocksBuilder blocks={data?.blocks} />;
 };
 
 export default PageBuilder;
@@ -28,6 +33,7 @@ export const query = graphql`
       ...BlockOrderedList
       ...BlockProjectInfo
       ...BlockTestimonial
+      ...BlockTestimonials
       ...BlockTextAndMedia
       ...BlockThreeColumnSection
     }

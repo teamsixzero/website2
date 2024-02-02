@@ -25,8 +25,19 @@ exports.createPages = async ({ graphql, actions }) => {
   // Slices
   const slices = [
     {
-      id: "navigation",
-      component: require.resolve("./src/components/Navigation.jsx"),
+      id: "navigation-header",
+      context: { type: "header" },
+      component: require.resolve("./src/components/HeaderNavigation.jsx"),
+    },
+    {
+      id: "navigation-footer",
+      context: { type: "footer" },
+      component: require.resolve("./src/components/FooterNavigation.jsx"),
+    },
+    {
+      id: "navigation-mobile",
+      context: { type: "mobile" },
+      component: require.resolve("./src/components/MobileNavigation.jsx"),
     },
     // blocks
     {
@@ -84,6 +95,10 @@ exports.createPages = async ({ graphql, actions }) => {
     {
       id: "testimonial",
       component: require.resolve("./src/components/blocks/Testimonial.jsx"),
+    },
+    {
+      id: "testimonials",
+      component: require.resolve("./src/components/blocks/Testimonials.jsx"),
     },
     {
       id: "textAndMedia",

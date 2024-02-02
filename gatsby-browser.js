@@ -6,6 +6,6 @@ export const wrapRootElement = RootElement;
 export const wrapPageElement = PageElement;
 
 export const onRouteUpdate = () => {
-  const mainEl = document.querySelector(".main");
+  const mainEl = document?.querySelector(".main");
   mainEl.scrollTop = 0;
 };

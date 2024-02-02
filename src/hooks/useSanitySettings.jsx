@@ -1,82 +1,88 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const useSanitySettings = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      sanitySettings {
-        menu {
-          links {
-            __typename
-            ... on SanityLink {
+const query = graphql`
+  query {
+    sanitySettings {
+      menu {
+        links {
+          _type: __typename
+          ... on SanityLink {
+            _key
+            title
+            url
+          }
+          ... on SanityLinkGroup {
+            _key
+            title
+            url
+            links {
               _key
               title
               url
-            }
-            ... on SanityLinkGroup {
-              _key
-              title
-              url
-              links {
-                _key
-                title
-                url
-              }
             }
           }
         }
-
-        footer {
-          links {
-            __typename
-            ... on SanityLink {
-              _key
-              title
-              url
-            }
-            ... on SanityLinkGroup {
-              _key
-              title
-              url
-              links {
-                _key
-                title
-                url
-              }
-            }
-          }
-          email
-        }
-
-        seo {
+        button {
           title
-          description
-          keywords
-          favicon {
-            asset {
-              url
-            }
+          url
+        }
+      }
+
+      footer {
+        links {
+          _type: __typename
+          ... on SanityLink {
+            _key
+            title
+            url
           }
-          socialImage {
-            asset {
+          ... on SanityLinkGroup {
+            _key
+            title
+            url
+            links {
+              _key
+              title
               url
             }
           }
         }
+        email
+      }
 
-        scripts {
-          __typename
-          ... on SanityScriptInline {
-            _key
-            value
+      seo {
+        title
+        description
+        keywords
+        favicon {
+          asset {
+            url
           }
-          ... on SanityScriptSrc {
-            _key
-            value
+        }
+        socialImage {
+          asset {
+            url
           }
         }
       }
+
+      scripts {
+        __typename
+        ... on SanityScriptInline {
+          _key
+          value
+        }
+        ... on SanityScriptSrc {
+          _key
+          value
+        }
+      }
     }
-  `);
+  }
+`;
+
+const useSanitySettings = () => {
+  const data = useStaticQuery(query);
 
   return data?.sanitySettings;
 };

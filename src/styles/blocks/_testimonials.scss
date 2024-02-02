@@ -1,0 +1,112 @@
+.block-testimonials {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.has-background {
+    padding: vw-clamp(72, 168) vw-clamp(32, 84);
+  }
+
+  .swiper {
+    &-wrapper {
+      align-items: center;
+    }
+
+    &-pagination-bullet {
+      background-color: var(--color-blue-primary);
+    }
+
+    &-button {
+      &-prev,
+      &-next {
+        @include breakpoint("md") {
+          display: none;
+        }
+
+        color: var(--color-blue-primary);
+
+        &::after {
+          font-family: unset !important;
+        }
+      }
+
+      &-prev::after {
+        content: "←";
+      }
+
+      &-next::after {
+        content: "→";
+      }
+    }
+  }
+
+  &__list {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: vw-clamp(48, 48);
+
+    &__item {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      row-gap: vw-clamp(32, 32);
+
+      padding-bottom: vw-clamp(64, 64);
+
+      @include breakpoint("md") {
+        padding-bottom: vw-clamp(32, 32);
+      }
+
+      blockquote {
+        max-width: vw-min(872);
+        text-align: center;
+
+        @include breakpoint("md") {
+          max-width: 100%;
+        }
+
+        .rich-text * {
+          font-size: vw-clamp(23, 32);
+          line-height: 120%;
+          font-weight: 400;
+        }
+      }
+
+      &__person {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: vw-clamp(12, 12);
+
+        &__image {
+          height: max-content;
+          max-width: vw-clamp(48, 48);
+          border-radius: 999px;
+          overflow: hidden;
+        }
+
+        &__details {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-transform: uppercase;
+          row-gap: vw-clamp(4, 4);
+
+          p {
+            color: var(--color-grey-normal);
+          }
+        }
+      }
+    }
+  }
+}

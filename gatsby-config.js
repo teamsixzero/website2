@@ -9,6 +9,7 @@ module.exports = {
     siteUrl: process.env.SITE_URL,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-sanity`,
       options: {

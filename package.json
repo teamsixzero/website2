@@ -14,26 +14,32 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@portabletext/react": "^2.0.3",
-    "gatsby": "^5.10.0",
-    "gatsby-plugin-image": "^3.10.0",
-    "gatsby-plugin-manifest": "^5.10.0",
-    "gatsby-plugin-offline": "^6.10.0",
+    "@portabletext/react": "^3.0.11",
+    "@sanity/client": "^6.12.3",
+    "@sanity/preview-kit": "^5.0.19",
+    "gatsby": "^5.13.3",
+    "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-manifest": "^5.13.1",
+    "gatsby-plugin-netlify": "^5.1.1",
+    "gatsby-plugin-offline": "^6.13.1",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sanity-image": "^0.13.4",
-    "gatsby-plugin-sass": "^6.10.0",
-    "gatsby-plugin-sharp": "^5.10.0",
-    "gatsby-plugin-sitemap": "^6.10.0",
-    "gatsby-source-filesystem": "^5.10.0",
-    "gatsby-source-sanity": "^7.6.3",
-    "gatsby-transformer-sharp": "^5.10.0",
+    "gatsby-plugin-sass": "^6.13.1",
+    "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-plugin-sitemap": "^6.13.1",
+    "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-source-sanity": "^7.9.1",
+    "gatsby-transformer-sharp": "^5.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.63.2",
-    "uuid": "^9.0.0"
+    "sass": "^1.70.0",
+    "swiper": "^11.0.5",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "dotenv": "^16.1.4",
-    "eslint": "^7.32.0"
+    "@babel/eslint-parser": "^7.23.10",
+    "dotenv": "^16.4.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-flowtype": "^8.0.3"
   }
 }

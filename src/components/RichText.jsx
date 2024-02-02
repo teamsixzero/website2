@@ -64,7 +64,7 @@ const RichText = ({ content, options, className }) => {
         value={content}
         components={options || defaultPortableTextComponents}
         onMissingComponent={(message, options) => {
-          throw new Error(message, {
+          console.error(message, {
             // eg `someUnknownType`
             type: options.type,
 

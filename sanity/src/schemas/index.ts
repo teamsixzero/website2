@@ -29,6 +29,7 @@ import nextProject from './blocks/nextProject'
 import orderedList from './blocks/orderedList'
 import projectInfo from './blocks/projectInfo'
 import testimonial from './blocks/testimonial'
+import testimonials from './blocks/testimonials'
 import textAndMedia from './blocks/textAndMedia'
 import threeColumnSection from './blocks/threeColumnSection'
 
@@ -47,6 +48,7 @@ const blocks = [
   orderedList,
   projectInfo,
   testimonial,
+  testimonials,
   textAndMedia,
   threeColumnSection,
 ]

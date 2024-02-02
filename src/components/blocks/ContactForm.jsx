@@ -58,13 +58,6 @@ const ContactForm = ({ data }) => {
         body: JSON.stringify(formData),
       });
 
-      //   const response = await new Promise((resolve, reject) => {
-      //     setTimeout(() => {
-      //       resolve({ ok: true });
-      //       //   reject({ ok: false });
-      //     }, 3000);
-      //   });
-
       if (response.ok) {
         clearForm();
         setLoading(false);
@@ -83,11 +76,12 @@ const ContactForm = ({ data }) => {
   };
 
   const renderAdditionalFields = () => {
-    return additionalFields.map((field) => {
+    return additionalFields?.map((field) => {
       const name = toCamelCase(field?.name);
 
       switch (field.__typename) {
         case "SanityFormFieldText":
+        case "formField.text":
           if (formData?.[name] === undefined) return null;
 
           return (
@@ -110,7 +104,7 @@ const ContactForm = ({ data }) => {
 
   // lifecycle
   useEffect(() => {
-    additionalFields.forEach((field) => {
+    additionalFields?.forEach((field) => {
       const name = toCamelCase(field?.name);
 
       setFormData((prev) => ({

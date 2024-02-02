@@ -7,16 +7,16 @@ function useWindowSize() {
     height: undefined,
   });
 
-  useEffect(() => {
-    // Handler to call on window resize
-    function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
+  // Handler to call on window resize
+  const handleResize = () => {
+    // Set window width/height to state
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
 
+  useEffect(() => {
     // Add event listener
     window.addEventListener("resize", handleResize);
 

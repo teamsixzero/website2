@@ -77,6 +77,10 @@ export default defineField({
       icon: MdOutlineReviews,
     }),
     defineArrayMember({
+      type: 'testimonials',
+      icon: MdOutlineReviews,
+    }),
+    defineArrayMember({
       type: 'textAndMedia',
       icon: TfiLayoutMediaLeft,
     }),
