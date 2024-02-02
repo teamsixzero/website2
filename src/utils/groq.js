@@ -174,6 +174,7 @@ const blocks = {
             ${this.orderedList}
             ${this.projectInfo}
             ${this.testimonial}
+            ${this.testimonials}
             ${this.textAndMedia}
             ${this.threeColumnSection}
         },
@@ -346,6 +347,22 @@ const blocks = {
   testimonial: `
       _type == "testimonial" => {
           person -> {
+              name,
+              position,
+              photo {
+                  ${objects.imageAsset}
+                  alt
+              },
+              quote[] {
+                ${objects.richText}
+              },
+          },
+          ${objects.backgroundColor}
+      },
+  `,
+  testimonials: `
+      _type == "testimonials" => {
+          persons[] -> {
               name,
               position,
               photo {

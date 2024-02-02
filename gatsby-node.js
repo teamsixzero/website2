@@ -97,6 +97,10 @@ exports.createPages = async ({ graphql, actions }) => {
       component: require.resolve("./src/components/blocks/Testimonial.jsx"),
     },
     {
+      id: "testimonials",
+      component: require.resolve("./src/components/blocks/Testimonials.jsx"),
+    },
+    {
       id: "textAndMedia",
       component: require.resolve("./src/components/blocks/TextAndMedia.jsx"),
     },

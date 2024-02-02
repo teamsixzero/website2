@@ -128,6 +128,14 @@ const BlocksBuilder = memo(({ blocks }) => {
         );
         break;
 
+      case "testimonials":
+        pageBlocks.push(
+          <section id={blockKey} key={blockKey} className="page-section">
+            <Slice alias="testimonials" data={block} />
+          </section>
+        );
+        break;
+
       case "textAndMedia":
         pageBlocks.push(
           <section id={blockKey} key={blockKey} className="page-section">

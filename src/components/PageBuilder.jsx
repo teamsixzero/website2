@@ -33,6 +33,7 @@ export const query = graphql`
       ...BlockOrderedList
       ...BlockProjectInfo
       ...BlockTestimonial
+      ...BlockTestimonials
       ...BlockTextAndMedia
       ...BlockThreeColumnSection
     }
