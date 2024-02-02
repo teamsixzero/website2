@@ -12,6 +12,24 @@
     padding: vw-clamp(64, 128) vw-clamp(40, 64);
   }
 
+  &.left {
+    .rich-text {
+      text-align: left;
+    }
+  }
+
+  &.right {
+    .rich-text {
+      text-align: right;
+    }
+  }
+
+  &.center {
+    .rich-text {
+      text-align: center;
+    }
+  }
+
   &__wrapper {
     max-width: vw-min(800);
 
@@ -26,8 +44,21 @@
 }
 
 .block-multi-section {
-  .block-content.has-background {
-    padding: 0;
-    background-color: transparent;
+  .block-content {
+    &.has-background {
+      padding: 0;
+      background-color: transparent;
+    }
+
+    &.left {
+      justify-content: flex-start;
+    }
+
+    &.right {
+      justify-content: flex-end;
+    }
+    &.center {
+      justify-content: center;
+    }
   }
 }

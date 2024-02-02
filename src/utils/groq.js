@@ -201,6 +201,7 @@ const blocks = {
           text[] {
             ${objects.richText}
           },
+          textAlign,
           ${objects.colors}
       },
   `,

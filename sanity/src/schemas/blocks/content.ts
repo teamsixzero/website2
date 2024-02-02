@@ -14,6 +14,15 @@ export default defineType({
       type: 'richText',
     }),
     defineField({
+      name: 'textAlign',
+      title: 'Text Align',
+      type: 'string',
+      options: {
+        list: ['left', 'center', 'right'],
+      },
+      initialValue: 'left',
+    }),
+    defineField({
       name: 'textColor',
       title: 'Text Color',
       type: 'reference',
