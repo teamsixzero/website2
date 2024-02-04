@@ -1,4 +1,4 @@
-import {generateDocumentStructure, generateSingletonStructure} from './utils/desk'
+import {generateDocumentStructure, generateSingletonStructure} from '../utils/desk'
 
 const DOCUMENT_TYPES_IN_STRUCTURE = [
   `project`,
@@ -15,16 +15,19 @@ const documents = [
     title: `Blog`,
     type: `blog`,
     icon: () => `📝`,
+    previews: true,
   },
   {
     title: `Case Study`,
     type: `project`,
     icon: () => `💼`,
+    previews: true,
   },
   {
     title: `Page`,
     type: `page`,
     icon: () => `📄`,
+    previews: true,
   },
   {
     title: `Person`,
@@ -33,11 +36,11 @@ const documents = [
   },
 ]
 
-export default (S) =>
+export default (S, context) =>
   S.list()
     .title(`Content`)
     .items([
-      ...documents.map((document) => generateDocumentStructure(S, document)),
+      ...documents.map((document) => generateDocumentStructure(S, document, context)),
       S.divider(),
       S.listItem()
         .title(`Globals`)
@@ -51,7 +54,7 @@ export default (S) =>
                 type: `colorPalette`,
                 icon: () => `🎨`,
               }),
-            ])
+            ]),
         ),
       generateSingletonStructure(S, {
         title: `Settings`,
@@ -59,6 +62,6 @@ export default (S) =>
         icon: () => `⚙️`,
       }),
       ...S.documentTypeListItems().filter(
-        (listItem) => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId())
+        (listItem) => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId()),
       ),
     ])

@@ -1,6 +1,21 @@
 import {DocumentIcon} from '@sanity/icons'
+import {Views} from '../structure/views/preview'
 
-export const generateDocumentStructure = (S, {title, type, icon}) => {
+export const generateDocumentStructure = (S, {title, type, icon, previews}, context) => {
+  if (previews) {
+    return S.listItem()
+      .title(title)
+      .icon(icon || DocumentIcon)
+      .schemaType(type)
+      .child(
+        S.documentTypeList(type)
+          .title(title)
+          .child((documentId) =>
+            S.document().documentId(documentId).schemaType(type).views(Views(S, context)),
+          ),
+      )
+  }
+
   return S.listItem()
     .title(title)
     .icon(icon || DocumentIcon)

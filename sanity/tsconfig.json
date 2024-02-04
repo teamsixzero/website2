@@ -13,13 +13,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     "src/components/richText/ColorRenderer.jsx",
-    "src/deskStructure.js"
+    "src/structure/deskStructure.js",
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
