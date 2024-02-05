@@ -47,7 +47,10 @@ export default defineType({
         {title: 'Heading 6', value: 'h6'},
         {title: 'Quote', value: 'blockquote'},
       ],
-      lists: [{title: `Bullet`, value: `bullet`}],
+      lists: [
+        {title: `Bullet`, value: `bullet`},
+        {title: 'Numbered', value: 'number'},
+      ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
@@ -56,6 +59,7 @@ export default defineType({
           {title: `Strong`, value: `strong`},
           {title: `Emphasis`, value: `em`},
           {title: `Underline`, value: `underline`},
+          {title: 'Code', value: 'code'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
