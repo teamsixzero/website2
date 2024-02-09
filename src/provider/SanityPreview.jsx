@@ -1,10 +1,12 @@
 import React from "react";
 import { LiveQueryProvider } from "@sanity/preview-kit";
-import { client } from "../utils/sanity";
 
-const PreviewProvider = ({ children, token }) => {
+import { getSanityClient } from "../utils/sanity";
+
+const SanityPreview = ({ token, children }) => {
   if (!token) throw new TypeError("Missing token");
 
+  const client = getSanityClient({ preview: true });
   return (
     <LiveQueryProvider client={client} token={token}>
       {children}
@@ -12,4 +14,4 @@ const PreviewProvider = ({ children, token }) => {
   );
 };
 
-export default PreviewProvider;
+export default SanityPreview;

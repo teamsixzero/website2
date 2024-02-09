@@ -1,55 +1,20 @@
-import React, {
-  useState,
-  useEffect,
-  Suspense,
-  lazy,
-  useDeferredValue,
-} from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import { useLiveQuery } from "@sanity/preview-kit";
 
 import ProjectBuilder from "../../components/ProjectBuilder";
 import Seo from "../../components/Seo";
 
-import { token, sanityFetch } from "../../utils/sanity";
-import { projectQuery } from "../../utils/groq";
-
-const previewDrafts = process.env.GATSBY_SANITY_API_PREVIEW_DRAFTS === "true";
-
-const PreviewProvider = lazy(() => import("../../provider/PreviewProvider"));
-
-const ProjectTemplate = ({ location, data: { sanityProject: data } }) => {
-  const slug = location.pathname.replace("/projects/", "").split("/")[0];
-
-  const [sanityData, setSanityData] = useState(null);
-
-  useEffect(() => {
-    if (!previewDrafts) return;
-
-    const fetchSanityData = async () => {
-      const data = await sanityFetch(previewDrafts, projectQuery, {
-        slug,
-      });
-      setSanityData(data);
-    };
-
-    fetchSanityData();
-  }, [slug]);
+const ProjectTemplate = ({ data: { sanityProject: data } }) => {
   return (
     <div className="template-project">
-      {previewDrafts ? (
-        <Suspense fallback={<ProjectBuilder blocks={data} />}>
-          <PreviewProvider token={token}>
-            <ProjectHeader data={sanityData} slug={slug} />
-            <ProjectBuilder data={sanityData} slug={slug} />
-          </PreviewProvider>
-        </Suspense>
-      ) : (
-        <>
-          <ProjectHeader data={data} slug={slug} />
-          <ProjectBuilder data={data} />
-        </>
-      )}
+      <header className="project-header">
+        <h1>{data?.title}</h1>
+        {data?.description && (
+          <p className="project-description h6">{data?.description}</p>
+        )}
+      </header>
+
+      <ProjectBuilder data={data} />
     </div>
   );
 };
@@ -114,24 +79,3 @@ export const query = graphql`
     }
   }
 `;
-
-const ProjectHeader = ({ data: initialData = null, slug }) => {
-  const [snapshot] = useLiveQuery(
-    initialData,
-    `*[_type == "project" && slug.current == $slug][0] {
-    title,
-    description,
-}`,
-    { slug }
-  );
-  const data = useDeferredValue(snapshot);
-
-  return (
-    <header className="project-header">
-      <h1>{data?.title}</h1>
-      {data?.description && (
-        <p className="project-description h6">{data?.description}</p>
-      )}
-    </header>
-  );
-};

@@ -1,14 +1,9 @@
-import React, { useDeferredValue } from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import { useLiveQuery } from "@sanity/preview-kit";
 
 import BlocksBuilder from "../components/BlocksBuilder";
-import { pageQuery } from "../utils/groq";
 
-const PageBuilder = ({ data: initialData = null, slug }) => {
-  const [snapshot] = useLiveQuery(initialData, pageQuery, { slug });
-  const data = useDeferredValue(snapshot);
-
+const PageBuilder = ({ data }) => {
   return <BlocksBuilder blocks={data?.blocks} />;
 };
 

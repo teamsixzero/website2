@@ -1,47 +1,80 @@
-import React, { useState, useEffect, Suspense, lazy } from "react";
+import React, { useEffect, useContext } from "react";
 import { graphql } from "gatsby";
+import { useLiveQuery } from "@sanity/preview-kit";
+
+import { PreviewContext } from "../context/PreviewContext";
 
 import PageBuilder from "../components/PageBuilder";
 import Seo from "../components/Seo";
+import UnPublished from "../components/UnPublished";
 
-import { token, sanityFetch } from "../utils/sanity";
 import { pageQuery } from "../utils/groq";
 
-const previewDrafts = process.env.GATSBY_SANITY_API_PREVIEW_DRAFTS === "true";
+const PageTemplate = ({ data: { sanityPage: initialData } }) => {
+  const [previewData, sanityPreviewIsLoading] = useLiveQuery(
+    initialData,
+    pageQuery,
+    {
+      slug: initialData.slug.current,
+    }
+  );
 
-const PreviewProvider = lazy(() => import("../provider/PreviewProvider"));
-
-const PageTemplate = ({ location, data: { sanityPage: data } }) => {
-  const slug =
-    location.pathname === "/"
-      ? "index"
-      : location.pathname.replace("/", "").split("/")[0];
-  const [sanityData, setSanityData] = useState(null);
+  const {
+    setActivePreview,
+    setPreviewContextData,
+    setPreviewIsLoading,
+    setPreviewValidationData,
+    setIsNewUnpublishedDoc,
+    isNewUnpublishedDoc,
+  } = useContext(PreviewContext);
 
   useEffect(() => {
-    if (!previewDrafts) return;
+    setPreviewIsLoading(sanityPreviewIsLoading);
+  }, [sanityPreviewIsLoading]);
 
-    const fetchSanityData = async () => {
-      const data = await sanityFetch(previewDrafts, pageQuery, {
-        slug,
-      });
-      setSanityData(data);
-    };
+  useEffect(() => {
+    // Get URL params
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const previewModeParameter = urlSearchParams.get("previewMode");
+    const previewDatasetParameter = urlSearchParams.get("previewDataset");
+    const previewValidationDataParameter = urlSearchParams.get("validation");
+    const previewIsNewUnpublishedDocParameter =
+      urlSearchParams.get("isNewUnpublishedDoc") === "true";
 
-    fetchSanityData();
-  }, [slug]);
+    if (previewValidationDataParameter) {
+      setPreviewValidationData(JSON.parse(previewValidationDataParameter));
+    }
+
+    if (previewModeParameter) {
+      setActivePreview(true);
+    }
+    if (previewDatasetParameter) {
+      setPreviewContextData({ previewDataset: previewDatasetParameter });
+    }
+
+    if (previewIsNewUnpublishedDocParameter) {
+      setIsNewUnpublishedDoc(previewIsNewUnpublishedDocParameter);
+    }
+  }, []);
+
+  // Show a Loading message
+  if (sanityPreviewIsLoading) {
+    return <div>Loading...</div>;
+  }
+
+  // // Non published document message
+  // if (!sanityPreviewIsLoading && isNewUnpublishedDoc) {
+  //   return (
+  //     <div className="template-page">
+  //       <UnPublished />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="template-page">
-      {previewDrafts ? (
-        <Suspense fallback={<PageBuilder data={data} />}>
-          <PreviewProvider token={token}>
-            <PageBuilder data={sanityData} slug={slug} />
-          </PreviewProvider>
-        </Suspense>
-      ) : (
-        <PageBuilder data={data} />
-      )}
+      {previewData.blocks === null && <UnPublished />}
+      <PageBuilder data={previewData} />
     </div>
   );
 };

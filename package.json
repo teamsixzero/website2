@@ -17,6 +17,7 @@
     "@portabletext/react": "^3.0.11",
     "@sanity/client": "^6.12.3",
     "@sanity/preview-kit": "^5.0.19",
+    "classnames": "^2.5.1",
     "gatsby": "^5.13.3",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",

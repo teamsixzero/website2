@@ -1,9 +1,53 @@
-import * as React from "react";
+import React, { useEffect, useContext } from "react";
+import { Link } from "gatsby";
 
-import Link from "../components/Link";
+import { PreviewContext } from "../context/PreviewContext";
+
 import Seo from "../components/Seo";
 
-const NotFoundPage = () => {
+import Page from "../pages/{sanityPage.slug__current}";
+
+const NotFoundPage = ({ location }) => {
+  const {
+    activePreview,
+    setActivePreview,
+    setPreviewContextData,
+    setPreviewValidationData,
+  } = useContext(PreviewContext);
+
+  const getSlug = (url) => new URL(url).pathname.match(/[^\/]+/g);
+
+  useEffect(() => {
+    const urlSearchParams = new URLSearchParams(location.search);
+    const previewModeParameter = urlSearchParams.get("previewMode");
+    const previewDatasetParameter = urlSearchParams.get("previewDataset");
+    const previewValidationDataParameter = urlSearchParams.get("validation");
+
+    if (previewValidationDataParameter) {
+      setPreviewValidationData(JSON.parse(previewValidationDataParameter));
+    }
+
+    if (previewModeParameter) {
+      setActivePreview(true);
+    }
+
+    if (previewDatasetParameter) {
+      setPreviewContextData({ previewDataset: previewDatasetParameter });
+    }
+  }, []);
+
+  if (activePreview) {
+    const pageData = {
+      sanityPage: {
+        slug: {
+          current: getSlug(window.location.href)?.join("/"),
+        },
+      },
+    };
+
+    return <Page data={pageData} />;
+  }
+
   return (
     <section className="page-404">
       <div className="page-404__wrapper">

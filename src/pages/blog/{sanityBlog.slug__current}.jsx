@@ -1,53 +1,25 @@
-import React, {
-  useState,
-  useEffect,
-  lazy,
-  useDeferredValue,
-  Suspense,
-} from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import { useLiveQuery } from "@sanity/preview-kit";
 
 import Media from "../../components/Media";
 import RichText from "../../components/RichText";
 import Seo from "../../components/Seo";
 
-import { token, sanityFetch } from "../../utils/sanity";
-import { blogQuery } from "../../utils/groq";
-
-const previewDrafts = process.env.GATSBY_SANITY_API_PREVIEW_DRAFTS === "true";
-
-const PreviewProvider = lazy(() => import("../../provider/PreviewProvider"));
-
-const BlogTemplate = ({ location, data }) => {
-  const slug = location.pathname.replace("/blog/", "").split("/")[0];
-
-  const [sanityData, setSanityData] = useState(null);
-
-  useEffect(() => {
-    if (!previewDrafts) return;
-
-    const fetchSanityData = async () => {
-      const fetchedData = await sanityFetch(previewDrafts, blogQuery, {
-        slug,
-      });
-      setSanityData(fetchedData);
-    };
-
-    fetchSanityData();
-  }, [slug]);
-
+const BlogTemplate = ({ data }) => {
   return (
     <div className="template-blog">
-      {previewDrafts ? (
-        <Suspense fallback={<BlogContent data={data?.sanityBlog} />}>
-          <PreviewProvider token={token}>
-            <BlogContent data={sanityData} slug={slug} />
-          </PreviewProvider>
-        </Suspense>
-      ) : (
-        <BlogContent data={data?.sanityBlog} />
-      )}
+      <header className="template-blog__heading">
+        <h1 className="h2">{data?.title}</h1>
+        <p className="text-book text-grey-normal">
+          Published <time dateTime={data?.date}>{data?.date}</time>
+        </p>
+      </header>
+
+      <Media media={data?.featureMedia} />
+
+      <section className="template-blog__content">
+        <RichText content={data?.content} />
+      </section>
     </div>
   );
 };
@@ -145,25 +117,3 @@ export const query = graphql`
     }
   }
 `;
-
-const BlogContent = ({ data: initialData = null, slug }) => {
-  const [snapshot] = useLiveQuery(initialData, blogQuery, { slug });
-  const data = useDeferredValue(snapshot);
-
-  return (
-    <>
-      <header className="template-blog__heading">
-        <h1 className="h2">{data?.title}</h1>
-        <p className="text-book text-grey-normal">
-          Published <time dateTime={data?.date}>{data?.date}</time>
-        </p>
-      </header>
-
-      <Media media={data?.featureMedia} />
-
-      <section className="template-blog__content">
-        <RichText content={data?.content} />
-      </section>
-    </>
-  );
-};

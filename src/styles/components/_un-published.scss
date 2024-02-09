@@ -1,0 +1,38 @@
+.unpublished {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #fffbeb;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      flex-shrink: 0;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: #b45309;
+      }
+    }
+
+    &__content {
+      margin-left: 0.75rem;
+
+      & h3 {
+        margin-bottom: 0.25rem;
+
+        color: #b45309;
+        font-size: vw-clamp(13, 13);
+      }
+
+      & p {
+        color: #b45309;
+
+        font-size: vw-clamp(13, 13);
+      }
+    }
+  }
+}

@@ -1,12 +1,8 @@
-import React, { useDeferredValue } from "react";
-import { useLiveQuery } from "@sanity/preview-kit";
+import React from "react";
 
 import { renderLinks } from "../utils/helpers";
 
-const MobileNavigation = ({ data: initialData = null, query }) => {
-  const [snapshot] = useLiveQuery(initialData, query);
-  const data = useDeferredValue(snapshot);
-
+const MobileNavigation = ({ data }) => {
   const links = [...(data?.menu?.links || [])];
 
   links?.unshift({
