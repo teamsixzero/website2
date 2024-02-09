@@ -12,7 +12,6 @@ const OrderedList = ({ data }) => {
       {listItems?.length > 0 &&
         listItems?.map((item, itemIndex) => {
           const index = itemIndex + 1;
-          const indexNumber = index > 10 ? index : `0${index}`;
 
           switch (item.__typename) {
             case "SanityTitleCard":
