@@ -45,6 +45,7 @@ const Video = ({ video, className, style }) => {
     return (
       <div className={`video__wrapper ${className ? className : ``}`}>
         <iframe
+          title={`video-${src}`}
           className="video__iframe"
           style={style}
           src={newSrc}
@@ -68,6 +69,7 @@ const Video = ({ video, className, style }) => {
       poster={poster?.asset?.url}
     >
       <source src={src} />
+      <track kind="captions" />
     </video>
   );
 };
