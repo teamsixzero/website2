@@ -87,3 +87,8 @@
 #   from = "/projects/null"
 #   to = "/projects"
 #   status = 301
+
+[[headers]]
+for = "/*"
+[headers.values]
+X-Frame-Options = "SAMEORIGIN"
