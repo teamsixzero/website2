@@ -169,7 +169,7 @@ const ContactForm = ({ data }) => {
               className="btn"
               disabled={loading}
             >
-              {submitText}
+              <span>{submitText}</span>
             </button>
           </form>
         </>

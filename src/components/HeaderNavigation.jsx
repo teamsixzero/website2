@@ -9,7 +9,7 @@ const HeaderNavigation = ({ data }) => {
       <ul>{renderLinks(data?.menu?.links)}</ul>
 
       <Link className="btn" to={data?.menu?.button?.url}>
-        {data?.menu?.button?.title}
+        <span>{data?.menu?.button?.title}</span>
       </Link>
     </nav>
   );
