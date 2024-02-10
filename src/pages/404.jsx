@@ -6,6 +6,8 @@ import { PreviewContext } from "../context/PreviewContext";
 import Seo from "../components/Seo";
 
 import Page from "../pages/{sanityPage.slug__current}";
+import ProjectPage from "../pages/projects/{sanityProject.slug__current}";
+import BlogPage from "../pages/blog/{sanityBlog.slug__current}";
 
 const NotFoundPage = ({ location }) => {
   const {
@@ -37,15 +39,51 @@ const NotFoundPage = ({ location }) => {
   }, []);
 
   if (activePreview) {
-    const pageData = {
-      sanityPage: {
-        slug: {
-          current: getSlug(window.location.href)?.join("/"),
+    const slugArray = getSlug(window.location.href)?.join("/");
+
+    const pageTypeToComponentAndData = {
+      projects: {
+        component: ProjectPage,
+        data: {
+          sanityProject: {
+            slug: {
+              current: slugArray.replace("projects/", ""),
+            },
+          },
+        },
+      },
+      blog: {
+        component: BlogPage,
+        data: {
+          sanityBlog: {
+            slug: {
+              current: slugArray.replace("blog/", ""),
+            },
+          },
+        },
+      },
+      default: {
+        component: Page,
+        data: {
+          sanityPage: {
+            slug: {
+              current: slugArray,
+            },
+          },
         },
       },
     };
 
-    return <Page data={pageData} />;
+    const pageType = slugArray.startsWith("projects/")
+      ? "projects"
+      : slugArray.startsWith("blog/")
+      ? "blog"
+      : "default";
+
+    const { component: PageComponent, data: pageData } =
+      pageTypeToComponentAndData[pageType];
+
+    return <PageComponent data={pageData} />;
   }
 
   return (

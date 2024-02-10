@@ -439,6 +439,20 @@ export const blogQuery = `
     }
 `;
 
+export const blogsQuery = `
+    *[_type == "blog"] | order(date desc) {
+        _id,
+        title,
+        date,
+        summary,
+        slug {
+            current,
+        },
+        excerpt,
+        ${objects.featureMedia}
+    }
+`;
+
 export const headerQuery = `
     *[_type == "settings" ][0] {
         menu {

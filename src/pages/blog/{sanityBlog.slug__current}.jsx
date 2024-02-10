@@ -1,24 +1,40 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import { usePreview } from "../../hooks/usePreview";
+
 import Media from "../../components/Media";
 import RichText from "../../components/RichText";
 import Seo from "../../components/Seo";
+import UnPublished from "../../components/UnPublished";
 
-const BlogTemplate = ({ data }) => {
+import { blogQuery } from "../../utils/groq";
+import { isEmpty } from "../../utils/helpers";
+
+const BlogTemplate = ({ data: { sanityBlog: initialData } }) => {
+  const { previewData, previewIsLoading } = usePreview(initialData, blogQuery);
+
+  // Show a Loading message
+  if (previewIsLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="template-blog">
+      {isEmpty(previewData) && <UnPublished />}
+
       <header className="template-blog__heading">
-        <h1 className="h2">{data?.title}</h1>
+        <h1 className="h2">{previewData?.title}</h1>
         <p className="text-book text-grey-normal">
-          Published <time dateTime={data?.date}>{data?.date}</time>
+          Published{" "}
+          <time dateTime={previewData?.date}>{previewData?.date}</time>
         </p>
       </header>
 
-      <Media media={data?.featureMedia} />
+      <Media media={previewData?.featureMedia} />
 
       <section className="template-blog__content">
-        <RichText content={data?.content} />
+        <RichText content={previewData?.content} />
       </section>
     </div>
   );
@@ -60,6 +76,9 @@ export function Head({ location, data: { sanityBlog: data } }) {
 export const query = graphql`
   query ($id: String) {
     sanityBlog(id: { eq: $id }) {
+      slug {
+        current
+      }
       title
       date(formatString: "MMMM D, YYYY")
       summary

@@ -1,20 +1,38 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import { usePreview } from "../../hooks/usePreview";
+
 import ProjectBuilder from "../../components/ProjectBuilder";
 import Seo from "../../components/Seo";
+import UnPublished from "../../components/UnPublished";
 
-const ProjectTemplate = ({ data: { sanityProject: data } }) => {
+import { projectQuery } from "../../utils/groq";
+import { isEmpty } from "../../utils/helpers";
+
+const ProjectTemplate = ({ data: { sanityProject: initialData } }) => {
+  const { previewData, previewIsLoading } = usePreview(
+    initialData,
+    projectQuery
+  );
+
+  // Show a Loading message
+  if (previewIsLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="template-project">
+      {isEmpty(previewData) && <UnPublished />}
+
       <header className="project-header">
-        <h1>{data?.title}</h1>
-        {data?.description && (
-          <p className="project-description h6">{data?.description}</p>
+        <h1>{previewData?.title}</h1>
+        {previewData?.description && (
+          <p className="project-description h6">{previewData?.description}</p>
         )}
       </header>
 
-      <ProjectBuilder data={data} />
+      <ProjectBuilder data={previewData || initialData} />
     </div>
   );
 };

@@ -146,3 +146,20 @@ export const renderLinks = (links = []) => {
     );
   });
 };
+
+export const isEmpty = (obj) => {
+  if (obj === null || obj === undefined) {
+    return true;
+  }
+  
+  for (let key in obj) {
+    if (obj[key] !== null && obj[key] !== undefined) {
+      if (Array.isArray(obj[key]) && obj[key].length > 0) {
+        return false;
+      } else if (!Array.isArray(obj[key]) && obj[key] !== "") {
+        return false;
+      }
+    }
+  }
+  return true;
+};

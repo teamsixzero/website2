@@ -1,80 +1,27 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import { useLiveQuery } from "@sanity/preview-kit";
 
-import { PreviewContext } from "../context/PreviewContext";
+import { usePreview } from "../hooks/usePreview";
 
 import PageBuilder from "../components/PageBuilder";
 import Seo from "../components/Seo";
 import UnPublished from "../components/UnPublished";
 
 import { pageQuery } from "../utils/groq";
+import { isEmpty } from "../utils/helpers";
 
 const PageTemplate = ({ data: { sanityPage: initialData } }) => {
-  const [previewData, sanityPreviewIsLoading] = useLiveQuery(
-    initialData,
-    pageQuery,
-    {
-      slug: initialData.slug.current,
-    }
-  );
-
-  const {
-    setActivePreview,
-    setPreviewContextData,
-    setPreviewIsLoading,
-    setPreviewValidationData,
-    setIsNewUnpublishedDoc,
-    isNewUnpublishedDoc,
-  } = useContext(PreviewContext);
-
-  useEffect(() => {
-    setPreviewIsLoading(sanityPreviewIsLoading);
-  }, [sanityPreviewIsLoading]);
-
-  useEffect(() => {
-    // Get URL params
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const previewModeParameter = urlSearchParams.get("previewMode");
-    const previewDatasetParameter = urlSearchParams.get("previewDataset");
-    const previewValidationDataParameter = urlSearchParams.get("validation");
-    const previewIsNewUnpublishedDocParameter =
-      urlSearchParams.get("isNewUnpublishedDoc") === "true";
-
-    if (previewValidationDataParameter) {
-      setPreviewValidationData(JSON.parse(previewValidationDataParameter));
-    }
-
-    if (previewModeParameter) {
-      setActivePreview(true);
-    }
-    if (previewDatasetParameter) {
-      setPreviewContextData({ previewDataset: previewDatasetParameter });
-    }
-
-    if (previewIsNewUnpublishedDocParameter) {
-      setIsNewUnpublishedDoc(previewIsNewUnpublishedDocParameter);
-    }
-  }, []);
+  const { previewData, previewIsLoading } = usePreview(initialData, pageQuery);
 
   // Show a Loading message
-  if (sanityPreviewIsLoading) {
+  if (previewIsLoading) {
     return <div>Loading...</div>;
   }
 
-  // // Non published document message
-  // if (!sanityPreviewIsLoading && isNewUnpublishedDoc) {
-  //   return (
-  //     <div className="template-page">
-  //       <UnPublished />
-  //     </div>
-  //   );
-  // }
-
   return (
     <div className="template-page">
-      {previewData.blocks === null && <UnPublished />}
-      <PageBuilder data={previewData} />
+      {isEmpty(previewData) && <UnPublished />}
+      <PageBuilder data={previewData || initialData} />
     </div>
   );
 };

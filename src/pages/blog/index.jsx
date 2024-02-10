@@ -1,12 +1,26 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import { usePreview } from "../../hooks/usePreview";
+
 import Link from "../../components/Link";
 import Media from "../../components/Media";
 import Seo from "../../components/Seo";
 
-const BlogPage = ({ data }) => {
-  const blogs = data.allSanityBlog.edges.map(({ node }) => node);
+import { blogsQuery } from "../../utils/groq";
+
+const BlogPage = ({ data: { allSanityBlog: initialData } }) => {
+  const { previewData, previewIsLoading } = usePreview(initialData, blogsQuery);
+
+  const blogs =
+    previewData?.length > 0
+      ? previewData
+      : initialData.edges.map(({ node }) => node);
+
+  // Show a Loading message
+  if (previewIsLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="page-blog">

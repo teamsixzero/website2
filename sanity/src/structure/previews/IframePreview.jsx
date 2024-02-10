@@ -5,7 +5,13 @@ import {useValidationStatus} from 'sanity'
 const assembleProjectUrl = ({displayed, context, previewUrl, validation, isNewUnpublishedDoc}) => {
   // Construct the base preview URL
   const basePreviewUrl = previewUrl
-  let slug = displayed?.slug?.current
+  let slug =
+    displayed?._type === 'page'
+      ? displayed?.slug?.current
+      : displayed?._type === 'project'
+        ? `projects/${displayed?.slug?.current}`
+        : `${displayed?._type}/${displayed?.slug?.current}`
+
   const validationArray = encodeURIComponent(JSON.stringify(validation))
 
   // Check if slug or basePreviewUrl is missing
@@ -38,15 +44,12 @@ const IframePreview = ({document, options}) => {
   )
 
   const isNewUnpublishedDoc = !document?.published?._id
+  const {displayed} = document
 
   // Update the URL when the document prop changes
   useEffect(() => {
-    const {displayed} = document
-
     setUrl(assembleProjectUrl({displayed, context, previewUrl, validation, isNewUnpublishedDoc}))
-  }, [document, validation])
-
-  const {displayed} = document
+  }, [displayed, validation])
 
   // Render a message if there is no document to preview
   if (!displayed) {
