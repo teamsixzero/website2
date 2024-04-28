@@ -29,9 +29,12 @@ export const onRouteUpdate = () => {
     return null;
   }
 
-  const pagePath = location
-    ? location.pathname + location.search + location.hash
-    : undefined;
+  let pagePath;
+  if (typeof window !== "undefined") {
+    pagePath = window.location
+      ? window.location.pathname + window.location.search + window.location.hash
+      : undefined;
+  }
 
   setTimeout(() => {
     if (typeof window.gtag === "function") {
