@@ -71,6 +71,8 @@
     display: flex;
     justify-content: center;
 
+    padding: vw-clamp(20, 36) vw-clamp(16, 30);
+
     @include breakpoint("md") {
       order: -1 !important;
     }
@@ -130,8 +132,6 @@
     }
 
     &.has-background {
-      padding: vw-clamp(40, 72) vw-clamp(32, 60);
-
       picture {
         padding-top: 100%;
       }
