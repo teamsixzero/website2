@@ -19,6 +19,10 @@
     padding: vw-clamp(64, 128) vw-clamp(40, 80);
     background-color: var(--color-blue-primary);
     color: white;
+
+    .block-text-and-media__wrapper {
+      padding: 0;
+    }
   }
 
   &.full-bleed {
@@ -71,7 +75,7 @@
     display: flex;
     justify-content: center;
 
-    padding: vw-clamp(20, 36) vw-clamp(16, 30);
+    padding: vw-clamp(24, 43.5);
 
     @include breakpoint("md") {
       order: -1 !important;
