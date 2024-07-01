@@ -20,7 +20,7 @@ const MediaColumns = ({ data }) => {
           >
             <Media media={med?.source} />
             {(med?.content?.heading || med?.content?.text?.length > 0) && (
-              <div className="block-media-columns__text">
+              <div className="block-media-columns__content">
                 {med?.content?.heading && (
                   <h3 className="h5">{med.content.heading}</h3>
                 )}
