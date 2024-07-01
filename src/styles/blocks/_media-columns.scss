@@ -11,9 +11,18 @@
 
   &__wrapper {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: vw-clamp(16, 20);
 
     &.has-background {
       padding: vw-clamp(40, 72) vw-clamp(32, 60);
     }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25rem;
   }
 }

@@ -2,9 +2,12 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Media from "../Media";
+import RichText from "../RichText";
 
 const MediaColumns = ({ data }) => {
   const { columns } = data;
+
+  console.log(`columns`, columns);
 
   return (
     <div className="block-media-columns">
@@ -18,6 +21,14 @@ const MediaColumns = ({ data }) => {
             style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
           >
             <Media media={med?.source} />
+            {(med?.contentHeading || med?.text?.length > 0) && (
+              <div className="block-media-columns__text">
+                {med?.contentHeading && (
+                  <h3 className="h5">{med.contentHeading}</h3>
+                )}
+                <RichText content={med?.text} />
+              </div>
+            )}
           </div>
         ))}
     </div>
@@ -69,6 +80,8 @@ export const query = graphql`
           muted
         }
       }
+      contentHeading
+      text: _rawText(resolveReferences: { maxDepth: 10 })
       backgroundColor {
         value {
           hex
