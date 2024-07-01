@@ -2,18 +2,32 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Media from "../Media";
+import RichText from "../RichText";
 
 const MediaSection = ({ data }) => {
-  const { media, fullWidth, backgroundColor } = data;
+  const { media, mediaContent, fullWidth, backgroundColor } = data;
 
   return (
     <div
-      className={`block-media-section ${
-        backgroundColor?.value?.hex ? "has-background" : ""
-      } ${fullWidth ? "full-width" : ""}`}
+      className="block-media-section"
       style={{ backgroundColor: backgroundColor?.value?.hex }}
     >
-      <Media media={media} />
+      <div
+        className={`block-media-section__wrapper ${
+          backgroundColor?.value?.hex ? "has-background" : ""
+        } ${fullWidth ? "full-width" : ""}`}
+      >
+        <Media media={media} />
+      </div>
+
+      {(mediaContent?.heading || mediaContent?.text?.length > 0) && (
+        <div className="block-media-section__content">
+          {mediaContent?.heading && (
+            <h3 className="h5">{mediaContent.heading}</h3>
+          )}
+          <RichText content={mediaContent?.text} />
+        </div>
+      )}
     </div>
   );
 };
@@ -60,6 +74,10 @@ export const query = graphql`
         controls
         muted
       }
+    }
+    mediaContent: content {
+      heading
+      text: _rawText(resolveReferences: { maxDepth: 10 })
     }
     fullWidth
     backgroundColor {

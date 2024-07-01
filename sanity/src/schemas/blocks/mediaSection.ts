@@ -12,6 +12,11 @@ export default defineType({
       type: 'media',
     }),
     defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'mediaContent',
+    }),
+    defineField({
       name: 'fullWidth',
       title: 'Full Width?',
       type: 'boolean',
