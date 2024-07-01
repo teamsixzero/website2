@@ -17,7 +17,21 @@ export default defineType({
           type: 'mediaBlock',
         }),
       ],
-      validation: (Rule) => Rule.required().max(3),
+      validation: (Rule) => Rule.required().min(2).max(2),
+    }),
+    defineField({
+      name: 'layout',
+      title: 'Layout',
+      type: 'string',
+      options: {
+        list: [
+          {title: '1/2 - 1/2', value: 'layout-1'},
+          {title: '1/3 - 2/3', value: 'layout-2'},
+          {title: '2/3 - 1/3', value: 'layout-3'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: '1/2-1/2',
     }),
   ],
   preview: {

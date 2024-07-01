@@ -5,10 +5,10 @@ import Media from "../Media";
 import RichText from "../RichText";
 
 const MediaColumns = ({ data }) => {
-  const { columns } = data;
+  const { columns, layout = "layout-1" } = data;
 
   return (
-    <div className="block-media-columns">
+    <div className={`block-media-columns ${layout}`}>
       {columns?.length > 0 &&
         columns?.map((med) => (
           <div className="block-media-columns__container">
@@ -92,5 +92,6 @@ export const query = graphql`
         }
       }
     }
+    layout
   }
 `;
