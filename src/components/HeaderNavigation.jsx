@@ -8,7 +8,7 @@ const HeaderNavigation = ({ data }) => {
     <nav className="navigation menu">
       <ul>{renderLinks(data?.menu?.links)}</ul>
 
-      <Link className="btn" to={data?.menu?.button?.url}>
+      <Link className="btn btn-header" to={data?.menu?.button?.url}>
         <span>{data?.menu?.button?.title}</span>
       </Link>
     </nav>

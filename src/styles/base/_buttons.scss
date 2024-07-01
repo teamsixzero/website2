@@ -29,6 +29,10 @@
     color: var(--btn-bg);
   }
 
+  &.btn-header {
+    background: var(--color-blue);
+  }
+
   & > span {
     transform: translateY(1px);
   }
