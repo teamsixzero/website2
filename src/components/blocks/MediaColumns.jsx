@@ -11,20 +11,24 @@ const MediaColumns = ({ data }) => {
     <div className="block-media-columns">
       {columns?.length > 0 &&
         columns?.map((med) => (
-          <div
-            key={med?._key}
-            className={`block-media-columns__wrapper ${
-              med?.backgroundColor?.value?.hex ? "has-background" : ""
-            }`}
-            style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
-          >
-            <Media media={med?.source} />
-            {(med?.content?.heading || med?.content?.text?.length > 0) && (
+          <div className="block-media-columns__container">
+            <div
+              key={med?._key}
+              className={`block-media-columns__wrapper ${
+                med?.backgroundColor?.value?.hex ? "has-background" : ""
+              }`}
+              style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
+            >
+              <Media media={med?.source} />
+            </div>
+
+            {(med?.mediaContent?.heading ||
+              med?.mediaContent?.text?.length > 0) && (
               <div className="block-media-columns__content">
-                {med?.content?.heading && (
-                  <h3 className="h5">{med.content.heading}</h3>
+                {med?.mediaContent?.heading && (
+                  <h3 className="h5">{med.mediaContent.heading}</h3>
                 )}
-                <RichText content={med?.content?.text} />
+                <RichText content={med?.mediaContent?.text} />
               </div>
             )}
           </div>
@@ -78,7 +82,7 @@ export const query = graphql`
           muted
         }
       }
-      content {
+      mediaContent: content {
         heading
         text: _rawText(resolveReferences: { maxDepth: 10 })
       }
