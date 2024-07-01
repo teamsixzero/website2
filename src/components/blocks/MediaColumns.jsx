@@ -7,8 +7,6 @@ import RichText from "../RichText";
 const MediaColumns = ({ data }) => {
   const { columns } = data;
 
-  console.log(`columns`, columns);
-
   return (
     <div className="block-media-columns">
       {columns?.length > 0 &&
@@ -21,12 +19,12 @@ const MediaColumns = ({ data }) => {
             style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
           >
             <Media media={med?.source} />
-            {(med?.contentHeading || med?.text?.length > 0) && (
+            {(med?.content?.heading || med?.content?.text?.length > 0) && (
               <div className="block-media-columns__text">
-                {med?.contentHeading && (
-                  <h3 className="h5">{med.contentHeading}</h3>
+                {med?.content?.heading && (
+                  <h3 className="h5">{med.content.heading}</h3>
                 )}
-                <RichText content={med?.text} />
+                <RichText content={med?.content?.text} />
               </div>
             )}
           </div>
@@ -80,8 +78,10 @@ export const query = graphql`
           muted
         }
       }
-      contentHeading
-      text: _rawText(resolveReferences: { maxDepth: 10 })
+      content {
+        heading
+        text: _rawText(resolveReferences: { maxDepth: 10 })
+      }
       backgroundColor {
         value {
           hex

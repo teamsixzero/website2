@@ -4,12 +4,6 @@ export default defineType({
   name: 'mediaBlock',
   title: 'Media Block',
   type: 'object',
-  fieldsets: [
-    {
-      name: 'content',
-      title: 'Content',
-    },
-  ],
   fields: [
     defineField({
       name: 'source',
@@ -20,16 +14,9 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'contentHeading',
-      title: 'Heading',
-      type: 'string',
-      fieldset: 'content',
-    }),
-    defineField({
-      name: 'text',
-      title: 'Text',
-      type: 'richText',
-      fieldset: 'content',
+      name: 'content',
+      title: 'Content',
+      type: 'mediaContent',
     }),
     defineField({
       name: 'backgroundColor',

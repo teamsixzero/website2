@@ -63,6 +63,7 @@ import linkGroup from './objects/linkGroup'
 import listItem from './objects/listItem'
 import media from './objects/media'
 import mediaBlock from './objects/mediaBlock'
+import mediaContent from './objects/mediaContent'
 import menu from './objects/menu'
 import projectCaseStudy from './objects/projectCaseStudy'
 import notFound from './objects/404'
@@ -85,6 +86,7 @@ const objects = [
   listItem,
   media,
   mediaBlock,
+  mediaContent,
   menu,
   projectCaseStudy,
   notFound,
