@@ -250,14 +250,21 @@ const blocks = {
   mediaColumns: `
       _type == "mediaColumns" => {
           columns[] {
-              _key,
-              source {
-                  type,
-                  ${objects.image}
-                  ${objects.video}
-              },
-              ${objects.backgroundColor}
-          }
+            _key,
+            source {
+                type,
+                ${objects.image}
+                ${objects.video}
+            },
+            "mediaContent": content {
+            heading,
+            text[] {
+                ${objects.richText}
+            },
+            },
+            ${objects.backgroundColor}
+          },
+          layout,
       },
   `,
   mediaGrid: `
@@ -278,6 +285,12 @@ const blocks = {
       _type == "mediaSection" => {
           ${objects.media}
           fullWidth,
+          "mediaContent": content {
+                heading,
+                text[] {
+                    ${objects.richText}
+                },
+            },
           ${objects.backgroundColor}
       },
   `,
