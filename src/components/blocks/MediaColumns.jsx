@@ -9,30 +9,42 @@ const MediaColumns = ({ data }) => {
 
   return (
     <div className={`block-media-columns ${layout}`}>
-      {columns?.length > 0 &&
-        columns?.map((med) => (
-          <div className="block-media-columns__container">
-            <div
-              key={med?._key}
-              className={`block-media-columns__wrapper ${
-                med?.backgroundColor?.value?.hex ? "has-background" : ""
-              }`}
-              style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
-            >
-              <Media media={med?.source} />
-            </div>
-
-            {(med?.mediaContent?.heading ||
-              med?.mediaContent?.text?.length > 0) && (
-              <div className="block-media-columns__content">
-                {med?.mediaContent?.heading && (
-                  <h3 className="h5">{med.mediaContent.heading}</h3>
-                )}
-                <RichText content={med?.mediaContent?.text} />
+      {columns?.length > 0 && (
+        <>
+          {columns?.map((med) => (
+            <div className="block-media-columns__container" key={med?._key}>
+              <div
+                className={`block-media-columns__wrapper ${
+                  med?.backgroundColor?.value?.hex ? "has-background" : ""
+                }`}
+                style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
+              >
+                <Media media={med?.source} />
               </div>
-            )}
-          </div>
-        ))}
+            </div>
+          ))}
+
+          {columns.map((med) => (
+            <>
+              {(med?.mediaContent?.heading ||
+                med?.mediaContent?.text?.length > 0) && (
+                <div
+                  key={med?._key}
+                  className={`block-media-columns__content ${
+                    med?.backgroundColor?.value?.hex ? "has-background" : ""
+                  }`}
+                  style={{ backgroundColor: med?.backgroundColor?.value?.hex }}
+                >
+                  {med?.mediaContent?.heading && (
+                    <h3 className="h5">{med.mediaContent.heading}</h3>
+                  )}
+                  <RichText content={med?.mediaContent?.text} />
+                </div>
+              )}
+            </>
+          ))}
+        </>
+      )}
     </div>
   );
 };
