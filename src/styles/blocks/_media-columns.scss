@@ -1,10 +1,14 @@
 .block-media-columns {
   position: relative;
   width: 100%;
-  height: 100%;
 
   display: grid;
-  gap: vw-clamp(24, 32);
+  column-gap: vw-clamp(24, 32);
+
+  @include breakpoint("sm") {
+    column-gap: 0;
+    row-gap: vw-clamp(24, 32);
+  }
 
   &.layout-1 {
     grid-template-columns: repeat(2, 1fr);
@@ -19,6 +23,24 @@
     grid-template-columns: repeat(3, 1fr);
     & > :first-child {
       grid-column: span 1;
+
+      picture {
+        height: 100%;
+        padding-top: 0;
+        img {
+          object-fit: cover !important;
+        }
+      }
+
+      @include breakpoint("sm") {
+        picture {
+          height: 0;
+          padding-top: calc(var(--ratio) * 100%);
+          img {
+            object-fit: contain !important;
+          }
+        }
+      }
     }
 
     & > :last-child {
@@ -34,6 +56,24 @@
 
     & > :last-child {
       grid-column: span 1;
+
+      picture {
+        height: 100%;
+        padding-top: 0;
+        img {
+          object-fit: cover !important;
+        }
+      }
+
+      @include breakpoint("sm") {
+        picture {
+          height: 0;
+          padding-top: calc(var(--ratio) * 100%);
+          img {
+            object-fit: contain !important;
+          }
+        }
+      }
     }
   }
 
@@ -57,6 +97,7 @@
   &__wrapper {
     width: 100%;
     height: max-content;
+    flex-grow: 1;
 
     &.has-background {
       padding: vw-clamp(40, 72) vw-clamp(32, 60);
