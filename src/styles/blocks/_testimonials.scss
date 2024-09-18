@@ -22,11 +22,11 @@
     &-button {
       &-prev,
       &-next {
+        color: var(--color-blue-primary);
+        
         @include breakpoint("md") {
           display: none;
         }
-
-        color: var(--color-blue-primary);
 
         &::after {
           font-family: unset !important;
