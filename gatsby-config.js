@@ -46,5 +46,12 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "G-RBEC5SD1B4",
+        includeInDevelopment: false,
+      },
+    },
   ],
 };

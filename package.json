@@ -15,14 +15,15 @@
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",
-    "@sanity/client": "^6.20.1",
+    "@sanity/client": "^6.21.3",
     "@sanity/preview-kit": "^5.1.0",
     "classnames": "^2.5.1",
-    "gatsby": "^5.13.6",
+    "gatsby": "^5.13.7",
+    "gatsby-plugin-google-tagmanager": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-netlify": "^5.1.1",
-    "gatsby-plugin-offline": "^6.13.2",
+    "gatsby-plugin-offline": "^6.13.3",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sanity-image": "^0.13.5",
     "gatsby-plugin-sass": "^6.13.1",
@@ -33,14 +34,14 @@
     "gatsby-transformer-sharp": "^5.13.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sass": "^1.77.6",
-    "swiper": "^11.1.4",
+    "sass": "^1.79.1",
+    "swiper": "^11.1.14",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.24.7",
+    "@babel/eslint-parser": "^7.25.1",
     "dotenv": "^16.4.5",
-    "eslint": "^9.6.0",
+    "eslint": "^9.10.0",
     "eslint-plugin-flowtype": "^8.0.3"
   }
 }
