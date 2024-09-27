@@ -19,6 +19,7 @@
     "@sanity/preview-kit": "^5.1.1",
     "classnames": "^2.5.1",
     "gatsby": "^5.13.7",
+    "gatsby-plugin-google-gtag": "^5.13.1",
     "gatsby-plugin-google-tagmanager": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",

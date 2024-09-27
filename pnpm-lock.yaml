@@ -23,6 +23,9 @@ importers:
       gatsby:
         specifier: ^5.13.7
         version: 5.13.7(babel-eslint@10.1.0(eslint@9.10.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.26.1)(typescript@5.6.2)
+      gatsby-plugin-google-gtag:
+        specifier: ^5.13.1
+        version: 5.13.1(gatsby@5.13.7(babel-eslint@10.1.0(eslint@9.10.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.26.1)(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       gatsby-plugin-google-tagmanager:
         specifier: ^5.13.1
         version: 5.13.1(gatsby@5.13.7(babel-eslint@10.1.0(eslint@9.10.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.26.1)(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3351,6 +3354,14 @@ packages:
     engines: {parcel: 2.x}
     peerDependencies:
       '@parcel/core': ^2.0.0
+
+  gatsby-plugin-google-gtag@5.13.1:
+    resolution: {integrity: sha512-aaJKIDwUWwhooJnalse1uvcusBmCwCVK33pp1IrDU02E7IohMen3eR5TsjLbfKO7Z+SbfKJEqUoi/r0ozrJarA==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      gatsby: ^5.0.0-next
+      react: ^18.0.0 || ^0.0.0
+      react-dom: ^18.0.0 || ^0.0.0
 
   gatsby-plugin-google-tagmanager@5.13.1:
     resolution: {integrity: sha512-n6I164KvPtl+Nx9bBpXXkb6aw1oA1GuAccswjQ5lpQqB2JG5MtcQU6hwdQlwkIVv9+VCRQSZf3mOn6zU7BDO+A==}
@@ -10703,6 +10714,14 @@ snapshots:
       '@parcel/runtime-js': 2.8.3(@parcel/core@2.8.3)
       '@parcel/transformer-js': 2.8.3(@parcel/core@2.8.3)
       '@parcel/transformer-json': 2.8.3(@parcel/core@2.8.3)
+
+  gatsby-plugin-google-gtag@5.13.1(gatsby@5.13.7(babel-eslint@10.1.0(eslint@9.10.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.26.1)(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@babel/runtime': 7.25.6
+      gatsby: 5.13.7(babel-eslint@10.1.0(eslint@9.10.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.26.1)(typescript@5.6.2)
+      minimatch: 3.1.2
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   gatsby-plugin-google-tagmanager@5.13.1(gatsby@5.13.7(babel-eslint@10.1.0(eslint@9.10.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.26.1)(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

@@ -49,9 +49,15 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: "GTM-W32VP5M5",
-        includeInDevelopment: false,
+        id:  process.env.GTM_ID,
+        enableWebVitalsTracking: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [ process.env.GA_ID],
+      },
+    }
   ],
 };
