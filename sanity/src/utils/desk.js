@@ -1,7 +1,11 @@
 import {DocumentIcon} from '@sanity/icons'
 import {Views} from '../structure/views/preview'
 
-export const generateDocumentStructure = (S, {title, type, icon, previews}, context) => {
+export const generateDocumentStructure = (
+  S,
+  {title, type, icon, previews, orderBy = 'title'},
+  context,
+) => {
   if (previews) {
     return S.listItem()
       .title(title)
@@ -20,7 +24,7 @@ export const generateDocumentStructure = (S, {title, type, icon, previews}, cont
     .title(title)
     .icon(icon || DocumentIcon)
     .schemaType(type)
-    .child(S.documentTypeList(type).defaultOrdering([{field: 'title', direction: 'asc'}]))
+    .child(S.documentTypeList(type).defaultOrdering([{field: orderBy, direction: 'asc'}]))
 }
 
 export const generateSingletonStructure = (S, {title, type, icon}) => {

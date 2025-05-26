@@ -33,6 +33,7 @@ const documents = [
     title: `Person`,
     type: `person`,
     icon: () => `👨`,
+    orderBy: 'name',
   },
 ]
 
@@ -47,12 +48,13 @@ export default (S, context) =>
         .icon(() => '🌏')
         .child(
           S.list()
-            .title(`Colours`)
+            .title(`Colors`)
             .items([
               generateDocumentStructure(S, {
-                title: `Colours`,
+                title: `Colors`,
                 type: `colorPalette`,
                 icon: () => `🎨`,
+                orderBy: 'name',
               }),
             ]),
         ),
