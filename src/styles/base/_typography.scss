@@ -1,3 +1,6 @@
+@use "breakpoints";
+@use "mixins";
+
 @font-face {
   font-family: "PP Pangram";
   src: url("../assets/fonts/PPPangramSans-Regular.eot");
@@ -47,42 +50,42 @@ body {
 // Headings
 h1,
 .h1 {
-  font-size: vw-clamp(40, 100);
+  font-size: mixins.vw-clamp(40, 100);
   line-height: 110%;
   font-weight: 500;
 }
 
 h2,
 .h2 {
-  font-size: vw-clamp(40, 80);
+  font-size: mixins.vw-clamp(40, 80);
   line-height: 110%;
   font-weight: 500;
 }
 
 h3,
 .h3 {
-  font-size: vw-clamp(30, 54);
+  font-size: mixins.vw-clamp(30, 54);
   line-height: 120%;
   font-weight: 500;
 }
 
 h4,
 .h4 {
-  font-size: vw-clamp(26, 44);
+  font-size: mixins.vw-clamp(26, 44);
   line-height: 120%;
   font-weight: 500;
 }
 
 h5,
 .h5 {
-  font-size: vw-clamp(23, 32);
+  font-size: mixins.vw-clamp(23, 32);
   line-height: 120%;
   font-weight: 500;
 }
 
 h6,
 .h6 {
-  font-size: vw-clamp(17, 23);
+  font-size: mixins.vw-clamp(17, 23);
   line-height: 150%;
   font-weight: 500;
 }
@@ -90,36 +93,36 @@ h6,
 // Paragraph
 
 .text-small {
-  font-size: vw-clamp(13, 13);
+  font-size: mixins.vw-clamp(13, 13);
   // line-height: calc(24 / 13);
   font-weight: 400;
 }
 
 .text-normal {
-  font-size: vw-clamp(16, 17);
+  font-size: mixins.vw-clamp(16, 17);
   line-height: 1.88;
   font-weight: 400;
 }
 
 .text-bold {
-  font-size: vw-clamp(15, 17);
+  font-size: mixins.vw-clamp(15, 17);
   line-height: 1.88;
   font-weight: 700;
 }
 
 .text-book {
-  font-size: vw-clamp(18, 18);
+  font-size: mixins.vw-clamp(18, 18);
   line-height: 1.77;
   font-weight: 400;
 }
 
 .text-large {
-  font-size: vw-clamp(23, 23);
+  font-size: mixins.vw-clamp(23, 23);
   line-height: 150%;
   font-weight: 400;
 }
 
-@include breakpoint("sm") {
+@include breakpoints.breakpoint("sm") {
   // Headings
 
   h1,
@@ -164,7 +167,7 @@ h6,
 }
 
 .accent {
-  font-size: vw-clamp(15, 15);
+  font-size: mixins.vw-clamp(15, 15);
   line-height: 1.15;
   font-weight: 400;
   letter-spacing: 1.5px;

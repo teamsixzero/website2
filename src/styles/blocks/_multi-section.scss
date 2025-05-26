@@ -1,9 +1,12 @@
+@use "../base/mixins";
+@use "../base/typography" as *;
+
 .block-multi-section {
   position: relative;
   width: 100%;
 
   &.has-background {
-    padding: vw-clamp(40, 128) vw-clamp(24, 80);
+    padding: mixins.vw-clamp(40, 128) mixins.vw-clamp(24, 80);
     background-color: #eef2fa;
   }
 
@@ -15,10 +18,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: vw-clamp(32, 96);
+    gap: mixins.vw-clamp(32, 96);
 
     & > section > * {
-      max-width: vw-clamp(800, 800);
+      max-width: mixins.vw-clamp(800, 800);
     }
 
     & > section > .block-image-full-width {

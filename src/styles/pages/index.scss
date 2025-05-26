@@ -1,13 +1,16 @@
-@import "404";
-@import "blog";
+@use "404" as errorPage;
+@use "blog";
+@use "../base/breakpoints";
+@use "../base/mixins";
 
 .page-404,
 .page-blog {
-  row-gap: vw-clamp(80, 120);
+  row-gap: mixins.vw-clamp(80, 120);
 
-  padding: vw-clamp(40, 104) vw-clamp(32, 120) vw-clamp(0, 96);
+  padding: mixins.vw-clamp(40, 104) mixins.vw-clamp(32, 120)
+    mixins.vw-clamp(0, 96);
 
-  @include breakpoint("sm") {
+  @include breakpoints.breakpoint("sm") {
     padding-bottom: 0;
   }
 }

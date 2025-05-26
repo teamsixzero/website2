@@ -1,11 +1,14 @@
+@use "../base/breakpoints";
+@use "../base/mixins";
+
 .block-header {
   position: relative;
   width: 100%;
-  max-width: vw-min(1024);
+  max-width: mixins.vw-min(1024);
 
   margin-right: auto;
 
-  @include breakpoint("md") {
+  @include breakpoints.breakpoint("md") {
     max-width: 100%;
   }
 }

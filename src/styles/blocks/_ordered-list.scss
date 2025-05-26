@@ -1,18 +1,21 @@
+@use "../base/breakpoints";
+@use "../base/mixins";
+
 .block-ordered-list {
   position: relative;
   width: 100%;
 
-  max-width: vw-min(1151);
+  max-width: mixins.vw-min(1151);
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: vw-clamp(24, 32);
+  row-gap: mixins.vw-clamp(24, 32);
   column-gap: var(--spacing-4);
 
   margin: 0 auto;
-  padding: 0 vw-clamp(0, 26);
+  padding: 0 mixins.vw-clamp(0, 26);
 
-  @include breakpoint("sm") {
+  @include breakpoints.breakpoint("sm") {
     grid-template-columns: repeat(1, 1fr);
 
     padding: 0;
@@ -24,16 +27,16 @@
 
     display: flex;
     flex-direction: column;
-    row-gap: vw-clamp(24, 48);
+    row-gap: mixins.vw-clamp(24, 48);
 
-    padding: vw-clamp(32, 40);
+    padding: mixins.vw-clamp(32, 40);
     border-radius: 1.5rem;
 
     &__title {
       color: #ffffff;
       background-color: #5dcfc9;
 
-      @include breakpoint("sm") {
+      @include breakpoints.breakpoint("sm") {
         aspect-ratio: 1/1;
       }
     }
@@ -41,14 +44,14 @@
     &__item {
       background-color: #f9f9f9;
 
-      @include breakpoint("sm") {
-        padding: vw-clamp(40, 40) vw-clamp(32, 32);
+      @include breakpoints.breakpoint("sm") {
+        padding: mixins.vw-clamp(40, 40) mixins.vw-clamp(32, 32);
       }
 
       &__image {
         position: relative;
         width: 100%;
-        max-width: vw-clamp(160, 200);
+        max-width: mixins.vw-clamp(160, 200);
         aspect-ratio: 1/1;
 
         background-color: #c4c4c4;
@@ -59,7 +62,7 @@
       }
 
       &__index {
-        margin-bottom: vw-clamp(11.2, 24);
+        margin-bottom: mixins.vw-clamp(11.2, 24);
         color: var(--color-grey-normal);
         text-transform: uppercase;
       }
@@ -67,7 +70,7 @@
       &__content {
         display: flex;
         flex-direction: column;
-        row-gap: vw-clamp(12, 12);
+        row-gap: mixins.vw-clamp(12, 12);
       }
     }
   }

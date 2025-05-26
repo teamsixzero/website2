@@ -1,3 +1,5 @@
+@use "../base/breakpoints";
+
 .menu-toggle {
   position: fixed;
   top: 1.5rem;
@@ -64,7 +66,7 @@
     }
   }
 
-  @include breakpoint("md") {
+  @include breakpoints.breakpoint("md") {
     display: block;
   }
 }

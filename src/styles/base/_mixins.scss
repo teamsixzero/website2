@@ -19,7 +19,7 @@
   font-size: $size; //Fallback in px
   font-size: pxToRem($size);
 
-  @if unit($lineHeight) == "%" {
+  @if math.unit($lineHeight) == "%" {
     line-height: $lineHeight;
   } @else {
     line-height: calc($lineHeight / $size);

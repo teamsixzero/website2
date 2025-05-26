@@ -1,16 +1,19 @@
+@use "../base/breakpoints";
+@use "../base/mixins";
+
 .navigation {
   & > ul {
     display: flex;
     align-items: center;
-    column-gap: vw-min(24);
+    column-gap: mixins.vw-min(24);
 
-    margin-top: vw-min(6);
+    margin-top: mixins.vw-min(6);
 
-    @include breakpoint("md") {
+    @include breakpoints.breakpoint("md") {
       flex-direction: column;
       align-items: start;
       column-gap: unset;
-      row-gap: vw-max(24);
+      row-gap: mixins.vw-max(24);
     }
 
     & > li {
@@ -50,7 +53,7 @@
 
           transition: opacity 0.3s ease-in-out;
 
-          @include breakpoint("md") {
+          @include breakpoints.breakpoint("md") {
             position: relative;
             top: unset;
             display: block;
@@ -65,10 +68,10 @@
 
           & > div:first-child {
             width: 100%;
-            height: vw-min(32);
+            height: mixins.vw-min(32);
             background-color: transparent;
 
-            @include breakpoint("md") {
+            @include breakpoints.breakpoint("md") {
               display: none;
             }
           }
@@ -78,18 +81,18 @@
 
             display: flex;
             flex-direction: column;
-            gap: vw-min(8);
+            gap: mixins.vw-min(8);
 
-            padding: vw-min(16);
+            padding: mixins.vw-min(16);
             background: var(--color-white);
             border-radius: 0.5rem;
             box-shadow: 0 1rem 1.25rem rgba(5, 29, 61, 0.06);
             white-space: nowrap;
 
-            @include breakpoint("md") {
-              gap: vw-max(8);
-              margin-top: vw-max(16);
-              margin-left: vw-max(16);
+            @include breakpoints.breakpoint("md") {
+              gap: mixins.vw-max(8);
+              margin-top: mixins.vw-max(16);
+              margin-left: mixins.vw-max(16);
               padding: unset;
               background: transparent;
               box-shadow: unset;
@@ -106,7 +109,7 @@
     display: flex;
     justify-content: space-between;
 
-    @include breakpoint("md") {
+    @include breakpoints.breakpoint("md") {
       display: none;
     }
   }
@@ -116,7 +119,7 @@
     pointer-events: none;
     user-select: none;
 
-    @include breakpoint("md") {
+    @include breakpoints.breakpoint("md") {
       position: absolute;
       top: 0;
       left: 0;

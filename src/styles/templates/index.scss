@@ -1,16 +1,19 @@
-@import "blog";
-@import "page";
-@import "project";
+@use "blog";
+@use "page";
+@use "project";
+@use "../base/mixins";
+@use "../base/breakpoints";
 
 .template-blog,
 .template-page,
 .template-project {
   width: 100%;
-  row-gap: vw-clamp(80, 120);
+  row-gap: mixins.vw-clamp(80, 120);
 
-  padding: vw-clamp(40, 104) vw-clamp(32, 120) vw-clamp(0, 96);
+  padding: mixins.vw-clamp(40, 104) mixins.vw-clamp(32, 120)
+    mixins.vw-clamp(0, 96);
 
-  @include breakpoint("sm") {
+  @include breakpoints.breakpoint("sm") {
     padding-bottom: 0;
   }
 }

@@ -1,3 +1,6 @@
+@use "../base/breakpoints";
+@use "../base/mixins";
+
 .block-content {
   position: relative;
   width: 100%;
@@ -9,7 +12,7 @@
   margin: 0 auto;
 
   &.has-background {
-    padding: vw-clamp(64, 128) vw-clamp(40, 64);
+    padding: mixins.vw-clamp(64, 128) mixins.vw-clamp(40, 64);
   }
 
   &.left {
@@ -31,13 +34,13 @@
   }
 
   &__wrapper {
-    max-width: vw-min(800);
+    max-width: mixins.vw-min(800);
 
     display: flex;
     flex-direction: column;
     row-gap: var(--spacing-3);
 
-    @include breakpoint("md") {
+    @include breakpoints.breakpoint("md") {
       max-width: 100%;
     }
   }

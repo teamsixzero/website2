@@ -1,3 +1,5 @@
+@use "../base/breakpoints";
+
 .portable-text-quote {
   position: relative;
   width: 100%;
@@ -9,7 +11,7 @@
 
   background-color: #f6f6f6;
 
-  @include breakpoint("sm") {
+  @include breakpoints.breakpoint("sm") {
     padding: 4.5rem 2rem;
   }
 }

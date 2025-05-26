@@ -1,13 +1,16 @@
+@use "../base/breakpoints";
+@use "../base/mixins";
+
 .block-text-and-media {
   position: relative;
   width: 100%;
-  max-width: vw-min(1440);
+  max-width: mixins.vw-min(1440);
 
   display: flex;
   align-items: center;
-  gap: vw-clamp(32, 136);
+  gap: mixins.vw-clamp(32, 136);
 
-  @include breakpoint("md") {
+  @include breakpoints.breakpoint("md") {
     width: 100% !important;
 
     flex-direction: column;
@@ -16,7 +19,7 @@
   }
 
   &.has-background {
-    padding: vw-clamp(64, 128) vw-clamp(40, 80);
+    padding: mixins.vw-clamp(64, 128) mixins.vw-clamp(40, 80);
     background-color: var(--color-blue-primary);
     color: white;
 
@@ -26,21 +29,21 @@
   }
 
   &.full-bleed {
-    width: calc(100% + vw-min(240));
+    width: calc(100% + mixins.vw-min(240));
     flex-shrink: 0;
 
     &.left {
-      padding-right: vw-min(120);
+      padding-right: mixins.vw-min(120);
 
-      @include breakpoint("md") {
+      @include breakpoints.breakpoint("md") {
         padding: 0;
       }
     }
 
     &.right {
-      padding-left: vw-min(120);
+      padding-left: mixins.vw-min(120);
 
-      @include breakpoint("md") {
+      @include breakpoints.breakpoint("md") {
         padding: 0;
       }
     }
@@ -49,17 +52,17 @@
   & > header {
     position: relative;
     width: 100%;
-    max-width: vw-min(480);
+    max-width: mixins.vw-min(480);
 
     display: flex;
     flex-direction: column;
     row-gap: var(--spacing-3);
 
     .rich-text {
-      row-gap: vw-clamp(16, 16);
+      row-gap: mixins.vw-clamp(16, 16);
     }
 
-    @include breakpoint("md") {
+    @include breakpoints.breakpoint("md") {
       max-width: 100%;
 
       .rich-text {
@@ -70,14 +73,14 @@
 
   &__wrapper {
     width: 100%;
-    max-height: vw-clamp(337, 616) !important;
+    max-height: mixins.vw-clamp(337, 616) !important;
 
     display: flex;
     justify-content: center;
 
-    padding: vw-clamp(24, 43.5);
+    padding: mixins.vw-clamp(24, 43.5);
 
-    @include breakpoint("md") {
+    @include breakpoints.breakpoint("md") {
       order: -1 !important;
     }
 
@@ -99,14 +102,14 @@
       }
 
       &.full-bleed {
-        max-height: vw-clamp(337, 874.8) !important;
+        max-height: mixins.vw-clamp(337, 874.8) !important;
         justify-content: flex-start;
 
         .gatsby-image__image {
           margin: unset;
           margin-right: auto;
 
-          @include breakpoint("md") {
+          @include breakpoints.breakpoint("md") {
             margin: 0 auto;
           }
         }
@@ -121,14 +124,14 @@
       }
 
       &.full-bleed {
-        max-height: vw-clamp(337, 874.8) !important;
+        max-height: mixins.vw-clamp(337, 874.8) !important;
         justify-content: flex-end;
 
         .gatsby-image__image {
           margin: unset;
           margin-left: auto;
 
-          @include breakpoint("md") {
+          @include breakpoints.breakpoint("md") {
             margin: 0 auto;
           }
         }

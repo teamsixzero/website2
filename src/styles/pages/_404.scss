@@ -1,13 +1,15 @@
+@use "../base/mixins";
+
 .page-404 {
   text-align: center;
 
   &__wrapper {
-    max-width: vw-min(960);
+    max-width: mixins.vw-min(960);
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: vw-min(32);
+    gap: mixins.vw-min(32);
 
     margin: 0 auto;
   }

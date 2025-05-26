@@ -1,3 +1,6 @@
+@use "../base/breakpoints";
+@use "../base/mixins";
+
 .block-testimonials {
   position: relative;
   width: 100%;
@@ -7,7 +10,7 @@
   justify-content: center;
 
   &.has-background {
-    padding: vw-clamp(72, 168) vw-clamp(32, 84);
+    padding: mixins.vw-clamp(72, 168) mixins.vw-clamp(32, 84);
   }
 
   .swiper {
@@ -23,8 +26,8 @@
       &-prev,
       &-next {
         color: var(--color-blue-primary);
-        
-        @include breakpoint("md") {
+
+        @include breakpoints.breakpoint("md") {
           display: none;
         }
 
@@ -48,7 +51,7 @@
 
     display: flex;
     flex-direction: column;
-    row-gap: vw-clamp(48, 48);
+    row-gap: mixins.vw-clamp(48, 48);
 
     &__item {
       position: relative;
@@ -59,24 +62,24 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      row-gap: vw-clamp(32, 32);
+      row-gap: mixins.vw-clamp(32, 32);
 
-      padding-bottom: vw-clamp(64, 64);
+      padding-bottom: mixins.vw-clamp(64, 64);
 
-      @include breakpoint("md") {
-        padding-bottom: vw-clamp(32, 32);
+      @include breakpoints.breakpoint("md") {
+        padding-bottom: mixins.vw-clamp(32, 32);
       }
 
       blockquote {
-        max-width: vw-min(872);
+        max-width: mixins.vw-min(872);
         text-align: center;
 
-        @include breakpoint("md") {
+        @include breakpoints.breakpoint("md") {
           max-width: 100%;
         }
 
         .rich-text * {
-          font-size: vw-clamp(23, 32);
+          font-size: mixins.vw-clamp(23, 32);
           line-height: 120%;
           font-weight: 400;
         }
@@ -86,11 +89,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: vw-clamp(12, 12);
+        gap: mixins.vw-clamp(12, 12);
 
         &__image {
           height: max-content;
-          max-width: vw-clamp(48, 48);
+          max-width: mixins.vw-clamp(48, 48);
           border-radius: 999px;
           overflow: hidden;
         }
@@ -100,7 +103,7 @@
           flex-direction: column;
           align-items: center;
           text-transform: uppercase;
-          row-gap: vw-clamp(4, 4);
+          row-gap: mixins.vw-clamp(4, 4);
 
           p {
             color: var(--color-grey-normal);
