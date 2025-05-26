@@ -30,7 +30,15 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        sassOptions: {
+          api: "modern",
+          silenceDeprecations: ["legacy-js-api"],
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -49,15 +57,15 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id:  process.env.GTM_ID,
+        id: process.env.GTM_ID,
         enableWebVitalsTracking: true,
       },
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [ process.env.GA_ID],
+        trackingIds: [process.env.GA_ID],
       },
-    }
+    },
   ],
 };
